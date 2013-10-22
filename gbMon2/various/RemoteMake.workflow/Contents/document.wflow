@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>346</string>
+	<key>AMApplicationVersion</key>
+	<string>2.3</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.1.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>fileNames</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Get Specified Finder Items.action</string>
+				<key>ActionName</key>
+				<string>Angegebene Finder-Objekte abfragen</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>fileNames</key>
+					<array>
+						<string>~/Development/RasPi/gbmon2</string>
+					</array>
+				</dict>
+				<key>ActionRuntimeParameters</key>
+				<dict>
+					<key>fileNames</key>
+					<array>
+						<string>~/Development/RasPi/gbmon2</string>
+					</array>
+					<key>temporary items path</key>
+					<string>/var/folders/g4/24k_sfgj6vlczxnsswtvtcyw0000gn/T/7052692E-D3AC-4894-BA0B-2734C1F3A790/1/com.apple.Automator.SpecifiedFiles</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.SpecifiedFiles</string>
+				<key>CFBundleVersion</key>
+				<string>1.1.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryFilesAndFolders</string>
+				</array>
+				<key>Class Name</key>
+				<string>SpecifiedFilesAction</string>
+				<key>InputUUID</key>
+				<string>1CD4D5C8-D51C-4B65-A54D-AE7E28872066</string>
+				<key>Keywords</key>
+				<array>
+					<string>Datei</string>
+					<string>Auswählen</string>
+					<string>Suchen</string>
+					<string>Abfragen</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>45FA7218-271A-456D-B999-6F9094320616</string>
+				<key>UUID</key>
+				<string>502FC511-2355-4347-B813-2909F5F6215A</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<array/>
+						<key>name</key>
+						<string>fileNames</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>298.000000:951.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Get Specified Finder Items.action/Contents/Resources/German.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<false/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.5</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Terminal</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict/>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMRequiredResources</key>
+				<array/>
+				<key>ActionBundlePath</key>
+				<string>/Library/Automator/Upload to FTP.action</string>
+				<key>ActionName</key>
+				<string>Upload to FTP</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>ftp_dir</key>
+					<string>/home/pi/gbmon2</string>
+					<key>ftp_pass</key>
+					<string>raspi</string>
+					<key>ftp_server</key>
+					<string>192.168.178.20</string>
+					<key>ftp_user</key>
+					<string>pi</string>
+				</dict>
+				<key>ActionRuntimeParameters</key>
+				<dict>
+					<key>ftp_dir</key>
+					<string>/home/pi/gbmon2</string>
+					<key>ftp_pass</key>
+					<string>raspi</string>
+					<key>ftp_server</key>
+					<string>192.168.178.20</string>
+					<key>ftp_user</key>
+					<string>pi</string>
+					<key>temporary items path</key>
+					<string>/var/folders/g4/24k_sfgj6vlczxnsswtvtcyw0000gn/T/7052692E-D3AC-4894-BA0B-2734C1F3A790/1/com.PeterDekkers.Automator.Upload_to_FTP</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.PeterDekkers.Automator.Upload_to_FTP</string>
+				<key>CFBundleVersion</key>
+				<string>1.5</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<true/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>Terminal</string>
+				</array>
+				<key>Class Name</key>
+				<string>AMShellScriptAction</string>
+				<key>InputUUID</key>
+				<string>0F9F856E-F990-4E0F-9E1D-C8C7EF2201A6</string>
+				<key>Keywords</key>
+				<array>
+					<string>FTP</string>
+					<string>Upload</string>
+					<string>Transmit</string>
+					<string>Server</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>E834647D-39CA-4E0B-A1C2-7BCE76C2F349</string>
+				<key>UUID</key>
+				<string>B9780B13-1773-4A2C-8CEF-CEFB51CB18A2</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Terminal</string>
+				</array>
+				<key>arguments</key>
+				<dict/>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>298.000000:712.000000</string>
+				<key>nibPath</key>
+				<string>/Library/Automator/Upload to FTP.action/Contents/Resources/English.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>AppleScript ausführen</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>on run {input, parameters}		(* Your script goes here *)	tell application "Terminal"		set currentTab to do script ("ssh pi@192.168.178.20")		delay 5		do script ("raspi") in currentTab		delay 5		do script ("cd ./gbmon2") in currentTab		delay 1		do script ("make all") in currentTab				delay 20		do script ("./gbmon") in currentTab			end tell		return inputend run</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>39E99839-6942-4472-AD74-016DDB1149D8</string>
+				<key>Keywords</key>
+				<array>
+					<string>Ausführen</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>61BE7CE2-2D69-4AE0-8E8A-0560A69F6404</string>
+				<key>UUID</key>
+				<string>8E38D32C-6E32-4F85-8273-C5943FFFE39A</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>298.000000:323.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/German.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict>
+		<key>6791E826-1B9F-4DD1-AD48-C82982C6E014</key>
+		<dict>
+			<key>from</key>
+			<string>B9780B13-1773-4A2C-8CEF-CEFB51CB18A2 - B9780B13-1773-4A2C-8CEF-CEFB51CB18A2</string>
+			<key>to</key>
+			<string>8E38D32C-6E32-4F85-8273-C5943FFFE39A - 8E38D32C-6E32-4F85-8273-C5943FFFE39A</string>
+		</dict>
+		<key>78D98E37-FA5E-419A-96FA-E8F879CBC700</key>
+		<dict>
+			<key>from</key>
+			<string>502FC511-2355-4347-B813-2909F5F6215A - 502FC511-2355-4347-B813-2909F5F6215A</string>
+			<key>to</key>
+			<string>B9780B13-1773-4A2C-8CEF-CEFB51CB18A2 - B9780B13-1773-4A2C-8CEF-CEFB51CB18A2</string>
+		</dict>
+	</dict>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.workflow</string>
+	</dict>
+</dict>
+</plist>

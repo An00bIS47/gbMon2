@@ -7,8 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0B07D0181699ED00EE9D1D /* spi_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07CE181699ED00EE9D1D /* spi_test.c */; };
+		4C0B07D1181699ED00EE9D1D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07CF181699ED00EE9D1D /* Makefile */; };
+		4C0B07D51816B58000EE9D1D /* spidev_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07D41816B58000EE9D1D /* spidev_test.c */; };
+		4C0B07DE1816F94F00EE9D1D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07DA1816F94F00EE9D1D /* Makefile */; };
 		4CF86BE618155C500094C040 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86BE518155C500094C040 /* main.c */; };
 		4CF86BE818155C500094C040 /* gbMon2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CF86BE718155C500094C040 /* gbMon2.1 */; };
+		4CF86C0F18155DFB0094C040 /* client-test.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C0118155DFB0094C040 /* client-test.c */; };
+		4CF86C1018155DFB0094C040 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C0218155DFB0094C040 /* client.c */; };
+		4CF86C1118155DFB0094C040 /* GLCDFontCreator2.1.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF86C0418155DFB0094C040 /* GLCDFontCreator2.1.jar */; };
+		4CF86C1218155DFB0094C040 /* glcdMakeBitmap.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF86C0518155DFB0094C040 /* glcdMakeBitmap.jar */; };
+		4CF86C1918155ECF0094C040 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C1818155ECF0094C040 /* Makefile */; };
+		4CF86C1C181561AE0094C040 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C1B181561AE0094C040 /* Makefile */; };
+		4CF86C28181576700094C040 /* arduino-spi.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C1E181576700094C040 /* arduino-spi.c */; };
+		4CF86C29181576700094C040 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C20181576700094C040 /* debug.c */; };
+		4CF86C2A181576700094C040 /* helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C22181576700094C040 /* helpers.c */; };
+		4CF86C2B181576700094C040 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C24181576700094C040 /* server.c */; };
+		4CF86C2C181576700094C040 /* settings.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CF86C26181576700094C040 /* settings.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +40,47 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C0B07CE181699ED00EE9D1D /* spi_test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = spi_test.c; path = gbMon2/tools/spi_test.c; sourceTree = "<group>"; };
+		4C0B07CF181699ED00EE9D1D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/Makefile; sourceTree = "<group>"; };
+		4C0B07D318169B6A00EE9D1D /* spiSlave.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = spiSlave.ino; path = spiSlave/spiSlave.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		4C0B07D41816B58000EE9D1D /* spidev_test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = spidev_test.c; path = gbMon2/tools/spidev_test.c; sourceTree = "<group>"; };
+		4C0B07D71816F94F00EE9D1D /* logic_analyzer_inline_2mhz.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = logic_analyzer_inline_2mhz.ino; path = logic_analyzer/logic_analyzer_inline_2mhz.ino; sourceTree = "<group>"; };
+		4C0B07D81816F94F00EE9D1D /* logic_analyzer_inline_4mhz.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = logic_analyzer_inline_4mhz.ino; path = logic_analyzer/logic_analyzer_inline_4mhz.ino; sourceTree = "<group>"; };
+		4C0B07D91816F94F00EE9D1D /* logic_analyzer.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = logic_analyzer.ino; path = logic_analyzer/logic_analyzer.ino; sourceTree = "<group>"; };
+		4C0B07DA1816F94F00EE9D1D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = logic_analyzer/Makefile; sourceTree = "<group>"; };
+		4C0B07DB1816F94F00EE9D1D /* ols.profile-agla.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ols.profile-agla.cfg"; path = "logic_analyzer/ols.profile-agla.cfg"; sourceTree = "<group>"; };
+		4C0B07DC1816F94F00EE9D1D /* ols.profile-aglam.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ols.profile-aglam.cfg"; path = "logic_analyzer/ols.profile-aglam.cfg"; sourceTree = "<group>"; };
+		4C0B07DD1816F94F00EE9D1D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = logic_analyzer/README; sourceTree = "<group>"; };
 		4CF86BE218155C500094C040 /* gbMon2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gbMon2; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF86BE518155C500094C040 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		4CF86BE718155C500094C040 /* gbMon2.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = gbMon2.1; sourceTree = "<group>"; };
+		4CF86BFC18155DFB0094C040 /* raspberry64x64.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = raspberry64x64.bmp; sourceTree = "<group>"; };
+		4CF86BFE18155DFB0094C040 /* raspberry64x64.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = raspberry64x64.psd; sourceTree = "<group>"; };
+		4CF86BFF18155DFB0094C040 /* Template8x8.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Template8x8.psd; sourceTree = "<group>"; };
+		4CF86C0118155DFB0094C040 /* client-test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "client-test.c"; sourceTree = "<group>"; };
+		4CF86C0218155DFB0094C040 /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = "<group>"; };
+		4CF86C0418155DFB0094C040 /* GLCDFontCreator2.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = GLCDFontCreator2.1.jar; sourceTree = "<group>"; };
+		4CF86C0518155DFB0094C040 /* glcdMakeBitmap.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = glcdMakeBitmap.jar; sourceTree = "<group>"; };
+		4CF86C0618155DFB0094C040 /* ks0108.template */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ks0108.template; sourceTree = "<group>"; };
+		4CF86C0718155DFB0094C040 /* RemoteMake.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = RemoteMake.app; sourceTree = "<group>"; };
+		4CF86C0818155DFB0094C040 /* RemoteMake.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = RemoteMake.scpt; sourceTree = "<group>"; };
+		4CF86C0918155DFB0094C040 /* RemoteMake.workflow */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RemoteMake.workflow; sourceTree = "<group>"; };
+		4CF86C1318155E360094C040 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		4CF86C1718155ECF0094C040 /* default.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = default.conf; sourceTree = "<group>"; };
+		4CF86C1818155ECF0094C040 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		4CF86C1A181561600094C040 /* lcdBridge.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lcdBridge.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		4CF86C1B181561AE0094C040 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		4CF86C1D18156FBF0094C040 /* pinLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinLayout.h; sourceTree = "<group>"; };
+		4CF86C1E181576700094C040 /* arduino-spi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "arduino-spi.c"; sourceTree = "<group>"; };
+		4CF86C1F181576700094C040 /* arduino-spi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "arduino-spi.h"; sourceTree = "<group>"; };
+		4CF86C20181576700094C040 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
+		4CF86C21181576700094C040 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		4CF86C22181576700094C040 /* helpers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = helpers.c; sourceTree = "<group>"; };
+		4CF86C23181576700094C040 /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		4CF86C24181576700094C040 /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = server.c; sourceTree = "<group>"; };
+		4CF86C25181576700094C040 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
+		4CF86C26181576700094C040 /* settings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = settings.c; sourceTree = "<group>"; };
+		4CF86C27181576700094C040 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,19 +88,59 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF86C1218155DFB0094C040 /* glcdMakeBitmap.jar in Frameworks */,
+				4CF86C1118155DFB0094C040 /* GLCDFontCreator2.1.jar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0B07CD181699DB00EE9D1D /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				4C0B07CE181699ED00EE9D1D /* spi_test.c */,
+				4C0B07D41816B58000EE9D1D /* spidev_test.c */,
+				4C0B07CF181699ED00EE9D1D /* Makefile */,
+			);
+			name = tools;
+			sourceTree = "<group>";
+		};
+		4C0B07D218169A2B00EE9D1D /* spiSlave */ = {
+			isa = PBXGroup;
+			children = (
+				4C0B07D318169B6A00EE9D1D /* spiSlave.ino */,
+			);
+			name = spiSlave;
+			sourceTree = "<group>";
+		};
+		4C0B07D61816F93F00EE9D1D /* logic_analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				4C0B07D71816F94F00EE9D1D /* logic_analyzer_inline_2mhz.ino */,
+				4C0B07D81816F94F00EE9D1D /* logic_analyzer_inline_4mhz.ino */,
+				4C0B07D91816F94F00EE9D1D /* logic_analyzer.ino */,
+				4C0B07DA1816F94F00EE9D1D /* Makefile */,
+				4C0B07DB1816F94F00EE9D1D /* ols.profile-agla.cfg */,
+				4C0B07DC1816F94F00EE9D1D /* ols.profile-aglam.cfg */,
+				4C0B07DD1816F94F00EE9D1D /* README */,
+			);
+			name = logic_analyzer;
+			sourceTree = "<group>";
+		};
 		4CF86BD918155C500094C040 = {
 			isa = PBXGroup;
 			children = (
+				4C0B07CD181699DB00EE9D1D /* tools */,
+				4CF86BF918155DFB0094C040 /* firmware */,
+				4CF86BFB18155DFB0094C040 /* bitmaps */,
+				4CF86C0018155DFB0094C040 /* client */,
+				4CF86C0318155DFB0094C040 /* various */,
 				4CF86BE418155C500094C040 /* gbMon2 */,
 				4CF86BE318155C500094C040 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		4CF86BE318155C500094C040 /* Products */ = {
 			isa = PBXGroup;
@@ -60,10 +153,87 @@
 		4CF86BE418155C500094C040 /* gbMon2 */ = {
 			isa = PBXGroup;
 			children = (
+				4CF86C1E181576700094C040 /* arduino-spi.c */,
+				4CF86C1F181576700094C040 /* arduino-spi.h */,
+				4CF86C20181576700094C040 /* debug.c */,
+				4CF86C21181576700094C040 /* debug.h */,
+				4CF86C22181576700094C040 /* helpers.c */,
+				4CF86C23181576700094C040 /* helpers.h */,
+				4CF86C24181576700094C040 /* server.c */,
+				4CF86C25181576700094C040 /* server.h */,
+				4CF86C26181576700094C040 /* settings.c */,
+				4CF86C27181576700094C040 /* settings.h */,
+				4CF86C1D18156FBF0094C040 /* pinLayout.h */,
+				4CF86C1718155ECF0094C040 /* default.conf */,
+				4CF86C1818155ECF0094C040 /* Makefile */,
 				4CF86BE518155C500094C040 /* main.c */,
+				4CF86C1318155E360094C040 /* main.h */,
 				4CF86BE718155C500094C040 /* gbMon2.1 */,
 			);
 			path = gbMon2;
+			sourceTree = "<group>";
+		};
+		4CF86BF918155DFB0094C040 /* firmware */ = {
+			isa = PBXGroup;
+			children = (
+				4C0B07D61816F93F00EE9D1D /* logic_analyzer */,
+				4C0B07D218169A2B00EE9D1D /* spiSlave */,
+				4CF86BFA18155DFB0094C040 /* lcdBridge */,
+			);
+			name = firmware;
+			path = gbMon2/firmware;
+			sourceTree = "<group>";
+		};
+		4CF86BFA18155DFB0094C040 /* lcdBridge */ = {
+			isa = PBXGroup;
+			children = (
+				4CF86C1A181561600094C040 /* lcdBridge.ino */,
+			);
+			path = lcdBridge;
+			sourceTree = "<group>";
+		};
+		4CF86BFB18155DFB0094C040 /* bitmaps */ = {
+			isa = PBXGroup;
+			children = (
+				4CF86BFC18155DFB0094C040 /* raspberry64x64.bmp */,
+				4CF86BFD18155DFB0094C040 /* Templates */,
+			);
+			name = bitmaps;
+			path = gbMon2/bitmaps;
+			sourceTree = "<group>";
+		};
+		4CF86BFD18155DFB0094C040 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				4CF86BFE18155DFB0094C040 /* raspberry64x64.psd */,
+				4CF86BFF18155DFB0094C040 /* Template8x8.psd */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		4CF86C0018155DFB0094C040 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				4CF86C1B181561AE0094C040 /* Makefile */,
+				4CF86C0118155DFB0094C040 /* client-test.c */,
+				4CF86C0218155DFB0094C040 /* client.c */,
+			);
+			name = client;
+			path = gbMon2/client;
+			sourceTree = "<group>";
+		};
+		4CF86C0318155DFB0094C040 /* various */ = {
+			isa = PBXGroup;
+			children = (
+				4CF86C0418155DFB0094C040 /* GLCDFontCreator2.1.jar */,
+				4CF86C0518155DFB0094C040 /* glcdMakeBitmap.jar */,
+				4CF86C0618155DFB0094C040 /* ks0108.template */,
+				4CF86C0718155DFB0094C040 /* RemoteMake.app */,
+				4CF86C0818155DFB0094C040 /* RemoteMake.scpt */,
+				4CF86C0918155DFB0094C040 /* RemoteMake.workflow */,
+			);
+			name = various;
+			path = gbMon2/various;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +287,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF86C1C181561AE0094C040 /* Makefile in Sources */,
+				4CF86C29181576700094C040 /* debug.c in Sources */,
+				4C0B07D51816B58000EE9D1D /* spidev_test.c in Sources */,
+				4CF86C28181576700094C040 /* arduino-spi.c in Sources */,
+				4C0B07D0181699ED00EE9D1D /* spi_test.c in Sources */,
+				4CF86C1918155ECF0094C040 /* Makefile in Sources */,
+				4CF86C2B181576700094C040 /* server.c in Sources */,
+				4C0B07D1181699ED00EE9D1D /* Makefile in Sources */,
+				4CF86C1018155DFB0094C040 /* client.c in Sources */,
+				4CF86C2A181576700094C040 /* helpers.c in Sources */,
+				4CF86C0F18155DFB0094C040 /* client-test.c in Sources */,
+				4CF86C2C181576700094C040 /* settings.c in Sources */,
+				4C0B07DE1816F94F00EE9D1D /* Makefile in Sources */,
 				4CF86BE618155C500094C040 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +408,7 @@
 				4CF86BED18155C500094C040 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

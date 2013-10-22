@@ -1,0 +1,34 @@
+all: clean gbmon client client-test
+
+gbmon : debug.o gbmon.o server.o helpers.o arduino-spi.o settings.o
+	gcc debug.o gbmon.o server.o helpers.o arduino-spi.o settings.o -o gbmon -lpthread -lwiringPi
+
+gbmon.o : main.c main.h
+	gcc -Wall -c main.c -o gbmon.o
+
+debug.o : debug.c debug.h
+	gcc -Wall -c debug.c -o debug.o
+
+server.o : server.c server.h
+	gcc -Wall -c server.c -o server.o
+
+helpers.o : helpers.c helpers.h
+	gcc -Wall -c helpers.c -o helpers.o
+
+settings.o : settings.c settings.h
+	gcc -Wall -c settings.c -o settings.o
+
+arduino-spi.o : arduino-spi.c arduino-spi.h
+	gcc -Wall -c arduino-spi.c -o arduino-spi.o -lwiringPi
+
+client : client.c
+	gcc client.c -o client
+
+client-test : client-test.c
+	gcc client-test.c -o client-test
+
+clean:
+	rm -f gbmon
+	rm -f client-test
+	rm -f client
+	rm -f *.o
