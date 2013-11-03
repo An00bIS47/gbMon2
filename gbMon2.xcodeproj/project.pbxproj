@@ -48,11 +48,6 @@
 		4C503345181DB41900E4C03F /* fnt_dejavu_9.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503341181DB41900E4C03F /* fnt_dejavu_9.c */; };
 		4C503346181DB41900E4C03F /* fnt_silkscreen_8.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */; };
 		4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB134AE18210B2800A40AA0 /* lcddisplay.c */; };
-		4CB2B5811825C1F30041F48A /* RCSwitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5801825C1F30041F48A /* RCSwitch.cpp */; };
-		4CB2B5841825C25A0041F48A /* send.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5821825C25A0041F48A /* send.cpp */; };
-		4CB2B5861825C2810041F48A /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5851825C2810041F48A /* Makefile */; };
-		4CB2B5881825C2C70041F48A /* send.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5871825C2C70041F48A /* send.c */; };
-		4CB2B5BE1825CB050041F48A /* rcswitchwrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5BC1825CB050041F48A /* rcswitchwrapper.cpp */; };
 		4CB2B5C11825D47E0041F48A /* rcswitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */; };
 		4CB2B5C51825D5430041F48A /* rcswitchwrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5C31825D5430041F48A /* rcswitchwrapper.cpp */; };
 		4CB2B5C71825D5AC0041F48A /* sendRC.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5C61825D5AC0041F48A /* sendRC.c */; };
@@ -275,43 +270,7 @@
 		4C19FF7B1822F83600584853 /* zlog.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zlog.conf; sourceTree = "<group>"; };
 		4C19FF7C18230BAD00584853 /* dht22.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dht22.c; sourceTree = "<group>"; };
 		4C19FF7E18230BB500584853 /* dht22.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dht22.h; sourceTree = "<group>"; };
-		4C19FF7F18234D9A00584853 /* microcontroller-reference-sheet-a4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microcontroller-reference-sheet-a4.png"; sourceTree = "<group>"; };
 		4C19FF8218234D9A00584853 /* allBitmaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allBitmaps.h; sourceTree = "<group>"; };
-		4C19FF8418234D9A00584853 /* allBitmaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allBitmaps.h; sourceTree = "<group>"; };
-		4C19FF8518234D9A00584853 /* Apple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apple.h; sourceTree = "<group>"; };
-		4C19FF8618234D9A00584853 /* ArduinoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArduinoIcon.h; sourceTree = "<group>"; };
-		4C19FF8718234D9A00584853 /* ArduinoIcon32.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = ArduinoIcon32.bmp; sourceTree = "<group>"; };
-		4C19FF8818234D9A00584853 /* ArduinoIcon32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArduinoIcon32.h; sourceTree = "<group>"; };
-		4C19FF8918234D9A00584853 /* ArduinoIcon32x32.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = ArduinoIcon32x32.bmp; sourceTree = "<group>"; };
-		4C19FF8A18234D9A00584853 /* ArduinoIcon32x32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArduinoIcon32x32.h; sourceTree = "<group>"; };
-		4C19FF8B18234D9A00584853 /* ArduinoIcon64x32.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = ArduinoIcon64x32.bmp; sourceTree = "<group>"; };
-		4C19FF8C18234D9A00584853 /* ArduinoIcon64x32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArduinoIcon64x32.h; sourceTree = "<group>"; };
-		4C19FF8D18234D9A00584853 /* ArduinoIcon64x64.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = ArduinoIcon64x64.bmp; sourceTree = "<group>"; };
-		4C19FF8E18234D9A00584853 /* ArduinoIcon64x64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArduinoIcon64x64.h; sourceTree = "<group>"; };
-		4C19FF8F18234D9A00584853 /* ArduinoIcon96x32.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = ArduinoIcon96x32.bmp; sourceTree = "<group>"; };
-		4C19FF9018234D9A00584853 /* ArduinoIcon96x32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArduinoIcon96x32.h; sourceTree = "<group>"; };
-		4C19FF9118234D9A00584853 /* max16x16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = max16x16.h; sourceTree = "<group>"; };
-		4C19FF9218234D9A00584853 /* min16x16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = min16x16.h; sourceTree = "<group>"; };
-		4C19FF9318234D9A00584853 /* raspberry64x64.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = raspberry64x64.bmp; sourceTree = "<group>"; };
-		4C19FF9418234D9A00584853 /* raspberryInv64x64.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = raspberryInv64x64.bmp; sourceTree = "<group>"; };
-		4C19FF9518234D9A00584853 /* raspberryInv64x64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = raspberryInv64x64.h; sourceTree = "<group>"; };
-		4C19FF9618234D9A00584853 /* settings10x10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = settings10x10.bmp; sourceTree = "<group>"; };
-		4C19FF9718234D9A00584853 /* settings10x10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings10x10.h; sourceTree = "<group>"; };
-		4C19FF9818234D9A00584853 /* settingsInv10x10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = settingsInv10x10.bmp; sourceTree = "<group>"; };
-		4C19FF9918234D9A00584853 /* settingsInv10x10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsInv10x10.h; sourceTree = "<group>"; };
-		4C19FF9A18234D9A00584853 /* temperature10x10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = temperature10x10.bmp; sourceTree = "<group>"; };
-		4C19FF9B18234D9A00584853 /* temperature10x10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperature10x10.h; sourceTree = "<group>"; };
-		4C19FF9C18234D9A00584853 /* temperature16x16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperature16x16.h; sourceTree = "<group>"; };
-		4C19FF9D18234D9A00584853 /* temperature16x18.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperature16x18.h; sourceTree = "<group>"; };
-		4C19FF9E18234D9A00584853 /* temperature20x20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperature20x20.h; sourceTree = "<group>"; };
-		4C19FF9F18234D9A00584853 /* temperature20x22.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperature20x22.h; sourceTree = "<group>"; };
-		4C19FFA018234D9A00584853 /* temperature32x32.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = temperature32x32.bmp; sourceTree = "<group>"; };
-		4C19FFA118234D9A00584853 /* temperature32x32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperature32x32.h; sourceTree = "<group>"; };
-		4C19FFA218234D9A00584853 /* temperatureInv10x10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = temperatureInv10x10.bmp; sourceTree = "<group>"; };
-		4C19FFA318234D9A00584853 /* temperatureInv10x10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperatureInv10x10.h; sourceTree = "<group>"; };
-		4C19FFA418234D9A00584853 /* temperatureInv32x32.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = temperatureInv32x32.bmp; sourceTree = "<group>"; };
-		4C19FFA518234D9A00584853 /* temperatureInv32x32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperatureInv32x32.h; sourceTree = "<group>"; };
-		4C19FFA618234D9A00584853 /* temperatureInv9x9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temperatureInv9x9.h; sourceTree = "<group>"; };
 		4C19FFA718234D9A00584853 /* fanOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fanOff.h; sourceTree = "<group>"; };
 		4C19FFA818234D9A00584853 /* fanOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fanOn.h; sourceTree = "<group>"; };
 		4C19FFA918234D9A00584853 /* lightOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lightOff.h; sourceTree = "<group>"; };
@@ -397,6 +356,11 @@
 		4C19FFFD18234D9A00584853 /* installdox */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = installdox; sourceTree = "<group>"; };
 		4C19FFFE18234D9A00584853 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
 		4C19FFFF18234D9A00584853 /* ks0108_Panel_A.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ks0108_Panel_A.gif; sourceTree = "<group>"; };
+		4C4BBE091825E12200723999 /* mikrocontroller Layout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "mikrocontroller Layout.pdf"; sourceTree = "<group>"; };
+		4C4BBE0A1825E12200723999 /* RaspberryPi Pin Layout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RaspberryPi Pin Layout.pdf"; sourceTree = "<group>"; };
+		4C4BBE0C1825E3A600723999 /* Arduino_uno_Pinout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Arduino_uno_Pinout.pdf; sourceTree = "<group>"; };
+		4C4BBE0D1825E3A600723999 /* ks108_goldentek_GG_1206H0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ks108_goldentek_GG_1206H0.pdf; sourceTree = "<group>"; };
+		4C4BBE0E1825E3A600723999 /* LCD-Modul_GOLDENTEK_GG-1206H0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "LCD-Modul_GOLDENTEK_GG-1206H0.pdf"; sourceTree = "<group>"; };
 		4C503339181D663D00E4C03F /* convert.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = convert.sh; sourceTree = "<group>"; };
 		4C50333B181DA9C500E4C03F /* fonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fonts.h; sourceTree = "<group>"; };
 		4C50333C181DABA800E4C03F /* lcd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcd.h; sourceTree = "<group>"; };
@@ -406,16 +370,9 @@
 		4C503341181DB41900E4C03F /* fnt_dejavu_9.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_dejavu_9.c; path = fonts/fnt_dejavu_9.c; sourceTree = "<group>"; };
 		4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_silkscreen_8.c; path = fonts/fnt_silkscreen_8.c; sourceTree = "<group>"; };
 		4C8A3C8A181C385F003D92B5 /* interruptTest.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = interruptTest.ino; path = interruptTest/interruptTest.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
-		4C8BE022181A791500830529 /* screen-test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = "screen-test.c"; path = "gbMon2/tools/screen-test.c"; sourceTree = "<group>"; };
+		4C8BE022181A791500830529 /* screenTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = screenTest.c; path = gbMon2/tools/screenTest.c; sourceTree = "<group>"; };
 		4CB134AD18210AC700A40AA0 /* lcddisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcddisplay.h; sourceTree = "<group>"; };
 		4CB134AE18210B2800A40AA0 /* lcddisplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lcddisplay.c; sourceTree = "<group>"; };
-		4CB2B57D1825C1980041F48A /* RCSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCSwitch.h; path = "gbMon2/tools/rcswitch-pi/RCSwitch.h"; sourceTree = "<group>"; };
-		4CB2B5801825C1F30041F48A /* RCSwitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RCSwitch.cpp; path = "gbMon2/tools/rcswitch-pi/RCSwitch.cpp"; sourceTree = "<group>"; };
-		4CB2B5821825C25A0041F48A /* send.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = send.cpp; path = "gbMon2/tools/rcswitch-pi/send.cpp"; sourceTree = "<group>"; };
-		4CB2B5851825C2810041F48A /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = "gbMon2/tools/rcswitch-pi/Makefile"; sourceTree = "<group>"; };
-		4CB2B5871825C2C70041F48A /* send.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = send.c; path = "gbMon2/tools/rcswitch-pi/send.c"; sourceTree = "<group>"; };
-		4CB2B5BC1825CB050041F48A /* rcswitchwrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rcswitchwrapper.cpp; path = "gbMon2/tools/rcswitch-pi/rcswitchwrapper.cpp"; sourceTree = "<group>"; };
-		4CB2B5BD1825CB050041F48A /* rcswitchwrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rcswitchwrapper.h; path = "gbMon2/tools/rcswitch-pi/rcswitchwrapper.h"; sourceTree = "<group>"; };
 		4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rcswitch.cpp; sourceTree = "<group>"; };
 		4CB2B5C01825D47E0041F48A /* rcswitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rcswitch.h; sourceTree = "<group>"; };
 		4CB2B5C31825D5430041F48A /* rcswitchwrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rcswitchwrapper.cpp; sourceTree = "<group>"; };
@@ -557,8 +514,7 @@
 		4C0B07CD181699DB00EE9D1D /* tools */ = {
 			isa = PBXGroup;
 			children = (
-				4CB2B57C1825C16A0041F48A /* rcswitch-pi */,
-				4C8BE022181A791500830529 /* screen-test.c */,
+				4C8BE022181A791500830529 /* screenTest.c */,
 				4C0B07CF181699ED00EE9D1D /* Makefile */,
 				4CCC77EA181AE973001694BE /* simulator.c */,
 				4C19FF791822F67500584853 /* zlogTest.c */,
@@ -809,7 +765,6 @@
 			isa = PBXGroup;
 			children = (
 				4C19FF8218234D9A00584853 /* allBitmaps.h */,
-				4C19FF8318234D9A00584853 /* backup */,
 				4C19FFA718234D9A00584853 /* fanOff.h */,
 				4C19FFA818234D9A00584853 /* fanOn.h */,
 				4C19FFA918234D9A00584853 /* lightOff.h */,
@@ -831,48 +786,6 @@
 				4C19FFB918234D9A00584853 /* wifi80.h */,
 			);
 			path = bitmaps;
-			sourceTree = "<group>";
-		};
-		4C19FF8318234D9A00584853 /* backup */ = {
-			isa = PBXGroup;
-			children = (
-				4C19FF8418234D9A00584853 /* allBitmaps.h */,
-				4C19FF8518234D9A00584853 /* Apple.h */,
-				4C19FF8618234D9A00584853 /* ArduinoIcon.h */,
-				4C19FF8718234D9A00584853 /* ArduinoIcon32.bmp */,
-				4C19FF8818234D9A00584853 /* ArduinoIcon32.h */,
-				4C19FF8918234D9A00584853 /* ArduinoIcon32x32.bmp */,
-				4C19FF8A18234D9A00584853 /* ArduinoIcon32x32.h */,
-				4C19FF8B18234D9A00584853 /* ArduinoIcon64x32.bmp */,
-				4C19FF8C18234D9A00584853 /* ArduinoIcon64x32.h */,
-				4C19FF8D18234D9A00584853 /* ArduinoIcon64x64.bmp */,
-				4C19FF8E18234D9A00584853 /* ArduinoIcon64x64.h */,
-				4C19FF8F18234D9A00584853 /* ArduinoIcon96x32.bmp */,
-				4C19FF9018234D9A00584853 /* ArduinoIcon96x32.h */,
-				4C19FF9118234D9A00584853 /* max16x16.h */,
-				4C19FF9218234D9A00584853 /* min16x16.h */,
-				4C19FF9318234D9A00584853 /* raspberry64x64.bmp */,
-				4C19FF9418234D9A00584853 /* raspberryInv64x64.bmp */,
-				4C19FF9518234D9A00584853 /* raspberryInv64x64.h */,
-				4C19FF9618234D9A00584853 /* settings10x10.bmp */,
-				4C19FF9718234D9A00584853 /* settings10x10.h */,
-				4C19FF9818234D9A00584853 /* settingsInv10x10.bmp */,
-				4C19FF9918234D9A00584853 /* settingsInv10x10.h */,
-				4C19FF9A18234D9A00584853 /* temperature10x10.bmp */,
-				4C19FF9B18234D9A00584853 /* temperature10x10.h */,
-				4C19FF9C18234D9A00584853 /* temperature16x16.h */,
-				4C19FF9D18234D9A00584853 /* temperature16x18.h */,
-				4C19FF9E18234D9A00584853 /* temperature20x20.h */,
-				4C19FF9F18234D9A00584853 /* temperature20x22.h */,
-				4C19FFA018234D9A00584853 /* temperature32x32.bmp */,
-				4C19FFA118234D9A00584853 /* temperature32x32.h */,
-				4C19FFA218234D9A00584853 /* temperatureInv10x10.bmp */,
-				4C19FFA318234D9A00584853 /* temperatureInv10x10.h */,
-				4C19FFA418234D9A00584853 /* temperatureInv32x32.bmp */,
-				4C19FFA518234D9A00584853 /* temperatureInv32x32.h */,
-				4C19FFA618234D9A00584853 /* temperatureInv9x9.h */,
-			);
-			path = backup;
 			sourceTree = "<group>";
 		};
 		4C19FFBB18234D9A00584853 /* config */ = {
@@ -1006,6 +919,29 @@
 			path = html;
 			sourceTree = "<group>";
 		};
+		4C4BBE081825DF2F00723999 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				4CF86C1718155ECF0094C040 /* default.conf */,
+				4CF86C1818155ECF0094C040 /* Makefile */,
+				4CF86BE718155C500094C040 /* gbMon2.1 */,
+				4C19FF7B1822F83600584853 /* zlog.conf */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		4C4BBE0B1825E38500723999 /* Layouts & Product Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				4C4BBE0C1825E3A600723999 /* Arduino_uno_Pinout.pdf */,
+				4C4BBE0D1825E3A600723999 /* ks108_goldentek_GG_1206H0.pdf */,
+				4C4BBE0E1825E3A600723999 /* LCD-Modul_GOLDENTEK_GG-1206H0.pdf */,
+				4C4BBE091825E12200723999 /* mikrocontroller Layout.pdf */,
+				4C4BBE0A1825E12200723999 /* RaspberryPi Pin Layout.pdf */,
+			);
+			name = "Layouts & Product Sheets";
+			sourceTree = "<group>";
+		};
 		4C50333A181DA9B200E4C03F /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,20 +966,6 @@
 			name = interruptTest;
 			sourceTree = "<group>";
 		};
-		4CB2B57C1825C16A0041F48A /* rcswitch-pi */ = {
-			isa = PBXGroup;
-			children = (
-				4CB2B5801825C1F30041F48A /* RCSwitch.cpp */,
-				4CB2B5BC1825CB050041F48A /* rcswitchwrapper.cpp */,
-				4CB2B5BD1825CB050041F48A /* rcswitchwrapper.h */,
-				4CB2B57D1825C1980041F48A /* RCSwitch.h */,
-				4CB2B5821825C25A0041F48A /* send.cpp */,
-				4CB2B5871825C2C70041F48A /* send.c */,
-				4CB2B5851825C2810041F48A /* Makefile */,
-			);
-			name = "rcswitch-pi";
-			sourceTree = "<group>";
-		};
 		4CB2B5C21825D4FF0041F48A /* RCSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1062,8 +984,8 @@
 				4CF86BF918155DFB0094C040 /* firmware */,
 				4CF86BFB18155DFB0094C040 /* bitmaps */,
 				4CF86C0018155DFB0094C040 /* client */,
-				4CF86C0318155DFB0094C040 /* various */,
 				4CF86BE418155C500094C040 /* gbMon2 */,
+				4CF86C0318155DFB0094C040 /* various */,
 				4CF86BE318155C500094C040 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1081,6 +1003,7 @@
 			isa = PBXGroup;
 			children = (
 				4C50333A181DA9B200E4C03F /* fonts */,
+				4C4BBE081825DF2F00723999 /* Misc */,
 				4CB2B5C21825D4FF0041F48A /* RCSwitch */,
 				4C50333B181DA9C500E4C03F /* fonts.h */,
 				4CF86C20181576700094C040 /* debug.c */,
@@ -1092,16 +1015,12 @@
 				4CF86C26181576700094C040 /* settings.c */,
 				4CF86C27181576700094C040 /* settings.h */,
 				4CF86C1D18156FBF0094C040 /* pinLayout.h */,
-				4CF86C1718155ECF0094C040 /* default.conf */,
-				4CF86C1818155ECF0094C040 /* Makefile */,
 				4CF86BE518155C500094C040 /* main.c */,
 				4CF86C1318155E360094C040 /* main.h */,
 				4CB134AE18210B2800A40AA0 /* lcddisplay.c */,
 				4CB134AD18210AC700A40AA0 /* lcddisplay.h */,
-				4CF86BE718155C500094C040 /* gbMon2.1 */,
 				4C50333C181DABA800E4C03F /* lcd.h */,
 				4C50333D181DAC0800E4C03F /* lcd.c */,
-				4C19FF7B1822F83600584853 /* zlog.conf */,
 				4C19FF7C18230BAD00584853 /* dht22.c */,
 				4C19FF7E18230BB500584853 /* dht22.h */,
 			);
@@ -1160,7 +1079,7 @@
 		4CF86C0318155DFB0094C040 /* various */ = {
 			isa = PBXGroup;
 			children = (
-				4C19FF7F18234D9A00584853 /* microcontroller-reference-sheet-a4.png */,
+				4C4BBE0B1825E38500723999 /* Layouts & Product Sheets */,
 				4C19FF8018234D9A00584853 /* glcd */,
 				4C0635B9181DF0D70010FF0E /* GLCDFontCreator2 */,
 				4C503339181D663D00E4C03F /* convert.sh */,
@@ -1227,7 +1146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C063603181DF0D70010FF0E /* FontExport.java in Sources */,
-				4CB2B5841825C25A0041F48A /* send.cpp in Sources */,
 				4CF86C1C181561AE0094C040 /* Makefile in Sources */,
 				4C063608181DF0D70010FF0E /* TransferActionListener.java in Sources */,
 				4C0635F8181DF0D70010FF0E /* MainWindow.java in Sources */,
@@ -1235,7 +1153,6 @@
 				4C0635F4181DF0D70010FF0E /* CharTable.java in Sources */,
 				4C19009018234D9B00584853 /* gText.cpp in Sources */,
 				4C19008918234D9B00584853 /* jquery.js in Sources */,
-				4CB2B5BE1825CB050041F48A /* rcswitchwrapper.cpp in Sources */,
 				4CF86C29181576700094C040 /* debug.c in Sources */,
 				4C0635FE181DF0D70010FF0E /* FontCreatorMenuBar.java in Sources */,
 				4C50333E181DAC0800E4C03F /* lcd.c in Sources */,
@@ -1243,7 +1160,6 @@
 				4C503344181DB41900E4C03F /* fnt_dejavu_9_b.c in Sources */,
 				4C063601181DF0D70010FF0E /* Font.java in Sources */,
 				4C19FF7D18230BAD00584853 /* dht22.c in Sources */,
-				4CB2B5861825C2810041F48A /* Makefile in Sources */,
 				4C0635F9181DF0D70010FF0E /* NewFontDialog.java in Sources */,
 				4CDCA23C1821675300D8DA67 /* fnt_spaceLex_8.c in Sources */,
 				4C0635FA181DF0D70010FF0E /* CharTableModel.java in Sources */,
@@ -1251,7 +1167,6 @@
 				4CDCA23D1821675300D8DA67 /* fnt_spaceLex_26.c in Sources */,
 				4CDCA23E1821675300D8DA67 /* fnt_spaceLex_12.c in Sources */,
 				4C19008A18234D9B00584853 /* navtree.js in Sources */,
-				4CB2B5881825C2C70041F48A /* send.c in Sources */,
 				4CF86C1918155ECF0094C040 /* Makefile in Sources */,
 				4C503343181DB41900E4C03F /* fnt_dejavu.c in Sources */,
 				4C0635F6181DF0D70010FF0E /* FontCreatorColorChooserFrame.java in Sources */,
@@ -1280,7 +1195,6 @@
 				4C503345181DB41900E4C03F /* fnt_dejavu_9.c in Sources */,
 				4C0B07DE1816F94F00EE9D1D /* Makefile in Sources */,
 				4CB2B5C11825D47E0041F48A /* rcswitch.cpp in Sources */,
-				4CB2B5811825C1F30041F48A /* RCSwitch.cpp in Sources */,
 				4C063607181DF0D70010FF0E /* SerializableFontCharacter.java in Sources */,
 				4C0635F3181DF0D70010FF0E /* CharEditor.java in Sources */,
 				4C0635FD181DF0D70010FF0E /* EditorPopupMenu.java in Sources */,
