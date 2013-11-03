@@ -7,31 +7,73 @@
 //
 #ifndef gbmon2_main_h
 #define gbmon2_main_h
+
 #include <stdio.h>
 #include <pthread.h>
 #include <signal.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <semaphore.h>
+
 #include "server.h"
 #include "debug.h"
 #include "helpers.h"
-#include "arduino-spi.h"
 #include "settings.h"
+#include "lcd.h"
+#include "fonts.h"
+#include "lcddisplay.h"
+#include "dht22.h"
+#include "rcswitchwrapper.h"
+
+#define MAXTIMINGS 85
+#define DHTPIN 1
+#define NOTEMPSENSOR 3						// Number of Temperature Sensors
+#define SETTINGSFILE "/home/pi/gbmon2/gbMon2/default.conf"
+/*
+ * Semaphores
+ */
+sem_t semaLockUpdate;						// Semaphore for Display Update
+sem_t semaLockInfo;							// Semaphore for Infos
 
 /*
- * debugMode
- *   1 = Network
- *   2 = SPI
+ * Global Variables
  */
-float    appVersion;
-int      appDebugMode;
-char*    appNetworkInterface;
-int      appPort;
+float   appVersion;
+int     appDebugMode;						// 1 Network; 2 SPI
+char*   appNetworkInterface;
+int     appPort;
+bool	clientIsConnected;
+bool	updateDisplay;
 
-/**
-	signal Hanlder
-	@param int SIGINT
+struct	info current;
+
+struct info {								// Info
+    float temperature[NOTEMPSENSOR];		// Temperature
+	float humidity;							// Humidity
+	float maxTemp[NOTEMPSENSOR];			// max Temperature
+	float maxHum;							// max Humidity
+	float minTemp[NOTEMPSENSOR];			// min Temperature
+	float minHum;							// min Humidity
+};
+
+
+/*
+ *	Setter
  */
-void     INThandler(int);
+void setUpdateDisplay(bool value);
+
+/*
+ *	Getter
+ */
+bool getUpdateDisplay();
+
+/*
+ *	Functions
+ */
+int sendRC(char* systemCode, int unitCode, int command);
+void INThandler(int);
+int main(int argc, char * argv[]);
+
+
 
 #endif

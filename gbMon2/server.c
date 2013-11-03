@@ -13,16 +13,15 @@
  * The Connection Handler for each client
  *********************************************************************************
  */
-/**
-	<#Description#>
-	@param socket_desc <#socket_desc description#>
- */
 void *connectionHandler(void *socket_desc) {
     //Get the socket descriptor
     int sock = *(int*)socket_desc;
     int read_size;
     char *buffer[255];
     char * client_message[2000];
+	
+	clientIsConnected = true;
+	setUpdateDisplay(true);
 	
     //Send some messages to the client
     //strcmp(message,"Welcome to Raspberry Pi gbmon2\n");
@@ -34,7 +33,7 @@ void *connectionHandler(void *socket_desc) {
         debugPrint(true, true, buffer, true, "SERVER");
         if(strcmp(client_message, "usage") == 0) {
             debugPrint(true, false, "usage", false,"");
-            write(sock,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0",300);
+            write(sock,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\0",300);
         }
         if(strcmp(client_message, "getServerTime") == 0) {
             sprintf(buffer,"Sending Response: *%s*", getTime());
@@ -45,7 +44,13 @@ void *connectionHandler(void *socket_desc) {
             sprintf(buffer,"Sending Response: *%s*", getVersion());
             debugPrint(true, true, buffer, true, "SERVER");
             write(sock,getVersion(),3);
-			setSPICommand("getVersion\n");
+			//setSPICommand("getVersion\n");
+        }
+		if(strcmp(client_message, "getWifiStrength") == 0) {
+            sprintf(buffer,"Sending Response: *%d*", getWifiStrength());
+            debugPrint(true, true, buffer, true, "SERVER");
+            write(sock,getWifiStrength(),3);
+			//setSPICommand("getVersion\n");
         }
         /*
          if(strcmp(client_message, "getHumidity") == 0) {
@@ -111,6 +116,10 @@ void *connectionHandler(void *socket_desc) {
     if(read_size == 0) {
         debugPrint(true, true, "Client disconnected", true, "SERVER");
         fflush(stdout);
+		// DIsplay UPdate
+		clientIsConnected = false;
+		setUpdateDisplay(true);
+		
     } else if(read_size == -1) {
         perror("recv failed");
     }
@@ -118,14 +127,11 @@ void *connectionHandler(void *socket_desc) {
 }
 
 
-/**
-	<#Description#>
-	@param portno <#portno description#>
-	@returns <#return value description#>
- */
 int serverMain(int portno){
     int socket_desc , client_sock , c;
     struct sockaddr_in server , client;
+	clientIsConnected = false;
+	
     debugPrint(true, true, "Creating Socket ...", false, "SERVER");
     //Create socket
     socket_desc = socket(AF_INET , SOCK_STREAM , 0);
@@ -133,11 +139,15 @@ int serverMain(int portno){
         debugPrint(false, true, "Could not create Socket", true, "ERROR");
     }
     debugPrint(false, false, "OK", true, "");
+	
+	
     //Prepare the sockaddr_in structure
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
     server.sin_port = htons( portno );
-    //Bind
+    
+	
+	//Bind
     debugPrint(true, true, "Starting Bind ...", false, "SERVER");
     if( bind(socket_desc,(struct sockaddr *)&server , sizeof(server)) < 0)
     {
@@ -146,9 +156,12 @@ int serverMain(int portno){
         return 1;
     }
     debugPrint(false, false, "OK", true, "SERVER");
-    //Listen
+    
+	
+	//Listen
     listen(socket_desc , 3);
-    //Accept and incoming connection
+    
+	//Accept and incoming connection
     //puts("Waiting for incoming connections...");
     //c = sizeof(struct sockaddr_in);
     //Accept and incoming connection
@@ -156,23 +169,28 @@ int serverMain(int portno){
     c = sizeof(struct sockaddr_in);
     pthread_t thread_id;
     debugPrint(false, false, "OK", true, "SERVER");
-    while( (client_sock = accept(socket_desc, (struct sockaddr *)&client, (socklen_t*)&c)) )
-    {
+    
+	
+	while( (client_sock = accept(socket_desc, (struct sockaddr *)&client, (socklen_t*)&c)) ) {
+
         debugPrint(true, true, "Connection accepted", true, "SERVER");
         debugPrint(true, true, "Assigning Handler ...", false, "SERVER");
-        if( pthread_create( &thread_id , NULL ,  connectionHandler , (void*) &client_sock) < 0)
-        {
+        
+		if( pthread_create( &thread_id , NULL ,  connectionHandler , (void*) &client_sock) < 0) {
             debugPrint(false, true, "Could not create thread", true, "ERROR");
             return 1;
         }
         debugPrint(false, false, "OK", true, "SERVER");
+		
         //Now join the thread , so that we dont terminate before the thread
         //pthread_join( thread_id , NULL);
     }
+	
     if (client_sock < 0) {
         debugPrint(false, true, "Could not create thread", true, "ERROR");
         return 1;
     }
+	
     pthread_join( thread_id , NULL);
     return 0;
 }

@@ -10,6 +10,7 @@
 #define gbmon2_debug_h
 
 #include <stdio.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdbool.h>
 #include "helpers.h"
@@ -18,11 +19,9 @@
 
 #include "main.h"
 
-/**
-	Prints the pin layout of the raspberry pi
- */
-void debugPrintPinLayout ();
 
+void debugPrintPinLayout ();
+int myprintf( const char * format, ... );
 
 /**
 	Prints debug information on screen
@@ -35,9 +34,6 @@ void debugPrintPinLayout ();
 void debugPrint(bool info, bool prefix, char *msg, bool newLine, char *instance);
 
 
-/**
-	Prints the settings and general information
- */
 void debugPrintInfo();
 
 

@@ -20,24 +20,10 @@
 #include <pthread.h>
 #include <stdbool.h>
 
-//#include "main.h"
+#include "main.h"
 
-/*
- * Deklarationen
- *********************************************************************************
- */
 
-/**
-	<#Description#>
-	@param socket_desc <#socket_desc description#>
- */
 void *connectionHandler(void *socket_desc);
-
-/**
-	<#Description#>
-	@param portno <#portno description#>
-	@returns <#return value description#>
- */
 int serverMain(int portno);
 
 

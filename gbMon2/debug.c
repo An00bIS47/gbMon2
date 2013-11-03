@@ -7,7 +7,6 @@
 //
 #include "debug.h"
 
-
 /**
 	<#Description#>
  */
@@ -27,6 +26,21 @@ void debugPrintInfo(){
         sprintf(buffer,"debugMode: \t\t %d", appDebugMode);
         debugPrint(true, true, buffer, true, "INFO");
     }
+}
+
+
+int myprintf( const char * format, ... ) {
+	int rtn = 0;
+	
+	va_list args;
+	
+	va_start( args, format );
+	
+	rtn = vprintf( format, args );
+	
+	va_end( args );
+	
+	return rtn;
 }
 
 

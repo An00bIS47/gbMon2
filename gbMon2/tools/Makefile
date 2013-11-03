@@ -1,13 +1,17 @@
 
-all: clean spi_test spidev_test
+all: clean screen-test
 
-spi_test : spi_test.c
-	gcc spi_test.c -o spi_test -lwiringPi
+zlogTest: zlogTest.c
+	gcc -g -c -o zlogTest.o zlogTest.c -I/usr/local/include
+	gcc -o zlogTest zlogTest.o -L/usr/local/lib -lzlog -lpthread
 
-spidev_test-test : spidev_test.c
-	gcc spidev_test.c -o spidev_test-test
+screen-test: screen-test.c
+	gcc -g screen-test.c lcd.o fnt_dejavu_9_b.o fnt_dejavu_9.o fnt_silkscreen_8.o fnt_dejavu.o fnt_spaceLex_8.o -o screen-test -lwiringPi
+
+simulator: simulator.c
+	gcc simulator.c -o simulator -lncurses
 
 clean:
-	rm -f spidev_test
-	rm -f spi_test
+	rm -f screen-test
+	rm -f simulator
 	rm -f *.o

@@ -26,11 +26,17 @@
 #include "main.h"
 
 
+typedef unsigned char byte;
+
+int getWifiStrength();
+unsigned long long getUptime();
+
 const char *printBinary(int x);
+char* getTimeShort();
 char * getTime();
 char * getVersion();
 char * getIP(char *interface);
-
+byte reverseByte(byte a);
 
 
 #endif

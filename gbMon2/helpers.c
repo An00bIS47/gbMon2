@@ -9,6 +9,50 @@
 #include "helpers.h"
 
 
+
+
+unsigned long long getUptime(){
+	struct timespec t;
+	clock_gettime(CLOCK_MONOTONIC, &t);
+	//printf("tv_sec=%llu tv_nsec=%llu\n",(unsigned long long)t.tv_sec, (unsigned long long)t.tv_nsec);
+	
+	return (unsigned long long)t.tv_sec;
+}
+
+int getWifiStrength() {
+	FILE *in;
+	extern FILE *popen();
+	char buff[512];
+	
+	
+	//("/sbin/ifconfig | grep 'inet addr' | grep -v 127.0.0.1 | awk '{print $2}' | sed 's/[^0-9\\.]//g'", "r");
+	if(!(in = popen("iwconfig wlan0 | grep Quality | cut -d'=' -f2 | cut -d' ' -f1 | cut -d'/' -f1", "r"))){
+		printf("Error getting Wifi Signal Strength\n");
+		return 0;
+	}
+	
+	while(fgets(buff, sizeof(buff), in)!=NULL){
+		//printf("%s", buff);
+	}
+	pclose(in);
+	
+	return strtol(buff,NULL,10);
+	//return 1;
+}
+
+
+byte reverseByte(byte a) {
+    int i;
+    byte b = 0;
+	
+    for ( i = 0 ; i < 8 ; i ++)
+    {
+        b <<= 1;
+        b |=  ( (a & (1 << i)) >> i);
+    }
+    return b;
+}
+
 const char *printBinary(int x) {
     static char b[9];
     b[0] = '\0';
@@ -26,6 +70,17 @@ char* getVersion(){
     char *buf = (char *) malloc(4 * sizeof(char));
     sprintf (buf, "%.1f", appVersion) ;
 	buf[4]="\0";
+    return buf;
+}
+
+char* getTimeShort(){
+    //static char *buf [32] ;
+    char *buf = (char *) malloc(32 * sizeof(char));
+    struct tm *t ;
+    time_t tim ;
+    tim = time (NULL) ;
+    t = localtime (&tim) ;
+    sprintf (buf, "%02d:%02d", t->tm_hour, t->tm_min) ;
     return buf;
 }
 

@@ -27,11 +27,6 @@ typedef struct {
 SettingsFile* settings = NULL;
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@param c <#c description#>
-	@returns <#return value description#>
- */
 int isWhitespace(char c) {
 	if(c == ' ' || c == '\t' || c == '\r' || c == '\n') return 1;
 	else return 0;
@@ -39,11 +34,6 @@ int isWhitespace(char c) {
 
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@param str <#str description#>
-	@returns <#return value description#>
- */
 char* skipWhitespace(char* str) {
 	while(isWhitespace(*str) && *str != 0) str++;
 	return str;
@@ -52,11 +42,6 @@ char* skipWhitespace(char* str) {
 
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@param str <#str description#>
-	@returns <#return value description#>
- */
 char* trim(char* str) {
 	char* ptr;
 	str = skipWhitespace(str);
@@ -68,10 +53,6 @@ char* trim(char* str) {
 
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@param name <#name description#>
- */
 void addCategory(char* name) {
     settings->category = (SettingsCat*)realloc(settings->category, sizeof(SettingsCat) * (settings->cats + 1));
     settings->category[settings->cats].vals = 0;
@@ -82,12 +63,6 @@ settings->cats++;
 }
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@param current_cat <#current_cat description#>
-	@param key <#key description#>
-	@param value <#value description#>
- */
 void addValue(int current_cat, char* key, char* value) {
     // allocate memory for new key-value pair
     settings->category[current_cat].values = (SettingsSetting*)realloc(settings->category[current_cat].values,
@@ -100,11 +75,6 @@ void addValue(int current_cat, char* key, char* value) {
 
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@param file <#file description#>
-	@returns <#return value description#>
- */
 int Settings_Load(char* file) {
 	if(settings != NULL) Settings_Unload();
 	settings = (SettingsFile*)malloc(sizeof(SettingsFile));
@@ -166,10 +136,6 @@ int Settings_Load(char* file) {
 
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@returns <#return value description#>
- */
 int Settings_Unload() {
 	int cat, val;
 	for(cat = 0; cat < settings->cats; cat++) {
@@ -188,12 +154,6 @@ int Settings_Unload() {
 
 
 // ---------------------------------------------------------------------------
-/**
-	<#Description#>
-	@param category <#category description#>
-	@param key <#key description#>
-	@returns <#return value description#>
- */
 char* Settings_Get(char* category, char* key) {
 	int cat, val;
 	for(cat = 0; cat < settings->cats; cat++) {
@@ -211,13 +171,6 @@ char* Settings_Get(char* category, char* key) {
 
 
 // ---------------------------------------------------------------------------
-/**
-	Description
-	@param category <#category description#>
-	@param key <#key description#>
-	@param value <#value description#>
-	@returns <#return value description#>
- */
 int Settings_Add(char* category, char* key, char* value) {
     int cat, cat_found = -1;
     char *s_cat, *s_key, *s_val;
@@ -260,11 +213,6 @@ int Settings_Add(char* category, char* key, char* value) {
 
 
 // ---------------------------------------------------------------------------
-/**
-	Settings Save
-	@param file settings File
-	@returns exit code
- */
 int Settings_Save(char* file) {
 	int cat, val;
     FILE* f = fopen(file, "w");
