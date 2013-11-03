@@ -21,7 +21,17 @@ const uint8_t wifi40[] = { 0x00,0x00,0x00,0x00,0x08,0x08,0x0a,0x0a};
 const uint8_t wifi60[] = { 0x00,0x00,0x20,0x20,0x28,0x28,0x2a,0x2a};
 const uint8_t wifi80[] = { 0x80,0x80,0xa0,0xa0,0xa8,0xa8,0xaa,0xaa};
 
+// ---------------------------------------------------------------------------
+void displayFan(){
+	if (getFan()==1){
+		GLCDD_ClearEx(108, 0, 115, 8);
+		GLCDD_XBMDraw((uint8_t*)fanOn, 108, 0, 8, 8);
+	} else {
+		GLCDD_ClearEx(108, 0, 115, 8);
+		GLCDD_XBMDraw((uint8_t*)blank, 108, 0, 8, 8);
+	}
 
+}
 
 // ---------------------------------------------------------------------------
 void displayClient(){
@@ -101,7 +111,7 @@ int displayMain(){
 
 	
 	int lastTime=(int)time(NULL);
-	printf("Lasttime: %d", lastTime);
+	//printf("Lasttime: %d", lastTime);
 	updateDisplay = true;
 	
 	for(;;) {
@@ -133,14 +143,9 @@ int displayMain(){
 			
 			// Wifi and Client / Network
 			displayWifi(getWifiStrength());
-			
-			// Network
-			// GLCDD_ClearEx(12, 1, 19, 8);
-			// GLCDD_XBMDraw((uint8_t*)networkOn, 12, 1, 8, 8);
-			
+
 			// Fan
-			GLCDD_ClearEx(108, 0, 115, 8);
-			GLCDD_XBMDraw((uint8_t*)fanOn, 108, 0, 8, 8);
+			displayFan();
 			
 			// Light
 			GLCDD_ClearEx(118, 0, 125, 8);

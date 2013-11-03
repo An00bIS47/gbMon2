@@ -47,6 +47,7 @@
 		4C503344181DB41900E4C03F /* fnt_dejavu_9_b.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503340181DB41900E4C03F /* fnt_dejavu_9_b.c */; };
 		4C503345181DB41900E4C03F /* fnt_dejavu_9.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503341181DB41900E4C03F /* fnt_dejavu_9.c */; };
 		4C503346181DB41900E4C03F /* fnt_silkscreen_8.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */; };
+		4C7235E9182686E4009BE959 /* rc434.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C7235E8182686E4009BE959 /* rc434.c */; };
 		4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB134AE18210B2800A40AA0 /* lcddisplay.c */; };
 		4CB2B5C11825D47E0041F48A /* rcswitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */; };
 		4CB2B5C51825D5430041F48A /* rcswitchwrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5C31825D5430041F48A /* rcswitchwrapper.cpp */; };
@@ -369,6 +370,9 @@
 		4C503340181DB41900E4C03F /* fnt_dejavu_9_b.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_dejavu_9_b.c; path = fonts/fnt_dejavu_9_b.c; sourceTree = "<group>"; };
 		4C503341181DB41900E4C03F /* fnt_dejavu_9.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_dejavu_9.c; path = fonts/fnt_dejavu_9.c; sourceTree = "<group>"; };
 		4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_silkscreen_8.c; path = fonts/fnt_silkscreen_8.c; sourceTree = "<group>"; };
+		4C7235E71826742C009BE959 /* Makefile-NEW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Makefile-NEW"; sourceTree = "<group>"; };
+		4C7235E8182686E4009BE959 /* rc434.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc434.c; sourceTree = "<group>"; };
+		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
 		4C8A3C8A181C385F003D92B5 /* interruptTest.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = interruptTest.ino; path = interruptTest/interruptTest.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4C8BE022181A791500830529 /* screenTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = screenTest.c; path = gbMon2/tools/screenTest.c; sourceTree = "<group>"; };
 		4CB134AD18210AC700A40AA0 /* lcddisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcddisplay.h; sourceTree = "<group>"; };
@@ -926,6 +930,7 @@
 				4CF86C1818155ECF0094C040 /* Makefile */,
 				4CF86BE718155C500094C040 /* gbMon2.1 */,
 				4C19FF7B1822F83600584853 /* zlog.conf */,
+				4C7235E71826742C009BE959 /* Makefile-NEW */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1017,6 +1022,8 @@
 				4CF86C1D18156FBF0094C040 /* pinLayout.h */,
 				4CF86BE518155C500094C040 /* main.c */,
 				4CF86C1318155E360094C040 /* main.h */,
+				4C7235E8182686E4009BE959 /* rc434.c */,
+				4C7235EA182686EF009BE959 /* rc434.h */,
 				4CB134AE18210B2800A40AA0 /* lcddisplay.c */,
 				4CB134AD18210AC700A40AA0 /* lcddisplay.h */,
 				4C50333C181DABA800E4C03F /* lcd.h */,
@@ -1201,6 +1208,7 @@
 				4CF86BE618155C500094C040 /* main.c in Sources */,
 				4C503346181DB41900E4C03F /* fnt_silkscreen_8.c in Sources */,
 				4C0635F2181DF0D70010FF0E /* FontCreator.java in Sources */,
+				4C7235E9182686E4009BE959 /* rc434.c in Sources */,
 				4C19008D18234D9B00584853 /* AnalogClock.cpp in Sources */,
 				4C063600181DF0D70010FF0E /* FontCreatorTopToolBar.java in Sources */,
 			);

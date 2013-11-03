@@ -23,7 +23,7 @@
 #include "fonts.h"
 #include "lcddisplay.h"
 #include "dht22.h"
-#include "rcswitchwrapper.h"
+
 
 #define MAXTIMINGS 85
 #define DHTPIN 1
@@ -34,6 +34,7 @@
  */
 sem_t semaLockUpdate;						// Semaphore for Display Update
 sem_t semaLockInfo;							// Semaphore for Infos
+sem_t semaLockFan;							// Semaphore for Fan
 
 /*
  * Global Variables
@@ -44,6 +45,12 @@ char*   appNetworkInterface;
 int     appPort;
 bool	clientIsConnected;
 bool	updateDisplay;
+
+
+// Fan
+int	fanToggle;
+char*	fanSystemcode;
+int		fanUnitcode;
 
 struct	info current;
 
@@ -66,6 +73,8 @@ void setUpdateDisplay(bool value);
  *	Getter
  */
 bool getUpdateDisplay();
+char * getTemperature();
+char* getHumidity();
 
 /*
  *	Functions

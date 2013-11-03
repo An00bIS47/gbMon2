@@ -25,6 +25,14 @@ void debugPrintInfo(){
         debugPrint(true, true, buffer, true, "INFO");
         sprintf(buffer,"debugMode: \t\t %d", appDebugMode);
         debugPrint(true, true, buffer, true, "INFO");
+		
+		sprintf(buffer,"fanToggle: \t\t %d", fanToggle);
+        debugPrint(true, true, buffer, true, "INFO");
+		sprintf(buffer,"fanSystemcode: \t %s", fanSystemcode);
+        debugPrint(true, true, buffer, true, "INFO");
+		sprintf(buffer,"fanUnitcode: \t %d", fanUnitcode);
+        debugPrint(true, true, buffer, true, "INFO");
+		
     }
 }
 

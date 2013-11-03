@@ -22,7 +22,8 @@ int displayMain();
 void displaySettings();
 void displayWifi(int strength);
 void displayClient();
+void displayFan();
 
-bool shouldStop;
+
 
 #endif

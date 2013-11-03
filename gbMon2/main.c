@@ -17,76 +17,10 @@ pthread_t	pThreadSensors;				// Sensors Thread
 float		appVersion              =   0.1;
 bool		updateDisplay			=	false;
 
-
-
-/*
- * *************** INTO NEW FILE ******************
- */
-
-// In neue Datei auslagern!
-// Variable toggleFan über Semaphore zugreifen
-
-int setFan(bool on){
-	
-	
-	
-	if (on==true) {
-		sendRC(systemCode, unitCode, 1);		// Evtl Befehl 3x senden --> Settingsfile
-												// systemCode und unitCode aus Settingsfile lesen
-		toggleFan on --> Semaphore !!			// Semaphore fürs auslesen !!!
-	} else {
-		sendRC(systemCode, unitCode, 1);		// Evtl Befehl 3x senden --> Settingsfile
-												// systemCode und unitCode aus Settingsfile lesen
-		toggleFan off --> Semaphore !!			// Semaphore fürs auslesen !!!
-	}
-	
-	return 0;
-}
-
-int sendRC(char* systemCode, int unitCode, int command) {
-	
-    /*
-     output PIN is hardcoded for testing purposes
-     see https://projects.drogon.net/raspberry-pi/wiringpi/pins/
-     for pin mapping of the raspberry pi GPIO connector
-     */
-    int PIN = 2;					// PIN 2 (wiringPi)
-    //char* systemCode = argv[1];
-    //int unitCode = atoi(argv[2]);
-    //int command  = atoi(argv[3]);
-    
-    //if (wiringPiSetup () == -1) return 1;
-	printf("sending systemCode[%s] unitCode[%i] command[%i]\n", systemCode, unitCode, command);
-    
-	struct RCSwitch* rcs = newRCSwitch();
-    RCSwitch_enableTransmit(rcs, PIN);
-    //printf("%i\n", MyClass_int_get(c));
-
-	switch(command) {
-        case 1:
-            RCSwitch_switchOn(rcs, systemCode, unitCode);
-			deleteRCSwitch(rcs);
-            break;
-        case 0:
-            RCSwitch_switchOff(rcs, systemCode, unitCode);
-			deleteRCSwitch(rcs);
-            break;
-        default:
-            printf("command[%i] is unsupported\n", command);
-			deleteRCSwitch(rcs);
-            return -1;
-    }
-	printf("Done!\n");
-	return 0;
-	
-}
-
-
-
-
-/*
- * *************** END INTO NEW FILE ******************
- */
+// Fan
+int		fanToggle				=	0;
+char*		fanSystemcode			=	"10001";
+int			fanUnitcode				=	1;
 
 void setUpdateDisplay(bool value){
 	sem_wait(&semaLockUpdate);       // down semaphore
@@ -101,6 +35,22 @@ bool getUpdateDisplay(){
 	result = updateDisplay;
 	sem_post(&semaLockUpdate);       // up semaphore
 	return result;
+}
+
+char* getHumidity(){
+	char *buf = (char *) malloc(5 * sizeof(char));
+	sem_wait(&semaLockInfo);       // down semaphore
+	sprintf (buf, "%.1f", current.humidity) ;
+	sem_post(&semaLockInfo);       // up semaphore
+	return buf;
+}
+
+char* getTemperature(){
+	char *buf = (char *) malloc(5 * sizeof(char));
+	sem_wait(&semaLockInfo);       // down semaphore
+	sprintf (buf, "%.1f", current.temperature[0]) ;
+	sem_post(&semaLockInfo);       // up semaphore
+	return buf;
 }
 
 void initCurrentInfo(){
@@ -131,6 +81,7 @@ void  INThandler(int sig) {
 	
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
+	sem_destroy(&semaLockFan); // destroy semaphore
 	/*
 	sem_destroy(&semaLockSpiSendCommand); // destroy semaphore
 	sem_destroy(&semaLockSpiProcess); // destroy semaphore
@@ -178,10 +129,16 @@ int main(int argc, char * argv[]) {
     }
     
     // Load Settings
-    appNetworkInterface = Settings_Get("general", "network");
+    
+	
+	appNetworkInterface = Settings_Get("general", "network");
     appPort = atoi(Settings_Get("general", "port"));
     appDebugMode = atoi(Settings_Get("general", "debugMode"));
-    debugPrint(true, true, "Loading Settings ...", false, "MAIN");
+	fanToggle=atoi(Settings_Get("fan", "toggle"));
+	fanSystemcode=Settings_Get("fan", "systemcode");
+	fanUnitcode=atoi(Settings_Get("fan", "unitcode"));
+	
+	debugPrint(true, true, "Loading Settings ...", false, "MAIN");
     debugPrint(false, false, "OK", true, "MAIN");
 
     // Print Debug Infos
@@ -191,7 +148,7 @@ int main(int argc, char * argv[]) {
 	// Init Semaphores
 	sem_init(&semaLockUpdate, 1, 1);		// initialize mutex to 1 - binary semaphore
 	sem_init(&semaLockInfo, 1, 1);			// initialize mutex to 1 - binary semaphore
-	
+	sem_init(&semaLockFan, 1, 1);			// initialize mutex to 1 - binary semaphore
 	
     // second param = 0 - semaphore is local
 	/*
@@ -238,6 +195,7 @@ int main(int argc, char * argv[]) {
 	
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
+	sem_destroy(&semaLockFan); // destroy semaphore
 	/*
 	sem_destroy(&semaLockSpiSendCommand); // destroy semaphore
 	sem_destroy(&semaLockSpiProcess); // destroy semaphore

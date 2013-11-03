@@ -31,27 +31,62 @@ void *connectionHandler(void *socket_desc) {
         //end of string marker
         sprintf(buffer,"Received Command: *%s*", client_message);
         debugPrint(true, true, buffer, true, "SERVER");
+		
+		// usage
         if(strcmp(client_message, "usage") == 0) {
             debugPrint(true, false, "usage", false,"");
-            write(sock,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\0",300);
+            write(sock,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n\n setFan \t- toggle fan On or Off\0",400);
         }
+		
+		// getServerTime
         if(strcmp(client_message, "getServerTime") == 0) {
             sprintf(buffer,"Sending Response: *%s*", getTime());
             debugPrint(true, true, buffer, true, "SERVER");
             write(sock,getTime(),30);
         }
+		
+		// getVersion
         if(strcmp(client_message, "getVersion") == 0) {
             sprintf(buffer,"Sending Response: *%s*", getVersion());
             debugPrint(true, true, buffer, true, "SERVER");
             write(sock,getVersion(),3);
-			//setSPICommand("getVersion\n");
         }
+		
+		// getWifiStrength
 		if(strcmp(client_message, "getWifiStrength") == 0) {
             sprintf(buffer,"Sending Response: *%d*", getWifiStrength());
             debugPrint(true, true, buffer, true, "SERVER");
             write(sock,getWifiStrength(),3);
-			//setSPICommand("getVersion\n");
         }
+		
+		// getTemperature
+		if(strcmp(client_message, "getTemperature") == 0) {
+            sprintf(buffer,"Sending Response: *%s*", getTemperature());
+            debugPrint(true, true, buffer, true, "SERVER");
+            write(sock,getTemperature(),4);
+        }
+		
+		// getHumidity
+		if(strcmp(client_message, "getHumidity") == 0) {
+            sprintf(buffer,"Sending Response: *%s*", getHumidity());
+            debugPrint(true, true, buffer, true, "SERVER");
+            write(sock,getHumidity(),4);
+        }
+		
+		// getFan
+		if(strcmp(client_message, "getFan") == 0) {
+			sprintf(buffer,"Sending Response: *%s*", getFanAsString());
+            debugPrint(true, true, buffer, true, "SERVER");
+			write(sock,getFanAsString(),2);
+        }
+		
+		// setFan
+		if(strcmp(client_message, "setFan") == 0) {
+            sprintf(buffer,"Sending Response: *%d*", setFan());
+            debugPrint(true, true, buffer, true, "SERVER");
+            write(sock,getFanAsString(),2);
+        }
+		
         /*
          if(strcmp(client_message, "getHumidity") == 0) {
          printf(">>> getHumidity \n");

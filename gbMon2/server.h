@@ -21,7 +21,7 @@
 #include <stdbool.h>
 
 #include "main.h"
-
+#include "rc434.h"
 
 void *connectionHandler(void *socket_desc);
 int serverMain(int portno);

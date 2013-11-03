@@ -1,0 +1,78 @@
+#
+#  Makefile
+#  gbmon2
+#
+#  Created by michael on 27.10.13.
+#  Copyright (c) 2013 michael. All rights reserved.
+# 
+#  Muss an RCSwitch angepasst werden --> g++ compilieren
+#  --> main + rcswitch + rcswitchwrapper mit g++ evtl fan lib?
+#
+
+TARGET		= gbMon2
+CC			= gcc
+CFLAGS		= -g -Wall -O3
+LDFLAGS		= -lwiringPi -lpthread -lrt
+
+#OBJS		= debug.o helpers.o server.o settings.o main.o lcddisplay.o lcd.o dht22.o fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o fonts/fnt_spaceLex_12.o fonts/fnt_spaceLex_8b.o fonts/fnt_spaceLex_5.o rcswitchwrapper.o rcswitch.o
+
+
+help:
+			@ echo "The following make targets are available"
+			@ echo " help	- print this message"
+			@ echo " all	- make everything"
+			@ echo " clean	- remove any temporary files"
+			@ echo " "
+			@ echo " + Make choice for tools here too!!!"
+			@ echo " + EyeCandy with Echo like this help !!"
+
+all:		rcswitch.o rcswitchwrapper.o helpers.o debug.o settings.o server.o main.o lcd.o lcddisplay.o dht22.o gbMon2
+
+gbMon2 :
+			g++ debug.o helpers.o server.o settings.o main.o lcddisplay.o lcd.o dht22.o fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o fonts/fnt_spaceLex_12.o fonts/fnt_spaceLex_8b.o fonts/fnt_spaceLex_5.o rcswitchwrapper.o rcswitch.o $(LDFLAGS) -o $(TARGET)
+
+main.o : main.c
+			$(CC) main.c $(CFLAGS) -o main.o $(LDFLAGS)
+			
+rcswitch.o : rcswitch.cpp
+			g++ -c rcswitch.cpp -o rcswitch.o $(LDFLAGS)
+
+rcswitchwrapper.o : rcswitchwrapper.cpp
+			g++ -c rcswitchwrapper.cpp -o rcswitchwrapper.o $(LDFLAGS)
+
+dht22.o : dht22.c
+			$(CC) dht22.c $(CFLAGS) -o dht22.o $(LDFLAGS)
+
+lcd.o : lcd.c
+			$(CC) lcd.c $(CFLAGS) -o lcd.o $(LDFLAGS)
+
+lcddisplay.o : lcddisplay.c
+			$(CC) lcddisplay.c $(CFLAGS) -o lcddisplay.o $(LDFLAGS)
+
+settings.o : settings.c
+			$(CC) settings.c $(CFLAGS) -o settings.o $(LDFLAGS)
+
+server.o : server.c
+			$(CC) server.c $(CFLAGS) -o server.o $(LDFLAGS)
+
+debug.o : debug.c
+			$(CC) debug.c $(CFLAGS) -o debug.o $(LDFLAGS)
+
+helpers.o : helpers.c
+			$(CC) helpers.c $(CFLAGS) -o helpers.o $(LDFLAGS)
+			
+
+
+#
+# EyeCandy
+#
+info-debug:
+			@ echo "==============================================================================================="
+			@ echo " Compiling Debug"
+			@ echo "==============================================================================================="
+
+
+info-fonts:
+			@ echo "==============================================================================================="
+			@ echo " Compiling Fonts"
+			@ echo "==============================================================================================="

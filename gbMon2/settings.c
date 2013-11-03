@@ -127,7 +127,7 @@ int Settings_Load(char* file) {
 			strcpy(value, ptr);
 			value = trim(value);
             addValue(current_cat, key, value);
-            //printf(" -> %s: %s\r\n", key, value);
+            printf(" -> %s: %s\r\n", key, value);
 		}
 	}
 	fclose(f);
