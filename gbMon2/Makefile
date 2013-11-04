@@ -11,14 +11,14 @@
 TARGET		= gbMon2
 CC			= gcc
 CFLAGS		= -g -Wall -O3
-LDFLAGS		= -lwiringPi -lpthread -lrt
+LDFLAGS		= -lwiringPi -lpthread -lrt -lrrd
 #SHELL		= bash
 
 OBJDIR		= obj
 
 SRCS		:= $(wildcard *.c)
 
-OBJS		= debug.o helpers.o server.o settings.o main.o lcddisplay.o lcd.o dht22.o fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o fonts/fnt_spaceLex_12.o fonts/fnt_spaceLex_8b.o fonts/fnt_spaceLex_5.o rcswitchwrapper.o rcswitch.o rc434.o
+OBJS		= debug.o helpers.o server.o settings.o main.o lcddisplay.o lcd.o dht22.o fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o fonts/fnt_spaceLex_12.o fonts/fnt_spaceLex_8b.o fonts/fnt_spaceLex_5.o rcswitchwrapper.o rcswitch.o rc434.o rrdtool.o
 
 
 #OBJS		:= $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))

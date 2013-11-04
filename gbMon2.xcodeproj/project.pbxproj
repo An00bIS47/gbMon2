@@ -48,6 +48,7 @@
 		4C503345181DB41900E4C03F /* fnt_dejavu_9.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503341181DB41900E4C03F /* fnt_dejavu_9.c */; };
 		4C503346181DB41900E4C03F /* fnt_silkscreen_8.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */; };
 		4C7235E9182686E4009BE959 /* rc434.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C7235E8182686E4009BE959 /* rc434.c */; };
+		4C94B0B71827C5C2009F8EAF /* rrdtool.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B0B61827C5C2009F8EAF /* rrdtool.c */; };
 		4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB134AE18210B2800A40AA0 /* lcddisplay.c */; };
 		4CB2B5C11825D47E0041F48A /* rcswitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */; };
 		4CB2B5C51825D5430041F48A /* rcswitchwrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5C31825D5430041F48A /* rcswitchwrapper.cpp */; };
@@ -375,6 +376,9 @@
 		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
 		4C8A3C8A181C385F003D92B5 /* interruptTest.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = interruptTest.ino; path = interruptTest/interruptTest.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4C8BE022181A791500830529 /* screenTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = screenTest.c; path = gbMon2/tools/screenTest.c; sourceTree = "<group>"; };
+		4C94B0B61827C5C2009F8EAF /* rrdtool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rrdtool.c; sourceTree = "<group>"; };
+		4C94B0B81827C6AC009F8EAF /* rrdtool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rrdtool.h; sourceTree = "<group>"; };
+		4C94B0B91827CA3A009F8EAF /* GLCD_Documentation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = GLCD_Documentation.pdf; sourceTree = "<group>"; };
 		4CB134AD18210AC700A40AA0 /* lcddisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcddisplay.h; sourceTree = "<group>"; };
 		4CB134AE18210B2800A40AA0 /* lcddisplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lcddisplay.c; sourceTree = "<group>"; };
 		4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rcswitch.cpp; sourceTree = "<group>"; };
@@ -938,6 +942,7 @@
 		4C4BBE0B1825E38500723999 /* Layouts & Product Sheets */ = {
 			isa = PBXGroup;
 			children = (
+				4C94B0B91827CA3A009F8EAF /* GLCD_Documentation.pdf */,
 				4C4BBE0C1825E3A600723999 /* Arduino_uno_Pinout.pdf */,
 				4C4BBE0D1825E3A600723999 /* ks108_goldentek_GG_1206H0.pdf */,
 				4C4BBE0E1825E3A600723999 /* LCD-Modul_GOLDENTEK_GG-1206H0.pdf */,
@@ -1030,6 +1035,8 @@
 				4C50333D181DAC0800E4C03F /* lcd.c */,
 				4C19FF7C18230BAD00584853 /* dht22.c */,
 				4C19FF7E18230BB500584853 /* dht22.h */,
+				4C94B0B61827C5C2009F8EAF /* rrdtool.c */,
+				4C94B0B81827C6AC009F8EAF /* rrdtool.h */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";
@@ -1188,6 +1195,7 @@
 				4C19FF7A1822F67500584853 /* zlogTest.c in Sources */,
 				4CB2B5C51825D5430041F48A /* rcswitchwrapper.cpp in Sources */,
 				4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */,
+				4C94B0B71827C5C2009F8EAF /* rrdtool.c in Sources */,
 				4CF86C1018155DFB0094C040 /* client.c in Sources */,
 				4C063604181DF0D70010FF0E /* ImageTransferHandler.java in Sources */,
 				4C0635FC181DF0D70010FF0E /* ColorTableModel.java in Sources */,

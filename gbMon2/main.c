@@ -9,10 +9,11 @@
 
 #include "main.h"
 
-pthread_t	tid[3];
+pthread_t	tid[4];
 pthread_t	pThreadServer;				// Network Server Thread
 pthread_t	pThreadDisplay;				// SPI Send Command to ATmega / Arduino
 pthread_t	pThreadSensors;				// Sensors Thread
+pthread_t	pThreadRRD;					// RRD Thread
 
 float		appVersion              =   0.1;
 bool		updateDisplay			=	false;
@@ -171,17 +172,25 @@ int main(int argc, char * argv[]) {
 	
 	debugPrint(false, false, "OK", true, "MAIN");
 	
+	debugPrint(true, true, "Setting Up Database ...", false, "MAIN");
+	createDBs();
+	debugPrint(false, false, "OK", true, "MAIN");
 	
     // Starting Server Thread
-    debugPrint(true, true, "Starting Network-Server ...", false, "MAIN");
+    debugPrint(true, true, "Starting Network-Server ...", true, "MAIN");
     pthread_create (&pThreadServer, NULL, serverMain, 1000);
-    debugPrint(false, false, "OK", true, "MAIN");
+    //debugPrint(false, false, "OK", true, "MAIN");
 
 	// Starting Display Thread
-    debugPrint(true, true, "Starting Display ...", false, "MAIN");
+    debugPrint(true, true, "Starting Display ...", true, "MAIN");
     pthread_create (&pThreadDisplay, NULL, displayMain, NULL);
-    debugPrint(false, false, "OK", true, "MAIN");
-
+    //debugPrint(false, false, "OK", true, "MAIN");
+	
+	// Starting RRD Thread
+    debugPrint(true, true, "Starting Database Thread ...", false, "MAIN");
+    pthread_create (&pThreadRRD, NULL, mainRRD(), NULL);
+    //debugPrint(false, false, "OK", true, "MAIN");
+	
 	
     for (;;) {
 		int res = read_dht22_dat();

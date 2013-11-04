@@ -23,6 +23,7 @@
 #include "fonts.h"
 #include "lcddisplay.h"
 #include "dht22.h"
+#include "rrdtool.h"
 
 
 #define MAXTIMINGS 85

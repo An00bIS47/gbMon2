@@ -113,7 +113,7 @@ int displayMain(){
 	int lastTime=(int)time(NULL);
 	//printf("Lasttime: %d", lastTime);
 	updateDisplay = true;
-	
+	debugPrint(true, true, "Display Thread started", true, "LCDDISPLAY");
 	for(;;) {
 		
 		if (lastTime + 60 <= ((int)time(NULL)) ) {

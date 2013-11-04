@@ -9,6 +9,13 @@
 #include "server.h"
 
 
+void freeBuffer(char* buffer){
+	int i;
+	for (i=0; i< sizeof(buffer); i++){
+		buffer[i]='\0';
+	}
+}
+
 /*
  * The Connection Handler for each client
  *********************************************************************************
@@ -17,7 +24,8 @@ void *connectionHandler(void *socket_desc) {
     //Get the socket descriptor
     int sock = *(int*)socket_desc;
     int read_size;
-    char *buffer[255];
+	int buffersize = 255;
+    
     char * client_message[2000];
 	
 	clientIsConnected = true;
@@ -29,11 +37,14 @@ void *connectionHandler(void *socket_desc) {
     //Receive a message from client
     while( (read_size = recv(sock , client_message , 2000 , 0)) > 0 ){
         //end of string marker
+		
+		char * buffer = (char*)malloc(buffersize);
+		
         sprintf(buffer,"Received Command: *%s*", client_message);
         debugPrint(true, true, buffer, true, "SERVER");
 		
 		// usage
-        if(strcmp(client_message, "usage") == 0) {
+        if((strcmp(client_message, "usage") == 0) || (strcmp(client_message, "help") == 0)){
             debugPrint(true, false, "usage", false,"");
             write(sock,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n\n setFan \t- toggle fan On or Off\0",400);
         }
@@ -43,6 +54,7 @@ void *connectionHandler(void *socket_desc) {
             sprintf(buffer,"Sending Response: *%s*", getTime());
             debugPrint(true, true, buffer, true, "SERVER");
             write(sock,getTime(),30);
+			
         }
 		
 		// getVersion
@@ -145,6 +157,8 @@ void *connectionHandler(void *socket_desc) {
         //Send the message back to client
         //write(sock , client_message , strlen(client_message));
         //clear the message buffer
+		
+		free(buffer);
         read_size=1;
         memset(client_message, 0, 2000);
     }
@@ -166,6 +180,8 @@ int serverMain(int portno){
     int socket_desc , client_sock , c;
     struct sockaddr_in server , client;
 	clientIsConnected = false;
+	
+	debugPrint(true, true, "Server Thread started", true, "SERVER");
 	
     debugPrint(true, true, "Creating Socket ...", false, "SERVER");
     //Create socket
