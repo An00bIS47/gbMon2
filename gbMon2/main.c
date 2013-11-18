@@ -78,6 +78,7 @@ void  INThandler(int sig) {
     signal(sig, SIG_IGN);
     pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
+	pthread_join (pThreadRRD, NULL);
 	
 	
 	sem_destroy(&semaLockUpdate); // destroy semaphore
@@ -200,7 +201,7 @@ int main(int argc, char * argv[]) {
     // Join Threads
     pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
-	
+	pthread_join (pThreadRRD, NULL);
 	
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
