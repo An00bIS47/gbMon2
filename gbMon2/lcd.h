@@ -25,8 +25,8 @@
 #define REPEAT 1
 #define DATAPIN 0
 #define CLKPIN 7
-//#define DELAYTIME 35
-#define DELAYTIME 20
+#define DELAYTIME 35
+//#define DELAYTIME 20
 
 void sendByte(unsigned char b);
 

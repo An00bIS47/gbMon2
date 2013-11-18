@@ -1,25 +1,29 @@
 //
-//  interruptTest.ino
+//  lcdBridge.ino
 //  gbMon2
 //
 //  Created by michael on 25.10.13.
 //  Copyright (c) 2013 michael. All rights reserved.
 //
+//  18.11.13 - commented out Serial.print
+//
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <glcd.h>
 
-#include "fonts/allFonts.h"         // system and arial14 fonts are used
-#include "bitmaps/allBitmaps.h"       // all images in the bitmap dir
+#include "fonts/allFonts.h"				// system and arial14 fonts are used
+#include "bitmaps/allBitmaps.h"			// all images in the bitmap dir
 
 #define BUFFERSIZE 1024
 
-int pbIn = 0;                  // Interrupt 0 is on DIGITAL PIN 2!
-int PINDATA = 3;                // DATA Pin - DIGITAL PIN 3
+int pbIn = 0;							// Interrupt 0 is on DIGITAL PIN 2!
+int PINDATA = 3;						// DATA Pin - DIGITAL PIN 3
 int counter;
 
-volatile int state = LOW;      // The input state toggle
+volatile int state = LOW;				// The input state toggle
 uint8_t ringbuffer[BUFFERSIZE];
 
 char bits[8];
@@ -106,26 +110,26 @@ int fromBinary(char *s) {
 }
 
 void setup() {
-    Serial.begin(115200);
-    Serial.print ("Starting gbMon2 lcdBridge...\n");
+    //Serial.begin(115200);
+    //Serial.print ("Starting gbMon2 lcdBridge...\n");
 	
-	Serial.print ("Setting PINS ...");
+	//Serial.print ("Setting PINS ...");
     // Set up the digital pin 2 to an Interrupt and Pin 4 to an Output
     pinMode(PINDATA, INPUT);
-	Serial.print ("OK\n");
+	//Serial.print ("OK\n");
 	
-    Serial.print ("Initialising gLCD ...");
+    //Serial.print ("Initialising gLCD ...");
     GLCD.Init();   // initialise the library, non inverted writes pixels onto a clear screen
-	Serial.print ("OK\n");
+	//Serial.print ("OK\n");
 	
     bytesReceived = 0;
     counter=0;
 	bitsCounter=0;
 	curPos=0;
 	
-	Serial.print ("Display IntroScreen ...");
+	//Serial.print ("Display IntroScreen ...");
     introScreen();
-	Serial.print ("OK\n");
+	//Serial.print ("OK\n");
 	GLCD.ClearScreen();
 	
     //Attach the interrupt to the input pin and monitor for ANY Change
@@ -158,8 +162,8 @@ void loop(){
 			uint8_t x=0;
 			uint8_t y=0;
 			GLCD.DrawArray(ringbuffer);
-            Serial.println("Transmission complete!");
-            Serial.println("Received all 1024 Bytes");
+            //Serial.println("Transmission complete!");
+            //Serial.println("Received all 1024 Bytes");
             bytesReceived=0;
 			counter=0;
         }
