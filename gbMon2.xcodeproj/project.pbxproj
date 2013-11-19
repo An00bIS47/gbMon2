@@ -363,6 +363,7 @@
 		4C4BBE0C1825E3A600723999 /* Arduino_uno_Pinout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Arduino_uno_Pinout.pdf; sourceTree = "<group>"; };
 		4C4BBE0D1825E3A600723999 /* ks108_goldentek_GG_1206H0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ks108_goldentek_GG_1206H0.pdf; sourceTree = "<group>"; };
 		4C4BBE0E1825E3A600723999 /* LCD-Modul_GOLDENTEK_GG-1206H0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "LCD-Modul_GOLDENTEK_GG-1206H0.pdf"; sourceTree = "<group>"; };
+		4C4BF69E183B970D0035FF4F /* Debugger.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Debugger.ino; path = Debugger/Debugger.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4C503339181D663D00E4C03F /* convert.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = convert.sh; sourceTree = "<group>"; };
 		4C50333B181DA9C500E4C03F /* fonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fonts.h; sourceTree = "<group>"; };
 		4C50333C181DABA800E4C03F /* lcd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcd.h; sourceTree = "<group>"; };
@@ -371,10 +372,10 @@
 		4C503340181DB41900E4C03F /* fnt_dejavu_9_b.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_dejavu_9_b.c; path = fonts/fnt_dejavu_9_b.c; sourceTree = "<group>"; };
 		4C503341181DB41900E4C03F /* fnt_dejavu_9.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_dejavu_9.c; path = fonts/fnt_dejavu_9.c; sourceTree = "<group>"; };
 		4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_silkscreen_8.c; path = fonts/fnt_silkscreen_8.c; sourceTree = "<group>"; };
+		4C63C8E2183C06CC005B0638 /* Raspberry Pi 1- Wire Digital Thermometer Sensor.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Raspberry Pi 1- Wire Digital Thermometer Sensor.pdf"; sourceTree = "<group>"; };
 		4C7235E71826742C009BE959 /* Makefile-NEW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Makefile-NEW"; sourceTree = "<group>"; };
 		4C7235E8182686E4009BE959 /* rc434.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc434.c; sourceTree = "<group>"; };
 		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
-		4C8A3C8A181C385F003D92B5 /* interruptTest.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = interruptTest.ino; path = interruptTest/interruptTest.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4C8BE022181A791500830529 /* screenTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = screenTest.c; path = gbMon2/tools/screenTest.c; sourceTree = "<group>"; };
 		4C94B0B61827C5C2009F8EAF /* rrdtool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rrdtool.c; sourceTree = "<group>"; };
 		4C94B0B81827C6AC009F8EAF /* rrdtool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rrdtool.h; sourceTree = "<group>"; };
@@ -392,6 +393,8 @@
 		4CDCA23A1821675300D8DA67 /* fnt_spaceLex_12.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_12.c; path = fonts/fnt_spaceLex_12.c; sourceTree = "<group>"; };
 		4CDCA23B1821675300D8DA67 /* fnt_spaceLex_5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_5.c; path = fonts/fnt_spaceLex_5.c; sourceTree = "<group>"; };
 		4CDCA2421821A8BC00D8DA67 /* fnt_spaceLex_8b.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_8b.c; path = fonts/fnt_spaceLex_8b.c; sourceTree = "<group>"; };
+		4CE015C8183B89F0001E12DB /* ArduinoISP2_Ladyada.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArduinoISP2_Ladyada.ino; sourceTree = "<group>"; };
+		4CE015CA183B8B0F001E12DB /* ioBridge.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ioBridge.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		4CF86BE218155C500094C040 /* gbMon2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gbMon2; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF86BE518155C500094C040 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		4CF86BE718155C500094C040 /* gbMon2.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = gbMon2.1; sourceTree = "<group>"; };
@@ -942,6 +945,7 @@
 		4C4BBE0B1825E38500723999 /* Layouts & Product Sheets */ = {
 			isa = PBXGroup;
 			children = (
+				4C63C8E2183C06CC005B0638 /* Raspberry Pi 1- Wire Digital Thermometer Sensor.pdf */,
 				4C94B0B91827CA3A009F8EAF /* GLCD_Documentation.pdf */,
 				4C4BBE0C1825E3A600723999 /* Arduino_uno_Pinout.pdf */,
 				4C4BBE0D1825E3A600723999 /* ks108_goldentek_GG_1206H0.pdf */,
@@ -950,6 +954,14 @@
 				4C4BBE0A1825E12200723999 /* RaspberryPi Pin Layout.pdf */,
 			);
 			name = "Layouts & Product Sheets";
+			sourceTree = "<group>";
+		};
+		4C4BF69D183B96F30035FF4F /* Debugger */ = {
+			isa = PBXGroup;
+			children = (
+				4C4BF69E183B970D0035FF4F /* Debugger.ino */,
+			);
+			name = Debugger;
 			sourceTree = "<group>";
 		};
 		4C50333A181DA9B200E4C03F /* fonts */ = {
@@ -968,14 +980,6 @@
 			name = fonts;
 			sourceTree = "<group>";
 		};
-		4C8A3C87181C3795003D92B5 /* interruptTest */ = {
-			isa = PBXGroup;
-			children = (
-				4C8A3C8A181C385F003D92B5 /* interruptTest.ino */,
-			);
-			name = interruptTest;
-			sourceTree = "<group>";
-		};
 		4CB2B5C21825D4FF0041F48A /* RCSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -985,6 +989,22 @@
 				4CB2B5C01825D47E0041F48A /* rcswitch.h */,
 			);
 			name = RCSwitch;
+			sourceTree = "<group>";
+		};
+		4CE015C7183B89F0001E12DB /* ArduinoISP2_Ladyada */ = {
+			isa = PBXGroup;
+			children = (
+				4CE015C8183B89F0001E12DB /* ArduinoISP2_Ladyada.ino */,
+			);
+			path = ArduinoISP2_Ladyada;
+			sourceTree = "<group>";
+		};
+		4CE015C9183B8B0F001E12DB /* ioBridge */ = {
+			isa = PBXGroup;
+			children = (
+				4CE015CA183B8B0F001E12DB /* ioBridge.ino */,
+			);
+			path = ioBridge;
 			sourceTree = "<group>";
 		};
 		4CF86BD918155C500094C040 = {
@@ -1044,7 +1064,9 @@
 		4CF86BF918155DFB0094C040 /* firmware */ = {
 			isa = PBXGroup;
 			children = (
-				4C8A3C87181C3795003D92B5 /* interruptTest */,
+				4C4BF69D183B96F30035FF4F /* Debugger */,
+				4CE015C9183B8B0F001E12DB /* ioBridge */,
+				4CE015C7183B89F0001E12DB /* ArduinoISP2_Ladyada */,
 				4C0B07D61816F93F00EE9D1D /* logic_analyzer */,
 				4CF86BFA18155DFB0094C040 /* lcdBridge */,
 			);

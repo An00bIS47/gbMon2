@@ -109,26 +109,26 @@ int fromBinary(char *s) {
 }
 
 void setup() {
-    //Serial.begin(115200);
-    //Serial.print ("Starting gbMon2 lcdBridge...\n");
+    Serial.begin(57600);
+    Serial.print ("Starting gbMon2 lcdBridge...\n");
 	
-	//Serial.print ("Setting PINS ...");
+	Serial.print ("Setting PINS ...");
     // Set up the digital pin 2 to an Interrupt and Pin 4 to an Output
     pinMode(PINDATA, INPUT);
-	//Serial.print ("OK\n");
+	Serial.print ("OK\n");
 	
-    //Serial.print ("Initialising gLCD ...");
+    Serial.print ("Initialising gLCD ...");
     GLCD.Init();   // initialise the library, non inverted writes pixels onto a clear screen
-	//Serial.print ("OK\n");
+	Serial.print ("OK\n");
 	
     bytesReceived = 0;
     counter=0;
 	bitsCounter=0;
 	curPos=0;
 	
-	//Serial.print ("Display IntroScreen ...");
+	Serial.print ("Display IntroScreen ...");
     introScreen();
-	//Serial.print ("OK\n");
+	Serial.print ("OK\n");
 	GLCD.ClearScreen();
 	
     //Attach the interrupt to the input pin and monitor for ANY Change
@@ -161,8 +161,8 @@ void loop(){
 			uint8_t x=0;
 			uint8_t y=0;
 			GLCD.DrawArray(ringbuffer);
-            //Serial.println("Transmission complete!");
-            //Serial.println("Received all 1024 Bytes");
+            Serial.println("Transmission complete!");
+            Serial.println("Received all 1024 Bytes");
             bytesReceived=0;
 			counter=0;
         }
