@@ -5,7 +5,6 @@
 //  Created by michael on 25.10.13.
 //  Copyright (c) 2013 michael. All rights reserved.
 //
-//  18.11.13 - commented out Serial.print
 //
 
 #include <stdio.h>
