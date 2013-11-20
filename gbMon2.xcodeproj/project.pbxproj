@@ -373,6 +373,9 @@
 		4C503341181DB41900E4C03F /* fnt_dejavu_9.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_dejavu_9.c; path = fonts/fnt_dejavu_9.c; sourceTree = "<group>"; };
 		4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_silkscreen_8.c; path = fonts/fnt_silkscreen_8.c; sourceTree = "<group>"; };
 		4C63C8E2183C06CC005B0638 /* Raspberry Pi 1- Wire Digital Thermometer Sensor.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Raspberry Pi 1- Wire Digital Thermometer Sensor.pdf"; sourceTree = "<group>"; };
+		4C63C8E4183C112A005B0638 /* ArduinoISP2-Ladyada.fzz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArduinoISP2-Ladyada.fzz"; sourceTree = "<group>"; };
+		4C63C8E5183C112A005B0638 /* Debugger.fzz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Debugger.fzz; sourceTree = "<group>"; };
+		4C63C8E6183C112A005B0638 /* gbMon2.fzz */ = {isa = PBXFileReference; lastKnownFileType = file; path = gbMon2.fzz; sourceTree = "<group>"; };
 		4C7235E71826742C009BE959 /* Makefile-NEW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Makefile-NEW"; sourceTree = "<group>"; };
 		4C7235E8182686E4009BE959 /* rc434.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc434.c; sourceTree = "<group>"; };
 		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
@@ -980,6 +983,16 @@
 			name = fonts;
 			sourceTree = "<group>";
 		};
+		4C63C8E3183C112A005B0638 /* fritzing */ = {
+			isa = PBXGroup;
+			children = (
+				4C63C8E4183C112A005B0638 /* ArduinoISP2-Ladyada.fzz */,
+				4C63C8E5183C112A005B0638 /* Debugger.fzz */,
+				4C63C8E6183C112A005B0638 /* gbMon2.fzz */,
+			);
+			path = fritzing;
+			sourceTree = "<group>";
+		};
 		4CB2B5C21825D4FF0041F48A /* RCSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,6 +1128,7 @@
 		4CF86C0318155DFB0094C040 /* various */ = {
 			isa = PBXGroup;
 			children = (
+				4C63C8E3183C112A005B0638 /* fritzing */,
 				4C4BBE0B1825E38500723999 /* Layouts & Product Sheets */,
 				4C19FF8018234D9A00584853 /* glcd */,
 				4C0635B9181DF0D70010FF0E /* GLCDFontCreator2 */,

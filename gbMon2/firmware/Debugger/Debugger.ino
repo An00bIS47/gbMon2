@@ -11,8 +11,8 @@
  *	Receives from software serial, sends to hardware serial.
  *
  *	The circuit:
- *	RX is digital pin 8 (connect to TX of other device)
- *	TX is digital pin 9 (connect to RX of other device)
+ *	RX is digital pin 2 (connect to TX of other device)
+ *	TX is digital pin 3 (connect to RX of other device)
  */
 
 #include <SoftwareSerial.h>
