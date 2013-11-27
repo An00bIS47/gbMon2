@@ -53,6 +53,7 @@
 		4CB2B5C11825D47E0041F48A /* rcswitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */; };
 		4CB2B5C51825D5430041F48A /* rcswitchwrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5C31825D5430041F48A /* rcswitchwrapper.cpp */; };
 		4CB2B5C71825D5AC0041F48A /* sendRC.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5C61825D5AC0041F48A /* sendRC.c */; };
+		4CB8AF0F18468E3C00E74775 /* ds18b20.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8AF0E18468E3C00E74775 /* ds18b20.c */; };
 		4CDCA23C1821675300D8DA67 /* fnt_spaceLex_8.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCA2381821675300D8DA67 /* fnt_spaceLex_8.c */; };
 		4CDCA23D1821675300D8DA67 /* fnt_spaceLex_26.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCA2391821675300D8DA67 /* fnt_spaceLex_26.c */; };
 		4CDCA23E1821675300D8DA67 /* fnt_spaceLex_12.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCA23A1821675300D8DA67 /* fnt_spaceLex_12.c */; };
@@ -390,6 +391,8 @@
 		4CB2B5C31825D5430041F48A /* rcswitchwrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rcswitchwrapper.cpp; sourceTree = "<group>"; };
 		4CB2B5C41825D5430041F48A /* rcswitchwrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rcswitchwrapper.h; sourceTree = "<group>"; };
 		4CB2B5C61825D5AC0041F48A /* sendRC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sendRC.c; path = gbMon2/tools/sendRC.c; sourceTree = "<group>"; };
+		4CB8AF0D18468E3000E74775 /* ds18b20.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ds18b20.h; sourceTree = "<group>"; };
+		4CB8AF0E18468E3C00E74775 /* ds18b20.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ds18b20.c; sourceTree = "<group>"; };
 		4CCC77EA181AE973001694BE /* simulator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = simulator.c; path = gbMon2/tools/simulator.c; sourceTree = "<group>"; };
 		4CDCA2381821675300D8DA67 /* fnt_spaceLex_8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_8.c; path = fonts/fnt_spaceLex_8.c; sourceTree = "<group>"; };
 		4CDCA2391821675300D8DA67 /* fnt_spaceLex_26.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_26.c; path = fonts/fnt_spaceLex_26.c; sourceTree = "<group>"; };
@@ -1070,6 +1073,8 @@
 				4C19FF7E18230BB500584853 /* dht22.h */,
 				4C94B0B61827C5C2009F8EAF /* rrdtool.c */,
 				4C94B0B81827C6AC009F8EAF /* rrdtool.h */,
+				4CB8AF0D18468E3000E74775 /* ds18b20.h */,
+				4CB8AF0E18468E3C00E74775 /* ds18b20.c */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";
@@ -1221,6 +1226,7 @@
 				4C503343181DB41900E4C03F /* fnt_dejavu.c in Sources */,
 				4C0635F6181DF0D70010FF0E /* FontCreatorColorChooserFrame.java in Sources */,
 				4CF86C2B181576700094C040 /* server.c in Sources */,
+				4CB8AF0F18468E3C00E74775 /* ds18b20.c in Sources */,
 				4C19008C18234D9B00584853 /* search.js in Sources */,
 				4C063606181DF0D70010FF0E /* SerializableFont.java in Sources */,
 				4C19008F18234D9B00584853 /* glcd_Device.cpp in Sources */,

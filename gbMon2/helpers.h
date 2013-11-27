@@ -30,7 +30,7 @@ typedef unsigned char byte;
 
 int getWifiStrength();
 unsigned long long getUptime();
-
+char* substring(const char* str, size_t begin, size_t len);
 const char *printBinary(int x);
 char* getTimeShort();
 char * getTime();

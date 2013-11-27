@@ -194,7 +194,19 @@ int main(int argc, char * argv[]) {
 	
 	
     for (;;) {
-		int res = read_dht22_dat();
+		printf("Read Temperature \n");
+		//int res = read_dht22_dat();
+		//readTemperatureDS(1);
+		
+		readTemperatureDS(2);
+		
+		//char *string2;
+		current.temperature[1]=0;
+		
+		printf("Meassured Temperatures:  %.2f   %.2f   %.2f\n",current.temperature[0],current.temperature[1], current.temperature[2]);
+		//debugPrint(true, true, string2, true, "MAIN");
+		
+		
 		sleep(2);
     }
 

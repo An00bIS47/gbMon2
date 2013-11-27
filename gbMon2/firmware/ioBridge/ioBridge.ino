@@ -13,11 +13,19 @@
 #define LEDPIN 13
 
 // here is where we define the buttons that we'll use. button "1" is the first, button "6" is the 6th, etc
-byte buttons[] = {7, 6, 5, 4}; // the analog 0-5 pins are also known as 14-19
+byte buttons[] = {9, 8, 7, 6, 5, 4}; // the analog 0-5 pins are also known as 14-19
 // This handy macro lets us determine how big the array up above is, by checking the size
 #define NUMBUTTONS sizeof(buttons)
 // we will track if a button is just pressed, just released, or 'currently pressed'
 volatile byte pressed[NUMBUTTONS], justpressed[NUMBUTTONS], justreleased[NUMBUTTONS];
+
+
+#include "DHT.h"
+
+#define DHTPIN 11
+#define DHTTYPE DHT22 //DHT11, DHT21, DHT22
+
+DHT dht(DHTPIN, DHTTYPE);
 
 long time[NUMBUTTONS];
 long lastUpdate=0;
@@ -39,6 +47,9 @@ void setup() {
 	
 	// pin13 LED
 	pinMode(LEDPIN, OUTPUT);
+
+	
+	dht.begin();
 	
 	// Make input & enable pull-up resistors on switch pins
 	for (i=0; i< NUMBUTTONS; i++) {
@@ -123,9 +134,11 @@ void loop() {
 	
 	photocellReading = analogRead(photocellPin);
 	if (lastUpdate == 0 ){
-		Serial.print("Analog reading = ");
-		Serial.print(photocellReading);     // the raw analog reading
 		
+		Serial.print("Analog reading = ");
+		Serial.print(photocellReading);
+
+				
 		// We'll have a few threshholds, qualitatively determined
 		if (photocellReading < 30) {
 			Serial.println(" - Dark");
@@ -138,12 +151,37 @@ void loop() {
 		} else {
 			Serial.println(" - Very bright");
 		}
+		
+		
+		float h = dht.readHumidity();     //Luftfeuchte auslesen
+		float t = dht.readTemperature();  //Temperatur auslesen
+		
+		// Prüfen ob eine gültige Zahl zurückgegeben wird. Wenn NaN (not a number) zurückgegeben wird, dann Fehler ausgeben.
+		if (isnan(t) || isnan(h))
+		{
+			Serial.println("DHT22 konnte nicht ausgelesen werden");
+		}
+		else
+		{
+			Serial.print("Luftfeuchte: ");
+			Serial.print(h);
+			Serial.print(" %\t");
+			Serial.print("Temperatur: ");
+			Serial.print(t);
+			Serial.println(" C");
+		}
+		
+		
 		lastUpdate=millis();
 	}
 	
 	if (lastUpdate + 1000 < millis()) {
 		lastUpdate=0;
 	}
+	
+	
+	
+	
 
 	for (byte i = 0; i < NUMBUTTONS; i++) {
 		if (justpressed[i]) {

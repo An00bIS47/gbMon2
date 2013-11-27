@@ -169,16 +169,19 @@ int displayMain(){
 			r.h = 12;
 			
 			sem_wait(&semaLockInfo);       // down semaphore
+
+			// Humidity
 			r.x = 5;
 			r.y = 12;
 			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f %%", current.humidity);
-			
 			r.x = 60;
 			r.y = 12;
 			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", current.maxHum);
 			r.y += 7;
 			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", current.minHum);
 			
+			
+			// Temperature DHT22	#0
 			r.x = 5;
 			r.y = 30;
 			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f °C", current.temperature[0]);
@@ -186,6 +189,26 @@ int displayMain(){
 			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", current.maxTemp[0]);
 			r.y += 7;
 			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", current.minTemp[0]);
+			
+			
+			// Temperature DS18b20	#1
+			r.x = 50;
+			r.y = 30;
+			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f °C", current.temperature[1]);
+			r.y = 44;
+			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", current.maxTemp[1]);
+			r.y += 7;
+			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", current.minTemp[1]);
+			
+			
+			// Temperature DS18b20	#2
+			r.x = 95;
+			r.y = 30;
+			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f °C", current.temperature[2]);
+			r.y = 44;
+			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", current.maxTemp[2]);
+			r.y += 7;
+			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", current.minTemp[2]);
 			
 			
 			//printf("Humidity = %.2f %% Temperature = %.2f *C \n", current.humidity, current.temperature[0] );
