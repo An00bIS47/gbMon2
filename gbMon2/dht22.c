@@ -90,18 +90,25 @@ int read_dht22_dat() {
 		}
 		
 		if (current.temperature[0] != t){
+			current.temperature[0] = t;
 			setUpdateDisplay(true);
-			printf("Humidity = %.2f %% Temp = %.2f *C \n", h, t );
+			//printf("Humidity = %.2f %% Temp = %.2f *C \n", h, t );
+		} else {
+			current.temperature[0] = t;
 		}
+		
 		if (current.humidity != h){
+			current.humidity = h;
 			setUpdateDisplay(true);
-			printf("Hum = %.2f %% Temperature = %.2f *C \n", h, t );
+			//printf("Hum = %.2f %% Temperature = %.2f *C \n", h, t );
+		} else {
+			current.humidity = h;
 		}
 		
-		current.temperature[0] = t;
-		current.humidity = h;
+		char *string[100];
+		sprintf(string, "Humidity = %.2f %% Temperature = %.2f *C", current.humidity, current.temperature[0] );
+		debugPrint(true, true, string, true, "DHT22");
 		sem_post(&semaLockInfo);       // up semaphore
-		
 		
 		return 1;
 	} else {

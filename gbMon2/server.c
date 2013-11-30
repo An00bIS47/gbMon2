@@ -175,8 +175,7 @@ void *connectionHandler(void *socket_desc) {
     return 0;
 }
 
-
-int serverMain(int portno){
+void* serverMain(int portno){
     int socket_desc , client_sock , c;
     struct sockaddr_in server , client;
 	clientIsConnected = false;

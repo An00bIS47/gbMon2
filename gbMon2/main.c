@@ -79,7 +79,7 @@ void  INThandler(int sig) {
     pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
 	pthread_join (pThreadRRD, NULL);
-	
+	pthread_join (pThreadSensors, NULL);
 	
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
@@ -176,48 +176,45 @@ int main(int argc, char * argv[]) {
 	debugPrint(true, true, "Setting Up Database ...", false, "MAIN");
 	createDBs();
 	debugPrint(false, false, "OK", true, "MAIN");
+
 	
-    // Starting Server Thread
+
+	// Starting Server Thread
     debugPrint(true, true, "Starting Network-Server ...", true, "MAIN");
     pthread_create (&pThreadServer, NULL, serverMain, 1000);
     //debugPrint(false, false, "OK", true, "MAIN");
-
+	
 	// Starting Display Thread
     debugPrint(true, true, "Starting Display ...", true, "MAIN");
     pthread_create (&pThreadDisplay, NULL, displayMain, NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
 	
+	// Starting Sensors Thread
+    debugPrint(true, true, "Starting Sensors Thread ...", true, "MAIN");
+	pthread_create (&pThreadSensors, NULL, sensorsMain, NULL);
+	
+	/*
 	// Starting RRD Thread
-    debugPrint(true, true, "Starting Database Thread ...", false, "MAIN");
+    debugPrint(true, true, "Starting Database Thread ...", true, "MAIN");
     pthread_create (&pThreadRRD, NULL, mainRRD(), NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
+	*/
 	
 	
     for (;;) {
-		printf("Read Temperature \n");
-		//int res = read_dht22_dat();
-		//readTemperatureDS(1);
-		
-		readTemperatureDS(2);
-		
-		//char *string2;
-		current.temperature[1]=0;
-		
-		printf("Meassured Temperatures:  %.2f   %.2f   %.2f\n",current.temperature[0],current.temperature[1], current.temperature[2]);
-		//debugPrint(true, true, string2, true, "MAIN");
-		
-		
-		sleep(2);
-    }
+	
+	}
 
     // Join Threads
     pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
 	pthread_join (pThreadRRD, NULL);
+	pthread_join (pThreadSensors, NULL);
 	
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
 	sem_destroy(&semaLockFan); // destroy semaphore
+	
 	/*
 	sem_destroy(&semaLockSpiSendCommand); // destroy semaphore
 	sem_destroy(&semaLockSpiProcess); // destroy semaphore

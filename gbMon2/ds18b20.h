@@ -15,9 +15,11 @@
 #include <string.h>
 #include <errno.h>
 #include "ds18b20.h"
+#include "dht22.h"
 #include "main.h"
 
 
 void readTemperatureDS(int sensorID);
+void* sensorsMain(void *args);
 
 #endif

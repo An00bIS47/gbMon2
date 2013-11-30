@@ -102,7 +102,7 @@ void displaySettings(){
 
 
 // ---------------------------------------------------------------------------
-int displayMain(){
+void* displayMain(void *args){
 	
 	int i;
 	int j;
@@ -116,10 +116,13 @@ int displayMain(){
 	debugPrint(true, true, "Display Thread started", true, "LCDDISPLAY");
 	for(;;) {
 		
-		if (lastTime + 60 <= ((int)time(NULL)) ) {
-			setUpdateDisplay(true);
-			lastTime=(int)time(NULL);
-			//printf("Lasttime: %d", lastTime);
+		
+		if (getUpdateDisplay()==false) {
+			if (lastTime + 60 <= ((int)time(NULL)) ) {
+				setUpdateDisplay(true);
+				lastTime=(int)time(NULL);
+				//printf("Lasttime: %d", lastTime);
+			}
 		}
 
 		if (getUpdateDisplay()==true) {
@@ -184,7 +187,8 @@ int displayMain(){
 			// Temperature DHT22	#0
 			r.x = 5;
 			r.y = 30;
-			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f °C", current.temperature[0]);
+			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", current.temperature[0]);
+			//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.1);
 			r.y = 44;
 			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", current.maxTemp[0]);
 			r.y += 7;
@@ -192,9 +196,10 @@ int displayMain(){
 			
 			
 			// Temperature DS18b20	#1
-			r.x = 50;
+			r.x = 45;
 			r.y = 30;
-			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f °C", current.temperature[1]);
+			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", current.temperature[1]);
+			//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.2);
 			r.y = 44;
 			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", current.maxTemp[1]);
 			r.y += 7;
@@ -202,9 +207,10 @@ int displayMain(){
 			
 			
 			// Temperature DS18b20	#2
-			r.x = 95;
+			r.x = 85;
 			r.y = 30;
-			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f °C", current.temperature[2]);
+			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", current.temperature[2]);
+			//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.3);
 			r.y = 44;
 			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", current.maxTemp[2]);
 			r.y += 7;
@@ -230,7 +236,15 @@ int displayMain(){
 			
 			unsigned int end = millis();
 			//printf("\n%d bytes in %dms => %d Bps\n", sizeof(buff), end - start, sizeof(buff) * 1000 / (end - start));
-			printf(">>> %d Bytes in %dms => %d Bps\n", counter, end - start, counter * 1000 / (end - start));
+			
+			char *string[100];
+			sprintf(string,"%d Bytes in %dms => %d Bps", counter, end - start, counter * 1000 / (end - start));
+			debugPrint(true, true, string, true, "LCDDISPLAY");
+			
+			//printf(">>> %d Bytes in %dms => %d Bps\n", counter, end - start, counter * 1000 / (end - start));
+			
+
+			
 			//printf(">>> %d Byte in %dms => %d Bps\n", (counter/j), (end - start)/j, counter * 1000 / (end - start));
 			//printf("Done!\n");
 			
@@ -238,7 +252,6 @@ int displayMain(){
 		}
 	
 	}
-	return 1;
 	
 }
 

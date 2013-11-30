@@ -23,8 +23,7 @@ void readTemperatureDS(int sensorID) {
     ssize_t read;
     float t;
     
-    
-	printf("readTemperatureDS --> SensorID: %d \n", sensorID);
+	printf("readTemperatureDS started \n");
 	
     if (sensorID==1) {
         fp = fopen("/sys/bus/w1/devices/w1_bus_master1/28-000004e3da40/w1_slave", "r");
@@ -67,45 +66,73 @@ void readTemperatureDS(int sensorID) {
         size_t      begin  = 29;
         size_t      end    = 5;
         
-        
-        char*       substr = substring(str, begin, end);
-        /*
-         printf("str    = %s\n", str);
-         printf("substr starting from pos %u, and %u characters in length...\n", begin, end);
-         printf("substr = %s which has a strlen of %u\n", substr, strlen(substr));
-         */
-        
-        int num = atoi(substr);
-        //return num / 1000;
 		
-		t=num/1000;
-		
-		sem_wait(&semaLockInfo);       // down semaphore
-		if (current.maxTemp[sensorID] < t) {
-			current.maxTemp[sensorID] = t;
+		if (str != NULL) {
+			char*       substr = substring(str, begin, end);
+			
+			/*
+			 printf("str    = %s\n", str);
+			 printf("substr starting from pos %u, and %u characters in length...\n", begin, end);
+			 printf("substr = %s which has a strlen of %u\n", substr, strlen(substr));
+			 */
+			
+			int num = atoi(substr);
+			//return num / 1000;
+			
+			t=num/1000;
+			
+			sem_wait(&semaLockInfo);       // down semaphore
+			if (current.maxTemp[sensorID] < t) {
+				current.maxTemp[sensorID] = t;
+			}
+			if ((current.minTemp[sensorID] > t) || (current.temperature[sensorID] == 0.0)){
+				current.minTemp[sensorID] = t;
+			}
+			
+			
+			if (current.temperature[sensorID] != t){
+				setUpdateDisplay(true);
+			}
+			current.temperature[sensorID] = t;
+			
+			char *string[100];
+			sprintf(string, "Temperature %d = %.2f *C", sensorID, current.temperature[sensorID] );
+			//printf("Temperature %d = %.2f *C \n", sensorID, current.temperature[sensorID] );
+			debugPrint(true, true, string, true, "DS18b20");
+			
+			sem_post(&semaLockInfo);       // up semaphore
+			//free(substr);
+		} else {
+			debugPrint(true, true, "Warning: CRC Error - DS18b20 SensorID:", false, "DS18b20");
+			debugPrint(true, true, sensorID, true, "DS18b20");
+			
+			readTemperatureDS(sensorID);
 		}
-		if ((current.minTemp[sensorID] > t) || (current.temperature[sensorID] == 0.0)){
-			current.minTemp[sensorID] = t;
-		}
 		
+    } else {
+		debugPrint(true, true, "Warning: CRC Error - DS18b20 SensorID:", false, "DS18b20");
+		debugPrint(true, true, sensorID, true, "DS18b20");
 		
-		if (current.temperature[sensorID] != t){
-			setUpdateDisplay(true);
-			printf("Temperature %d = %.2f *C \n", sensorID, t );
-		}
-		
-		current.temperature[sensorID] = t;
-		sem_post(&semaLockInfo);       // up semaphore
-		
-		
-        
-        
-        //free(substr);
-    }
-    else {
-        if (debug==1){
-            printf("%s >>> Warning: CRC Error - DS18b20 SensorID: %d \n", getTime(),sensorID);
-        }
         readTemperatureDS(sensorID);
     }
+	
+	printf("readTemperatureDS finished \n");
 }
+
+void* sensorsMain(void *args){
+	debugPrint(true, true, "Sensor Thread started", true, "DS18b20");
+	//debugPrint(false, false, "OK", true, "RRDTOOL");
+	for (;;) {
+		//debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
+		read_dht22_dat();
+		
+		//readTemperatureDS(2);
+		//debugPrint(false, false, "OK", true, "RRDTOOL");
+		
+		//sleep(1);
+	}
+	
+	return 0;
+}
+
+

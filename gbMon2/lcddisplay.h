@@ -17,8 +17,7 @@
 #include "fonts.h"
 #include <time.h>
 
-
-int displayMain();
+void* displayMain(void *args);
 void displaySettings();
 void displayWifi(int strength);
 void displayClient();

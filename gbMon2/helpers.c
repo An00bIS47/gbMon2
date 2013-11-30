@@ -13,8 +13,7 @@
  * Substring
  *********************************************************************************
  */
-char* substring(const char* str, size_t begin, size_t len)
-{
+char* substring(const char* str, size_t begin, size_t len){
     if (str == 0 || strlen(str) == 0 || strlen(str) < begin || strlen(str) < (begin+len))
         return 0;
     
@@ -118,7 +117,8 @@ char* getTime(){
  */
 char* getIP(char *interface) {
     struct ifaddrs *ifaddr, *ifa;
-    int family, s;
+    int s;
+	//int family;
     char host[NI_MAXHOST];
     char *buffer[16];
     if (getifaddrs(&ifaddr) == -1)

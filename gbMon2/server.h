@@ -24,7 +24,7 @@
 #include "rc434.h"
 
 void *connectionHandler(void *socket_desc);
-int serverMain(int portno);
+//int serverMain(int portno);
 
-
+void* serverMain(int portno);
 #endif
