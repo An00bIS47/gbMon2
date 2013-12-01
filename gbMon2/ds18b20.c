@@ -23,7 +23,7 @@ void readTemperatureDS(int sensorID) {
     ssize_t read;
     float t;
     
-	printf("readTemperatureDS started \n");
+	//printf("readTemperatureDS started \n");
 	
     if (sensorID==1) {
         fp = fopen("/sys/bus/w1/devices/w1_bus_master1/28-000004e3da40/w1_slave", "r");
@@ -42,6 +42,10 @@ void readTemperatureDS(int sensorID) {
     }
     
     int i = 0;
+	
+	strcpy(lines[0],"00 00 00 00 00 00 00 00 00 : crc=00 NO");
+	strcpy(lines[1],"00 00 00 00 00 00 00 00 00 : t=00000");
+	
     while ((read = getline(&line, &len, fp)) != -1) {
         //printf("Retrieved line of length %zu :\n", read);
         //printf("%s", line);
@@ -116,7 +120,7 @@ void readTemperatureDS(int sensorID) {
         readTemperatureDS(sensorID);
     }
 	
-	printf("readTemperatureDS finished \n");
+	//printf("readTemperatureDS finished \n");
 }
 
 void* sensorsMain(void *args){
@@ -126,7 +130,9 @@ void* sensorsMain(void *args){
 		//debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
 		read_dht22_dat();
 		
-		//readTemperatureDS(2);
+		//current.temperature[1]=20.0;
+		
+		readTemperatureDS(2);
 		//debugPrint(false, false, "OK", true, "RRDTOOL");
 		
 		//sleep(1);
