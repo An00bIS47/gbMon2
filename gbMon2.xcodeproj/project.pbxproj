@@ -996,6 +996,30 @@
 			path = fritzing;
 			sourceTree = "<group>";
 		};
+		4C77FBBC184BD12C000AAEF2 /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				4C7235E8182686E4009BE959 /* rc434.c */,
+				4C7235EA182686EF009BE959 /* rc434.h */,
+				4C19FF7C18230BAD00584853 /* dht22.c */,
+				4C19FF7E18230BB500584853 /* dht22.h */,
+				4CB8AF0E18468E3C00E74775 /* ds18b20.c */,
+				4CB8AF0D18468E3000E74775 /* ds18b20.h */,
+			);
+			name = Sensors;
+			sourceTree = "<group>";
+		};
+		4C77FBBD184BD14F000AAEF2 /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				4CB134AE18210B2800A40AA0 /* lcddisplay.c */,
+				4CB134AD18210AC700A40AA0 /* lcddisplay.h */,
+				4C50333D181DAC0800E4C03F /* lcd.c */,
+				4C50333C181DABA800E4C03F /* lcd.h */,
+			);
+			name = Display;
+			sourceTree = "<group>";
+		};
 		4CB2B5C21825D4FF0041F48A /* RCSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1051,6 +1075,8 @@
 				4C50333A181DA9B200E4C03F /* fonts */,
 				4C4BBE081825DF2F00723999 /* Misc */,
 				4CB2B5C21825D4FF0041F48A /* RCSwitch */,
+				4C77FBBC184BD12C000AAEF2 /* Sensors */,
+				4C77FBBD184BD14F000AAEF2 /* Display */,
 				4C50333B181DA9C500E4C03F /* fonts.h */,
 				4CF86C20181576700094C040 /* debug.c */,
 				4CF86C21181576700094C040 /* debug.h */,
@@ -1063,18 +1089,8 @@
 				4CF86C1D18156FBF0094C040 /* pinLayout.h */,
 				4CF86BE518155C500094C040 /* main.c */,
 				4CF86C1318155E360094C040 /* main.h */,
-				4C7235E8182686E4009BE959 /* rc434.c */,
-				4C7235EA182686EF009BE959 /* rc434.h */,
-				4CB134AE18210B2800A40AA0 /* lcddisplay.c */,
-				4CB134AD18210AC700A40AA0 /* lcddisplay.h */,
-				4C50333C181DABA800E4C03F /* lcd.h */,
-				4C50333D181DAC0800E4C03F /* lcd.c */,
-				4C19FF7C18230BAD00584853 /* dht22.c */,
-				4C19FF7E18230BB500584853 /* dht22.h */,
 				4C94B0B61827C5C2009F8EAF /* rrdtool.c */,
 				4C94B0B81827C6AC009F8EAF /* rrdtool.h */,
-				4CB8AF0D18468E3000E74775 /* ds18b20.h */,
-				4CB8AF0E18468E3C00E74775 /* ds18b20.c */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";

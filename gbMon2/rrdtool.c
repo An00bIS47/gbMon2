@@ -352,15 +352,28 @@ void updateDBs(){
 
 */
 
-int mainRRD(){
+void* rrdMain(void *args){
 	debugPrint(true, true, "RRD Update Thread started", true, "RRDTOOL");
 	//debugPrint(false, false, "OK", true, "RRDTOOL");
+	
+	int lastTime=(int)time(NULL);
+	debugPrint(true, true, "Updating Database ...", false, "RRDTOOL");
+	updateDBs();
+	debugPrint(false, false, "OK", true, "RRDTOOL");
+	
+	
 	for (;;) {
-		sleep(150);
-		debugPrint(true, true, "Updating Database ...", false, "RRDTOOL");
-		updateDBs();
-		debugPrint(false, false, "OK", true, "RRDTOOL");
-		sleep(150);
+		
+		if (lastTime + 300 <= ((int)time(NULL)) ) {
+			debugPrint(true, true, "Updating Database ...", false, "RRDTOOL");
+			updateDBs();
+			debugPrint(false, false, "OK", true, "RRDTOOL");
+			
+			lastTime=(int)time(NULL);
+			//printf("Lasttime: %d", lastTime);
+		}
+		
+	
 	}
 	
 	return 0;

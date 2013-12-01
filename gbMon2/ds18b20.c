@@ -22,8 +22,12 @@ void readTemperatureDS(int sensorID) {
     size_t len = 0;
     ssize_t read;
     float t;
+	
+	
+	char strSensorID[2];
+	sprintf(strSensorID, "%d", sensorID);
     
-	//printf("readTemperatureDS started \n");
+	debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
 	
     if (sensorID==1) {
         fp = fopen("/sys/bus/w1/devices/w1_bus_master1/28-000004e3da40/w1_slave", "r");
@@ -99,28 +103,31 @@ void readTemperatureDS(int sensorID) {
 			}
 			current.temperature[sensorID] = t;
 			
+			/*
 			char *string[100];
 			sprintf(string, "Temperature %d = %.2f *C", sensorID, current.temperature[sensorID] );
 			//printf("Temperature %d = %.2f *C \n", sensorID, current.temperature[sensorID] );
 			debugPrint(true, true, string, true, "DS18b20");
-			
+			*/
 			sem_post(&semaLockInfo);       // up semaphore
 			//free(substr);
 		} else {
-			debugPrint(true, true, "Warning: CRC Error - DS18b20 SensorID:", false, "DS18b20");
-			debugPrint(true, true, sensorID, true, "DS18b20");
+			debugPrint(false, false, "", true, "DS18b20");
+			debugPrint(true, true, "Warning: CRC Error - DS18b20 SensorID: ", false, "DS18b20");
+			debugPrint(false, false, strSensorID, true, "DS18b20");
 			
 			readTemperatureDS(sensorID);
 		}
 		
     } else {
-		debugPrint(true, true, "Warning: CRC Error - DS18b20 SensorID:", false, "DS18b20");
-		debugPrint(true, true, sensorID, true, "DS18b20");
+		debugPrint(false, false, "", true, "DS18b20");
+		debugPrint(true, true, "Warning: CRC Error - DS18b20 SensorID: ", false, "DS18b20");
+		debugPrint(false, false, strSensorID, true, "DS18b20");
 		
         readTemperatureDS(sensorID);
     }
 	
-	//printf("readTemperatureDS finished \n");
+	debugPrint(false, false, "OK", true, "");
 }
 
 void* sensorsMain(void *args){

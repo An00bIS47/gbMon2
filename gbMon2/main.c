@@ -177,8 +177,6 @@ int main(int argc, char * argv[]) {
 	createDBs();
 	debugPrint(false, false, "OK", true, "MAIN");
 
-	
-
 	// Starting Server Thread
     debugPrint(true, true, "Starting Network-Server ...", true, "MAIN");
     pthread_create (&pThreadServer, NULL, serverMain, 1000);
@@ -193,13 +191,10 @@ int main(int argc, char * argv[]) {
     debugPrint(true, true, "Starting Sensors Thread ...", true, "MAIN");
 	pthread_create (&pThreadSensors, NULL, sensorsMain, NULL);
 	
-	/*
 	// Starting RRD Thread
     debugPrint(true, true, "Starting Database Thread ...", true, "MAIN");
-    pthread_create (&pThreadRRD, NULL, mainRRD(), NULL);
+    pthread_create (&pThreadRRD, NULL, rrdMain, NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
-	*/
-	
 	
     for (;;) {
 	

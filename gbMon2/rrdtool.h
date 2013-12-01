@@ -24,6 +24,6 @@ void createDBecLevel();
 void updateDBs();
 void updateDBTemperature();
 void updateDBHumidity();
-int mainRRD();
+void* rrdMain(void *args);
 
 #endif
