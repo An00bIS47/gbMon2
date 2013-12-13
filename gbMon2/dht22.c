@@ -26,6 +26,8 @@ int read_dht22_dat() {
 	uint8_t counter = 0;
 	uint8_t j = 0, i;
 	
+	char strFloat[6];
+	
 	dht22_dat[0] = dht22_dat[1] = dht22_dat[2] = dht22_dat[3] = dht22_dat[4] = 0;
 	
 	// pull pin down for 18 milliseconds
@@ -72,23 +74,61 @@ int read_dht22_dat() {
         t /= 10.0;
         if ((dht22_dat[2] & 0x80) != 0)  t *= -1;
 		
-		
+		/**
+		 * Semaphore DOWN
+		 *
+		 */
 		sem_wait(&semaLockInfo);       // down semaphore
+		
+		/**
+		 *	Check if Temperature is greater than maxTemp
+		 *		true:	Save into config File and current.maxTemp[0]
+		 */
 		if (current.maxTemp[0] < t) {
 			current.maxTemp[0] = t;
+
+			sprintf(strFloat,"%2.2f",current.maxTemp[0]);
+			Settings_Add("temperature", "max", strFloat);
+			Settings_Save(SETTINGSFILE);
 		}
+		
+		/**
+		 *	Check if Temperature is lower than minTemp
+		 *		true:	Save into config File and current.minTemp[0]
+		 */
 		if ((current.minTemp[0] > t) || (current.temperature[0] == 0.0)){
 			current.minTemp[0] = t;
+			sprintf(strFloat,"%2.2f",current.minTemp[0]);
+			Settings_Add("temperature", "min", strFloat);
+			Settings_Save(SETTINGSFILE);
 		}
 		
+		/**
+		 *	Check if Humidity is greater than maxHum
+		 *		true:	Save into config File and current.maxHum
+		 */
 		if (current.maxHum < h) {
 			current.maxHum = h;
+			sprintf(strFloat,"%2.2f",current.maxHum);
+			Settings_Add("humidity", "max", strFloat);
+			Settings_Save(SETTINGSFILE);
 		}
 		
+		/**
+		 *	Check if Humidity is lower than minHum
+		 *		true:	Save into config File and current.minHum
+		 */
 		if ((current.minHum > h) || (current.minHum == 0.0)){
 			current.minHum = h;
+			sprintf(strFloat,"%2.2f",current.minHum);
+			Settings_Add("humidity", "min", strFloat);
+			Settings_Save(SETTINGSFILE);
 		}
 		
+		/**
+		 * Update Display
+		 *
+		 */
 		if (current.temperature[0] != t){
 			current.temperature[0] = t;
 			setUpdateDisplay(true);
@@ -105,9 +145,17 @@ int read_dht22_dat() {
 			current.humidity = h;
 		}
 		
-		char *string[100];
+		/**
+		 * Debug
+		 */
+		char string[100];
 		sprintf(string, "Humidity = %.2f %% Temperature = %.2f *C", current.humidity, current.temperature[0] );
 		debugPrint(true, true, string, true, "DHT22");
+		
+		/**
+		 * Semaphore UP
+		 *
+		 */
 		sem_post(&semaLockInfo);       // up semaphore
 		
 		return 1;

@@ -999,8 +999,6 @@
 		4C77FBBC184BD12C000AAEF2 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
-				4C7235E8182686E4009BE959 /* rc434.c */,
-				4C7235EA182686EF009BE959 /* rc434.h */,
 				4C19FF7C18230BAD00584853 /* dht22.c */,
 				4C19FF7E18230BB500584853 /* dht22.h */,
 				4CB8AF0E18468E3C00E74775 /* ds18b20.c */,
@@ -1023,6 +1021,8 @@
 		4CB2B5C21825D4FF0041F48A /* RCSwitch */ = {
 			isa = PBXGroup;
 			children = (
+				4C7235E8182686E4009BE959 /* rc434.c */,
+				4C7235EA182686EF009BE959 /* rc434.h */,
 				4CB2B5C31825D5430041F48A /* rcswitchwrapper.cpp */,
 				4CB2B5C41825D5430041F48A /* rcswitchwrapper.h */,
 				4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */,

@@ -23,8 +23,13 @@ void readTemperatureDS(int sensorID) {
     ssize_t read;
     float t;
 	
-	
+	char strMin[4];
+	char strMax[4];
+	char strFloat[6];
 	char strSensorID[2];
+	
+	sprintf(strMin,"min%d",sensorID);
+	sprintf(strMax,"max%d",sensorID);
 	sprintf(strSensorID, "%d", sensorID);
     
 	debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
@@ -74,7 +79,6 @@ void readTemperatureDS(int sensorID) {
         size_t      begin  = 29;
         size_t      end    = 5;
         
-		
 		if (str != NULL) {
 			char*       substr = substring(str, begin, end);
 			
@@ -92,9 +96,17 @@ void readTemperatureDS(int sensorID) {
 			sem_wait(&semaLockInfo);       // down semaphore
 			if (current.maxTemp[sensorID] < t) {
 				current.maxTemp[sensorID] = t;
+				sprintf(strFloat,"%2.2f",current.maxTemp[sensorID]);
+				Settings_Add("temperature", strMax, strFloat);
+				Settings_Save(SETTINGSFILE);
+				
 			}
 			if ((current.minTemp[sensorID] > t) || (current.temperature[sensorID] == 0.0)){
 				current.minTemp[sensorID] = t;
+				current.minTemp[sensorID] = t;
+				sprintf(strFloat,"%2.2f",current.minTemp[sensorID]);
+				Settings_Add("temperature", strMin, strFloat);
+				Settings_Save(SETTINGSFILE);
 			}
 			
 			
