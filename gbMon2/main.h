@@ -75,16 +75,15 @@ void setUpdateDisplay(bool value);
  *	Getter
  */
 bool getUpdateDisplay();
-char * getTemperature();
+char* getTemperature();
 char* getHumidity();
 
 /*
  *	Functions
  */
 int sendRC(char* systemCode, int unitCode, int command);
+void closeApp();
 void INThandler(int);
 int main(int argc, char * argv[]);
-
-
 
 #endif

@@ -71,12 +71,8 @@ void initCurrentInfo(){
 }
 
 
-void  INThandler(int sig) {
-    //char  c;
-    
-    // Join Threads
-    signal(sig, SIG_IGN);
-    pthread_join (pThreadServer, NULL);
+void closeApp(){
+	pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
 	pthread_join (pThreadRRD, NULL);
 	pthread_join (pThreadSensors, NULL);
@@ -84,6 +80,15 @@ void  INThandler(int sig) {
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
 	sem_destroy(&semaLockFan); // destroy semaphore
+	
+}
+
+void  INThandler(int sig) {
+    //char  c;
+    
+    // Join Threads
+    closeApp();
+	
 	/*
 	sem_destroy(&semaLockSpiSendCommand); // destroy semaphore
 	sem_destroy(&semaLockSpiProcess); // destroy semaphore
@@ -200,6 +205,9 @@ int main(int argc, char * argv[]) {
 	
 	}
 
+	
+	closeApp();
+	/*
     // Join Threads
     pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
@@ -210,7 +218,7 @@ int main(int argc, char * argv[]) {
 	sem_destroy(&semaLockInfo); // destroy semaphore
 	sem_destroy(&semaLockFan); // destroy semaphore
 	
-	/*
+
 	sem_destroy(&semaLockSpiSendCommand); // destroy semaphore
 	sem_destroy(&semaLockSpiProcess); // destroy semaphore
 	*/
