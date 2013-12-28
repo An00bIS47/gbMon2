@@ -15,7 +15,7 @@
 #include <stdbool.h>
 #include <semaphore.h>
 
-#include "server.h"
+#include "udpServer.h"
 #include "debug.h"
 #include "helpers.h"
 #include "settings.h"
@@ -25,7 +25,6 @@
 #include "dht22.h"
 #include "ds18b20.h"
 #include "rrdtool.h"
-
 
 #define MAXTIMINGS 85
 #define DHTPIN 1

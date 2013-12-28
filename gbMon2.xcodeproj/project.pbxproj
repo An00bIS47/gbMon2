@@ -54,6 +54,7 @@
 		4C642D6A186F446A0037095A /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C642D69186F446A0037095A /* Makefile */; };
 		4C642D6D186F44B60037095A /* udpClient.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C642D6B186F44B60037095A /* udpClient.c */; };
 		4C642D6E186F44B60037095A /* udpServer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C642D6C186F44B60037095A /* udpServer.c */; };
+		4C642D70186F4F950037095A /* udpServer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C642D6F186F4F950037095A /* udpServer.c */; };
 		4C7235E9182686E4009BE959 /* rc434.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C7235E8182686E4009BE959 /* rc434.c */; };
 		4C94B0B71827C5C2009F8EAF /* rrdtool.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B0B61827C5C2009F8EAF /* rrdtool.c */; };
 		4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB134AE18210B2800A40AA0 /* lcddisplay.c */; };
@@ -393,6 +394,8 @@
 		4C642D69186F446A0037095A /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = "gbMon2/tools/UDP-Server/Makefile"; sourceTree = "<group>"; };
 		4C642D6B186F44B60037095A /* udpClient.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = udpClient.c; path = "gbMon2/tools/UDP-Server/udpClient.c"; sourceTree = "<group>"; };
 		4C642D6C186F44B60037095A /* udpServer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = udpServer.c; path = "gbMon2/tools/UDP-Server/udpServer.c"; sourceTree = "<group>"; };
+		4C642D6F186F4F950037095A /* udpServer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = udpServer.c; sourceTree = "<group>"; };
+		4C642D71186F50320037095A /* udpServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = udpServer.h; sourceTree = "<group>"; };
 		4C7235E71826742C009BE959 /* Makefile-NEW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Makefile-NEW"; sourceTree = "<group>"; };
 		4C7235E8182686E4009BE959 /* rc434.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc434.c; sourceTree = "<group>"; };
 		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
@@ -1132,6 +1135,8 @@
 				4CF86C1318155E360094C040 /* main.h */,
 				4C94B0B61827C5C2009F8EAF /* rrdtool.c */,
 				4C94B0B81827C6AC009F8EAF /* rrdtool.h */,
+				4C642D6F186F4F950037095A /* udpServer.c */,
+				4C642D71186F50320037095A /* udpServer.h */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";
@@ -1287,6 +1292,7 @@
 				4C503343181DB41900E4C03F /* fnt_dejavu.c in Sources */,
 				4C0635F6181DF0D70010FF0E /* FontCreatorColorChooserFrame.java in Sources */,
 				4C642D6D186F44B60037095A /* udpClient.c in Sources */,
+				4C642D70186F4F950037095A /* udpServer.c in Sources */,
 				4CF86C2B181576700094C040 /* server.c in Sources */,
 				4CB8AF0F18468E3C00E74775 /* ds18b20.c in Sources */,
 				4C19008C18234D9B00584853 /* search.js in Sources */,
