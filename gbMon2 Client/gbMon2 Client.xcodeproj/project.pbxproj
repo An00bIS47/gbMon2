@@ -7,168 +7,176 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C83CBCA185A96C7007B4E5D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C83CBC9185A96C7007B4E5D /* Cocoa.framework */; };
-		4C83CBD4185A96C7007B4E5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C83CBD2185A96C7007B4E5D /* InfoPlist.strings */; };
-		4C83CBD6185A96C7007B4E5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C83CBD5185A96C7007B4E5D /* main.m */; };
-		4C83CBDA185A96C7007B4E5D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C83CBD8185A96C7007B4E5D /* Credits.rtf */; };
-		4C83CBDD185A96C7007B4E5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C83CBDC185A96C7007B4E5D /* AppDelegate.m */; };
-		4C83CBE0185A96C7007B4E5D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C83CBDE185A96C7007B4E5D /* MainMenu.xib */; };
-		4C83CBE2185A96C7007B4E5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C83CBE1185A96C7007B4E5D /* Images.xcassets */; };
-		4C83CBE9185A96C7007B4E5D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C83CBE8185A96C7007B4E5D /* XCTest.framework */; };
-		4C83CBEA185A96C7007B4E5D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C83CBC9185A96C7007B4E5D /* Cocoa.framework */; };
-		4C83CBF2185A96C7007B4E5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C83CBF0185A96C7007B4E5D /* InfoPlist.strings */; };
-		4C83CBF4185A96C7007B4E5D /* gbMon2_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C83CBF3185A96C7007B4E5D /* gbMon2_ClientTests.m */; };
-		4C83CBFF185A971B007B4E5D /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C83CBFE185A971B007B4E5D /* AppController.m */; };
+		4C5651B8186F815600978D33 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5651B7186F815600978D33 /* Cocoa.framework */; };
+		4C5651C2186F815600978D33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651C0186F815600978D33 /* InfoPlist.strings */; };
+		4C5651C4186F815600978D33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651C3186F815600978D33 /* main.m */; };
+		4C5651C8186F815600978D33 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651C6186F815600978D33 /* Credits.rtf */; };
+		4C5651CB186F815600978D33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651CA186F815600978D33 /* AppDelegate.m */; };
+		4C5651CE186F815600978D33 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651CC186F815600978D33 /* MainMenu.xib */; };
+		4C5651D0186F815600978D33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651CF186F815600978D33 /* Images.xcassets */; };
+		4C5651D7186F815600978D33 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5651D6186F815600978D33 /* XCTest.framework */; };
+		4C5651D8186F815600978D33 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5651B7186F815600978D33 /* Cocoa.framework */; };
+		4C5651E0186F815600978D33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651DE186F815600978D33 /* InfoPlist.strings */; };
+		4C5651E2186F815600978D33 /* gbMon2_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651E1186F815600978D33 /* gbMon2_ClientTests.m */; };
+		4C5651ED186F822600978D33 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651EC186F822600978D33 /* GCDAsyncUdpSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4C83CBEB185A96C7007B4E5D /* PBXContainerItemProxy */ = {
+		4C5651D9186F815600978D33 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4C83CBBE185A96C7007B4E5D /* Project object */;
+			containerPortal = 4C5651AC186F815600978D33 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4C83CBC5185A96C7007B4E5D;
+			remoteGlobalIDString = 4C5651B3186F815600978D33;
 			remoteInfo = "gbMon2 Client";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C83CBC6185A96C7007B4E5D /* gbMon2 Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gbMon2 Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C83CBC9185A96C7007B4E5D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		4C83CBCC185A96C7007B4E5D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		4C83CBCD185A96C7007B4E5D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		4C83CBCE185A96C7007B4E5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4C83CBD1185A96C7007B4E5D /* gbMon2 Client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gbMon2 Client-Info.plist"; sourceTree = "<group>"; };
-		4C83CBD3185A96C7007B4E5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4C83CBD5185A96C7007B4E5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4C83CBD7185A96C7007B4E5D /* gbMon2 Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gbMon2 Client-Prefix.pch"; sourceTree = "<group>"; };
-		4C83CBD9185A96C7007B4E5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4C83CBDB185A96C7007B4E5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4C83CBDC185A96C7007B4E5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4C83CBDF185A96C7007B4E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		4C83CBE1185A96C7007B4E5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4C83CBE7185A96C7007B4E5D /* gbMon2 ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gbMon2 ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C83CBE8185A96C7007B4E5D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4C83CBEF185A96C7007B4E5D /* gbMon2 ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gbMon2 ClientTests-Info.plist"; sourceTree = "<group>"; };
-		4C83CBF1185A96C7007B4E5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4C83CBF3185A96C7007B4E5D /* gbMon2_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gbMon2_ClientTests.m; sourceTree = "<group>"; };
-		4C83CBFD185A971B007B4E5D /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
-		4C83CBFE185A971B007B4E5D /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		4C5651B4186F815600978D33 /* gbMon2 Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gbMon2 Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C5651B7186F815600978D33 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4C5651BA186F815600978D33 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4C5651BB186F815600978D33 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C5651BC186F815600978D33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C5651BF186F815600978D33 /* gbMon2 Client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gbMon2 Client-Info.plist"; sourceTree = "<group>"; };
+		4C5651C1186F815600978D33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4C5651C3186F815600978D33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4C5651C5186F815600978D33 /* gbMon2 Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gbMon2 Client-Prefix.pch"; sourceTree = "<group>"; };
+		4C5651C7186F815600978D33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4C5651C9186F815600978D33 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4C5651CA186F815600978D33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4C5651CD186F815600978D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4C5651CF186F815600978D33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4C5651D5186F815600978D33 /* gbMon2 ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gbMon2 ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C5651D6186F815600978D33 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4C5651DD186F815600978D33 /* gbMon2 ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gbMon2 ClientTests-Info.plist"; sourceTree = "<group>"; };
+		4C5651DF186F815600978D33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4C5651E1186F815600978D33 /* gbMon2_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gbMon2_ClientTests.m; sourceTree = "<group>"; };
+		4C5651EB186F822600978D33 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		4C5651EC186F822600978D33 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4C83CBC3185A96C7007B4E5D /* Frameworks */ = {
+		4C5651B1186F815600978D33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C83CBCA185A96C7007B4E5D /* Cocoa.framework in Frameworks */,
+				4C5651B8186F815600978D33 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C83CBE4185A96C7007B4E5D /* Frameworks */ = {
+		4C5651D2186F815600978D33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C83CBEA185A96C7007B4E5D /* Cocoa.framework in Frameworks */,
-				4C83CBE9185A96C7007B4E5D /* XCTest.framework in Frameworks */,
+				4C5651D8186F815600978D33 /* Cocoa.framework in Frameworks */,
+				4C5651D7186F815600978D33 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C83CBBD185A96C7007B4E5D = {
+		4C5651AB186F815600978D33 = {
 			isa = PBXGroup;
 			children = (
-				4C83CBCF185A96C7007B4E5D /* gbMon2 Client */,
-				4C83CBED185A96C7007B4E5D /* gbMon2 ClientTests */,
-				4C83CBC8185A96C7007B4E5D /* Frameworks */,
-				4C83CBC7185A96C7007B4E5D /* Products */,
+				4C5651BD186F815600978D33 /* gbMon2 Client */,
+				4C5651DB186F815600978D33 /* gbMon2 ClientTests */,
+				4C5651B6186F815600978D33 /* Frameworks */,
+				4C5651B5186F815600978D33 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4C83CBC7185A96C7007B4E5D /* Products */ = {
+		4C5651B5186F815600978D33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4C83CBC6185A96C7007B4E5D /* gbMon2 Client.app */,
-				4C83CBE7185A96C7007B4E5D /* gbMon2 ClientTests.xctest */,
+				4C5651B4186F815600978D33 /* gbMon2 Client.app */,
+				4C5651D5186F815600978D33 /* gbMon2 ClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4C83CBC8185A96C7007B4E5D /* Frameworks */ = {
+		4C5651B6186F815600978D33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4C83CBC9185A96C7007B4E5D /* Cocoa.framework */,
-				4C83CBE8185A96C7007B4E5D /* XCTest.framework */,
-				4C83CBCB185A96C7007B4E5D /* Other Frameworks */,
+				4C5651B7186F815600978D33 /* Cocoa.framework */,
+				4C5651D6186F815600978D33 /* XCTest.framework */,
+				4C5651B9186F815600978D33 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4C83CBCB185A96C7007B4E5D /* Other Frameworks */ = {
+		4C5651B9186F815600978D33 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4C83CBCC185A96C7007B4E5D /* AppKit.framework */,
-				4C83CBCD185A96C7007B4E5D /* CoreData.framework */,
-				4C83CBCE185A96C7007B4E5D /* Foundation.framework */,
+				4C5651BA186F815600978D33 /* AppKit.framework */,
+				4C5651BB186F815600978D33 /* CoreData.framework */,
+				4C5651BC186F815600978D33 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		4C83CBCF185A96C7007B4E5D /* gbMon2 Client */ = {
+		4C5651BD186F815600978D33 /* gbMon2 Client */ = {
 			isa = PBXGroup;
 			children = (
-				4C83CBDB185A96C7007B4E5D /* AppDelegate.h */,
-				4C83CBDC185A96C7007B4E5D /* AppDelegate.m */,
-				4C83CBFD185A971B007B4E5D /* AppController.h */,
-				4C83CBFE185A971B007B4E5D /* AppController.m */,
-				4C83CBDE185A96C7007B4E5D /* MainMenu.xib */,
-				4C83CBE1185A96C7007B4E5D /* Images.xcassets */,
-				4C83CBD0185A96C7007B4E5D /* Supporting Files */,
+				4C5651EE186F822C00978D33 /* UDP */,
+				4C5651C9186F815600978D33 /* AppDelegate.h */,
+				4C5651CA186F815600978D33 /* AppDelegate.m */,
+				4C5651CC186F815600978D33 /* MainMenu.xib */,
+				4C5651CF186F815600978D33 /* Images.xcassets */,
+				4C5651BE186F815600978D33 /* Supporting Files */,
 			);
 			path = "gbMon2 Client";
 			sourceTree = "<group>";
 		};
-		4C83CBD0185A96C7007B4E5D /* Supporting Files */ = {
+		4C5651BE186F815600978D33 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4C83CBD1185A96C7007B4E5D /* gbMon2 Client-Info.plist */,
-				4C83CBD2185A96C7007B4E5D /* InfoPlist.strings */,
-				4C83CBD5185A96C7007B4E5D /* main.m */,
-				4C83CBD7185A96C7007B4E5D /* gbMon2 Client-Prefix.pch */,
-				4C83CBD8185A96C7007B4E5D /* Credits.rtf */,
+				4C5651BF186F815600978D33 /* gbMon2 Client-Info.plist */,
+				4C5651C0186F815600978D33 /* InfoPlist.strings */,
+				4C5651C3186F815600978D33 /* main.m */,
+				4C5651C5186F815600978D33 /* gbMon2 Client-Prefix.pch */,
+				4C5651C6186F815600978D33 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4C83CBED185A96C7007B4E5D /* gbMon2 ClientTests */ = {
+		4C5651DB186F815600978D33 /* gbMon2 ClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				4C83CBF3185A96C7007B4E5D /* gbMon2_ClientTests.m */,
-				4C83CBEE185A96C7007B4E5D /* Supporting Files */,
+				4C5651E1186F815600978D33 /* gbMon2_ClientTests.m */,
+				4C5651DC186F815600978D33 /* Supporting Files */,
 			);
 			path = "gbMon2 ClientTests";
 			sourceTree = "<group>";
 		};
-		4C83CBEE185A96C7007B4E5D /* Supporting Files */ = {
+		4C5651DC186F815600978D33 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4C83CBEF185A96C7007B4E5D /* gbMon2 ClientTests-Info.plist */,
-				4C83CBF0185A96C7007B4E5D /* InfoPlist.strings */,
+				4C5651DD186F815600978D33 /* gbMon2 ClientTests-Info.plist */,
+				4C5651DE186F815600978D33 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C5651EE186F822C00978D33 /* UDP */ = {
+			isa = PBXGroup;
+			children = (
+				4C5651EB186F822600978D33 /* GCDAsyncUdpSocket.h */,
+				4C5651EC186F822600978D33 /* GCDAsyncUdpSocket.m */,
+			);
+			name = UDP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4C83CBC5185A96C7007B4E5D /* gbMon2 Client */ = {
+		4C5651B3186F815600978D33 /* gbMon2 Client */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C83CBF7185A96C7007B4E5D /* Build configuration list for PBXNativeTarget "gbMon2 Client" */;
+			buildConfigurationList = 4C5651E5186F815600978D33 /* Build configuration list for PBXNativeTarget "gbMon2 Client" */;
 			buildPhases = (
-				4C83CBC2185A96C7007B4E5D /* Sources */,
-				4C83CBC3185A96C7007B4E5D /* Frameworks */,
-				4C83CBC4185A96C7007B4E5D /* Resources */,
+				4C5651B0186F815600978D33 /* Sources */,
+				4C5651B1186F815600978D33 /* Frameworks */,
+				4C5651B2186F815600978D33 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -176,42 +184,42 @@
 			);
 			name = "gbMon2 Client";
 			productName = "gbMon2 Client";
-			productReference = 4C83CBC6185A96C7007B4E5D /* gbMon2 Client.app */;
+			productReference = 4C5651B4186F815600978D33 /* gbMon2 Client.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4C83CBE6185A96C7007B4E5D /* gbMon2 ClientTests */ = {
+		4C5651D4186F815600978D33 /* gbMon2 ClientTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C83CBFA185A96C7007B4E5D /* Build configuration list for PBXNativeTarget "gbMon2 ClientTests" */;
+			buildConfigurationList = 4C5651E8186F815600978D33 /* Build configuration list for PBXNativeTarget "gbMon2 ClientTests" */;
 			buildPhases = (
-				4C83CBE3185A96C7007B4E5D /* Sources */,
-				4C83CBE4185A96C7007B4E5D /* Frameworks */,
-				4C83CBE5185A96C7007B4E5D /* Resources */,
+				4C5651D1186F815600978D33 /* Sources */,
+				4C5651D2186F815600978D33 /* Frameworks */,
+				4C5651D3186F815600978D33 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4C83CBEC185A96C7007B4E5D /* PBXTargetDependency */,
+				4C5651DA186F815600978D33 /* PBXTargetDependency */,
 			);
 			name = "gbMon2 ClientTests";
 			productName = "gbMon2 ClientTests";
-			productReference = 4C83CBE7185A96C7007B4E5D /* gbMon2 ClientTests.xctest */;
+			productReference = 4C5651D5186F815600978D33 /* gbMon2 ClientTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4C83CBBE185A96C7007B4E5D /* Project object */ = {
+		4C5651AC186F815600978D33 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = michael;
 				TargetAttributes = {
-					4C83CBE6185A96C7007B4E5D = {
-						TestTargetID = 4C83CBC5185A96C7007B4E5D;
+					4C5651D4186F815600978D33 = {
+						TestTargetID = 4C5651B3186F815600978D33;
 					};
 				};
 			};
-			buildConfigurationList = 4C83CBC1185A96C7007B4E5D /* Build configuration list for PBXProject "gbMon2 Client" */;
+			buildConfigurationList = 4C5651AF186F815600978D33 /* Build configuration list for PBXProject "gbMon2 Client" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -219,97 +227,97 @@
 				en,
 				Base,
 			);
-			mainGroup = 4C83CBBD185A96C7007B4E5D;
-			productRefGroup = 4C83CBC7185A96C7007B4E5D /* Products */;
+			mainGroup = 4C5651AB186F815600978D33;
+			productRefGroup = 4C5651B5186F815600978D33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C83CBC5185A96C7007B4E5D /* gbMon2 Client */,
-				4C83CBE6185A96C7007B4E5D /* gbMon2 ClientTests */,
+				4C5651B3186F815600978D33 /* gbMon2 Client */,
+				4C5651D4186F815600978D33 /* gbMon2 ClientTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4C83CBC4185A96C7007B4E5D /* Resources */ = {
+		4C5651B2186F815600978D33 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C83CBD4185A96C7007B4E5D /* InfoPlist.strings in Resources */,
-				4C83CBE2185A96C7007B4E5D /* Images.xcassets in Resources */,
-				4C83CBDA185A96C7007B4E5D /* Credits.rtf in Resources */,
-				4C83CBE0185A96C7007B4E5D /* MainMenu.xib in Resources */,
+				4C5651C2186F815600978D33 /* InfoPlist.strings in Resources */,
+				4C5651D0186F815600978D33 /* Images.xcassets in Resources */,
+				4C5651C8186F815600978D33 /* Credits.rtf in Resources */,
+				4C5651CE186F815600978D33 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C83CBE5185A96C7007B4E5D /* Resources */ = {
+		4C5651D3186F815600978D33 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C83CBF2185A96C7007B4E5D /* InfoPlist.strings in Resources */,
+				4C5651E0186F815600978D33 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4C83CBC2185A96C7007B4E5D /* Sources */ = {
+		4C5651B0186F815600978D33 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C83CBDD185A96C7007B4E5D /* AppDelegate.m in Sources */,
-				4C83CBFF185A971B007B4E5D /* AppController.m in Sources */,
-				4C83CBD6185A96C7007B4E5D /* main.m in Sources */,
+				4C5651CB186F815600978D33 /* AppDelegate.m in Sources */,
+				4C5651ED186F822600978D33 /* GCDAsyncUdpSocket.m in Sources */,
+				4C5651C4186F815600978D33 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C83CBE3185A96C7007B4E5D /* Sources */ = {
+		4C5651D1186F815600978D33 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C83CBF4185A96C7007B4E5D /* gbMon2_ClientTests.m in Sources */,
+				4C5651E2186F815600978D33 /* gbMon2_ClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4C83CBEC185A96C7007B4E5D /* PBXTargetDependency */ = {
+		4C5651DA186F815600978D33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4C83CBC5185A96C7007B4E5D /* gbMon2 Client */;
-			targetProxy = 4C83CBEB185A96C7007B4E5D /* PBXContainerItemProxy */;
+			target = 4C5651B3186F815600978D33 /* gbMon2 Client */;
+			targetProxy = 4C5651D9186F815600978D33 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4C83CBD2185A96C7007B4E5D /* InfoPlist.strings */ = {
+		4C5651C0186F815600978D33 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4C83CBD3185A96C7007B4E5D /* en */,
+				4C5651C1186F815600978D33 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4C83CBD8185A96C7007B4E5D /* Credits.rtf */ = {
+		4C5651C6186F815600978D33 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4C83CBD9185A96C7007B4E5D /* en */,
+				4C5651C7186F815600978D33 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		4C83CBDE185A96C7007B4E5D /* MainMenu.xib */ = {
+		4C5651CC186F815600978D33 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4C83CBDF185A96C7007B4E5D /* Base */,
+				4C5651CD186F815600978D33 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		4C83CBF0185A96C7007B4E5D /* InfoPlist.strings */ = {
+		4C5651DE186F815600978D33 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4C83CBF1185A96C7007B4E5D /* en */,
+				4C5651DF186F815600978D33 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -317,7 +325,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4C83CBF5185A96C7007B4E5D /* Debug */ = {
+		4C5651E3186F815600978D33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -354,7 +362,7 @@
 			};
 			name = Debug;
 		};
-		4C83CBF6185A96C7007B4E5D /* Release */ = {
+		4C5651E4186F815600978D33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -385,7 +393,7 @@
 			};
 			name = Release;
 		};
-		4C83CBF8185A96C7007B4E5D /* Debug */ = {
+		4C5651E6186F815600978D33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -398,7 +406,7 @@
 			};
 			name = Debug;
 		};
-		4C83CBF9185A96C7007B4E5D /* Release */ = {
+		4C5651E7186F815600978D33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -411,7 +419,7 @@
 			};
 			name = Release;
 		};
-		4C83CBFB185A96C7007B4E5D /* Debug */ = {
+		4C5651E9186F815600978D33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gbMon2 Client.app/Contents/MacOS/gbMon2 Client";
@@ -433,7 +441,7 @@
 			};
 			name = Debug;
 		};
-		4C83CBFC185A96C7007B4E5D /* Release */ = {
+		4C5651EA186F815600978D33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gbMon2 Client.app/Contents/MacOS/gbMon2 Client";
@@ -454,32 +462,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4C83CBC1185A96C7007B4E5D /* Build configuration list for PBXProject "gbMon2 Client" */ = {
+		4C5651AF186F815600978D33 /* Build configuration list for PBXProject "gbMon2 Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C83CBF5185A96C7007B4E5D /* Debug */,
-				4C83CBF6185A96C7007B4E5D /* Release */,
+				4C5651E3186F815600978D33 /* Debug */,
+				4C5651E4186F815600978D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C83CBF7185A96C7007B4E5D /* Build configuration list for PBXNativeTarget "gbMon2 Client" */ = {
+		4C5651E5186F815600978D33 /* Build configuration list for PBXNativeTarget "gbMon2 Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C83CBF8185A96C7007B4E5D /* Debug */,
-				4C83CBF9185A96C7007B4E5D /* Release */,
+				4C5651E6186F815600978D33 /* Debug */,
+				4C5651E7186F815600978D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		4C83CBFA185A96C7007B4E5D /* Build configuration list for PBXNativeTarget "gbMon2 ClientTests" */ = {
+		4C5651E8186F815600978D33 /* Build configuration list for PBXNativeTarget "gbMon2 ClientTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C83CBFB185A96C7007B4E5D /* Debug */,
-				4C83CBFC185A96C7007B4E5D /* Release */,
+				4C5651E9186F815600978D33 /* Debug */,
+				4C5651EA186F815600978D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4C83CBBE185A96C7007B4E5D /* Project object */;
+	rootObject = 4C5651AC186F815600978D33 /* Project object */;
 }

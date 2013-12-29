@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C83CBC5185A96C7007B4E5D"
+               BlueprintIdentifier = "4C5651B3186F815600978D33"
                BuildableName = "gbMon2 Client.app"
                BlueprintName = "gbMon2 Client"
                ReferencedContainer = "container:gbMon2 Client.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C83CBE6185A96C7007B4E5D"
+               BlueprintIdentifier = "4C5651D4186F815600978D33"
                BuildableName = "gbMon2 ClientTests.xctest"
                BlueprintName = "gbMon2 ClientTests"
                ReferencedContainer = "container:gbMon2 Client.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C83CBC5185A96C7007B4E5D"
+            BlueprintIdentifier = "4C5651B3186F815600978D33"
             BuildableName = "gbMon2 Client.app"
             BlueprintName = "gbMon2 Client"
             ReferencedContainer = "container:gbMon2 Client.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C83CBC5185A96C7007B4E5D"
+            BlueprintIdentifier = "4C5651B3186F815600978D33"
             BuildableName = "gbMon2 Client.app"
             BlueprintName = "gbMon2 Client"
             ReferencedContainer = "container:gbMon2 Client.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C83CBC5185A96C7007B4E5D"
+            BlueprintIdentifier = "4C5651B3186F815600978D33"
             BuildableName = "gbMon2 Client.app"
             BlueprintName = "gbMon2 Client"
             ReferencedContainer = "container:gbMon2 Client.xcodeproj">
