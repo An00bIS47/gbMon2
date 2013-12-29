@@ -28,10 +28,17 @@
 - (void)updateDisplay{
     
     for (; ; ) {
-        [addrField setStringValue:@"192.168.178.20"];
-        NSString *host = @"192.168.178.20";
-        [portField setStringValue:@"1000"];
-        int port = 1000;
+        NSString *host = [addrField stringValue];
+        if ([host length] == 0){
+            [self logError:@"Address required"];
+            return;
+        }
+        
+        int port = [portField intValue];
+        if (port <= 0 || port > 65535){
+            [self logError:@"Valid port required"];
+            return;
+        }
         
         NSString *msg = @"getAllJSON";
         tag=0;
@@ -73,16 +80,22 @@
 		return;
 	}
 	
-	NSLog(@"Connection established");
+    [portField setStringValue:@"1000"];
+    [addrField setStringValue:@"192.168.178.20"];
     
-    
-    /* 
+	/*
         Background Thread
         Starts thread constanstly requests getAllJSON to Update Display
         sleeps 1 seconds for next request
     */
     [self performSelectorInBackground:@selector(updateDisplay) withObject:nil];
 
+    [fanStatus setTarget:self];
+    [fanStatus setAction:@selector(fanStatusClicked:)];
+
+    
+    NSLog(@"gbMon2 Client started");
+    
     /*
     sleep(1);
     msg = @"getTemperature";
@@ -100,6 +113,35 @@
     data = [msg dataUsingEncoding:NSUTF8StringEncoding];
 	[udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
     */
+}
+
+- (IBAction)fanStatusClicked:(id)sender{
+    int clickedSegment = [sender selectedSegment];
+    //int clickedSegmentTag = [[sender cell] tagForSegment:clickedSegment];
+    if (clickedSegment==0){
+        NSLog(@"Toggle Fan Off");
+    } else {
+        NSLog(@"Toggle Fan On");
+    }
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"setFan";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
 }
 
 - (void)scrollToBottom {
@@ -241,6 +283,9 @@ withFilterContext:(id)filterContext
             //[temperatureField setStringValue:[NSString stringWithFormat: @"%@°C", msg]];
         } else if (tag==2){
             NSLog(@"TAG: %li >>>getHumidity: %@", tag, msg);
+            //[humidityField setStringValue:[NSString stringWithFormat: @"%@ %%", msg]];
+        } else if (tag==3){
+            NSLog(@"TAG: %li >>>setFan: %@", tag, msg);
             //[humidityField setStringValue:[NSString stringWithFormat: @"%@ %%", msg]];
         } else {
             //[self logMessage:FORMAT(@"RECV: %@", msg)];
