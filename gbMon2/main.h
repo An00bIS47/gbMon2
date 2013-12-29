@@ -62,6 +62,7 @@ struct info {								// Info
 	float maxHum;							// max Humidity
 	float minTemp[NOTEMPSENSOR];			// min Temperature
 	float minHum;							// min Humidity
+	int lightValue;							// LightValue
 };
 
 
@@ -69,6 +70,7 @@ struct info {								// Info
  *	Setter
  */
 void setUpdateDisplay(bool value);
+void setLightValue(int value);
 
 /*
  *	Getter
@@ -76,6 +78,7 @@ void setUpdateDisplay(bool value);
 bool getUpdateDisplay();
 char* getTemperature();
 char* getHumidity();
+int getLightValue();
 
 /*
  *	Functions

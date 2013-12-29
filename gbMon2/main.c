@@ -54,6 +54,20 @@ char* getTemperature(){
 	return buf;
 }
 
+int getLightValue(){
+	int result;
+	sem_wait(&semaLockInfo);       // down semaphore
+	result = current.lightValue;
+	sem_post(&semaLockInfo);       // up semaphore
+	return result;
+}
+
+void setLightValue(int value){
+	sem_wait(&semaLockInfo);       // down semaphore
+	current.lightValue = value;
+	sem_post(&semaLockInfo);       // up semaphore
+}
+
 void initCurrentInfo(){
 	sem_wait(&semaLockInfo);       // down semaphore
 	int i;
@@ -201,6 +215,8 @@ int main(int argc, char * argv[]) {
     pthread_create (&pThreadRRD, NULL, rrdMain, NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
 	
+	setLightValue(720);
+
     for (;;) {
 	
 	}

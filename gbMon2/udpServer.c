@@ -8,6 +8,17 @@
 
 #include "udpServer.h"
 
+
+/*
+ * Returns information as json
+ *********************************************************************************
+ */
+char* getAllJSON(){
+    char buffer[111];
+    sprintf(buffer,"{\"Humidity\":\"%.1f\",\"Temperature\":{\"Temperature1\":\"%.1f\",\"Temperature2\":\"%.1f\",\"Temperature3\":\"%.1f\"}, \"Fan\":\"%s\"}",current.humidity,current.temperature[0],current.temperature[1],current.temperature[2],getFanAsString());
+    return buffer;
+}
+
 void* serverMain(int portno){
 	
 	int sd, rc, n, cliLen, flags;
@@ -63,8 +74,17 @@ void* serverMain(int portno){
 		// usage
         if((strcmp(msg, "usage") == 0) || (strcmp(msg, "help") == 0)){
             debugPrint(true, false, "usage", false,"");
-			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n\n setFan \t- toggle fan On or Off\0",400,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n   getAllJSON \t- returns all infos in JSON format \n\n setFan \t- toggle fan On or Off\0",400,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
+
+		if(strcmp(msg, "getAllJSON") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", getAllJSON());
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			sendto(sd,getAllJSON(),111,flags,(struct sockaddr *)&cliAddr,cliLen);
+		}
+		
 		
 		if(strcmp(msg, "getServerTime") == 0) {
 			char * buffer = (char*)malloc(buffersize);
@@ -141,10 +161,10 @@ void* serverMain(int portno){
 			   ntohs(cliAddr.sin_port),msg);
 		
 		/* BEGIN jcs 3/30/05 */
-		
+		/*
 		sleep(1);
 		sendto(sd,msg,n,flags,(struct sockaddr *)&cliAddr,cliLen);
-		
+		*/
 		/* END jcs 3/30/05 */
 		
 	}/* end of server infinite loop */

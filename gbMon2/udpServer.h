@@ -26,6 +26,7 @@
 
 #define MAX_MSG 100
 
+char* getAllJSON();
 void* serverMain(int portno);
 
 #endif
