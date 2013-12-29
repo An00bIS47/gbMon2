@@ -19,6 +19,7 @@
 		4C5651E0186F815600978D33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651DE186F815600978D33 /* InfoPlist.strings */; };
 		4C5651E2186F815600978D33 /* gbMon2_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651E1186F815600978D33 /* gbMon2_ClientTests.m */; };
 		4C5651ED186F822600978D33 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651EC186F822600978D33 /* GCDAsyncUdpSocket.m */; };
+		4CA41BB2187063A7007885F2 /* gbMon2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4CA41BB1187063A7007885F2 /* gbMon2.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		4C5651E1186F815600978D33 /* gbMon2_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gbMon2_ClientTests.m; sourceTree = "<group>"; };
 		4C5651EB186F822600978D33 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		4C5651EC186F822600978D33 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		4CA41BB1187063A7007885F2 /* gbMon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gbMon2.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4C5651BF186F815600978D33 /* gbMon2 Client-Info.plist */,
+				4CA41BB1187063A7007885F2 /* gbMon2.icns */,
 				4C5651C0186F815600978D33 /* InfoPlist.strings */,
 				4C5651C3186F815600978D33 /* main.m */,
 				4C5651C5186F815600978D33 /* gbMon2 Client-Prefix.pch */,
@@ -247,6 +250,7 @@
 				4C5651D0186F815600978D33 /* Images.xcassets in Resources */,
 				4C5651C8186F815600978D33 /* Credits.rtf in Resources */,
 				4C5651CE186F815600978D33 /* MainMenu.xib in Resources */,
+				4CA41BB2187063A7007885F2 /* gbMon2.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +482,7 @@
 				4C5651E7186F815600978D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5651E8186F815600978D33 /* Build configuration list for PBXNativeTarget "gbMon2 ClientTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +491,7 @@
 				4C5651EA186F815600978D33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
