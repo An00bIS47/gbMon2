@@ -26,11 +26,12 @@
 
 @property IBOutlet  NSTextField *temperatureField;
 @property IBOutlet  NSTextField *humidityField;
+@property IBOutlet  NSTextField *descField;
 @property  IBOutlet NSTextView  *logView;
 
 
 - (void)updateDisplay;
-
+- (IBAction)disclosureTriangleClicked:(id)sender;
 - (IBAction)send:(id)sender;
 
 @end

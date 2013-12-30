@@ -19,6 +19,7 @@
 @synthesize logView;
 @synthesize fanStatus;
 
+@synthesize descField;
 @synthesize temperatureField;
 @synthesize humidityField;
 
@@ -49,6 +50,44 @@
         sleep(1);
     }
 
+}
+
+- (IBAction)disclosureTriangleClicked:(id)sender {
+    NSWindow *window =[sender window];
+    NSRect frameWinOld = [window frame];
+    
+    // Titlebar Height seems to be 22 Pixel -> +22
+    NSRect frameWinSmall = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,157 + 22);
+    NSRect frameWinBig = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,486 + 22);
+
+    switch([sender state]) {
+        case NSOnState:
+            NSLog(@"Big");
+            
+            [descField setStringValue:@"Hide Details"];
+            //[otherBox setHidden:NO];
+            [addrField setHidden:NO];;
+            [portField setHidden:NO];
+            [messageField setHidden:NO];
+            [logView setHidden:NO];
+            [sendButton setHidden:NO];
+            [window setFrame:frameWinBig display:YES animate:YES];
+            break;
+        case NSOffState:
+            NSLog(@"Small");
+            //[window setFrame:NSRectMake(frameWinOld.origin.x, frameWinOld.origin.y, frameWinOld.width, frameWinOld.height - heightOtherBoxWithMargin) display:YES];
+            //[otherBox setHidden:YES];
+            [descField setStringValue:@"Show Details"];
+            [addrField setHidden:YES];
+            [portField setHidden:YES];
+            [messageField setHidden:YES];
+            [logView setHidden:YES];
+            [sendButton setHidden:YES];
+            [window setFrame:frameWinSmall display:YES animate:YES];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
