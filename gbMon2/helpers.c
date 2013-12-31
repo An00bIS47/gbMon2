@@ -75,6 +75,13 @@ const char *printBinary(int x) {
     return b;
 }
 
+char* getLightValueAsString(){
+    char *buf = (char *) malloc(4 * sizeof(char));
+    sprintf (buf, "%d", getLightValue()) ;
+	buf[4]="\0";
+    return buf;
+}
+
 char* getVersion(){
     char *buf = (char *) malloc(4 * sizeof(char));
     sprintf (buf, "%.1f", appVersion) ;

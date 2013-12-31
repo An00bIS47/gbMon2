@@ -25,10 +25,15 @@
 @property  IBOutlet NSSegmentedControl    * fanStatus;
 
 @property IBOutlet  NSTextField *temperatureField;
+@property IBOutlet  NSTextField *minTemperatureField;
+@property IBOutlet  NSTextField *maxTemperatureField;
 @property IBOutlet  NSTextField *humidityField;
+@property IBOutlet  NSTextField *minHumidityField;
+@property IBOutlet  NSTextField *maxHumidityField;
 @property IBOutlet  NSTextField *descField;
-@property  IBOutlet NSTextView  *logView;
+@property IBOutlet NSTextView  *logView;
 
+@property IBOutlet NSLevelIndicator  *lightIndicator;
 
 - (void)updateDisplay;
 - (IBAction)disclosureTriangleClicked:(id)sender;

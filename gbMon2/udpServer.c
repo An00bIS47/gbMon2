@@ -8,14 +8,15 @@
 
 #include "udpServer.h"
 
+#define RESPONSE_SIZE 223
 
 /*
  * Returns information as json
  *********************************************************************************
  */
 char* getAllJSON(){
-    char buffer[111];
-    sprintf(buffer,"{\"Humidity\":\"%.1f\",\"Temperature\":{\"Temperature1\":\"%.1f\",\"Temperature2\":\"%.1f\",\"Temperature3\":\"%.1f\"}, \"Fan\":\"%s\"}",current.humidity,current.temperature[0],current.temperature[1],current.temperature[2],getFanAsString());
+    char buffer[RESPONSE_SIZE];
+    sprintf(buffer,"{\"Humidity\":\"%.1f\",\"minHumidity\":\"%.1f\",\"maxHumidity\":\"%.1f\",\"Temperature\":{\"Temperature1\":\"%.1f\",\"minTemperature1\":\"%.1f\",\"maxTemperature1\":\"%.1f\",\"Temperature2\":\"%.1f\",\"Temperature3\":\"%.1f\"}, \"Fan\":\"%s\", \"LightValue\":\"%s\"}",current.humidity,current.minHum, current.maxHum, current.temperature[0],current.minTemp[0],current.maxTemp[0],current.temperature[1],current.temperature[2],getFanAsString(),getLightValueAsString());
     return buffer;
 }
 
@@ -74,7 +75,7 @@ void* serverMain(int portno){
 		// usage
         if((strcmp(msg, "usage") == 0) || (strcmp(msg, "help") == 0)){
             debugPrint(true, false, "usage", false,"");
-			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n   getAllJSON \t- returns all infos in JSON format \n\n setFan \t- toggle fan On or Off\0",400,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n   getLightValue \t- returns current light value\n   getAllJSON \t- returns all infos in JSON format \n\n setFan \t- toggle fan On or Off\0",400,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
 
 		if(strcmp(msg, "getAllJSON") == 0) {
@@ -82,7 +83,7 @@ void* serverMain(int portno){
             sprintf(buffer,"Sending Response: *%s*", getAllJSON());
             debugPrint(true, true, buffer, true, "SERVER");
 			free(buffer);
-			sendto(sd,getAllJSON(),111,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sendto(sd,getAllJSON(),RESPONSE_SIZE,flags,(struct sockaddr *)&cliAddr,cliLen);
 		}
 		
 		
@@ -142,6 +143,16 @@ void* serverMain(int portno){
 			free(buffer);
 			//write(sock,getFanAsString(),2);
 			sendto(sd,getFanAsString(),2,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
+
+		// getLightValue
+		if(strcmp(msg, "getLightValue") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+			sprintf(buffer,"Sending Response: *%s*", getLightValueAsString());
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			//write(sock,getFanAsString(),2);
+			sendto(sd,getLightValueAsString(),4,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
 		
 		// setFan

@@ -21,7 +21,12 @@
 
 @synthesize descField;
 @synthesize temperatureField;
+@synthesize minTemperatureField;
+@synthesize maxTemperatureField;
 @synthesize humidityField;
+@synthesize minHumidityField;
+@synthesize maxHumidityField;
+@synthesize lightIndicator;
 
 #define FORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 
@@ -57,12 +62,12 @@
     NSRect frameWinOld = [window frame];
     
     // Titlebar Height seems to be 22 Pixel -> +22
-    NSRect frameWinSmall = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,157 + 22);
-    NSRect frameWinBig = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,486 + 22);
+    NSRect frameWinSmall = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,170 + 22);
+    NSRect frameWinBig = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,506 + 22);
 
     switch([sender state]) {
         case NSOnState:
-            NSLog(@"Big");
+            NSLog(@"Show Details");
             
             [descField setStringValue:@"Hide Details"];
             //[otherBox setHidden:NO];
@@ -74,7 +79,7 @@
             [window setFrame:frameWinBig display:YES animate:YES];
             break;
         case NSOffState:
-            NSLog(@"Small");
+            NSLog(@"Hide Details");
             //[window setFrame:NSRectMake(frameWinOld.origin.x, frameWinOld.origin.y, frameWinOld.width, frameWinOld.height - heightOtherBoxWithMargin) display:YES];
             //[otherBox setHidden:YES];
             [descField setStringValue:@"Show Details"];
@@ -300,8 +305,13 @@ withFilterContext:(id)filterContext
                                   options:kNilOptions
                                   error:&error];
             
-            [humidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [json objectForKey:@"Humidity"]]];
             
+            // Humidity
+            [humidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [json objectForKey:@"Humidity"]]];
+            [minHumidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [json objectForKey:@"minHumidity"]]];
+            [maxHumidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [json objectForKey:@"maxHumidity"]]];
+            
+            // Temperature
             NSArray *temperatureArray = [json objectForKey:@"Temperature"];//resultArray contains array type objects...
             /*
             for (NSArray *arr in resultArray) {
@@ -309,13 +319,23 @@ withFilterContext:(id)filterContext
             }
             */
             [temperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"Temperature1"]]];
-
+            [minTemperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"minTemperature1"]]];
+            [maxTemperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"maxTemperature1"]]];
+            
+            // Fan (SegmentControl)
             if ([[json objectForKey:@"Fan"] isEqualToString:@"1"]) {
                 [fanStatus setSelectedSegment:0];
             } else {
                 [fanStatus setSelectedSegment:1];
             }
-
+            
+            // Light (NSLevelIndicator)
+            NSLog(@"LightValue: %@", [json objectForKey:@"LightValue"]);
+            NSString *levelIndicatorString = [json objectForKey:@"LightValue"];
+            CGFloat lightIndicatorValue = [levelIndicatorString floatValue];
+            lightIndicatorValue = lightIndicatorValue / 100;
+            NSLog(@"LightIndicatorValue: %f",lightIndicatorValue);
+            [lightIndicator setFloatValue:lightIndicatorValue];
             
         } else if (tag==1){
             NSLog(@"TAG: %li >>>getTemperature: %@", tag, msg);

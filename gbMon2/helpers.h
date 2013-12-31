@@ -35,6 +35,7 @@ const char *printBinary(int x);
 char* getTimeShort();
 char * getTime();
 char * getVersion();
+char* getLightValueAsString();
 char * getIP(char *interface);
 byte reverseByte(byte a);
 
