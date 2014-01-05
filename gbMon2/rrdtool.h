@@ -14,6 +14,7 @@
 #include <unistd.h>
 
 #include "main.h"
+#include "piCam.h"
 
 void createDBs();
 void createDBTemperature();

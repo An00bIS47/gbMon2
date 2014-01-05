@@ -311,8 +311,14 @@ void updateDBecLevel(){
 */
 
 void updateDBs(){
+	debugPrint(true, true, "Updating Database ...", false, "RRDTOOL");
 	updateDBHumidity();
 	updateDBTemperature();
+	debugPrint(false, false, "OK", true, "RRDTOOL");
+	
+	debugPrint(true, true, "Update Webcam Image ...", false, "RRDTOOL");
+	useCam();
+	debugPrint(false, false, "OK", true, "RRDTOOL");
 }
 
 
@@ -357,17 +363,13 @@ void* rrdMain(void *args){
 	//debugPrint(false, false, "OK", true, "RRDTOOL");
 	
 	int lastTime=(int)time(NULL);
-	debugPrint(true, true, "Updating Database ...", false, "RRDTOOL");
 	updateDBs();
-	debugPrint(false, false, "OK", true, "RRDTOOL");
 	
-	
+
 	for (;;) {
 		
 		if (lastTime + 300 <= ((int)time(NULL)) ) {
-			debugPrint(true, true, "Updating Database ...", false, "RRDTOOL");
 			updateDBs();
-			debugPrint(false, false, "OK", true, "RRDTOOL");
 			
 			lastTime=(int)time(NULL);
 			//printf("Lasttime: %d", lastTime);

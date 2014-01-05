@@ -30,6 +30,7 @@
 		4C063606181DF0D70010FF0E /* SerializableFont.java in Sources */ = {isa = PBXBuildFile; fileRef = 4C0635ED181DF0D70010FF0E /* SerializableFont.java */; };
 		4C063607181DF0D70010FF0E /* SerializableFontCharacter.java in Sources */ = {isa = PBXBuildFile; fileRef = 4C0635EF181DF0D70010FF0E /* SerializableFontCharacter.java */; };
 		4C063608181DF0D70010FF0E /* TransferActionListener.java in Sources */ = {isa = PBXBuildFile; fileRef = 4C0635F1181DF0D70010FF0E /* TransferActionListener.java */; };
+		4C06B701187994AE001666B2 /* piCam.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C06B700187994AE001666B2 /* piCam.c */; };
 		4C0B07D1181699ED00EE9D1D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07CF181699ED00EE9D1D /* Makefile */; };
 		4C0B07DE1816F94F00EE9D1D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07DA1816F94F00EE9D1D /* Makefile */; };
 		4C19008918234D9B00584853 /* jquery.js in Sources */ = {isa = PBXBuildFile; fileRef = 4C19FFFE18234D9A00584853 /* jquery.js */; };
@@ -148,6 +149,8 @@
 		4C0635EF181DF0D70010FF0E /* SerializableFontCharacter.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = SerializableFontCharacter.java; sourceTree = "<group>"; };
 		4C0635F0181DF0D70010FF0E /* TransferActionListener.class */ = {isa = PBXFileReference; lastKnownFileType = compiled.javaclass; path = TransferActionListener.class; sourceTree = "<group>"; };
 		4C0635F1181DF0D70010FF0E /* TransferActionListener.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = TransferActionListener.java; sourceTree = "<group>"; };
+		4C06B6FF187994A5001666B2 /* piCam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = piCam.h; sourceTree = "<group>"; };
+		4C06B700187994AE001666B2 /* piCam.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = piCam.c; sourceTree = "<group>"; };
 		4C0B07CF181699ED00EE9D1D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/Makefile; sourceTree = "<group>"; usesTabs = 1; };
 		4C0B07D71816F94F00EE9D1D /* logic_analyzer_inline_2mhz.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = logic_analyzer_inline_2mhz.ino; path = logic_analyzer/logic_analyzer_inline_2mhz.ino; sourceTree = "<group>"; };
 		4C0B07D81816F94F00EE9D1D /* logic_analyzer_inline_4mhz.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = logic_analyzer_inline_4mhz.ino; path = logic_analyzer/logic_analyzer_inline_4mhz.ino; sourceTree = "<group>"; };
@@ -1137,6 +1140,8 @@
 				4C94B0B81827C6AC009F8EAF /* rrdtool.h */,
 				4C642D6F186F4F950037095A /* udpServer.c */,
 				4C642D71186F50320037095A /* udpServer.h */,
+				4C06B6FF187994A5001666B2 /* piCam.h */,
+				4C06B700187994AE001666B2 /* piCam.c */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";
@@ -1275,6 +1280,7 @@
 				4CF86C29181576700094C040 /* debug.c in Sources */,
 				4C0635FE181DF0D70010FF0E /* FontCreatorMenuBar.java in Sources */,
 				4C50333E181DAC0800E4C03F /* lcd.c in Sources */,
+				4C06B701187994AE001666B2 /* piCam.c in Sources */,
 				4C642D68186F44550037095A /* Makefile in Sources */,
 				4CDCA2431821A8BC00D8DA67 /* fnt_spaceLex_8b.c in Sources */,
 				4C642D5E186F3CE60037095A /* mdnsd.c in Sources */,
