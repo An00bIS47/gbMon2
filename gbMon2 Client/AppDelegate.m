@@ -28,6 +28,8 @@
 @synthesize maxHumidityField;
 @synthesize lightIndicator;
 
+@synthesize webImage;
+
 #define FORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 
 
@@ -52,51 +54,58 @@
         //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
         NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
         [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+        
+        
+        
+        // Load webcam image from lighttpd webserver and image.jpg at document root
+        //NSURL *imageURL = [NSURL URLWithString:@"http://chart.apis.google.com/chart?cht=p3&chs=700x400&chd=t:20,20,20,20,20&chl=A%7CB%7CC%7CD%7CE&chco=66FF33,3333CC"];
+        NSURL *imageURL = [NSURL URLWithString:@"http://192.168.178.20/image.jpg"];
+        NSData *imageData = [imageURL resourceDataUsingCache:NO];
+        NSImage *imageFromBundle = [[NSImage alloc] initWithData:imageData];
+        [webImage setImage:imageFromBundle];
+        
         sleep(1);
     }
 
 }
 
-- (IBAction)disclosureTriangleClicked:(id)sender {
-    NSWindow *window =[sender window];
-    NSRect frameWinOld = [window frame];
+- (IBAction)showDetails:(id)sender {
+    //NSWindow *window =[window];
+    NSRect frameWinOld = [_window frame];
     
     // Titlebar Height seems to be 22 Pixel -> +22
-    NSRect frameWinSmall = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,170 + 22);
-    NSRect frameWinBig = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y,frameWinOld.size.width,506 + 22);
-
-    switch([sender state]) {
-        case NSOnState:
-            NSLog(@"Show Details");
-            
-            [descField setStringValue:@"Hide Details"];
-            //[otherBox setHidden:NO];
-            [addrField setHidden:NO];;
-            [portField setHidden:NO];
-            [messageField setHidden:NO];
-            [logView setHidden:NO];
-            [sendButton setHidden:NO];
-            [window setFrame:frameWinBig display:YES animate:YES];
-            break;
-        case NSOffState:
-            NSLog(@"Hide Details");
-            //[window setFrame:NSRectMake(frameWinOld.origin.x, frameWinOld.origin.y, frameWinOld.width, frameWinOld.height - heightOtherBoxWithMargin) display:YES];
-            //[otherBox setHidden:YES];
-            [descField setStringValue:@"Show Details"];
-            [addrField setHidden:YES];
-            [portField setHidden:YES];
-            [messageField setHidden:YES];
-            [logView setHidden:YES];
-            [sendButton setHidden:YES];
-            [window setFrame:frameWinSmall display:YES animate:YES];
-            break;
-        default:
-            break;
+    NSRect frameWinSmall = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y, 369,frameWinOld.size.height);
+    NSRect frameWinBig = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y, 720,frameWinOld.size.height);
+    
+    if (boolShowDetails == YES){
+        NSLog(@"Show Details");
+        
+        [descField setStringValue:@"Hide Details"];
+        //[otherBox setHidden:NO];
+        [addrField setHidden:NO];;
+        [portField setHidden:NO];
+        [messageField setHidden:NO];
+        [logView setHidden:NO];
+        [sendButton setHidden:NO];
+        [_window setFrame:frameWinBig display:YES animate:YES];
+        boolShowDetails = NO;
+        
+    } else {
+        NSLog(@"Hide Details");
+        //[window setFrame:NSRectMake(frameWinOld.origin.x, frameWinOld.origin.y, frameWinOld.width, frameWinOld.height - heightOtherBoxWithMargin) display:YES];
+        //[otherBox setHidden:YES];
+        [descField setStringValue:@"Show Details"];
+        [addrField setHidden:YES];
+        [portField setHidden:YES];
+        [messageField setHidden:YES];
+        [logView setHidden:YES];
+        [sendButton setHidden:YES];
+        [_window setFrame:frameWinSmall display:YES animate:YES];
+        boolShowDetails = YES;
     }
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{	
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Setup our socket.
 	// The socket will invoke our delegate methods using the usual delegate paradigm.
 	// However, it will invoke the delegate methods on a specified GCD delegate dispatch queue.
@@ -134,9 +143,14 @@
     */
     [self performSelectorInBackground:@selector(updateDisplay) withObject:nil];
 
+    
     [fanStatus setTarget:self];
     [fanStatus setAction:@selector(fanStatusClicked:)];
-
+    
+    boolShowDetails = NO;
+    [addrField setHidden:YES];
+    [portField setHidden:YES];
+    [logView setHidden:YES];
     
     NSLog(@"gbMon2 Client started");
     
@@ -298,6 +312,7 @@ withFilterContext:(id)filterContext
         
         if (tag==0) {
             NSLog(@"TAG: %li getAllJSON >>> : \n%@", tag, msg);
+            [self logMessage:FORMAT(@"RECEIVED (%i): %@", (int)tag, msg)];
             NSError *error = NULL;
             NSData* data = [msg dataUsingEncoding:NSUTF8StringEncoding];
             NSDictionary* json = [NSJSONSerialization
@@ -339,9 +354,11 @@ withFilterContext:(id)filterContext
             
         } else if (tag==1){
             NSLog(@"TAG: %li >>>getTemperature: %@", tag, msg);
+            [self logMessage:FORMAT(@"RECEIVED (%i): %@", (int)tag, msg)];
             //[temperatureField setStringValue:[NSString stringWithFormat: @"%@°C", msg]];
         } else if (tag==2){
             NSLog(@"TAG: %li >>>getHumidity: %@", tag, msg);
+            [self logMessage:FORMAT(@"RECEIVED (%i): %@", (int)tag, msg)];
             //[humidityField setStringValue:[NSString stringWithFormat: @"%@ %%", msg]];
         } else if (tag==3){
             NSLog(@"TAG: %li >>>setFan: %@", tag, msg);
@@ -350,7 +367,7 @@ withFilterContext:(id)filterContext
             //[self logMessage:FORMAT(@"RECV: %@", msg)];
         }
         if (tag!=0){
-            [self logMessage:FORMAT(@"RECV: %@", msg)];
+            [self logMessage:FORMAT(@"RECEIVED (%i): %@", (int)tag, msg)];
         }
 
 	} else {

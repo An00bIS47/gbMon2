@@ -14,6 +14,7 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
 	long tag;
+    bool boolShowDetails;
 	GCDAsyncUdpSocket *udpSocket;
 }
 
@@ -32,11 +33,13 @@
 @property IBOutlet  NSTextField *maxHumidityField;
 @property IBOutlet  NSTextField *descField;
 @property IBOutlet NSTextView  *logView;
+@property IBOutlet NSImageView *webImage;
 
 @property IBOutlet NSLevelIndicator  *lightIndicator;
 
 - (void)updateDisplay;
 - (IBAction)disclosureTriangleClicked:(id)sender;
+- (IBAction)showDetails:(id)sender;
 - (IBAction)send:(id)sender;
 
 @end

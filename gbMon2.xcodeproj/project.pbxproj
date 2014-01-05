@@ -991,7 +991,7 @@
 			name = Debugger;
 			sourceTree = "<group>";
 		};
-		4C50333A181DA9B200E4C03F /* fonts */ = {
+		4C50333A181DA9B200E4C03F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				4CDCA2421821A8BC00D8DA67 /* fnt_spaceLex_8b.c */,
@@ -1004,7 +1004,7 @@
 				4C503341181DB41900E4C03F /* fnt_dejavu_9.c */,
 				4C503342181DB41900E4C03F /* fnt_silkscreen_8.c */,
 			);
-			name = fonts;
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		4C63C8E3183C112A005B0638 /* fritzing */ = {
@@ -1116,7 +1116,7 @@
 		4CF86BE418155C500094C040 /* gbMon2 */ = {
 			isa = PBXGroup;
 			children = (
-				4C50333A181DA9B200E4C03F /* fonts */,
+				4C50333A181DA9B200E4C03F /* Fonts */,
 				4C4BBE081825DF2F00723999 /* Misc */,
 				4CB2B5C21825D4FF0041F48A /* RCSwitch */,
 				4C77FBBC184BD12C000AAEF2 /* Sensors */,
