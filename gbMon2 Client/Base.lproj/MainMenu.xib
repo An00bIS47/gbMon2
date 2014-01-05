@@ -649,10 +649,12 @@
         <window title="gbMon2 Client" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="618" y="460" width="720" height="412"/>
+            <rect key="contentRect" x="618" y="460" width="369" height="412"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+            <value key="minSize" type="size" width="369" height="412"/>
+            <value key="maxSize" type="size" width="720" height="412"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="720" height="412"/>
+                <rect key="frame" x="0.0" y="0.0" width="369" height="412"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMH-AE-A6y">
@@ -878,13 +880,25 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="dbh-mn-gBA"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="ia8-sw-lVo"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Gyg-2u-Qbu"/>
-                    <toolbarItem implicitItemIdentifier="A8288F52-979A-49D9-934E-1E805B1EF25E" label="Show Details" paletteLabel="Show Details" tag="-1" image="NSInfo" id="Rgv-Fg-wp2">
+                    <toolbarItem implicitItemIdentifier="A8288F52-979A-49D9-934E-1E805B1EF25E" label="Show Details" paletteLabel="Show Details" tag="-1" image="InfoIcon" id="Rgv-Fg-wp2">
                         <connections>
                             <action selector="showDetails:" target="494" id="dU9-fN-N5W"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="1B81F410-A40C-476D-977A-DE678A28AF88" label="Toggle Fan" paletteLabel="Toggle Fan" tag="-1" image="fanIcon" id="QP4-sM-uTd">
+                        <connections>
+                            <action selector="setFan:" target="494" id="AZX-aC-r9f"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="9BC0ECF5-45CF-41FB-ADAD-A9D9977FC2D9" label="Make Picture" paletteLabel="Make Picture" tag="-1" image="makePic" id="eEk-AE-Ksm">
+                        <connections>
+                            <action selector="makePic:" target="494" id="W0p-Ga-TGQ"/>
+                        </connections>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
+                    <toolbarItem reference="QP4-sM-uTd"/>
+                    <toolbarItem reference="eEk-AE-Ksm"/>
                     <toolbarItem reference="Gyg-2u-Qbu"/>
                     <toolbarItem reference="Rgv-Fg-wp2"/>
                 </defaultToolbarItems>
@@ -912,6 +926,8 @@
         <customObject id="420" customClass="NSFontManager"/>
     </objects>
     <resources>
-        <image name="NSInfo" width="32" height="32"/>
+        <image name="InfoIcon" width="64" height="64"/>
+        <image name="fanIcon" width="48" height="48"/>
+        <image name="makePic" width="128" height="128"/>
     </resources>
 </document>

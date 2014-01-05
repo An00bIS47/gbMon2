@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C06B7041879A0C0001666B2 /* makePic.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C06B7021879A0C0001666B2 /* makePic.png */; };
+		4C06B7051879A0C0001666B2 /* fanIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C06B7031879A0C0001666B2 /* fanIcon.png */; };
+		4C06B7081879A19B001666B2 /* InfoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C06B7071879A19B001666B2 /* InfoIcon.png */; };
 		4C5651B8186F815600978D33 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5651B7186F815600978D33 /* Cocoa.framework */; };
 		4C5651C2186F815600978D33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651C0186F815600978D33 /* InfoPlist.strings */; };
 		4C5651C4186F815600978D33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651C3186F815600978D33 /* main.m */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C06B7021879A0C0001666B2 /* makePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makePic.png; sourceTree = "<group>"; };
+		4C06B7031879A0C0001666B2 /* fanIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fanIcon.png; sourceTree = "<group>"; };
+		4C06B7071879A19B001666B2 /* InfoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoIcon.png; path = "gbMon2 Client/InfoIcon.png"; sourceTree = "<group>"; };
 		4C5651B4186F815600978D33 /* gbMon2 Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gbMon2 Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5651B7186F815600978D33 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4C5651BA186F815600978D33 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -78,9 +84,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C06B7061879A0CB001666B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C06B7071879A19B001666B2 /* InfoIcon.png */,
+				4C06B7021879A0C0001666B2 /* makePic.png */,
+				4C06B7031879A0C0001666B2 /* fanIcon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		4C5651AB186F815600978D33 = {
 			isa = PBXGroup;
 			children = (
+				4C06B7061879A0CB001666B2 /* Resources */,
 				4C5651BD186F815600978D33 /* gbMon2 Client */,
 				4C5651DB186F815600978D33 /* gbMon2 ClientTests */,
 				4C5651B6186F815600978D33 /* Frameworks */,
@@ -250,6 +267,9 @@
 				4C5651D0186F815600978D33 /* Images.xcassets in Resources */,
 				4C5651C8186F815600978D33 /* Credits.rtf in Resources */,
 				4C5651CE186F815600978D33 /* MainMenu.xib in Resources */,
+				4C06B7081879A19B001666B2 /* InfoIcon.png in Resources */,
+				4C06B7051879A0C0001666B2 /* fanIcon.png in Resources */,
+				4C06B7041879A0C0001666B2 /* makePic.png in Resources */,
 				4CA41BB2187063A7007885F2 /* gbMon2.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

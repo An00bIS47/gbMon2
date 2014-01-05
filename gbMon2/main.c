@@ -94,7 +94,7 @@ void closeApp(){
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
 	sem_destroy(&semaLockFan); // destroy semaphore
-	
+	sem_destroy(&semaLockCam); // destroy semaphore
 }
 
 void  INThandler(int sig) {
@@ -170,6 +170,7 @@ int main(int argc, char * argv[]) {
 	sem_init(&semaLockUpdate, 1, 1);		// initialize mutex to 1 - binary semaphore
 	sem_init(&semaLockInfo, 1, 1);			// initialize mutex to 1 - binary semaphore
 	sem_init(&semaLockFan, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockCam, 1, 1);			// initialize mutex to 1 - binary semaphore
 	
     // second param = 0 - semaphore is local
 	/*

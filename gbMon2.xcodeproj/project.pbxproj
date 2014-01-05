@@ -550,14 +550,30 @@
 			path = util;
 			sourceTree = "<group>";
 		};
-		4C0B07CD181699DB00EE9D1D /* tools */ = {
+		4C06B7091879A3CD001666B2 /* Screen Test */ = {
 			isa = PBXGroup;
 			children = (
 				4C8BE022181A791500830529 /* screenTest.c */,
+			);
+			name = "Screen Test";
+			sourceTree = "<group>";
+		};
+		4C06B70A1879A3E0001666B2 /* Send RCSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				4CB2B5C61825D5AC0041F48A /* sendRC.c */,
+			);
+			name = "Send RCSwitch";
+			sourceTree = "<group>";
+		};
+		4C0B07CD181699DB00EE9D1D /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				4C06B7091879A3CD001666B2 /* Screen Test */,
 				4C0B07CF181699ED00EE9D1D /* Makefile */,
 				4CCC77EA181AE973001694BE /* simulator.c */,
 				4C19FF791822F67500584853 /* zlogTest.c */,
-				4CB2B5C61825D5AC0041F48A /* sendRC.c */,
+				4C06B70A1879A3E0001666B2 /* Send RCSwitch */,
 				4C642D66186F44390037095A /* UDP-Server */,
 				4C642D57186F3C730037095A /* mDNS */,
 			);

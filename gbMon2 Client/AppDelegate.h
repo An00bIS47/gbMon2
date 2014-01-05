@@ -14,7 +14,8 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
 	long tag;
-    bool boolShowDetails;
+    bool toggleDetails;
+    bool toggleFan;
 	GCDAsyncUdpSocket *udpSocket;
 }
 
@@ -38,8 +39,8 @@
 @property IBOutlet NSLevelIndicator  *lightIndicator;
 
 - (void)updateDisplay;
-- (IBAction)disclosureTriangleClicked:(id)sender;
 - (IBAction)showDetails:(id)sender;
 - (IBAction)send:(id)sender;
-
+- (IBAction)setFan:(id)sender;
+- (IBAction)makePic:(id)sender;
 @end

@@ -23,6 +23,7 @@
 
 #include "main.h"
 #include "rc434.h"
+#include "piCam.h"
 
 #define MAX_MSG 100
 

@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 michael. All rights reserved.
 //
 
-#include <stdio.h>
-
+#include "piCam.h"
 
 /*
  * Cam (used in RRD-Thread)
@@ -27,6 +26,8 @@ void* useCam(){
     sprintf(shellCommand,"raspistill -o /home/pi/.gbmon/pics/%s",buf2);
     //printf("CAM command: %s",shellCommand);
     
+	sem_wait(&semaLockCam);       // down semaphore
+
     FILE * pp ;
     //char shellCommand[] = buf;
     pp = popen(shellCommand, "r");
@@ -41,10 +42,18 @@ void* useCam(){
         pclose(pp);
     }
     
-	/*
-	 sprintf(shellCommand,"sshpass -p 'alpine' scp /home/pi/.gbmon/pics/%s service@192.168.178.10:./Sites/MacServer/gbmon/pics/",buf2);
-	 pp = popen(shellCommand, "r");
-	 pclose(pp);
-	 */
-    return 0;
+	
+	 //sprintf(shellCommand,"sshpass -p 'alpine' scp /home/pi/.gbmon/pics/%s service@192.168.178.10:./Sites/MacServer/gbmon/pics/",buf2);
+	
+	sprintf(shellCommand,"rm /var/www/latest.jpg",buf2);
+	pp = popen(shellCommand, "r");
+	pclose(pp);
+	
+	sprintf(shellCommand,"ln -s /home/pi/.gbmon/pics/%s /var/www/latest.jpg",buf2);
+	pp = popen(shellCommand, "r");
+	pclose(pp);
+	 
+	
+	sem_post(&semaLockCam);       // up semaphore
+    //return 0;
 }

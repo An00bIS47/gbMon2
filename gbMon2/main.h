@@ -36,6 +36,7 @@
 sem_t semaLockUpdate;						// Semaphore for Display Update
 sem_t semaLockInfo;							// Semaphore for Infos
 sem_t semaLockFan;							// Semaphore for Fan
+sem_t semaLockCam;							// Semaphore for Cam
 
 /*
  * Global Variables

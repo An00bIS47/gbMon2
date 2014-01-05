@@ -59,7 +59,7 @@
         
         // Load webcam image from lighttpd webserver and image.jpg at document root
         //NSURL *imageURL = [NSURL URLWithString:@"http://chart.apis.google.com/chart?cht=p3&chs=700x400&chd=t:20,20,20,20,20&chl=A%7CB%7CC%7CD%7CE&chco=66FF33,3333CC"];
-        NSURL *imageURL = [NSURL URLWithString:@"http://192.168.178.20/image.jpg"];
+        NSURL *imageURL = [NSURL URLWithString:@"http://192.168.178.20/latest.jpg"];
         NSData *imageData = [imageURL resourceDataUsingCache:NO];
         NSImage *imageFromBundle = [[NSImage alloc] initWithData:imageData];
         [webImage setImage:imageFromBundle];
@@ -77,7 +77,7 @@
     NSRect frameWinSmall = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y, 369,frameWinOld.size.height);
     NSRect frameWinBig = NSMakeRect(frameWinOld.origin.x, frameWinOld.origin.y, 720,frameWinOld.size.height);
     
-    if (boolShowDetails == YES){
+    if (toggleDetails == YES){
         NSLog(@"Show Details");
         
         [descField setStringValue:@"Hide Details"];
@@ -88,7 +88,7 @@
         [logView setHidden:NO];
         [sendButton setHidden:NO];
         [_window setFrame:frameWinBig display:YES animate:YES];
-        boolShowDetails = NO;
+        toggleDetails = NO;
         
     } else {
         NSLog(@"Hide Details");
@@ -101,7 +101,7 @@
         [logView setHidden:YES];
         [sendButton setHidden:YES];
         [_window setFrame:frameWinSmall display:YES animate:YES];
-        boolShowDetails = YES;
+        toggleDetails = YES;
     }
 }
 
@@ -147,7 +147,7 @@
     [fanStatus setTarget:self];
     [fanStatus setAction:@selector(fanStatusClicked:)];
     
-    boolShowDetails = NO;
+    toggleDetails = YES;
     [addrField setHidden:YES];
     [portField setHidden:YES];
     [logView setHidden:YES];
@@ -171,6 +171,58 @@
     data = [msg dataUsingEncoding:NSUTF8StringEncoding];
 	[udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
     */
+}
+
+- (IBAction)makePic:(id)sender{
+    
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    NSLog(@"Make Picture");
+    NSString *msg = @"makePic";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+}
+
+- (IBAction)setFan:(id)sender{
+
+    //int clickedSegmentTag = [[sender cell] tagForSegment:clickedSegment];
+    if (toggleFan==YES){
+        NSLog(@"Toggle Fan Off");
+    } else {
+        NSLog(@"Toggle Fan On");
+    }
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"setFan";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
 }
 
 - (IBAction)fanStatusClicked:(id)sender{
@@ -340,8 +392,10 @@ withFilterContext:(id)filterContext
             // Fan (SegmentControl)
             if ([[json objectForKey:@"Fan"] isEqualToString:@"1"]) {
                 [fanStatus setSelectedSegment:0];
+                toggleFan=YES;
             } else {
                 [fanStatus setSelectedSegment:1];
+                toggleFan=NO;
             }
             
             // Light (NSLevelIndicator)

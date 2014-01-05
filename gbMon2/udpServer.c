@@ -75,7 +75,7 @@ void* serverMain(int portno){
 		// usage
         if((strcmp(msg, "usage") == 0) || (strcmp(msg, "help") == 0)){
             debugPrint(true, false, "usage", false,"");
-			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n   getLightValue \t- returns current light value\n   getAllJSON \t- returns all infos in JSON format \n\n setFan \t- toggle fan On or Off\0",400,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n   getLightValue \t- returns current light value\n   getAllJSON \t- returns all infos in JSON format \n\n setFan \t- toggle fan On or Off\n   makePic \t- take picture with pi Cam\0",450,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
 
 		if(strcmp(msg, "getAllJSON") == 0) {
@@ -163,6 +163,17 @@ void* serverMain(int portno){
 			free(buffer);
             //write(sock,getFanAsString(),2);
 			sendto(sd,getFanAsString(),2,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
+		
+		// makePic
+		if(strcmp(msg, "makePic") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", "makePic");
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			useCam();
+            //write(sock,getFanAsString(),2);
+			sendto(sd,"makePic",8,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
 		
 		
