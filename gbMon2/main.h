@@ -25,6 +25,7 @@
 #include "dht22.h"
 #include "ds18b20.h"
 #include "rrdtool.h"
+#include "install.h"
 
 #define MAXTIMINGS 85
 #define DHTPIN 1
@@ -37,6 +38,7 @@ sem_t semaLockUpdate;						// Semaphore for Display Update
 sem_t semaLockInfo;							// Semaphore for Infos
 sem_t semaLockFan;							// Semaphore for Fan
 sem_t semaLockCam;							// Semaphore for Cam
+sem_t semaLockPrint;						// Semaphore for Print
 
 /*
  * Global Variables

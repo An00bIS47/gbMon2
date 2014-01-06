@@ -6,19 +6,24 @@
 # Default-Stop:      0 1 6
 # Required-Start:  
 # Required-Stop:   
-# Short-Description: Create /var/log/lighttpd directory on tmpfs at startup
-# Description:       Create /var/log/lighttpd directory on tmpfs at startup
+# Short-Description: Create gbmon directory on tmpfs at startup
+# Description:       Create gbmon directory on tmpfs at startup
 ### END INIT INFO
 
 DIRlog=/var/log/lighttpd
 DIRweb=/var/www
 DIRlive=/var/www/live/segments
 
+gbmonGraphs=/home/pi/.gbmon/ramdisk/graphs
+gbmonDB=/home/pi/.gbmon/ramdisk/db
+gbmonPics=/home/pi/.gbmon/ramdisk/pics
+
 #
 # Installation:
 # Copy/Put file to /etc/init.d/
 # execute: 
-# update-rc.d prepare-dirs defaults 01 99
+# sudo chmod +x /etc/init.d/prepare-ramdisk
+# sudo update-rc.d prepare-ramdisk defaults 01 99
 #
 
 #
@@ -42,6 +47,23 @@ case "${1:-''}" in
 	# !! already exists due to command above !!
 	chmod 775 ${DIRweb}
 	chown -R www-data:www-data ${DIRweb}
+	
+	if [ ! -d ${gbmonDB} ]; then
+      mkdir -p ${gbmonDB}
+      chmod 750 ${gbmonDB}
+      chown -R pi:www-data ${gbmonDB}
+    fi
+
+	if [ ! -d ${gbmonPics} ]; then
+      mkdir -p ${gbmonPics}
+      chmod 750 ${gbmonPics}
+      chown -R pi:www-data ${gbmonPics}
+    fi
+	if [ ! -d ${gbmonGraphs} ]; then
+      mkdir -p ${gbmonGraphs}
+      chmod 750 ${gbmonGraphs}
+      chown -R pi:www-data ${gbmonGraphs}
+    fi
     ;;
   stop)
     ;;

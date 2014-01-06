@@ -22,6 +22,9 @@ void* useCam(){
     tim = time (NULL) ;
     t = localtime (&tim) ;
     
+	
+	debugPrint(true, true, "Update Webcam Image ...", false, "PICAM");
+	
     sprintf (buf2,"%02d-%02d-%04d.jpg", t->tm_mday, t->tm_mon + 1, t->tm_year+1900);
     sprintf(shellCommand,"raspistill -o /home/pi/.gbmon/ramdisk/pics/%s --awb tungsten",buf2);
     //printf("CAM command: %s",shellCommand);
@@ -55,5 +58,7 @@ void* useCam(){
 	 
 	
 	sem_post(&semaLockCam);       // up semaphore
+	
+	debugPrint(false, false, "OK", true, "PICAM");
     return 0;
 }

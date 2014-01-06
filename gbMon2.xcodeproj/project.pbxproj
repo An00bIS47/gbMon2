@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C041FF2187B032C00FA7BF6 /* install.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C041FF1187B032C00FA7BF6 /* install.c */; };
 		4C0635F2181DF0D70010FF0E /* FontCreator.java in Sources */ = {isa = PBXBuildFile; fileRef = 4C0635BC181DF0D70010FF0E /* FontCreator.java */; };
 		4C0635F3181DF0D70010FF0E /* CharEditor.java in Sources */ = {isa = PBXBuildFile; fileRef = 4C0635C1181DF0D70010FF0E /* CharEditor.java */; };
 		4C0635F4181DF0D70010FF0E /* CharTable.java in Sources */ = {isa = PBXBuildFile; fileRef = 4C0635C3181DF0D70010FF0E /* CharTable.java */; };
@@ -96,9 +97,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4C041FED187AF4CE00FA7BF6 /* prepare-dirs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "prepare-dirs"; path = "Raspberry Pi Tweaks/prepare-dirs"; sourceTree = "<group>"; };
+		4C041FED187AF4CE00FA7BF6 /* prepare-ramdisk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "prepare-ramdisk"; path = "Raspberry Pi Tweaks/prepare-ramdisk"; sourceTree = "<group>"; };
 		4C041FEE187B015100FA7BF6 /* Persistent storage with ramdisks.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Persistent storage with ramdisks.pdf"; path = "Raspberry Pi Tweaks/Persistent storage with ramdisks.pdf"; sourceTree = "<group>"; };
 		4C041FEF187B015100FA7BF6 /* Ramdisks for the Raspberry.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Ramdisks for the Raspberry.pdf"; path = "Raspberry Pi Tweaks/Ramdisks for the Raspberry.pdf"; sourceTree = "<group>"; };
+		4C041FF0187B032200FA7BF6 /* install.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = install.h; sourceTree = "<group>"; };
+		4C041FF1187B032C00FA7BF6 /* install.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = install.c; sourceTree = "<group>"; };
+		4C041FF3187B17E800FA7BF6 /* persist-ramdisk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "persist-ramdisk"; path = "Raspberry Pi Tweaks/persist-ramdisk"; sourceTree = "<group>"; };
 		4C0635BA181DF0D70010FF0E /* calibri_11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = calibri_11.h; sourceTree = "<group>"; };
 		4C0635BB181DF0D70010FF0E /* FontCreator.class */ = {isa = PBXFileReference; lastKnownFileType = compiled.javaclass; path = FontCreator.class; sourceTree = "<group>"; };
 		4C0635BC181DF0D70010FF0E /* FontCreator.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = FontCreator.java; sourceTree = "<group>"; };
@@ -405,6 +409,7 @@
 		4C7235E71826742C009BE959 /* Makefile-NEW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Makefile-NEW"; sourceTree = "<group>"; };
 		4C7235E8182686E4009BE959 /* rc434.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc434.c; sourceTree = "<group>"; };
 		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
+		4C7CED96187B1E480092C599 /* makeGraphs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = makeGraphs.sh; path = "Raspberry Pi Tweaks/makeGraphs.sh"; sourceTree = "<group>"; };
 		4C8BE022181A791500830529 /* screenTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = screenTest.c; path = gbMon2/tools/screenTest.c; sourceTree = "<group>"; };
 		4C94B0B61827C5C2009F8EAF /* rrdtool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rrdtool.c; sourceTree = "<group>"; };
 		4C94B0B81827C6AC009F8EAF /* rrdtool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rrdtool.h; sourceTree = "<group>"; };
@@ -474,7 +479,9 @@
 			children = (
 				4C041FEE187B015100FA7BF6 /* Persistent storage with ramdisks.pdf */,
 				4C041FEF187B015100FA7BF6 /* Ramdisks for the Raspberry.pdf */,
-				4C041FED187AF4CE00FA7BF6 /* prepare-dirs */,
+				4C041FED187AF4CE00FA7BF6 /* prepare-ramdisk */,
+				4C041FF3187B17E800FA7BF6 /* persist-ramdisk */,
+				4C7CED96187B1E480092C599 /* makeGraphs.sh */,
 			);
 			name = "Raspberry Pi Tweaks";
 			sourceTree = "<group>";
@@ -1171,6 +1178,8 @@
 				4C642D71186F50320037095A /* udpServer.h */,
 				4C06B6FF187994A5001666B2 /* piCam.h */,
 				4C06B700187994AE001666B2 /* piCam.c */,
+				4C041FF0187B032200FA7BF6 /* install.h */,
+				4C041FF1187B032C00FA7BF6 /* install.c */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";
@@ -1305,6 +1314,7 @@
 				4C19008B18234D9B00584853 /* resize.js in Sources */,
 				4C0635F4181DF0D70010FF0E /* CharTable.java in Sources */,
 				4C19009018234D9B00584853 /* gText.cpp in Sources */,
+				4C041FF2187B032C00FA7BF6 /* install.c in Sources */,
 				4C19008918234D9B00584853 /* jquery.js in Sources */,
 				4C642D6E186F44B60037095A /* udpServer.c in Sources */,
 				4CF86C29181576700094C040 /* debug.c in Sources */,

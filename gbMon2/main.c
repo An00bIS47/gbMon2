@@ -95,6 +95,7 @@ void closeApp(){
 	sem_destroy(&semaLockInfo); // destroy semaphore
 	sem_destroy(&semaLockFan); // destroy semaphore
 	sem_destroy(&semaLockCam); // destroy semaphore
+	sem_destroy(&semaLockPrint); // destroy semaphore
 }
 
 void  INThandler(int sig) {
@@ -127,7 +128,13 @@ int main(int argc, char * argv[]) {
     //signal(SIGINT, INThandler);
     //signal (SIGQUIT, INThandler);
     // Print Header
-    
+	
+	// Init Semaphores
+	sem_init(&semaLockUpdate, 1, 1);		// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockInfo, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockFan, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockCam, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockPrint, 1, 1);			// initialize mutex to 1 - binary semaphore
     
     debugPrint(true, true, "============================================================", true, "MAIN");
     debugPrint(true, true, "                Raspberry Pi - gbMon", true, "MAIN");
@@ -144,14 +151,14 @@ int main(int argc, char * argv[]) {
         settings_file = SETTINGSFILE;
         if(!Settings_Load(settings_file)) {
             //printf("%s\r\n", _lng(ERROR_LOADING_SETTINGS));
-            debugPrint(false, false, "Loading Settings!", false, "ERROR");
+            //debugPrint(false, false, "Loading settings!", false, "ERROR");
+			printf("Error loading settings!");
+			printf("Check if settingsfile exists! \nExiting!");
             return 0;
         }
     }
     
     // Load Settings
-    
-	
 	appNetworkInterface = Settings_Get("general", "network");
     appPort = atoi(Settings_Get("general", "port"));
     appDebugMode = atoi(Settings_Get("general", "debugMode"));
@@ -166,12 +173,6 @@ int main(int argc, char * argv[]) {
     debugPrintInfo();
     debugPrintPinLayout();
 	
-	// Init Semaphores
-	sem_init(&semaLockUpdate, 1, 1);		// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockInfo, 1, 1);			// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockFan, 1, 1);			// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockCam, 1, 1);			// initialize mutex to 1 - binary semaphore
-	
     // second param = 0 - semaphore is local
 	/*
 	sem_init(&semaLockSpiSendCommand, 1, 1);      // initialize mutex to 1 - binary semaphore
@@ -183,36 +184,55 @@ int main(int argc, char * argv[]) {
 	
 	
 	// Init current Infos -> Setzte alles auf 0
+	debugPrint(true, true, "Initialising current information ...", false, "MAIN");
 	initCurrentInfo();
+	debugPrint(false, false, "OK", true, "MAIN");
+	
+	debugPrint(true, true, "Setting up directories ...", false, "MAIN");
+	char* pathToCheck = "/home/pi/.gbMon/ramdisk/db";
+	if(checkDirExist(pathToCheck) == 0){
+		mkdir(pathToCheck, 0750);
+		chown(pathToCheck, "pi", "pi");
+	}
+	pathToCheck = "/home/pi/.gbMon/ramdisk/pics";
+	if(checkDirExist(pathToCheck) == 0){
+		mkdir(pathToCheck, 0750);
+		chown(pathToCheck, "pi", "pi");
+	}
+	pathToCheck = "/home/pi/.gbMon/ramdisk/graphs";
+	if(checkDirExist(pathToCheck) == 0){
+		mkdir(pathToCheck, 0750);
+		chown(pathToCheck, "pi", "pi");
+	}
+	debugPrint(false, false, "OK", true, "MAIN");
 	
 	debugPrint(true, true, "Initialising wiringPi ...", false, "MAIN");
 	if(wiringPiSetup() == -1)  exit(1);
-	
+
 	pinMode (CLKPIN, OUTPUT);
 	pinMode (DATAPIN, OUTPUT);
-	
 	debugPrint(false, false, "OK", true, "MAIN");
 	
-	debugPrint(true, true, "Setting Up Database ...", false, "MAIN");
+	debugPrint(true, true, "Setting up database ...", false, "MAIN");
 	createDBs();
 	debugPrint(false, false, "OK", true, "MAIN");
 
 	// Starting Server Thread
-    debugPrint(true, true, "Starting Network-Server ...", true, "MAIN");
+    debugPrint(true, true, "Starting network-server ...", true, "MAIN");
     pthread_create (&pThreadServer, NULL, serverMain, 1000);
     //debugPrint(false, false, "OK", true, "MAIN");
 	
 	// Starting Display Thread
-    debugPrint(true, true, "Starting Display ...", true, "MAIN");
+    debugPrint(true, true, "Starting display thread ...", true, "MAIN");
     pthread_create (&pThreadDisplay, NULL, displayMain, NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
 	
 	// Starting Sensors Thread
-    debugPrint(true, true, "Starting Sensors Thread ...", true, "MAIN");
+    debugPrint(true, true, "Starting sensors thread ...", true, "MAIN");
 	pthread_create (&pThreadSensors, NULL, sensorsMain, NULL);
 	
 	// Starting RRD Thread
-    debugPrint(true, true, "Starting Database Thread ...", true, "MAIN");
+    debugPrint(true, true, "Starting database thread ...", true, "MAIN");
     pthread_create (&pThreadRRD, NULL, rrdMain, NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
 	

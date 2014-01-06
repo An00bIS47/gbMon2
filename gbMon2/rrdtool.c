@@ -315,10 +315,6 @@ void updateDBs(){
 	updateDBHumidity();
 	updateDBTemperature();
 	debugPrint(false, false, "OK", true, "RRDTOOL");
-	
-	debugPrint(true, true, "Update Webcam Image ...", false, "RRDTOOL");
-	useCam();
-	debugPrint(false, false, "OK", true, "RRDTOOL");
 }
 
 
@@ -365,6 +361,9 @@ void* rrdMain(void *args){
 	int lastTime=(int)time(NULL);
 	updateDBs();
 	
+	int lastPic=(int)time(NULL);
+	useCam();
+
 
 	for (;;) {
 		
@@ -375,7 +374,13 @@ void* rrdMain(void *args){
 			//printf("Lasttime: %d", lastTime);
 		}
 		
-	
+		if (lastPic + 10 <= ((int)time(NULL)) ) {
+			useCam();
+			
+			lastPic=(int)time(NULL);
+			//printf("Lasttime: %d", lastTime);
+		}
+
 	}
 	
 	return 0;

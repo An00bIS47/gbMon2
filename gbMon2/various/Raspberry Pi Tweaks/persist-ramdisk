@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+### BEGIN INIT INFO
+# Provides:          persist-ramdisk
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Required-Start:  
+# Required-Stop:   
+# Short-Description: Backup / restore ram disk contents during boot / shutdown.
+# Description:       Backup / restore ram disk contents during boot / shutdown.
+### END INIT INFO
+
+PERSIST_STORE=/home/pi/.gbmon/persist
+RAMDISK=/home/pi/.gbmon/ramdisk
+
+#
+# Installation:
+# Copy/Put file to /etc/init.d/
+# execute: 
+# sudo chmod +x /etc/init.d/persist-ramdisk 
+# sudo update-rc.d persist-ramdisk defaults 02 98
+#
+# For daily backup add the following to crontab
+# 17 2 * * * root /usr/sbin/service persist-ramdisk sync > /dev/null
+#
+# then reload cron config
+# service cron reload
+
+
+case "$1" in
+  start)
+    echo "Restoring ramdisk contents"
+    rsync --quiet --archive ${PERSIST_STORE}/ ${RAMDISK}
+    ;;
+  sync|stop)
+    echo "Persisting ramdisk contents"
+    rsync --quiet --archive --delete --recursive --force ${RAMDISK}/ ${PERSIST_STORE}
+    ;;
+  *)
+    echo "Usage: /etc/init.d/ramdisk {start|stop|sync}"
+    exit 1
+    ;;
+esac
+
+exit 0

@@ -15,6 +15,7 @@
 #include <string.h>
 #include <time.h>
 #include "main.h"
+#include "debug.h"
 
 void* useCam();
 
