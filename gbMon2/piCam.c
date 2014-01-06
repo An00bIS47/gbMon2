@@ -23,7 +23,7 @@ void* useCam(){
     t = localtime (&tim) ;
     
     sprintf (buf2,"%02d-%02d-%04d.jpg", t->tm_mday, t->tm_mon + 1, t->tm_year+1900);
-    sprintf(shellCommand,"raspistill -o /home/pi/.gbmon/pics/%s",buf2);
+    sprintf(shellCommand,"raspistill -o /home/pi/.gbmon/ramdisk/pics/%s --awb tungsten",buf2);
     //printf("CAM command: %s",shellCommand);
     
 	sem_wait(&semaLockCam);       // down semaphore
@@ -45,15 +45,15 @@ void* useCam(){
 	
 	 //sprintf(shellCommand,"sshpass -p 'alpine' scp /home/pi/.gbmon/pics/%s service@192.168.178.10:./Sites/MacServer/gbmon/pics/",buf2);
 	
-	sprintf(shellCommand,"rm /var/www/latest.jpg",buf2);
+	sprintf(shellCommand,"rm /var/www/live/latest.jpg");
 	pp = popen(shellCommand, "r");
 	pclose(pp);
 	
-	sprintf(shellCommand,"ln -s /home/pi/.gbmon/pics/%s /var/www/latest.jpg",buf2);
+	sprintf(shellCommand,"ln -s /home/pi/.gbmon/ramdisk/pics/%s /var/www/live/latest.jpg",buf2);
 	pp = popen(shellCommand, "r");
 	pclose(pp);
 	 
 	
 	sem_post(&semaLockCam);       // up semaphore
-    //return 0;
+    return 0;
 }

@@ -96,6 +96,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C041FED187AF4CE00FA7BF6 /* prepare-dirs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "prepare-dirs"; path = "Raspberry Pi Tweaks/prepare-dirs"; sourceTree = "<group>"; };
+		4C041FEE187B015100FA7BF6 /* Persistent storage with ramdisks.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Persistent storage with ramdisks.pdf"; path = "Raspberry Pi Tweaks/Persistent storage with ramdisks.pdf"; sourceTree = "<group>"; };
+		4C041FEF187B015100FA7BF6 /* Ramdisks for the Raspberry.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Ramdisks for the Raspberry.pdf"; path = "Raspberry Pi Tweaks/Ramdisks for the Raspberry.pdf"; sourceTree = "<group>"; };
 		4C0635BA181DF0D70010FF0E /* calibri_11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = calibri_11.h; sourceTree = "<group>"; };
 		4C0635BB181DF0D70010FF0E /* FontCreator.class */ = {isa = PBXFileReference; lastKnownFileType = compiled.javaclass; path = FontCreator.class; sourceTree = "<group>"; };
 		4C0635BC181DF0D70010FF0E /* FontCreator.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = FontCreator.java; sourceTree = "<group>"; };
@@ -466,6 +469,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C041FEC187AF49C00FA7BF6 /* Raspberry Pi Tweaks */ = {
+			isa = PBXGroup;
+			children = (
+				4C041FEE187B015100FA7BF6 /* Persistent storage with ramdisks.pdf */,
+				4C041FEF187B015100FA7BF6 /* Ramdisks for the Raspberry.pdf */,
+				4C041FED187AF4CE00FA7BF6 /* prepare-dirs */,
+			);
+			name = "Raspberry Pi Tweaks";
+			sourceTree = "<group>";
+		};
 		4C0635B9181DF0D70010FF0E /* GLCDFontCreator2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,6 +1229,7 @@
 		4CF86C0318155DFB0094C040 /* various */ = {
 			isa = PBXGroup;
 			children = (
+				4C041FEC187AF49C00FA7BF6 /* Raspberry Pi Tweaks */,
 				4C63C8E3183C112A005B0638 /* fritzing */,
 				4C4BBE0B1825E38500723999 /* Layouts & Product Sheets */,
 				4C19FF8018234D9A00584853 /* glcd */,

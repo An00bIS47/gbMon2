@@ -59,7 +59,7 @@
         
         // Load webcam image from lighttpd webserver and image.jpg at document root
         //NSURL *imageURL = [NSURL URLWithString:@"http://chart.apis.google.com/chart?cht=p3&chs=700x400&chd=t:20,20,20,20,20&chl=A%7CB%7CC%7CD%7CE&chco=66FF33,3333CC"];
-        NSURL *imageURL = [NSURL URLWithString:@"http://192.168.178.20/latest.jpg"];
+        NSURL *imageURL = [NSURL URLWithString:@"http://192.168.178.20/live/latest.jpg"];
         NSData *imageData = [imageURL resourceDataUsingCache:NO];
         NSImage *imageFromBundle = [[NSImage alloc] initWithData:imageData];
         [webImage setImage:imageFromBundle];

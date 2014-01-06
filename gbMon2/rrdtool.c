@@ -48,7 +48,7 @@
 void createDBlightFan(){
 	char *createparams[] = {
 		"rrdcreate",
-		"/home/pi/.gbmon/db/lightFan.rrd",
+		"/home/pi/.gbmon/ramdisk/db/lightFan.rrd",
 		"DS:light:GAUGE:600:0:U",
 		"DS:fan:GAUGE:600:0:U",
 		"RRA:AVERAGE:0.5:1:2016",
@@ -83,7 +83,7 @@ void createDBlightFan(){
 void createDBecLevel(){
 	char *createparams[] = {
 		"rrdcreate",
-		"/home/pi/.gbmon/db/ecLevel.rrd",
+		"/home/pi/.gbmon/ramdisk/db/ecLevel.rrd",
 		"DS:ecLevel_1:GAUGE:600:0:U",
 		"DS:ecLevel_2:GAUGE:600:0:U",
 		"DS:ecLevel_3:GAUGE:600:0:U",
@@ -119,7 +119,7 @@ void createDBecLevel(){
 void createDBHumidity(){
 	char *createparams[] = {
 		"rrdcreate",
-		"/home/pi/.gbmon/db/humidity.rrd",
+		"/home/pi/.gbmon/ramdisk/db/humidity.rrd",
 		"DS:humidity_1:GAUGE:600:0:U",
 		"RRA:AVERAGE:0.5:1:2016",
 		"RRA:AVERAGE:0.5:6:1824",
@@ -153,7 +153,7 @@ void createDBHumidity(){
 void createDBTemperature(){
 	char *createparams[] = {
 		"rrdcreate",
-		"/home/pi/.gbmon/db/temperature.rrd",
+		"/home/pi/.gbmon/ramdisk/db/temperature.rrd",
 		"DS:temperature_1:GAUGE:600:0:U",
 		"DS:temperature_2:GAUGE:600:0:U",
 		"DS:temperature_3:GAUGE:600:0:U",
@@ -220,7 +220,7 @@ void updateDBHumidity(){
 	
 	char *updateparams[] = {
 		"rrdupdate",
-		"/home/pi/.gbmon/db/humidity.rrd",
+		"/home/pi/.gbmon/ramdisk/db/humidity.rrd",
 		str,
 		NULL
 	};
@@ -247,7 +247,7 @@ void updateDBTemperature(){
 
 	char *updateparams[] = {
 		"rrdupdate",
-		"/home/pi/.gbmon/db/temperature.rrd",
+		"/home/pi/.gbmon/ramdisk/db/temperature.rrd",
 		str,
 		NULL
 	};
@@ -274,7 +274,7 @@ void updateDBlightFan(){
 
 	char *updateparams[] = {
 		"rrdupdate",
-		"/home/pi/.gbmon/db/lightFan.rrd",
+		"/home/pi/.gbmon/ramdisk/db/lightFan.rrd",
 		str,
 		NULL
 	};
@@ -294,7 +294,7 @@ void updateDBecLevel(){
 	sprintf(str, "N:%d:%d:%d", current.value[4],current.value[5],current.value[6]);
 	char *updateparams[] = {
 		"rrdupdate",
-		"/home/pi/.gbmon/db/ecLevel.rrd",
+		"/home/pi/.gbmon/ramdisk/db/ecLevel.rrd",
 		str,
 		NULL
 	};
