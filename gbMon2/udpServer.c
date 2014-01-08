@@ -83,7 +83,7 @@ void* serverMain(int portno){
             sprintf(buffer,"Sending Response: *%s*", getAllJSON());
             debugPrint(true, true, buffer, true, "SERVER");
 			free(buffer);
-			sendto(sd,getAllJSON(),RESPONSE_SIZE,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sendto(sd,getAllJSON(),strlen(getAllJSON()),flags,(struct sockaddr *)&cliAddr,cliLen);
 		}
 		
 		
