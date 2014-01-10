@@ -16,6 +16,8 @@
 	long tag;
     bool toggleDetails;
     bool toggleFan;
+    NSUserNotification * note;
+    NSUserNotificationCenter * unc;
 	GCDAsyncUdpSocket *udpSocket;
 }
 

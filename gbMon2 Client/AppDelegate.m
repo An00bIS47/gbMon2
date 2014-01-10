@@ -152,6 +152,14 @@
     [portField setHidden:YES];
     [logView setHidden:YES];
     
+    note = [[NSUserNotification alloc] init];
+    unc = [NSUserNotificationCenter defaultUserNotificationCenter];
+    //unc.delegate = self;
+    
+    note.title = @"gbMon";
+    note.subtitle = @"gbMon started";
+    [unc deliverNotification:note];
+    
     NSLog(@"gbMon2 Client started");
     
     /*
@@ -187,7 +195,11 @@
         [self logError:@"Valid port required"];
         return;
     }
-    NSLog(@"Make Picture");
+    NSLog(@"Take Picture");
+    note.title = @"gbMon";
+    note.subtitle = @"Take Picture";
+    [unc deliverNotification:note];
+    
     NSString *msg = @"makePic";
     tag=3;
     NSLog(@"SENT (%i): %@", (int)tag, msg);
@@ -201,9 +213,14 @@
     //int clickedSegmentTag = [[sender cell] tagForSegment:clickedSegment];
     if (toggleFan==YES){
         NSLog(@"Toggle Fan Off");
+        note.title = @"gbMon";
+        note.subtitle = @"Toggle Fan OFF";
     } else {
         NSLog(@"Toggle Fan On");
+        note.title = @"gbMon";
+        note.subtitle = @"Toggle Fan ON";
     }
+    [unc deliverNotification:note];
     
     NSString *host = [addrField stringValue];
     if ([host length] == 0){
@@ -223,6 +240,9 @@
     //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
     NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
     [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+    
+    
+
 }
 
 - (IBAction)fanStatusClicked:(id)sender{
@@ -230,10 +250,15 @@
     //int clickedSegmentTag = [[sender cell] tagForSegment:clickedSegment];
     if (clickedSegment==0){
         NSLog(@"Toggle Fan Off");
+        note.title = @"gbMon";
+        note.subtitle = @"Toggle Fan OFF";
     } else {
         NSLog(@"Toggle Fan On");
+        note.title = @"gbMon";
+        note.subtitle = @"Toggle Fan ON";
     }
-    
+    [unc deliverNotification:note];
+
     NSString *host = [addrField stringValue];
     if ([host length] == 0){
         [self logError:@"Address required"];

@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C8DC3E8187F675F005F47AC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8DC3E7187F675F005F47AC /* Cocoa.framework */; };
+		4C8DC3F2187F675F005F47AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC3F0187F675F005F47AC /* InfoPlist.strings */; };
+		4C8DC3F4187F675F005F47AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DC3F3187F675F005F47AC /* main.m */; };
+		4C8DC3F8187F675F005F47AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC3F6187F675F005F47AC /* Credits.rtf */; };
+		4C8DC3FB187F675F005F47AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DC3FA187F675F005F47AC /* AppDelegate.m */; };
+		4C8DC3FE187F675F005F47AC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC3FC187F675F005F47AC /* MainMenu.xib */; };
+		4C8DC400187F675F005F47AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC3FF187F675F005F47AC /* Images.xcassets */; };
+		4C8DC407187F675F005F47AC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8DC406187F675F005F47AC /* XCTest.framework */; };
+		4C8DC408187F675F005F47AC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8DC3E7187F675F005F47AC /* Cocoa.framework */; };
+		4C8DC410187F675F005F47AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC40E187F675F005F47AC /* InfoPlist.strings */; };
+		4C8DC412187F675F005F47AC /* gbMon2_MenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8DC411187F675F005F47AC /* gbMon2_MenuTests.m */; };
+		4C8DC420187F6C72005F47AC /* fan-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC41F187F6C72005F47AC /* fan-16.png */; };
+		4C8DC422187F6CC8005F47AC /* temperature-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC421187F6CC8005F47AC /* temperature-16.png */; };
+		4C8DC424187F7320005F47AC /* gbMon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C8DC423187F7320005F47AC /* gbMon2.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C8DC409187F675F005F47AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C8DC3DC187F675F005F47AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C8DC3E3187F675F005F47AC;
+			remoteInfo = "gbMon2 Menu";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C8DC3E4187F675F005F47AC /* gbMon2 Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gbMon2 Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C8DC3E7187F675F005F47AC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4C8DC3EA187F675F005F47AC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4C8DC3EB187F675F005F47AC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C8DC3EC187F675F005F47AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C8DC3EF187F675F005F47AC /* gbMon2 Menu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gbMon2 Menu-Info.plist"; sourceTree = "<group>"; };
+		4C8DC3F1187F675F005F47AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4C8DC3F3187F675F005F47AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4C8DC3F5187F675F005F47AC /* gbMon2 Menu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gbMon2 Menu-Prefix.pch"; sourceTree = "<group>"; };
+		4C8DC3F7187F675F005F47AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4C8DC3F9187F675F005F47AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4C8DC3FA187F675F005F47AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4C8DC3FD187F675F005F47AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4C8DC3FF187F675F005F47AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4C8DC405187F675F005F47AC /* gbMon2 MenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gbMon2 MenuTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C8DC406187F675F005F47AC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4C8DC40D187F675F005F47AC /* gbMon2 MenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gbMon2 MenuTests-Info.plist"; sourceTree = "<group>"; };
+		4C8DC40F187F675F005F47AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4C8DC411187F675F005F47AC /* gbMon2_MenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gbMon2_MenuTests.m; sourceTree = "<group>"; };
+		4C8DC41F187F6C72005F47AC /* fan-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fan-16.png"; path = "../fan-16.png"; sourceTree = "<group>"; };
+		4C8DC421187F6CC8005F47AC /* temperature-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temperature-16.png"; sourceTree = "<group>"; };
+		4C8DC423187F7320005F47AC /* gbMon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gbMon2.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C8DC3E1187F675F005F47AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8DC3E8187F675F005F47AC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C8DC402187F675F005F47AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8DC408187F675F005F47AC /* Cocoa.framework in Frameworks */,
+				4C8DC407187F675F005F47AC /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C8DC3DB187F675F005F47AC = {
+			isa = PBXGroup;
+			children = (
+				4C8DC423187F7320005F47AC /* gbMon2.png */,
+				4C8DC3ED187F675F005F47AC /* gbMon2 Menu */,
+				4C8DC40B187F675F005F47AC /* gbMon2 MenuTests */,
+				4C8DC3E6187F675F005F47AC /* Frameworks */,
+				4C8DC3E5187F675F005F47AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C8DC3E5187F675F005F47AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DC3E4187F675F005F47AC /* gbMon2 Menu.app */,
+				4C8DC405187F675F005F47AC /* gbMon2 MenuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C8DC3E6187F675F005F47AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DC3E7187F675F005F47AC /* Cocoa.framework */,
+				4C8DC406187F675F005F47AC /* XCTest.framework */,
+				4C8DC3E9187F675F005F47AC /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C8DC3E9187F675F005F47AC /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DC3EA187F675F005F47AC /* AppKit.framework */,
+				4C8DC3EB187F675F005F47AC /* CoreData.framework */,
+				4C8DC3EC187F675F005F47AC /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4C8DC3ED187F675F005F47AC /* gbMon2 Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DC3F9187F675F005F47AC /* AppDelegate.h */,
+				4C8DC3FA187F675F005F47AC /* AppDelegate.m */,
+				4C8DC421187F6CC8005F47AC /* temperature-16.png */,
+				4C8DC41F187F6C72005F47AC /* fan-16.png */,
+				4C8DC3FC187F675F005F47AC /* MainMenu.xib */,
+				4C8DC3FF187F675F005F47AC /* Images.xcassets */,
+				4C8DC3EE187F675F005F47AC /* Supporting Files */,
+			);
+			path = "gbMon2 Menu";
+			sourceTree = "<group>";
+		};
+		4C8DC3EE187F675F005F47AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DC3EF187F675F005F47AC /* gbMon2 Menu-Info.plist */,
+				4C8DC3F0187F675F005F47AC /* InfoPlist.strings */,
+				4C8DC3F3187F675F005F47AC /* main.m */,
+				4C8DC3F5187F675F005F47AC /* gbMon2 Menu-Prefix.pch */,
+				4C8DC3F6187F675F005F47AC /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C8DC40B187F675F005F47AC /* gbMon2 MenuTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DC411187F675F005F47AC /* gbMon2_MenuTests.m */,
+				4C8DC40C187F675F005F47AC /* Supporting Files */,
+			);
+			path = "gbMon2 MenuTests";
+			sourceTree = "<group>";
+		};
+		4C8DC40C187F675F005F47AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C8DC40D187F675F005F47AC /* gbMon2 MenuTests-Info.plist */,
+				4C8DC40E187F675F005F47AC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C8DC3E3187F675F005F47AC /* gbMon2 Menu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C8DC415187F675F005F47AC /* Build configuration list for PBXNativeTarget "gbMon2 Menu" */;
+			buildPhases = (
+				4C8DC3E0187F675F005F47AC /* Sources */,
+				4C8DC3E1187F675F005F47AC /* Frameworks */,
+				4C8DC3E2187F675F005F47AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gbMon2 Menu";
+			productName = "gbMon2 Menu";
+			productReference = 4C8DC3E4187F675F005F47AC /* gbMon2 Menu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4C8DC404187F675F005F47AC /* gbMon2 MenuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C8DC418187F675F005F47AC /* Build configuration list for PBXNativeTarget "gbMon2 MenuTests" */;
+			buildPhases = (
+				4C8DC401187F675F005F47AC /* Sources */,
+				4C8DC402187F675F005F47AC /* Frameworks */,
+				4C8DC403187F675F005F47AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C8DC40A187F675F005F47AC /* PBXTargetDependency */,
+			);
+			name = "gbMon2 MenuTests";
+			productName = "gbMon2 MenuTests";
+			productReference = 4C8DC405187F675F005F47AC /* gbMon2 MenuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C8DC3DC187F675F005F47AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = michael;
+				TargetAttributes = {
+					4C8DC404187F675F005F47AC = {
+						TestTargetID = 4C8DC3E3187F675F005F47AC;
+					};
+				};
+			};
+			buildConfigurationList = 4C8DC3DF187F675F005F47AC /* Build configuration list for PBXProject "gbMon2 Menu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C8DC3DB187F675F005F47AC;
+			productRefGroup = 4C8DC3E5187F675F005F47AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C8DC3E3187F675F005F47AC /* gbMon2 Menu */,
+				4C8DC404187F675F005F47AC /* gbMon2 MenuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C8DC3E2187F675F005F47AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8DC3F2187F675F005F47AC /* InfoPlist.strings in Resources */,
+				4C8DC422187F6CC8005F47AC /* temperature-16.png in Resources */,
+				4C8DC400187F675F005F47AC /* Images.xcassets in Resources */,
+				4C8DC3F8187F675F005F47AC /* Credits.rtf in Resources */,
+				4C8DC420187F6C72005F47AC /* fan-16.png in Resources */,
+				4C8DC424187F7320005F47AC /* gbMon2.png in Resources */,
+				4C8DC3FE187F675F005F47AC /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C8DC403187F675F005F47AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8DC410187F675F005F47AC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C8DC3E0187F675F005F47AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8DC3FB187F675F005F47AC /* AppDelegate.m in Sources */,
+				4C8DC3F4187F675F005F47AC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C8DC401187F675F005F47AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8DC412187F675F005F47AC /* gbMon2_MenuTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C8DC40A187F675F005F47AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C8DC3E3187F675F005F47AC /* gbMon2 Menu */;
+			targetProxy = 4C8DC409187F675F005F47AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4C8DC3F0187F675F005F47AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C8DC3F1187F675F005F47AC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4C8DC3F6187F675F005F47AC /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C8DC3F7187F675F005F47AC /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		4C8DC3FC187F675F005F47AC /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C8DC3FD187F675F005F47AC /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		4C8DC40E187F675F005F47AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C8DC40F187F675F005F47AC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C8DC413187F675F005F47AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4C8DC414187F675F005F47AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4C8DC416187F675F005F47AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gbMon2 Menu/gbMon2 Menu-Prefix.pch";
+				INFOPLIST_FILE = "gbMon2 Menu/gbMon2 Menu-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4C8DC417187F675F005F47AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gbMon2 Menu/gbMon2 Menu-Prefix.pch";
+				INFOPLIST_FILE = "gbMon2 Menu/gbMon2 Menu-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4C8DC419187F675F005F47AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gbMon2 Menu.app/Contents/MacOS/gbMon2 Menu";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gbMon2 Menu/gbMon2 Menu-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "gbMon2 MenuTests/gbMon2 MenuTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4C8DC41A187F675F005F47AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/gbMon2 Menu.app/Contents/MacOS/gbMon2 Menu";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "gbMon2 Menu/gbMon2 Menu-Prefix.pch";
+				INFOPLIST_FILE = "gbMon2 MenuTests/gbMon2 MenuTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C8DC3DF187F675F005F47AC /* Build configuration list for PBXProject "gbMon2 Menu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C8DC413187F675F005F47AC /* Debug */,
+				4C8DC414187F675F005F47AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C8DC415187F675F005F47AC /* Build configuration list for PBXNativeTarget "gbMon2 Menu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C8DC416187F675F005F47AC /* Debug */,
+				4C8DC417187F675F005F47AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4C8DC418187F675F005F47AC /* Build configuration list for PBXNativeTarget "gbMon2 MenuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C8DC419187F675F005F47AC /* Debug */,
+				4C8DC41A187F675F005F47AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C8DC3DC187F675F005F47AC /* Project object */;
+}
