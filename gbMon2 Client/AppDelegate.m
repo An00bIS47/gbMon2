@@ -416,10 +416,20 @@ withFilterContext:(id)filterContext
             
             // Fan (SegmentControl)
             if ([[json objectForKey:@"Fan"] isEqualToString:@"1"]) {
+                if (toggleFan==NO){
+                    note.title = @"gbMon";
+                    note.subtitle = @"Toggle Fan ON";
+                    [unc deliverNotification:note];
+                }
                 [fanStatus setSelectedSegment:0];
                 toggleFan=YES;
             } else {
                 [fanStatus setSelectedSegment:1];
+                if (toggleFan==YES){
+                    note.title = @"gbMon";
+                    note.subtitle = @"Toggle Fan OFF";
+                    [unc deliverNotification:note];
+                }
                 toggleFan=NO;
             }
             
