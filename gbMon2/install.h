@@ -15,4 +15,6 @@
 #include <unistd.h>
 #include <errno.h>
 
+int checkDirExist(char* path);
+
 #endif

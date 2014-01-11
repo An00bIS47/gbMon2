@@ -37,6 +37,7 @@
 sem_t semaLockUpdate;						// Semaphore for Display Update
 sem_t semaLockInfo;							// Semaphore for Infos
 sem_t semaLockFan;							// Semaphore for Fan
+sem_t semaLockFanTemp;							// Semaphore for Fan due Temp
 sem_t semaLockCam;							// Semaphore for Cam
 sem_t semaLockPrint;						// Semaphore for Print
 
@@ -53,6 +54,7 @@ bool	updateDisplay;
 
 // Fan
 int	fanToggle;
+int fanToggleTemp;
 char*	fanSystemcode;
 int		fanUnitcode;
 
@@ -74,14 +76,17 @@ struct info {								// Info
  */
 void setUpdateDisplay(bool value);
 void setLightValue(int value);
+void setFanToggleTemp(int value);
 
 /*
  *	Getter
  */
+int getFanToggleTemp();
 bool getUpdateDisplay();
 char* getTemperature();
 char* getHumidity();
 int getLightValue();
+
 
 /*
  *	Functions

@@ -9,6 +9,9 @@
 
 #include "main.h"
 
+#define TEMPFANON		27.0
+#define TEMPFANOFF		26.0
+
 pthread_t	tid[4];
 pthread_t	pThreadServer;				// Network Server Thread
 pthread_t	pThreadDisplay;				// SPI Send Command to ATmega / Arduino
@@ -19,7 +22,8 @@ float		appVersion              =   0.1;
 bool		updateDisplay			=	false;
 
 // Fan
-int		fanToggle				=	0;
+int			fanToggle				=	0;
+int			fanToggleTemp			=	0;
 char*		fanSystemcode			=	"10001";
 int			fanUnitcode				=	1;
 
@@ -68,6 +72,20 @@ void setLightValue(int value){
 	sem_post(&semaLockInfo);       // up semaphore
 }
 
+int getFanToggleTemp(){
+	int result;
+	sem_wait(&semaLockFanTemp);       // down semaphore
+	result = fanToggleTemp;
+	sem_post(&semaLockFanTemp);       // up semaphore
+	return result;
+}
+
+void setFanToggleTemp(int value){
+	sem_wait(&semaLockFanTemp);       // down semaphore
+	fanToggleTemp = value;
+	sem_post(&semaLockFanTemp);       // up semaphore
+}
+
 void initCurrentInfo(){
 	sem_wait(&semaLockInfo);       // down semaphore
 	int i;
@@ -94,6 +112,8 @@ void closeApp(){
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
 	sem_destroy(&semaLockFan); // destroy semaphore
+	sem_destroy(&semaLockFanTemp); // destroy semaphore
+	
 	sem_destroy(&semaLockCam); // destroy semaphore
 	sem_destroy(&semaLockPrint); // destroy semaphore
 }
@@ -133,6 +153,7 @@ int main(int argc, char * argv[]) {
 	sem_init(&semaLockUpdate, 1, 1);		// initialize mutex to 1 - binary semaphore
 	sem_init(&semaLockInfo, 1, 1);			// initialize mutex to 1 - binary semaphore
 	sem_init(&semaLockFan, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockFanTemp, 1, 1);			// initialize mutex to 1 - binary semaphore
 	sem_init(&semaLockCam, 1, 1);			// initialize mutex to 1 - binary semaphore
 	sem_init(&semaLockPrint, 1, 1);			// initialize mutex to 1 - binary semaphore
     
@@ -240,6 +261,25 @@ int main(int argc, char * argv[]) {
 
     for (;;) {
 	
+		/*
+         * Warnings - Temperature HIGH -> FAN On
+         * ************************************
+         */
+        if (strtod(getTemperature(),NULL)>=TEMPFANON && getFanToggleTemp()==0) {
+			debugPrint(true, true, "Temperature too high --> FAN ON", true, "MAIN");
+			setFan();
+			setFanToggleTemp(1);
+		}
+		/*
+         * Warnings - Temperature OK -> FAN Off
+         * ************************************
+         */
+        if (strtod(getTemperature(),NULL)<=TEMPFANOFF && getFanToggleTemp()==1) {
+			debugPrint(true, true, "Temperature OK --> FAN OFF", true, "MAIN");
+			setFan();
+			setFanToggleTemp(0);
+		}
+		
 	}
 
 	
