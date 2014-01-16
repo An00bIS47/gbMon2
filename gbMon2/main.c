@@ -27,6 +27,52 @@ int			fanToggleTemp			=	0;
 char*		fanSystemcode			=	"10001";
 int			fanUnitcode				=	1;
 
+
+
+void resetTemperature(){
+	int i = 0;
+	sem_wait(&semaLockInfo);		// down semaphore
+	for ( i=0; i < NOTEMPSENSOR ; i++) {
+		char* strFloat;
+		char* strMin;
+		char* strMax;
+		sprintf(strMin, "min%d",i);
+		sprintf(strMax, "max%d",i);
+		
+		current.minTemp[i]=current.temperature[i];
+		current.maxTemp[i]=current.temperature[i];
+		
+		sprintf(strFloat,"%2.2f",current.minTemp[i]);
+		Settings_Add("temperature", strMin, strFloat);
+		Settings_Save(SETTINGSFILE);
+		
+		sprintf(strFloat,"%2.2f",current.maxTemp[i]);
+		Settings_Add("temperature", strMax, strFloat);
+		Settings_Save(SETTINGSFILE);
+		
+	}
+	sem_post(&semaLockInfo);       // up semaphore
+}
+
+void resetHumidity(){
+	
+	char* strFloat;
+	sem_wait(&semaLockInfo);		// down semaphore
+	current.minHum=current.humidity;
+	current.maxHum=current.humidity;
+	
+	sprintf(strFloat,"%2.2f",current.minHum);
+	Settings_Add("humidity", "min", strFloat);
+	Settings_Save(SETTINGSFILE);
+	
+	sprintf(strFloat,"%2.2f",current.maxHum);
+	Settings_Add("humidity", "max", strFloat);
+	Settings_Save(SETTINGSFILE);
+	
+	sem_post(&semaLockInfo);       // up semaphore
+}
+
+
 void setUpdateDisplay(bool value){
 	sem_wait(&semaLockUpdate);       // down semaphore
 	updateDisplay = value;
@@ -149,18 +195,24 @@ int main(int argc, char * argv[]) {
     //signal (SIGQUIT, INThandler);
     // Print Header
 	
-	// Init Semaphores
-	sem_init(&semaLockUpdate, 1, 1);		// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockInfo, 1, 1);			// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockFan, 1, 1);			// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockFanTemp, 1, 1);			// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockCam, 1, 1);			// initialize mutex to 1 - binary semaphore
-	sem_init(&semaLockPrint, 1, 1);			// initialize mutex to 1 - binary semaphore
+	int i;
+	
+
     
     debugPrint(true, true, "============================================================", true, "MAIN");
     debugPrint(true, true, "                Raspberry Pi - gbMon", true, "MAIN");
     debugPrint(true, true, "============================================================", true, "MAIN");
 
+	
+	// Init Semaphores
+	sem_init(&semaLockUpdate, 1, 1);		// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockInfo, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockFan, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockFanTemp, 1, 1);		// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockCam, 1, 1);			// initialize mutex to 1 - binary semaphore
+	sem_init(&semaLockPrint, 1, 1);			// initialize mutex to 1 - binary semaphore
+	
+	
     // load settings file
     char* settings_file = NULL;
     int settings = 0;
@@ -179,15 +231,43 @@ int main(int argc, char * argv[]) {
         }
     }
     
-    // Load Settings
+    // Load Settings General
 	appNetworkInterface = Settings_Get("general", "network");
     appPort = atoi(Settings_Get("general", "port"));
     appDebugMode = atoi(Settings_Get("general", "debugMode"));
+	
+	
+	debugPrint(true, true, "Loading Settings ...", false, "MAIN");
+	// Load Settings for FAN
+	sem_wait(&semaLockFan);       // down semaphore
 	fanToggle=atoi(Settings_Get("fan", "toggle"));
+	sem_post(&semaLockFan);       // up semaphore
+	
 	fanSystemcode=Settings_Get("fan", "systemcode");
 	fanUnitcode=atoi(Settings_Get("fan", "unitcode"));
 	
-	debugPrint(true, true, "Loading Settings ...", false, "MAIN");
+	// Load Settings for min and max values
+	sem_wait(&semaLockInfo);       // down semaphore
+	// Humidity
+	current.minHum=atof(Settings_Get("humidity", "min"));
+	current.maxHum=atof(Settings_Get("humidity", "max"));
+	// Temperature
+	/*
+	for ( i=0; i < NOTEMPSENSOR ; i++) {
+		char* strMin;
+		char* strMax;
+		if (i==0) {
+			sprintf(strMin, "min");
+			sprintf(strMax, "max");
+		} else {
+			sprintf(strMin, "min%d",i);
+			sprintf(strMax, "max%d",i);
+		}
+		current.minTemp[i]=atof(Settings_Get("temperature", strMin));
+		current.maxTemp[i]=atof(Settings_Get("temperature", strMax));
+	}
+	 */
+	sem_post(&semaLockInfo);       // up semaphore
     debugPrint(false, false, "OK", true, "MAIN");
 
     // Print Debug Infos

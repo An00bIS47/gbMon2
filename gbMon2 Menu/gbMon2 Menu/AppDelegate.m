@@ -25,7 +25,7 @@
     //unc.delegate = self;
     
     note.title = @"gbMon";
-    note.subtitle = @"Fan started";
+    note.subtitle = @"gbMon started";
     [unc deliverNotification:note];
     
     

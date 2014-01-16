@@ -74,6 +74,8 @@ struct info {								// Info
 /*
  *	Setter
  */
+void resetHumidity();
+void resetTemperature();
 void setUpdateDisplay(bool value);
 void setLightValue(int value);
 void setFanToggleTemp(int value);
