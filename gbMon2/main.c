@@ -40,10 +40,10 @@ void createBonjourService(){
 		return 1;
 	}
 	
-	mdnsd_set_hostname(svr, hostname, inet_addr(getIP(appNetworkInterface)));
+	mdnsd_set_hostname(svr, hostname, inet_addr("192.168.178.20"));
 	
 	struct rr_entry *a2_e = NULL;
-	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(getIP(appNetworkInterface)));
+	a2_e = rr_create_a(create_nlabel(hostname), inet_addr("192.168.178.20"));
 	mdnsd_add_rr(svr, a2_e);
 	
 	struct rr_entry *aaaa_e = NULL;
