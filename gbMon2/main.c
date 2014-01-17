@@ -66,8 +66,12 @@ void createBonjourService(){
 	
 	mdnsd_add_rr(svr, aaaa_e);
 	
+	char* txtString;
+	
+	sprintf(txtString, "gbMon2 Bonjour Service \nVersion: %s", getVersion());
+	
 	const char *txt[] = {
-		"gbMon2 Bonjour Service",
+		txtString,
 		NULL
 	};
 	struct mdns_service *svc = mdnsd_register_svc(svr, "gbMon2",
