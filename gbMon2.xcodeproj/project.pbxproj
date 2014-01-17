@@ -423,6 +423,7 @@
 		4CB2B5C61825D5AC0041F48A /* sendRC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sendRC.c; path = gbMon2/tools/sendRC.c; sourceTree = "<group>"; };
 		4CB8AF0D18468E3000E74775 /* ds18b20.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ds18b20.h; sourceTree = "<group>"; };
 		4CB8AF0E18468E3C00E74775 /* ds18b20.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ds18b20.c; sourceTree = "<group>"; };
+		4CCAE8641889707500701A67 /* Installation.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = Installation.sh; path = "Raspberry Pi Tweaks/Installation.sh"; sourceTree = "<group>"; };
 		4CCC77EA181AE973001694BE /* simulator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = simulator.c; path = gbMon2/tools/simulator.c; sourceTree = "<group>"; };
 		4CDCA2381821675300D8DA67 /* fnt_spaceLex_8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_8.c; path = fonts/fnt_spaceLex_8.c; sourceTree = "<group>"; };
 		4CDCA2391821675300D8DA67 /* fnt_spaceLex_26.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_26.c; path = fonts/fnt_spaceLex_26.c; sourceTree = "<group>"; };
@@ -482,6 +483,7 @@
 				4C041FED187AF4CE00FA7BF6 /* prepare-ramdisk */,
 				4C041FF3187B17E800FA7BF6 /* persist-ramdisk */,
 				4C7CED96187B1E480092C599 /* makeGraphs.sh */,
+				4CCAE8641889707500701A67 /* Installation.sh */,
 			);
 			name = "Raspberry Pi Tweaks";
 			sourceTree = "<group>";

@@ -30,7 +30,7 @@
 #define MAXTIMINGS 85
 #define DHTPIN 1
 #define NOTEMPSENSOR 3						// Number of Temperature Sensors
-#define SETTINGSFILE "/home/pi/gbmon2/gbMon2/default.conf"
+#define SETTINGSFILE "/home/pi/.gbmon/ramdisk/default.conf"
 /*
  * Semaphores
  */
