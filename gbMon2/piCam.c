@@ -26,7 +26,7 @@ void* useCam(){
 	debugPrint(true, true, "Update Webcam Image ...", false, "PICAM");
 	
     sprintf (buf2,"%02d-%02d-%04d.jpg", t->tm_mday, t->tm_mon + 1, t->tm_year+1900);
-    sprintf(shellCommand,"raspistill -o /home/pi/.gbmon/ramdisk/pics/%s --awb tungsten -l %s",buf2, "/var/www/live/latest.jpg");
+    sprintf(shellCommand,"raspistill -o /home/pi/.gbmon/ramdisk/pics/%s --awb tungsten -l %s --nopreview",buf2, "/var/www/live/latest.jpg");
     //printf("CAM command: %s",shellCommand);
     
 	sem_wait(&semaLockCam);       // down semaphore

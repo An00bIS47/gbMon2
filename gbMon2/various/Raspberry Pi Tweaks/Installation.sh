@@ -86,5 +86,19 @@ cd gbMon2/gbMon2
 make all
 cp ~/gbMon2/gbMon2/default.conf ~/.gbmon/ramdisk/gbmon2.conf
 
-
+#
+#
+# Verify that:
+# The modules are in this order in your /etc/modules
+#
+# w1-therm
+# w1-gpio
+# i2c-dev
+# i2c-bcm2708
+# spi-bcm2708
+# snd-bcm2835
+#
+# and that the /etc/modprobe.d/raspi-blacklist.conf:
+# #blacklist spi-bcm2708
+# blacklist i2c-bcm2708
 
