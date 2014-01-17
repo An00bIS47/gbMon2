@@ -10,7 +10,7 @@
 #
 TARGET		= gbMon2
 CC			= gcc
-CFLAGS		= -g -Wall -O3
+CFLAGS		= -g -Wall -O3 -std=gnu99
 LDFLAGS		= -lwiringPi -lpthread -lrt -lrrd
 #SHELL		= bash
 
