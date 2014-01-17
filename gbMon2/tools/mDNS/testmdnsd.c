@@ -24,7 +24,7 @@
 int main(int argc, char *argv[]) {
 	// create host entries
 	char *hostname = "RaspberryPi.local";
-	char *ip = "192.168.178.63";
+	char *ip = "192.168.178.20";
 	
 	struct mdnsd *svr = mdnsd_start();
 	if (svr == NULL) {
