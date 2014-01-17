@@ -33,13 +33,9 @@ struct mdnsd *svr;
 void createBonjourService(){
 	// create host entries
 	char *hostname = "RaspberryPi.local";
-	
-	struct sockaddr_in antelope;
-	//char *some_addr;
-	
-	inet_aton(getIP(appNetworkInterface), &antelope.sin_addr);	// store IP in antelope
-	uint32_t ipAddress = inet_ntoa(antelope.sin_addr);			// return the IP
-	printf("%s\n", ipAddress); // prints "10.0.0.1"
+
+	uint32_t ipAddress = getIP(appNetworkInterface);			// return the IP
+	printf("%s\n", ipAddress);									// prints "10.0.0.1"
 	
 	printf("IP-Adresse used for Bonjour Service: %s",ipAddress);
 	
