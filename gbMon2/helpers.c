@@ -9,6 +9,12 @@
 #include "helpers.h"
 
 
+uint32_t parseIPV4string(char* ipAddress) {
+	char ipbytes[4];
+	sscanf(ipAddress, "%d.%d.%d.%d", &ipbytes[3], &ipbytes[2], &ipbytes[1], &ipbytes[0]);
+	return ipbytes[0] | ipbytes[1] << 8 | ipbytes[2] << 16 | ipbytes[3] << 24;
+}
+
 /*
  * Substring
  *********************************************************************************
