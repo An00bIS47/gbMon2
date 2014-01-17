@@ -26,6 +26,8 @@
 #include "ds18b20.h"
 #include "rrdtool.h"
 #include "install.h"
+#include "mdns.h"
+#include "mdnsd.h"
 
 #define MAXTIMINGS 85
 #define DHTPIN 1
