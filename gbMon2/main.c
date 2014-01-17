@@ -34,16 +34,19 @@ void createBonjourService(){
 	// create host entries
 	char *hostname = "RaspberryPi.local";
 	
+	char *ip = getIP(appNetworkInterface);
+	printf("IP-Adresse used for Bonjour Service: %s",ip);
+	
 	svr = mdnsd_start();
 	if (svr == NULL) {
 		printf("mdnsd_start() error\n");
 		return 1;
 	}
 	
-	mdnsd_set_hostname(svr, hostname, inet_addr(getIP(appNetworkInterface)));
+	mdnsd_set_hostname(svr, hostname, inet_addr(ip));
 	
 	struct rr_entry *a2_e = NULL;
-	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(getIP(appNetworkInterface)));
+	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(ip));
 	mdnsd_add_rr(svr, a2_e);
 	
 	struct rr_entry *aaaa_e = NULL;
