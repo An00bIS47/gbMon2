@@ -44,11 +44,11 @@ void createBonjourService(){
 		return 1;
 	}
 	
-	mdnsd_set_hostname(svr, hostname, inet_addr(getIP(ip)));
+	mdnsd_set_hostname(svr, hostname, inet_addr(ip));
 	//mdnsd_set_hostname(svr, hostname, inet_addr(ipAddress));
 	
 	struct rr_entry *a2_e = NULL;
-	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(getIP(ip)));
+	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(ip));
 	//a2_e = rr_create_a(create_nlabel(hostname), inet_addr(ipAddress));
 	mdnsd_add_rr(svr, a2_e);
 	
