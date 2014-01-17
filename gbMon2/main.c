@@ -34,8 +34,6 @@ void createBonjourService(){
 	// create host entries
 	char *hostname = "RaspberryPi.local";
 	
-	printf("IP-Address used for Bonjour Service: %s\n",inet_addr(getIP(appNetworkInterface)));
-	
 	int s;
     struct in_addr ipvalue;
 	
