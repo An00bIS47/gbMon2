@@ -27,7 +27,53 @@ int			fanToggleTemp			=	0;
 char*		fanSystemcode			=	"10001";
 int			fanUnitcode				=	1;
 
+struct mdnsd *svr;
 
+
+void createBonjourService(){
+	// create host entries
+	char *hostname = "RaspberryPi.local";
+	
+	svr = mdnsd_start();
+	if (svr == NULL) {
+		printf("mdnsd_start() error\n");
+		return 1;
+	}
+	
+	mdnsd_set_hostname(svr, hostname, inet_addr(getIP(appNetworkInterface)));
+	
+	struct rr_entry *a2_e = NULL;
+	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(getIP(appNetworkInterface)));
+	mdnsd_add_rr(svr, a2_e);
+	
+	struct rr_entry *aaaa_e = NULL;
+	
+	struct addrinfo hints;
+	memset(&hints, 0, sizeof(hints));
+	hints.ai_family = AF_INET6;
+	hints.ai_flags = AI_NUMERICHOST;
+	struct addrinfo* results;
+	getaddrinfo(
+				"fe80::5ab0:35ff:fe7f:cf27",
+				NULL,
+				&hints,
+				&results);
+	struct sockaddr_in6* addr = (struct sockaddr_in6*)results->ai_addr;
+	struct in6_addr v6addr = addr->sin6_addr;
+	freeaddrinfo(results);
+	
+	aaaa_e = rr_create_aaaa(create_nlabel(hostname), &v6addr);
+	
+	mdnsd_add_rr(svr, aaaa_e);
+	
+	const char *txt[] = {
+		"gbMon2 Bonjour Service",
+		NULL
+	};
+	struct mdns_service *svc = mdnsd_register_svc(svr, "gbMon2",
+												  "_gbmon._tcp.local", 1000, NULL, txt);
+	mdns_service_destroy(svc);
+}
 
 void resetTemperature(){
 	int i = 0;
@@ -150,6 +196,10 @@ void initCurrentInfo(){
 
 
 void closeApp(){
+	
+	// Stop Bonjour Service
+	mdnsd_stop(svr);
+	
 	pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
 	pthread_join (pThreadRRD, NULL);

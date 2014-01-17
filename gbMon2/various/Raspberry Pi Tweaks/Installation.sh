@@ -71,3 +71,20 @@ mkdir -p ~/.gbmon/persist/db
 mkdir -p ~/.gbmon/persist/pics
 mkdir -p ~/.gbmon/persist/graphs
 
+# download repository and build it
+# to update use the following command:
+#
+# cd ~/gbMon2
+# git pull origin
+#
+# and then build with:
+# make all
+#
+cd ~
+git clone https://github.com/An00bIS47/gbMon2.git
+cd gbMon2/gbMon2
+make all
+cp ~/gbMon2/gbMon2/default.conf ~/.gbmon/ramdisk/gbmon2.conf
+
+
+

@@ -93,6 +93,7 @@ int getLightValue();
 /*
  *	Functions
  */
+void createBonjourService();
 int sendRC(char* systemCode, int unitCode, int command);
 void closeApp();
 void INThandler(int);
