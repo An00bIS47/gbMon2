@@ -34,22 +34,7 @@ void createBonjourService(){
 	// create host entries
 	char *hostname = "RaspberryPi.local";
 	
-	int s;
-    struct in_addr ipvalue;
-	
-    printf("converting %s to network address \n", getIP(appNetworkInterface));
-    s = inet_pton(AF_INET, getIP(appNetworkInterface), &ipvalue);
-	
-    switch(s) {
-		case 1:
-			printf("converted value = %x \n", ipvalue.s_addr);
-		case 0:
-			printf("invalid input: %s\n", getIP(appNetworkInterface));
-		default:
-			printf("inet_pton conversion error \n");
-    }
-	
-	
+	printf("InetAddr: %d \n", inet_addr(getIP(appNetworkInterface)));
 	
 	svr = mdnsd_start();
 	if (svr == NULL) {
@@ -57,11 +42,11 @@ void createBonjourService(){
 		return 1;
 	}
 	
-	mdnsd_set_hostname(svr, hostname, inet_addr(s));
+	mdnsd_set_hostname(svr, hostname, inet_addr(getIP(appNetworkInterface)));
 	//mdnsd_set_hostname(svr, hostname, inet_addr(ipAddress));
 	
 	struct rr_entry *a2_e = NULL;
-	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(s));
+	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(getIP(appNetworkInterface)));
 	//a2_e = rr_create_a(create_nlabel(hostname), inet_addr(ipAddress));
 	mdnsd_add_rr(svr, a2_e);
 	
