@@ -12,7 +12,7 @@
 
 DIRlog=/var/log/lighttpd
 DIRweb=/var/www
-DIRlive=/var/www/live/segments
+DIRlive=/var/www/live
 
 gbmonGraphs=/home/pi/.gbmon/ramdisk/graphs
 gbmonDB=/home/pi/.gbmon/ramdisk/db

@@ -21,11 +21,12 @@ RAMDISK=/home/pi/.gbmon/ramdisk
 # sudo update-rc.d persist-ramdisk defaults 02 98
 #
 # For daily backup add the following to crontab
+# (sudo) crontab -e
 # 17 2 * * * root /usr/sbin/service persist-ramdisk sync > /dev/null
 #
 # then reload cron config
 # service cron reload
-
+#
 
 case "$1" in
   start)

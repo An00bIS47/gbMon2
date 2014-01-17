@@ -16,6 +16,10 @@ sudo mkdir /var/www/live
 sudo chown www-data:www-data /var/www/live
 sudo chmod -R 775 /var/www/live
 
+#
+# Add user pi to group www-data
+#
+sudo usermod -a -G www-data  pi
 
 #
 # create dir for sources in ~/sources
@@ -63,6 +67,26 @@ sudo chmod +x /etc/init.d/persist-ramdisk
 sudo update-rc.d prepare-ramdisk defaults 01 99
 sudo update-rc.d persist-ramdisk defaults 02 98
 
+
+
+#
+# !! IF CAMERA MODULE ERROR !!
+# Verify that:
+# The modules are in this order in your /etc/modules
+#
+# w1-therm
+# w1-gpio
+# i2c-dev
+# i2c-bcm2708
+# spi-bcm2708
+# snd-bcm2835
+#
+# and that the /etc/modprobe.d/raspi-blacklist.conf:
+# #blacklist spi-bcm2708
+# blacklist i2c-bcm2708
+
+
+
 #
 # gbMon2
 #
@@ -78,6 +102,7 @@ mkdir -p ~/.gbmon/persist/graphs
 # git pull origin
 #
 # and then build with:
+# cd ~/gbMon2/gbMon2
 # make all
 #
 cd ~
@@ -85,20 +110,9 @@ git clone https://github.com/An00bIS47/gbMon2.git
 cd gbMon2/gbMon2
 make all
 cp ~/gbMon2/gbMon2/default.conf ~/.gbmon/ramdisk/gbmon2.conf
+cd ~/gbMon2/gbMon2
+sudo ./gbMon2
 
 #
-#
-# Verify that:
-# The modules are in this order in your /etc/modules
-#
-# w1-therm
-# w1-gpio
-# i2c-dev
-# i2c-bcm2708
-# spi-bcm2708
-# snd-bcm2835
-#
-# and that the /etc/modprobe.d/raspi-blacklist.conf:
-# #blacklist spi-bcm2708
-# blacklist i2c-bcm2708
-
+# Add to the following line to /etc/rc.local
+# /usr/local/bin/bar.sh     # ein Shellskript
