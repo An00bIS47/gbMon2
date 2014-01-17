@@ -24,6 +24,7 @@
 int main(int argc, char *argv[]) {
 	// create host entries
 	char *hostname = "RaspberryPi.local";
+	char *ip = "192.168.178.63";
 	
 	struct mdnsd *svr = mdnsd_start();
 	if (svr == NULL) {
@@ -34,10 +35,10 @@ int main(int argc, char *argv[]) {
 	printf("mdnsd_start OK. press ENTER to add hostname & service\n");
 	getchar();
 	
-	mdnsd_set_hostname(svr, hostname, inet_addr("192.168.178.63"));
+	mdnsd_set_hostname(svr, hostname, inet_addr(ip));
 	
 	struct rr_entry *a2_e = NULL;
-	a2_e = rr_create_a(create_nlabel(hostname), inet_addr("192.168.178.63"));
+	a2_e = rr_create_a(create_nlabel(hostname), inet_addr(ip));
 	mdnsd_add_rr(svr, a2_e);
 	
 	struct rr_entry *aaaa_e = NULL;
