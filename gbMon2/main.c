@@ -225,8 +225,9 @@ int main(int argc, char * argv[]) {
         if(!Settings_Load(settings_file)) {
             //printf("%s\r\n", _lng(ERROR_LOADING_SETTINGS));
             //debugPrint(false, false, "Loading settings!", false, "ERROR");
-			printf("Error loading settings!");
-			printf("Check if settingsfile exists! \nExiting!");
+			printf("Error loading settings! \n");
+			printf("Check if settingsfile exists at %s\n", SETTINGSFILE);
+			printf("Exiting!");
             return 0;
         }
     }
