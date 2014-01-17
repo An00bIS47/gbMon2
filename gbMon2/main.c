@@ -35,7 +35,8 @@ void createBonjourService(){
 	char *hostname = "RaspberryPi.local";
 	char *ip = getIP(appNetworkInterface);
 
-	printf("IP-Address used for Bonjour Service: %s",ip);
+	printf("IP-Address used for Bonjour Service: %s\n",ip);
+	printf("Inet-Addr: %s\n",inet_addr(ip));
 	
 	
 	svr = mdnsd_start();
