@@ -43,6 +43,11 @@ sudo apt-get install librrd-dev
 
 
 #
+# avahi development libraries
+#
+sudo apt-get install libavahi-client-dev libavahi-common-dev libavahi-core-dev libdbus-1-dev
+
+#
 # ramdisks
 #
 # edit /etc/fstab and add the following lines
@@ -67,8 +72,6 @@ sudo chmod +x /etc/init.d/persist-ramdisk
 sudo update-rc.d prepare-ramdisk defaults 01 99
 sudo update-rc.d persist-ramdisk defaults 02 98
 
-
-
 #
 # !! IF CAMERA MODULE ERROR !!
 # Verify that:
@@ -84,7 +87,6 @@ sudo update-rc.d persist-ramdisk defaults 02 98
 # and that the /etc/modprobe.d/raspi-blacklist.conf:
 # #blacklist spi-bcm2708
 # blacklist i2c-bcm2708
-
 
 
 #
@@ -116,3 +118,7 @@ sudo ./gbMon2
 #
 # Add to the following line to /etc/rc.local
 # /usr/local/bin/bar.sh     # ein Shellskript
+
+
+
+
