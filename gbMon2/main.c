@@ -30,7 +30,7 @@ int			fanUnitcode				=	1;
 
 struct mdnsd *svr;
 
-
+/*
 void createBonjourService(){
 	// create host entries
 	char *hostname = "RaspberryPi.local";
@@ -75,7 +75,7 @@ void createBonjourService(){
 												  "_gbmon._tcp.local", 1000, NULL, txt);
 	mdns_service_destroy(svc);
 }
-
+*/
 void resetTemperature(){
 	int i = 0;
 	sem_wait(&semaLockInfo);		// down semaphore
