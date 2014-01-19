@@ -389,12 +389,12 @@ int main(int argc, char * argv[]) {
     //debugPrint(false, false, "OK", true, "MAIN");
 	
 	
-	
+	/*
 	// Starting Bonjour Service
     debugPrint(true, true, "Starting bonjour service ...", true, "MAIN");
 	createBonjourService();
 	debugPrint(false, false, "OK", true, "MAIN");
-	
+	*/
 	setLightValue(720);
 
     for (;;) {
