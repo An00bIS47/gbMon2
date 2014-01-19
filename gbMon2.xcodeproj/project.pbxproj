@@ -34,6 +34,8 @@
 		4C06B701187994AE001666B2 /* piCam.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C06B700187994AE001666B2 /* piCam.c */; };
 		4C0B07D1181699ED00EE9D1D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07CF181699ED00EE9D1D /* Makefile */; };
 		4C0B07DE1816F94F00EE9D1D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B07DA1816F94F00EE9D1D /* Makefile */; };
+		4C169352188C73E100464F68 /* client-publish-service.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C169351188C73E100464F68 /* client-publish-service.c */; };
+		4C169354188C741000464F68 /* client-browse-services.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C169353188C741000464F68 /* client-browse-services.c */; };
 		4C19008918234D9B00584853 /* jquery.js in Sources */ = {isa = PBXBuildFile; fileRef = 4C19FFFE18234D9A00584853 /* jquery.js */; };
 		4C19008A18234D9B00584853 /* navtree.js in Sources */ = {isa = PBXBuildFile; fileRef = 4C19000718234D9A00584853 /* navtree.js */; };
 		4C19008B18234D9B00584853 /* resize.js in Sources */ = {isa = PBXBuildFile; fileRef = 4C19001E18234D9B00584853 /* resize.js */; };
@@ -168,6 +170,8 @@
 		4C0B07DB1816F94F00EE9D1D /* ols.profile-agla.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ols.profile-agla.cfg"; path = "logic_analyzer/ols.profile-agla.cfg"; sourceTree = "<group>"; };
 		4C0B07DC1816F94F00EE9D1D /* ols.profile-aglam.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ols.profile-aglam.cfg"; path = "logic_analyzer/ols.profile-aglam.cfg"; sourceTree = "<group>"; };
 		4C0B07DD1816F94F00EE9D1D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = logic_analyzer/README; sourceTree = "<group>"; };
+		4C169351188C73E100464F68 /* client-publish-service.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "client-publish-service.c"; path = "gbMon2/tools/avahi/client-publish-service.c"; sourceTree = "<group>"; };
+		4C169353188C741000464F68 /* client-browse-services.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "client-browse-services.c"; path = "gbMon2/tools/avahi/client-browse-services.c"; sourceTree = "<group>"; };
 		4C19000018234D9A00584853 /* ks0108_Panel_A_WiringPic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ks0108_Panel_A_WiringPic.jpg; sourceTree = "<group>"; };
 		4C19000118234D9A00584853 /* ks0108_Panel_B.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ks0108_Panel_B.gif; sourceTree = "<group>"; };
 		4C19000218234D9A00584853 /* ks0108lib.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ks0108lib.jpg; sourceTree = "<group>"; };
@@ -597,6 +601,7 @@
 		4C0B07CD181699DB00EE9D1D /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				4C169350188C73B800464F68 /* avahi */,
 				4C06B7091879A3CD001666B2 /* Screen Test */,
 				4C0B07CF181699ED00EE9D1D /* Makefile */,
 				4CCC77EA181AE973001694BE /* simulator.c */,
@@ -620,6 +625,15 @@
 				4C0B07DD1816F94F00EE9D1D /* README */,
 			);
 			name = logic_analyzer;
+			sourceTree = "<group>";
+		};
+		4C169350188C73B800464F68 /* avahi */ = {
+			isa = PBXGroup;
+			children = (
+				4C169351188C73E100464F68 /* client-publish-service.c */,
+				4C169353188C741000464F68 /* client-browse-services.c */,
+			);
+			name = avahi;
 			sourceTree = "<group>";
 		};
 		4C19001F18234D9B00584853 /* search */ = {
@@ -1349,10 +1363,12 @@
 				4C063601181DF0D70010FF0E /* Font.java in Sources */,
 				4C19FF7D18230BAD00584853 /* dht22.c in Sources */,
 				4C0635F9181DF0D70010FF0E /* NewFontDialog.java in Sources */,
+				4C169352188C73E100464F68 /* client-publish-service.c in Sources */,
 				4C642D6A186F446A0037095A /* Makefile in Sources */,
 				4CDCA23C1821675300D8DA67 /* fnt_spaceLex_8.c in Sources */,
 				4C0635FA181DF0D70010FF0E /* CharTableModel.java in Sources */,
 				4C0635FF181DF0D70010FF0E /* FontCreatorSideToolBar.java in Sources */,
+				4C169354188C741000464F68 /* client-browse-services.c in Sources */,
 				4CDCA23D1821675300D8DA67 /* fnt_spaceLex_26.c in Sources */,
 				4CDCA23E1821675300D8DA67 /* fnt_spaceLex_12.c in Sources */,
 				4C19008A18234D9B00584853 /* navtree.js in Sources */,
