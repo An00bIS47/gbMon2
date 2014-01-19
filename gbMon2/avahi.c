@@ -87,7 +87,7 @@ static void create_services(AvahiClient *c) {
 		
         /* Create some random TXT data */
         snprintf(r, sizeof(r), "random=%i", rand());		// Can be removed or replaced
-		sprintf(txt, "version=%2.f",appVersion);
+		sprintf(txt, "version = %2.f",appVersion);
 		
         /* We will now add two services and one subtype to the entry
          * group. The two services have the same name, but differ in
