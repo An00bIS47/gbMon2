@@ -67,7 +67,7 @@ static void create_services(AvahiClient *c) {
     int ret;
     assert(c);
 	
-	char *txt;
+	char *txt[128];
 
 
     /* If this is the first time we're called, let's create a new
