@@ -17,6 +17,7 @@ pthread_t	pThreadServer;				// Network Server Thread
 pthread_t	pThreadDisplay;				// SPI Send Command to ATmega / Arduino
 pthread_t	pThreadSensors;				// Sensors Thread
 pthread_t	pThreadRRD;					// RRD Thread
+pthread_t	pThreadAvahi;				// Avahi
 
 float		appVersion              =   0.1;
 bool		updateDisplay			=	false;
@@ -204,6 +205,7 @@ void closeApp(){
     pthread_join (pThreadDisplay, NULL);
 	pthread_join (pThreadRRD, NULL);
 	pthread_join (pThreadSensors, NULL);
+	pthread_join (pThreadAvahi, NULL);
 	
 	sem_destroy(&semaLockUpdate); // destroy semaphore
 	sem_destroy(&semaLockInfo); // destroy semaphore
@@ -388,6 +390,10 @@ int main(int argc, char * argv[]) {
     pthread_create (&pThreadRRD, NULL, rrdMain, NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
 	
+	// Starting Avahi(Bonjour) Thread
+    debugPrint(true, true, "Starting bonjour thread ...", true, "MAIN");
+    pthread_create (&pThreadAvahi, NULL, avahiMain, NULL);
+    //debugPrint(false, false, "OK", true, "MAIN");
 	
 	/*
 	// Starting Bonjour Service
@@ -395,6 +401,7 @@ int main(int argc, char * argv[]) {
 	createBonjourService();
 	debugPrint(false, false, "OK", true, "MAIN");
 	*/
+	
 	setLightValue(720);
 
     for (;;) {

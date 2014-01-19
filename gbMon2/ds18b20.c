@@ -150,7 +150,7 @@ void* sensorsMain(void *args){
 		read_dht22_dat();
 		
 		//current.temperature[1]=20.0;
-		
+		//readTemperatureDS(1);
 		readTemperatureDS(2);
 		//debugPrint(false, false, "OK", true, "RRDTOOL");
 		

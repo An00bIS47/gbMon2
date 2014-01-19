@@ -26,8 +26,11 @@
 #include "ds18b20.h"
 #include "rrdtool.h"
 #include "install.h"
-#include "mdns.h"
-#include "mdnsd.h"
+
+//#include "mdns.h"		// not used anymore
+//#include "mdnsd.h"	// not used anymore
+#include "avahi.h"
+
 
 #define MAXTIMINGS 85
 #define DHTPIN 1

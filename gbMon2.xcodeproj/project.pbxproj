@@ -38,6 +38,7 @@
 		4C169354188C741000464F68 /* client-browse-services.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C169353188C741000464F68 /* client-browse-services.c */; };
 		4C16935A188C7A0400464F68 /* gbmon-test.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C169359188C7A0400464F68 /* gbmon-test.c */; };
 		4C16935C188C7B7700464F68 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C16935B188C7B7700464F68 /* Makefile */; };
+		4C16935E188C7E2F00464F68 /* avahi.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C16935D188C7E2F00464F68 /* avahi.c */; };
 		4C19008918234D9B00584853 /* jquery.js in Sources */ = {isa = PBXBuildFile; fileRef = 4C19FFFE18234D9A00584853 /* jquery.js */; };
 		4C19008A18234D9B00584853 /* navtree.js in Sources */ = {isa = PBXBuildFile; fileRef = 4C19000718234D9A00584853 /* navtree.js */; };
 		4C19008B18234D9B00584853 /* resize.js in Sources */ = {isa = PBXBuildFile; fileRef = 4C19001E18234D9B00584853 /* resize.js */; };
@@ -176,6 +177,8 @@
 		4C169353188C741000464F68 /* client-browse-services.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "client-browse-services.c"; path = "gbMon2/tools/avahi/client-browse-services.c"; sourceTree = "<group>"; };
 		4C169359188C7A0400464F68 /* gbmon-test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "gbmon-test.c"; path = "gbMon2/tools/avahi/gbmon-test.c"; sourceTree = "<group>"; };
 		4C16935B188C7B7700464F68 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/avahi/Makefile; sourceTree = "<group>"; };
+		4C16935D188C7E2F00464F68 /* avahi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = avahi.c; sourceTree = "<group>"; };
+		4C16935F188C7E5700464F68 /* avahi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = avahi.h; sourceTree = "<group>"; };
 		4C19000018234D9A00584853 /* ks0108_Panel_A_WiringPic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ks0108_Panel_A_WiringPic.jpg; sourceTree = "<group>"; };
 		4C19000118234D9A00584853 /* ks0108_Panel_B.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ks0108_Panel_B.gif; sourceTree = "<group>"; };
 		4C19000218234D9A00584853 /* ks0108lib.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ks0108lib.jpg; sourceTree = "<group>"; };
@@ -638,6 +641,15 @@
 				4C169353188C741000464F68 /* client-browse-services.c */,
 				4C169359188C7A0400464F68 /* gbmon-test.c */,
 				4C16935B188C7B7700464F68 /* Makefile */,
+			);
+			name = avahi;
+			sourceTree = "<group>";
+		};
+		4C169360188C7EBD00464F68 /* avahi */ = {
+			isa = PBXGroup;
+			children = (
+				4C16935D188C7E2F00464F68 /* avahi.c */,
+				4C16935F188C7E5700464F68 /* avahi.h */,
 			);
 			name = avahi;
 			sourceTree = "<group>";
@@ -1220,6 +1232,7 @@
 				4C06B700187994AE001666B2 /* piCam.c */,
 				4C041FF0187B032200FA7BF6 /* install.h */,
 				4C041FF1187B032C00FA7BF6 /* install.c */,
+				4C169360188C7EBD00464F68 /* avahi */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";
@@ -1398,6 +1411,7 @@
 				4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */,
 				4CCAE86A18898BC500701A67 /* mdnsd.c in Sources */,
 				4C642D5D186F3CE60037095A /* mdns.c in Sources */,
+				4C16935E188C7E2F00464F68 /* avahi.c in Sources */,
 				4C94B0B71827C5C2009F8EAF /* rrdtool.c in Sources */,
 				4CF86C1018155DFB0094C040 /* client.c in Sources */,
 				4C063604181DF0D70010FF0E /* ImageTransferHandler.java in Sources */,

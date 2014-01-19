@@ -1,27 +1,16 @@
 //
-//  gbmon-test.c
+//  avahi.c
 //  gbMon2
 //
 //  Created by michael on 19.01.14.
 //  Copyright (c) 2014 michael. All rights reserved.
 //
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-#include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
-
-#include <avahi-client/client.h>
-#include <avahi-client/publish.h>
-
-#include <avahi-common/alternative.h>
-#include <avahi-common/simple-watch.h>
-#include <avahi-common/malloc.h>
-#include <avahi-common/error.h>
-#include <avahi-common/timeval.h>
+#include "avahi.h"
 
 static AvahiEntryGroup *group = NULL;
 static AvahiSimplePoll *simple_poll = NULL;
@@ -38,6 +27,7 @@ static void entry_group_callback(AvahiEntryGroup *g, AvahiEntryGroupState state,
     switch (state) {
         case AVAHI_ENTRY_GROUP_ESTABLISHED :
             /* The entry group has been established successfully */
+			debugPrint(false, false, "OK", true, "AVAHI");
             fprintf(stderr, "Service '%s' successfully established.\n", name);
             break;
 			
@@ -201,12 +191,12 @@ static void modify_callback(AVAHI_GCC_UNUSED AvahiTimeout *e, void *userdata) {
     }
 }
 
-int main(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char*argv[]) {
+int avahiMain(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char*argv[]) {
     AvahiClient *client = NULL;
     int error;
     int ret = 1;
     //struct timeval tv;		// Not needed due no modifications made by avahi service
-								// Comes from sample code
+	// Comes from sample code
 	
     /* Allocate main loop object */
     if (!(simple_poll = avahi_simple_poll_new())) {
@@ -227,13 +217,15 @@ int main(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char*argv[]) {
 	
     /* After 10s do some weird modification to the service */
     /*
-	avahi_simple_poll_get(simple_poll)->timeout_new(
-													avahi_simple_poll_get(simple_poll),
-													avahi_elapse_time(&tv, 1000*10, 0),
-													modify_callback,
-													client);
-	*/
+	 avahi_simple_poll_get(simple_poll)->timeout_new(
+	 avahi_simple_poll_get(simple_poll),
+	 avahi_elapse_time(&tv, 1000*10, 0),
+	 modify_callback,
+	 client);
+	 */
     /* Run the main loop */
+	
+
     avahi_simple_poll_loop(simple_poll);
 	
     ret = 0;
