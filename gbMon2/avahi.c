@@ -62,10 +62,14 @@ static void entry_group_callback(AvahiEntryGroup *g, AvahiEntryGroupState state,
 }
 
 static void create_services(AvahiClient *c) {
-    char *n, r[128];
+    char *n;
+	char *r[128];			// Can be removed or replaced
     int ret;
     assert(c);
 	
+	char *txt;
+
+
     /* If this is the first time we're called, let's create a new
      * entry group if necessary */
 	
@@ -82,7 +86,8 @@ static void create_services(AvahiClient *c) {
         fprintf(stderr, "Adding service '%s'\n", name);
 		
         /* Create some random TXT data */
-        snprintf(r, sizeof(r), "random=%i", rand());
+        snprintf(r, sizeof(r), "random=%i", rand());		// Can be removed or replaced
+		sprintf(txt, "version=%2.f",appVersion);
 		
         /* We will now add two services and one subtype to the entry
          * group. The two services have the same name, but differ in
@@ -90,7 +95,7 @@ static void create_services(AvahiClient *c) {
          * same name should be put in the same entry group. */
 		
         /* Add the service for IPP */
-        if ((ret = avahi_entry_group_add_service(group, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, 0, name, "_gbmon._tcp", NULL, NULL, 1000, "test=blah", r, NULL)) < 0) {
+        if ((ret = avahi_entry_group_add_service(group, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, 0, name, "_gbmon._tcp", NULL, NULL, 1000, txt, r, NULL)) < 0) {
 			
             if (ret == AVAHI_ERR_COLLISION)
                 goto collision;
