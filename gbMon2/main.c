@@ -199,7 +199,7 @@ void initCurrentInfo(){
 void closeApp(){
 	
 	// Stop Bonjour Service
-	mdnsd_stop(svr);
+	// mdnsd_stop(svr);
 	
 	pthread_join (pThreadServer, NULL);
     pthread_join (pThreadDisplay, NULL);
