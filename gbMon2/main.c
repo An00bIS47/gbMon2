@@ -234,7 +234,8 @@ int main(int argc, char * argv[]) {
     // Print Header
 	
 	int i;
-	
+    //ElemType elem = {0};
+    Data elem;
 
     
     debugPrint(true, true, "============================================================", true, "MAIN");
@@ -411,10 +412,19 @@ int main(int argc, char * argv[]) {
 			setFanToggleTemp(0);
 		}
 		
-		
+		sem_wait(&semaLockInfo);
+        cbWrite(&ringbuffer, &data);
+        sem_post(&semaLockInfo);
 		
 	}
-
+	
+	/* Remove and print all elements */
+    while (!cbIsEmpty(&ringbuffer)) {
+        cbRead(&ringbuffer, &elem);
+        printData(elem);
+        //printf("%f\n", elem.humidity.min);
+        //printf("%f\n", elem.temperature[0].min);
+    }
 	
 	closeApp();
 	/*
