@@ -94,26 +94,26 @@ void readTemperatureDS(int sensorID) {
 			t=num/1000;
 			
 			sem_wait(&semaLockInfo);       // down semaphore
-			if (current.maxTemp[sensorID] < t) {
-				current.maxTemp[sensorID] = t;
-				sprintf(strFloat,"%2.2f",current.maxTemp[sensorID]);
+			if (data.temperature[sensorID].max < t) {
+				data.temperature[sensorID].max = t;
+				sprintf(strFloat,"%2.2f",data.temperature[sensorID].max);
 				Settings_Add("temperature", strMax, strFloat);
 				Settings_Save(SETTINGSFILE);
 				
 			}
-			if ((current.minTemp[sensorID] > t) || (current.temperature[sensorID] == 0.0)){
-				current.minTemp[sensorID] = t;
-				current.minTemp[sensorID] = t;
-				sprintf(strFloat,"%2.2f",current.minTemp[sensorID]);
+			if ((data.temperature[sensorID].min > t) || (data.temperature[sensorID].current == 0.0)){
+				data.temperature[sensorID].min = t;
+				data.temperature[sensorID].min = t;
+				sprintf(strFloat,"%2.2f",data.temperature[sensorID].current);
 				Settings_Add("temperature", strMin, strFloat);
 				Settings_Save(SETTINGSFILE);
 			}
 			
 			
-			if (current.temperature[sensorID] != t){
+			if (data.temperature[sensorID].current != t){
 				setUpdateDisplay(true);
 			}
-			current.temperature[sensorID] = t;
+			data.temperature[sensorID].current = t;
 			
 			/*
 			char *string[100];

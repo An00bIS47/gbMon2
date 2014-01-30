@@ -86,14 +86,14 @@ void resetTemperature(){
 		sprintf(strMin, "min%d",i);
 		sprintf(strMax, "max%d",i);
 		
-		current.minTemp[i]=current.temperature[i];
-		current.maxTemp[i]=current.temperature[i];
+		data.temperature[i].min=data.temperature[i].current;
+		data.temperature[i].max=data.temperature[i].current;
 		
-		sprintf(strFloat,"%2.2f",current.minTemp[i]);
+		sprintf(strFloat,"%2.2f",data.temperature[i].min);
 		Settings_Add("temperature", strMin, strFloat);
 		Settings_Save(SETTINGSFILE);
 		
-		sprintf(strFloat,"%2.2f",current.maxTemp[i]);
+		sprintf(strFloat,"%2.2f", data.temperature[i].max);
 		Settings_Add("temperature", strMax, strFloat);
 		Settings_Save(SETTINGSFILE);
 		
@@ -105,14 +105,14 @@ void resetHumidity(){
 	
 	char* strFloat;
 	sem_wait(&semaLockInfo);		// down semaphore
-	current.minHum=current.humidity;
-	current.maxHum=current.humidity;
+	data.humidity.min=data.humidity.current;
+	data.humidity.max=data.humidity.current;
 	
-	sprintf(strFloat,"%2.2f",current.minHum);
+	sprintf(strFloat,"%2.2f",data.humidity.min);
 	Settings_Add("humidity", "min", strFloat);
 	Settings_Save(SETTINGSFILE);
 	
-	sprintf(strFloat,"%2.2f",current.maxHum);
+	sprintf(strFloat,"%2.2f",data.humidity.max);
 	Settings_Add("humidity", "max", strFloat);
 	Settings_Save(SETTINGSFILE);
 	
@@ -135,10 +135,11 @@ bool getUpdateDisplay(){
 	return result;
 }
 
+/*
 char* getHumidity(){
 	char *buf = (char *) malloc(5 * sizeof(char));
 	sem_wait(&semaLockInfo);       // down semaphore
-	sprintf (buf, "%.1f", current.humidity) ;
+	sprintf (buf, "%.1f", data.humidity.current) ;
 	sem_post(&semaLockInfo);       // up semaphore
 	return buf;
 }
@@ -158,10 +159,11 @@ int getLightValue(){
 	sem_post(&semaLockInfo);       // up semaphore
 	return result;
 }
+*/
 
 void setLightValue(int value){
 	sem_wait(&semaLockInfo);       // down semaphore
-	current.lightValue = value;
+	data.lightValue = value;
 	sem_post(&semaLockInfo);       // up semaphore
 }
 
@@ -177,22 +179,6 @@ void setFanToggleTemp(int value){
 	sem_wait(&semaLockFanTemp);       // down semaphore
 	fanToggleTemp = value;
 	sem_post(&semaLockFanTemp);       // up semaphore
-}
-
-void initCurrentInfo(){
-	sem_wait(&semaLockInfo);       // down semaphore
-	int i;
-	
-	current.humidity=0.0;
-	current.minHum=0.0;
-	current.maxHum=0.0;
-	
-	for (i=0; i < NOTEMPSENSOR; i++){
-		current.temperature[i]=0.0;
-		current.maxTemp[i]=0.0;
-		current.minTemp[i]=0.0;
-	}
-	sem_post(&semaLockInfo);       // up semaphore
 }
 
 
@@ -302,8 +288,8 @@ int main(int argc, char * argv[]) {
 	// Load Settings for min and max values
 	sem_wait(&semaLockInfo);       // down semaphore
 	// Humidity
-	current.minHum=atof(Settings_Get("humidity", "min"));
-	current.maxHum=atof(Settings_Get("humidity", "max"));
+	data.humidity.min=atof(Settings_Get("humidity", "min"));
+	data.humidity.max=atof(Settings_Get("humidity", "max"));
 	// Temperature
 	/*
 	for ( i=0; i < NOTEMPSENSOR ; i++) {
@@ -338,9 +324,9 @@ int main(int argc, char * argv[]) {
 	
 	
 	// Init current Infos -> Setzte alles auf 0
-	debugPrint(true, true, "Initialising current information ...", false, "MAIN");
-	initCurrentInfo();
-	debugPrint(false, false, "OK", true, "MAIN");
+	//debugPrint(true, true, "Initialising current information ...", false, "MAIN");
+	//initCurrentInfo();
+	//debugPrint(false, false, "OK", true, "MAIN");
 	
 	debugPrint(true, true, "Setting up directories ...", false, "MAIN");
 	char* pathToCheck = "/home/pi/.gbMon/ramdisk/db";
@@ -410,7 +396,7 @@ int main(int argc, char * argv[]) {
          * Warnings - Temperature HIGH -> FAN On
          * ************************************
          */
-        if (strtod(getTemperature(),NULL)>=TEMPFANON && getFanToggleTemp()==0) {
+        if (data.temperature[0].current>=TEMPFANON && getFanToggleTemp()==0) {
 			debugPrint(true, true, "Temperature too high --> FAN ON", true, "MAIN");
 			setFan();
 			setFanToggleTemp(1);
@@ -419,11 +405,13 @@ int main(int argc, char * argv[]) {
          * Warnings - Temperature OK -> FAN Off
          * ************************************
          */
-        if (strtod(getTemperature(),NULL)<=TEMPFANOFF && getFanToggleTemp()==1) {
+        if (data.temperature[0].current<=TEMPFANOFF && getFanToggleTemp()==1) {
 			debugPrint(true, true, "Temperature OK --> FAN OFF", true, "MAIN");
 			setFan();
 			setFanToggleTemp(0);
 		}
+		
+		
 		
 	}
 

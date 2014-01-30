@@ -84,72 +84,80 @@ int read_dht22_dat() {
 		 *	Check if Temperature is greater than maxTemp
 		 *		true:	Save into config File and current.maxTemp[0]
 		 */
-		if (current.maxTemp[0] < t) {
-			current.maxTemp[0] = t;
+		if (data.temperature[0].max < t) {
+			data.temperature[0].max = t;
+            
+			 sprintf(strFloat,"%2.2f",data.temperature[0].max);
+			 Settings_Add("temperature", "max", strFloat);
+			 Settings_Save(SETTINGSFILE);
 
-			sprintf(strFloat,"%2.2f",current.maxTemp[0]);
-			Settings_Add("temperature", "max", strFloat);
-			Settings_Save(SETTINGSFILE);
 		}
 		
 		/**
 		 *	Check if Temperature is lower than minTemp
 		 *		true:	Save into config File and current.minTemp[0]
 		 */
-		if ((current.minTemp[0] > t) || (current.temperature[0] == 0.0)){
-			current.minTemp[0] = t;
-			sprintf(strFloat,"%2.2f",current.minTemp[0]);
-			Settings_Add("temperature", "min", strFloat);
-			Settings_Save(SETTINGSFILE);
+		if ((data.temperature[0].min > t) || (data.temperature[0].current == 0.0)){
+			data.temperature[0].min = t;
+            
+			 sprintf(strFloat,"%2.2f",data.temperature[0].min);
+			 Settings_Add("temperature", "min", strFloat);
+			 Settings_Save(SETTINGSFILE);
+            
 		}
 		
 		/**
 		 *	Check if Humidity is greater than maxHum
 		 *		true:	Save into config File and current.maxHum
 		 */
-		if (current.maxHum < h) {
-			current.maxHum = h;
-			sprintf(strFloat,"%2.2f",current.maxHum);
-			Settings_Add("humidity", "max", strFloat);
-			Settings_Save(SETTINGSFILE);
+		if (data.humidity.max < h) {
+			data.humidity.max = h;
+            
+			 sprintf(strFloat,"%2.2f",data.humidity.max);
+			 Settings_Add("humidity", "max", strFloat);
+			 Settings_Save(SETTINGSFILE);
+            
 		}
 		
 		/**
 		 *	Check if Humidity is lower than minHum
 		 *		true:	Save into config File and current.minHum
 		 */
-		if ((current.minHum > h) || (current.minHum == 0.0)){
-			current.minHum = h;
-			sprintf(strFloat,"%2.2f",current.minHum);
-			Settings_Add("humidity", "min", strFloat);
-			Settings_Save(SETTINGSFILE);
+		if ((data.humidity.min > h) || (data.humidity.current == 0.0)){
+			data.humidity.min = h;
+            
+			 sprintf(strFloat,"%2.2f",data.humidity.min);
+			 Settings_Add("humidity", "min", strFloat);
+			 Settings_Save(SETTINGSFILE);
+            
 		}
 		
 		/**
 		 * Update Display
 		 *
 		 */
-		if (current.temperature[0] != t){
-			current.temperature[0] = t;
+		if (data.temperature[0].current != t){
+			data.temperature[0].current = t;
 			setUpdateDisplay(true);
 			//printf("Humidity = %.2f %% Temp = %.2f *C \n", h, t );
 		} else {
-			current.temperature[0] = t;
+			data.temperature[0].current = t;
 		}
 		
-		if (current.humidity != h){
-			current.humidity = h;
+		if (data.humidity.current != h){
+			data.humidity.current = h;
 			setUpdateDisplay(true);
 			//printf("Hum = %.2f %% Temperature = %.2f *C \n", h, t );
 		} else {
-			current.humidity = h;
+			data.humidity.current = h;
 		}
+		
 		
 		/**
 		 * Debug
 		 */
 		char string[100];
-		sprintf(string, "Humidity = %.2f %% Temperature = %.2f *C", current.humidity, current.temperature[0] );
+		sprintf(string, "Humidity = %.2f %% Temperature = %.2f *C",  data.humidity.current, data.temperature[0].current);
 		debugPrint(true, true, string, true, "DHT22");
 		
 		/**

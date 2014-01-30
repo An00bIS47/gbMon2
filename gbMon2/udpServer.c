@@ -16,7 +16,12 @@
  */
 char* getAllJSON(){
     char buffer[RESPONSE_SIZE];
-    sprintf(buffer,"{\"Humidity\":\"%.1f\",\"minHumidity\":\"%.1f\",\"maxHumidity\":\"%.1f\",\"Temperature\":{\"Temperature1\":\"%.1f\",\"minTemperature1\":\"%.1f\",\"maxTemperature1\":\"%.1f\",\"Temperature2\":\"%.1f\",\"Temperature3\":\"%.1f\"}, \"Fan\":\"%s\", \"LightValue\":\"%s\"}",current.humidity,current.minHum, current.maxHum, current.temperature[0],current.minTemp[0],current.maxTemp[0],current.temperature[1],current.temperature[2],getFanAsString(),getLightValueAsString());
+    sem_wait(&semaLockInfo);
+    
+    sprintf(buffer,"{\"Humidity\":{\"min\":\"%.1f\",\"max\":\"%.1f\",\"current\":\"%.1f\"},\"Temperature\":{\"min0\":\"%.1f\",\"max0\":\"%.1f\",\"current\":\"%.1f\"},\"LightValue\":\"%i\",\"ec Level\":{\"min0\":\"%.1f\",\"max0\":\"%.1f\",\"current0\":\"%.1f\"}}",
+            data.humidity.min, data.humidity.max, data.humidity.current, data.temperature[0].min, data.temperature[0].max, data.temperature[0].current, data.lightValue, data.ecLevel[0].min, data.ecLevel[0].max, data.ecLevel[0].current);
+    
+    sem_post(&semaLockInfo);
     return buffer;
 }
 
@@ -117,22 +122,29 @@ void* serverMain(int portno){
 		
 		// getTemperature
 		if(strcmp(msg, "getTemperature") == 0) {
+			sem_wait(&semaLockInfo);
 			char * buffer = (char*)malloc(buffersize);
-            sprintf(buffer,"Sending Response: *%s*", getTemperature());
+            sprintf(buffer,"Sending Response: *%.1f*", data.temperature[0].current);
             debugPrint(true, true, buffer, true, "SERVER");
-			free(buffer);
             //write(sock,getTemperature(),4);
-			sendto(sd,getTemperature(),5,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sprintf(buffer,"%.1f",data.temperature[0].current);
+			sendto(sd,buffer,5,flags,(struct sockaddr *)&cliAddr,cliLen);
+			free(buffer);
+			sem_post(&semaLockInfo);
         }
 		
 		// getHumidity
 		if(strcmp(msg, "getHumidity") == 0) {
+			sem_wait(&semaLockInfo);
 			char * buffer = (char*)malloc(buffersize);
-            sprintf(buffer,"Sending Response: *%s*", getHumidity());
+            sprintf(buffer,"Sending Response: *%.1f*", data.humidity.current);
             debugPrint(true, true, buffer, true, "SERVER");
-			free(buffer);
+
             //write(sock,getHumidity(),4);
-			sendto(sd,getHumidity(),5,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sprintf(buffer,"%.1f",data.humidity.current);
+			sendto(sd,buffer,5,flags,(struct sockaddr *)&cliAddr,cliLen);
+			free(buffer);
+			sem_post(&semaLockInfo);
         }
 		
 		// getFan

@@ -63,6 +63,8 @@
 		4C642D6E186F44B60037095A /* udpServer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C642D6C186F44B60037095A /* udpServer.c */; };
 		4C642D70186F4F950037095A /* udpServer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C642D6F186F4F950037095A /* udpServer.c */; };
 		4C7235E9182686E4009BE959 /* rc434.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C7235E8182686E4009BE959 /* rc434.c */; };
+		4C7CFE9B189B0E530014B6EE /* data.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CFE9A189B0E530014B6EE /* data.c */; };
+		4C7CFE9F189B0EA70014B6EE /* ringbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CFE9E189B0EA70014B6EE /* ringbuffer.c */; };
 		4C94B0B71827C5C2009F8EAF /* rrdtool.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B0B61827C5C2009F8EAF /* rrdtool.c */; };
 		4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB134AE18210B2800A40AA0 /* lcddisplay.c */; };
 		4CB2B5C11825D47E0041F48A /* rcswitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */; };
@@ -423,6 +425,10 @@
 		4C7235E8182686E4009BE959 /* rc434.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc434.c; sourceTree = "<group>"; };
 		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
 		4C7CED96187B1E480092C599 /* makeGraphs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = makeGraphs.sh; path = "Raspberry Pi Tweaks/makeGraphs.sh"; sourceTree = "<group>"; };
+		4C7CFE9A189B0E530014B6EE /* data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = data.c; sourceTree = "<group>"; };
+		4C7CFE9C189B0E6E0014B6EE /* data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = data.h; sourceTree = "<group>"; };
+		4C7CFE9D189B0E960014B6EE /* ringbuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ringbuffer.h; sourceTree = "<group>"; };
+		4C7CFE9E189B0EA70014B6EE /* ringbuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ringbuffer.c; sourceTree = "<group>"; };
 		4C8BE022181A791500830529 /* screenTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = screenTest.c; path = gbMon2/tools/screenTest.c; sourceTree = "<group>"; };
 		4C94B0B61827C5C2009F8EAF /* rrdtool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rrdtool.c; sourceTree = "<group>"; };
 		4C94B0B81827C6AC009F8EAF /* rrdtool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rrdtool.h; sourceTree = "<group>"; };
@@ -1141,6 +1147,17 @@
 			name = Display;
 			sourceTree = "<group>";
 		};
+		4C7CFEA0189B0ECE0014B6EE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4C7CFE9A189B0E530014B6EE /* data.c */,
+				4C7CFE9C189B0E6E0014B6EE /* data.h */,
+				4C7CFE9D189B0E960014B6EE /* ringbuffer.h */,
+				4C7CFE9E189B0EA70014B6EE /* ringbuffer.c */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		4CB2B5C21825D4FF0041F48A /* RCSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1208,6 +1225,7 @@
 			children = (
 				4CCAE86518898B5300701A67 /* Bonjour */,
 				4C50333A181DA9B200E4C03F /* Fonts */,
+				4C7CFEA0189B0ECE0014B6EE /* Data */,
 				4C4BBE081825DF2F00723999 /* Misc */,
 				4CB2B5C21825D4FF0041F48A /* RCSwitch */,
 				4C77FBBC184BD12C000AAEF2 /* Sensors */,
@@ -1374,6 +1392,7 @@
 				4C0635FE181DF0D70010FF0E /* FontCreatorMenuBar.java in Sources */,
 				4C50333E181DAC0800E4C03F /* lcd.c in Sources */,
 				4C06B701187994AE001666B2 /* piCam.c in Sources */,
+				4C7CFE9B189B0E530014B6EE /* data.c in Sources */,
 				4C642D68186F44550037095A /* Makefile in Sources */,
 				4CDCA2431821A8BC00D8DA67 /* fnt_spaceLex_8b.c in Sources */,
 				4C642D5E186F3CE60037095A /* mdnsd.c in Sources */,
@@ -1414,6 +1433,7 @@
 				4C16935E188C7E2F00464F68 /* avahi.c in Sources */,
 				4C94B0B71827C5C2009F8EAF /* rrdtool.c in Sources */,
 				4CF86C1018155DFB0094C040 /* client.c in Sources */,
+				4C7CFE9F189B0EA70014B6EE /* ringbuffer.c in Sources */,
 				4C063604181DF0D70010FF0E /* ImageTransferHandler.java in Sources */,
 				4C0635FC181DF0D70010FF0E /* ColorTableModel.java in Sources */,
 				4C063602181DF0D70010FF0E /* FontCharacter.java in Sources */,

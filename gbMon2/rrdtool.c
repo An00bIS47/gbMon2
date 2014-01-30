@@ -215,7 +215,7 @@ void updateDBHumidity(){
 	sem_wait(&semaLockInfo);       // down semaphore
 	char str[80];
 	
-	sprintf(str, "N:%.1f", current.humidity);
+	sprintf(str, "N:%.1f", data.humidity.current);
 	sem_post(&semaLockInfo);       // up semaphore
 	
 	char *updateparams[] = {
@@ -241,7 +241,7 @@ void updateDBTemperature(){
 	sem_wait(&semaLockInfo);       // down semaphore
 
 	char str[80];
-	sprintf(str, "N:%.1f:%.1f:%.1f", current.temperature[0],current.temperature[1],current.temperature[2]);
+	sprintf(str, "N:%.1f:%.1f:%.1f", data.temperature[0].current,data.temperature[1].current,data.temperature[2].current);
 
 	sem_post(&semaLockInfo);       // up semaphore
 

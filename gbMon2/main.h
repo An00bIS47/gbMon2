@@ -26,6 +26,9 @@
 #include "ds18b20.h"
 #include "rrdtool.h"
 #include "install.h"
+#include "data.h"
+#include "ringbuffer.h"
+
 
 //#include "mdns.h"		// not used anymore
 //#include "mdnsd.h"	// not used anymore
@@ -42,7 +45,7 @@
 sem_t semaLockUpdate;						// Semaphore for Display Update
 sem_t semaLockInfo;							// Semaphore for Infos
 sem_t semaLockFan;							// Semaphore for Fan
-sem_t semaLockFanTemp;							// Semaphore for Fan due Temp
+sem_t semaLockFanTemp;						// Semaphore for Fan due Temp
 sem_t semaLockCam;							// Semaphore for Cam
 sem_t semaLockPrint;						// Semaphore for Print
 
@@ -63,6 +66,8 @@ int fanToggleTemp;
 char*	fanSystemcode;
 int		fanUnitcode;
 
+
+/*
 struct	info current;
 
 struct info {								// Info
@@ -74,6 +79,7 @@ struct info {								// Info
 	float minHum;							// min Humidity
 	int lightValue;							// LightValue
 };
+*/
 
 
 /*
@@ -90,9 +96,9 @@ void setFanToggleTemp(int value);
  */
 int getFanToggleTemp();
 bool getUpdateDisplay();
-char* getTemperature();
-char* getHumidity();
-int getLightValue();
+//char* getTemperature();
+//char* getHumidity();
+//int getLightValue();
 
 
 /*
