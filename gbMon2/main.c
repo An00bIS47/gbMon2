@@ -397,6 +397,7 @@ int main(int argc, char * argv[]) {
          * Warnings - Temperature HIGH -> FAN On
          * ************************************
          */
+		sem_wait(&semaLockInfo);
         if (data.temperature[0].current>=TEMPFANON && getFanToggleTemp()==0) {
 			debugPrint(true, true, "Temperature too high --> FAN ON", true, "MAIN");
 			setFan();
@@ -411,11 +412,13 @@ int main(int argc, char * argv[]) {
 			setFan();
 			setFanToggleTemp(0);
 		}
+		sem_post(&semaLockInfo);
 		
+		/*
 		sem_wait(&semaLockInfo);
         cbWrite(&ringbuffer, &data);
         sem_post(&semaLockInfo);
-		
+		*/
 	}
 	
 	/* Remove and print all elements */
