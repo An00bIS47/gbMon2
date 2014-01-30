@@ -66,7 +66,7 @@ int fanToggleTemp;
 char*	fanSystemcode;
 int		fanUnitcode;
 
-CircularBuffer ringbuffer;
+
 
 /*
 struct	info current;
