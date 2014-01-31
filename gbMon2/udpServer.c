@@ -21,6 +21,7 @@ char* getAllJSON(){
     sprintf(buffer,"{\"Humidity\":{\"min\":\"%.1f\",\"max\":\"%.1f\",\"current\":\"%.1f\"},\"Temperature\":{\"min0\":\"%.1f\",\"max0\":\"%.1f\",\"current\":\"%.1f\"},\"LightValue\":\"%i\",\"ec Level\":{\"min0\":\"%.1f\",\"max0\":\"%.1f\",\"current0\":\"%.1f\"},\"Fan\":\"%s\"}",
             data.humidity.min, data.humidity.max, data.humidity.current, data.temperature[0].min, data.temperature[0].max, data.temperature[0].current, data.lightValue, data.ecLevel[0].min, data.ecLevel[0].max, data.ecLevel[0].current, getFanAsString());
     
+	printf("JSON: %s\n", buffer);
     sem_post(&semaLockInfo);
     return buffer;
 }
