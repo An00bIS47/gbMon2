@@ -105,6 +105,10 @@
     }
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Setup our socket.
 	// The socket will invoke our delegate methods using the usual delegate paradigm.
@@ -398,10 +402,18 @@ withFilterContext:(id)filterContext
                                   error:&error];
             
             
+            
+            NSArray *humidityArray = [json objectForKey:@"Humidity"];//resultArray contains array type objects...
+            [humidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [humidityArray valueForKey:@"current"]]];
+            [minHumidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [humidityArray valueForKey:@"min"]]];
+            [maxHumidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [humidityArray valueForKey:@"max"]]];
+            
+            /*
             // Humidity
             [humidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [json objectForKey:@"Humidity"]]];
             [minHumidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [json objectForKey:@"minHumidity"]]];
             [maxHumidityField setStringValue:[NSString stringWithFormat: @"%@ %%", [json objectForKey:@"maxHumidity"]]];
+            */
             
             // Temperature
             NSArray *temperatureArray = [json objectForKey:@"Temperature"];//resultArray contains array type objects...
@@ -410,9 +422,9 @@ withFilterContext:(id)filterContext
                 NSLog([arr description]);
             }
             */
-            [temperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"Temperature1"]]];
-            [minTemperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"minTemperature1"]]];
-            [maxTemperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"maxTemperature1"]]];
+            [temperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"current0"]]];
+            [minTemperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"min0"]]];
+            [maxTemperatureField setStringValue:[NSString stringWithFormat: @"%@°C", [temperatureArray valueForKey:@"max0"]]];
             
             // Fan (SegmentControl)
             if ([[json objectForKey:@"Fan"] isEqualToString:@"1"]) {

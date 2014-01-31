@@ -45,4 +45,6 @@
 - (IBAction)send:(id)sender;
 - (IBAction)setFan:(id)sender;
 - (IBAction)makePic:(id)sender;
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
 @end

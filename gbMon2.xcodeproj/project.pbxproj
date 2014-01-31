@@ -498,6 +498,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C00A4F5189BB30100F53920 /* UDP Server */ = {
+			isa = PBXGroup;
+			children = (
+				4C642D6F186F4F950037095A /* udpServer.c */,
+				4C642D71186F50320037095A /* udpServer.h */,
+			);
+			name = "UDP Server";
+			sourceTree = "<group>";
+		};
+		4C00A4F6189BB34900F53920 /* #unused TCP Server */ = {
+			isa = PBXGroup;
+			children = (
+				4CF86C24181576700094C040 /* server.c */,
+				4CF86C25181576700094C040 /* server.h */,
+			);
+			name = "#unused TCP Server";
+			sourceTree = "<group>";
+		};
+		4C00A4F7189BB39100F53920 /* piCam */ = {
+			isa = PBXGroup;
+			children = (
+				4C06B6FF187994A5001666B2 /* piCam.h */,
+				4C06B700187994AE001666B2 /* piCam.c */,
+			);
+			name = piCam;
+			sourceTree = "<group>";
+		};
+		4C00A4F8189BB3A100F53920 /* RRD Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4C94B0B61827C5C2009F8EAF /* rrdtool.c */,
+				4C94B0B81827C6AC009F8EAF /* rrdtool.h */,
+			);
+			name = "RRD Tool";
+			sourceTree = "<group>";
+		};
 		4C041FEC187AF49C00FA7BF6 /* Raspberry Pi Tweaks */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,13 +687,13 @@
 			name = avahi;
 			sourceTree = "<group>";
 		};
-		4C169360188C7EBD00464F68 /* avahi */ = {
+		4C169360188C7EBD00464F68 /* Bonjour / avahi */ = {
 			isa = PBXGroup;
 			children = (
 				4C16935D188C7E2F00464F68 /* avahi.c */,
 				4C16935F188C7E5700464F68 /* avahi.h */,
 			);
-			name = avahi;
+			name = "Bonjour / avahi";
 			sourceTree = "<group>";
 		};
 		4C19001F18234D9B00584853 /* search */ = {
@@ -1052,6 +1088,7 @@
 				4C7235E71826742C009BE959 /* Makefile-NEW */,
 			);
 			name = Misc;
+			path = gbMon2;
 			sourceTree = "<group>";
 		};
 		4C4BBE0B1825E38500723999 /* Layouts & Product Sheets */ = {
@@ -1171,7 +1208,7 @@
 			name = RCSwitch;
 			sourceTree = "<group>";
 		};
-		4CCAE86518898B5300701A67 /* Bonjour */ = {
+		4CCAE86518898B5300701A67 /* #unused Bonjour */ = {
 			isa = PBXGroup;
 			children = (
 				4CCAE86618898B7500701A67 /* mdns.h */,
@@ -1179,7 +1216,7 @@
 				4CCAE86918898BC500701A67 /* mdnsd.c */,
 				4CCAE86B18898BDF00701A67 /* mdnsd.h */,
 			);
-			name = Bonjour;
+			name = "#unused Bonjour";
 			sourceTree = "<group>";
 		};
 		4CE015C7183B89F0001E12DB /* ArduinoISP2_Ladyada */ = {
@@ -1206,6 +1243,7 @@
 				4CF86BFB18155DFB0094C040 /* bitmaps */,
 				4CF86C0018155DFB0094C040 /* client */,
 				4CF86BE418155C500094C040 /* gbMon2 */,
+				4C4BBE081825DF2F00723999 /* Misc */,
 				4CF86C0318155DFB0094C040 /* various */,
 				4CF86BE318155C500094C040 /* Products */,
 			);
@@ -1223,34 +1261,29 @@
 		4CF86BE418155C500094C040 /* gbMon2 */ = {
 			isa = PBXGroup;
 			children = (
-				4CCAE86518898B5300701A67 /* Bonjour */,
+				4CCAE86518898B5300701A67 /* #unused Bonjour */,
+				4C00A4F6189BB34900F53920 /* #unused TCP Server */,
 				4C50333A181DA9B200E4C03F /* Fonts */,
+				4C169360188C7EBD00464F68 /* Bonjour / avahi */,
 				4C7CFEA0189B0ECE0014B6EE /* Data */,
-				4C4BBE081825DF2F00723999 /* Misc */,
 				4CB2B5C21825D4FF0041F48A /* RCSwitch */,
 				4C77FBBC184BD12C000AAEF2 /* Sensors */,
 				4C77FBBD184BD14F000AAEF2 /* Display */,
+				4C00A4F5189BB30100F53920 /* UDP Server */,
+				4C00A4F7189BB39100F53920 /* piCam */,
+				4C00A4F8189BB3A100F53920 /* RRD Tool */,
 				4C50333B181DA9C500E4C03F /* fonts.h */,
 				4CF86C20181576700094C040 /* debug.c */,
 				4CF86C21181576700094C040 /* debug.h */,
 				4CF86C22181576700094C040 /* helpers.c */,
 				4CF86C23181576700094C040 /* helpers.h */,
-				4CF86C24181576700094C040 /* server.c */,
-				4CF86C25181576700094C040 /* server.h */,
 				4CF86C26181576700094C040 /* settings.c */,
 				4CF86C27181576700094C040 /* settings.h */,
 				4CF86C1D18156FBF0094C040 /* pinLayout.h */,
 				4CF86BE518155C500094C040 /* main.c */,
 				4CF86C1318155E360094C040 /* main.h */,
-				4C94B0B61827C5C2009F8EAF /* rrdtool.c */,
-				4C94B0B81827C6AC009F8EAF /* rrdtool.h */,
-				4C642D6F186F4F950037095A /* udpServer.c */,
-				4C642D71186F50320037095A /* udpServer.h */,
-				4C06B6FF187994A5001666B2 /* piCam.h */,
-				4C06B700187994AE001666B2 /* piCam.c */,
 				4C041FF0187B032200FA7BF6 /* install.h */,
 				4C041FF1187B032C00FA7BF6 /* install.c */,
-				4C169360188C7EBD00464F68 /* avahi */,
 			);
 			path = gbMon2;
 			sourceTree = "<group>";
