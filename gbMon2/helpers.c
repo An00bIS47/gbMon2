@@ -9,27 +9,29 @@
 #include "helpers.h"
 
 
-int getPiSerial(){
+char* getPiSerial(){
 	FILE *f = fopen("/proc/cpuinfo", "r");
 	if (!f) {
 		return 1;
 	}
-		
+	
+	char serial_string[16 + 1];
 	char line[256];
-	int serial;
+	
+	//int serial;
 	while (fgets(line, 256, f)) {
 		if (strncmp(line, "Serial", 6) == 0) {
-			char serial_string[16 + 1];
+			
 			strcpy(serial_string, strchr(line, ':') + 2);
 			
-			printf("Serial: %s\n",serial_string);
-			serial = atoi(serial_string);
+			//printf("Serial: %s\n",serial_string);
+			//serial = atoi(serial_string);
 		}
 	}
 	
 	fclose(f);
 	
-	return serial;
+	return serial_string;
 }
 
 /*
