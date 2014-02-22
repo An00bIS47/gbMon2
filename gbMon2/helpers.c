@@ -8,30 +8,29 @@
 
 #include "helpers.h"
 
-
-char* getPiSerial(){
+/*
+ * Get Raspberry Pi Serial Number
+ *********************************************************************************
+ */
+void getPiSerial(){
 	FILE *f = fopen("/proc/cpuinfo", "r");
 	if (!f) {
-		return 1;
+		exit(1);
 	}
 	
-	char serial_string[16 + 1];
 	char line[256];
 	
 	//int serial;
 	while (fgets(line, 256, f)) {
 		if (strncmp(line, "Serial", 6) == 0) {
 			
-			strcpy(serial_string, strchr(line, ':') + 2);
+			strcpy(piSerial, strchr(line, ':') + 2);
 			
-			printf("Serial::: %s\n",serial_string);
 			//serial = atoi(serial_string);
 		}
 	}
 	
 	fclose(f);
-	
-	return serial_string;
 }
 
 /*

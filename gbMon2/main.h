@@ -58,7 +58,7 @@ char*   appNetworkInterface;
 int     appPort;
 bool	clientIsConnected;
 bool	updateDisplay;
-char*	piSerial;							// Serial Number of Raspberry Pi
+char*	piSerial[17];							// Serial Number of Raspberry Pi
 											// needed for Apple Push Notification Service and EasyAPNS
 											// will be connected to the device token id from the iPhone via an email adress or else
 
