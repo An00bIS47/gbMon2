@@ -256,6 +256,8 @@ int main(int argc, char * argv[]) {
 	// Get Raspberrys Serial Number
 	
 	piSerial=getPiSerial();
+	printf("Serial: %s",getPiSerial());
+	
 	
     // load settings file
     char* settings_file = NULL;
