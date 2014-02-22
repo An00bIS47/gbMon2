@@ -254,8 +254,8 @@ int main(int argc, char * argv[]) {
 	
 	
 	// Get Raspberrys Serial Number
+	// value gets stored in piSerial
 	getPiSerial();
-	printf("Serial: %s",piSerial);
 	
 	
     // load settings file
@@ -421,11 +421,12 @@ int main(int argc, char * argv[]) {
 		}
 		sem_post(&semaLockInfo);
 		
-		/*
+		
+		debugPrint(true, true, "Updating Ringbuffer ...", false, "MAIN");
 		sem_wait(&semaLockInfo);
         cbWrite(&ringbuffer, &data);
         sem_post(&semaLockInfo);
-		*/
+		debugPrint(false, false, "OK", true, "");
 	}
 	
 	/* Remove and print all elements */
