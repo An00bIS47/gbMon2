@@ -297,7 +297,7 @@ int main(int argc, char * argv[]) {
 	data.humidity.min=atof(Settings_Get("humidity", "min"));
 	data.humidity.max=atof(Settings_Get("humidity", "max"));
 
-	
+	/*
 	// Temperature
 	for ( i=0; i < NOTEMPSENSOR ; i++) {
 		char* strMin;
@@ -312,7 +312,7 @@ int main(int argc, char * argv[]) {
 		data.temperature[i].min=atof(Settings_Get("temperature", strMin));
 		data.temperature[i].max=atof(Settings_Get("temperature", strMax));
 	}
-	
+	*/
 	sem_post(&semaLockInfo);       // up semaphore
     debugPrint(false, false, "OK", true, "MAIN");
 
