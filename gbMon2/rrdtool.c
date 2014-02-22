@@ -218,6 +218,7 @@ void updateDBHumidity(){
 	sprintf(str, "N:%.1f", data.humidity.current);
 	sem_post(&semaLockInfo);       // up semaphore
 	
+	printf("Updating String: %s\n",str);
 	char *updateparams[] = {
 		"rrdupdate",
 		"/home/pi/.gbmon/ramdisk/db/humidity.rrd",
@@ -242,7 +243,7 @@ void updateDBTemperature(){
 
 	char str[80];
 	sprintf(str, "N:%.1f:%.1f:%.1f", data.temperature[0].current,data.temperature[1].current,data.temperature[2].current);
-
+	printf("Updating String: %s\n",str);
 	sem_post(&semaLockInfo);       // up semaphore
 
 	char *updateparams[] = {
