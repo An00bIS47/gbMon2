@@ -24,7 +24,7 @@ char* getPiSerial(){
 			
 			strcpy(serial_string, strchr(line, ':') + 2);
 			
-			//printf("Serial: %s\n",serial_string);
+			printf("Serial::: %s\n",serial_string);
 			//serial = atoi(serial_string);
 		}
 	}
