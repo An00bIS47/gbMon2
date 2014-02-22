@@ -17,7 +17,7 @@ void debugPrintInfo(){
         char *buffer[255];
         sprintf(buffer,"Version: \t\t %.1f", appVersion);
         debugPrint(true, true, buffer, true, "INFO");
-		sprintf(buffer,"Pi Serial: \t\t %i", piSerial);
+		sprintf(buffer,"Pi Serial: \t\t %s", piSerial);
         debugPrint(true, true, buffer, true, "INFO");
         sprintf(buffer,"Network Interface: \t %s", appNetworkInterface);
         debugPrint(true, true, buffer, true, "INFO");
