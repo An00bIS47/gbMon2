@@ -359,6 +359,8 @@ void* rrdMain(void *args){
 	debugPrint(true, true, "RRD Update Thread started", true, "RRDTOOL");
 	//debugPrint(false, false, "OK", true, "RRDTOOL");
 	
+	
+	sleep(3);
 	int lastTime=(int)time(NULL);
 	updateDBs();
 	
