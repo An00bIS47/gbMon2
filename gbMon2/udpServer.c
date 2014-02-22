@@ -21,7 +21,7 @@ char* getAllJSON(){
     sprintf(buffer,"{\"Humidity\":{\"min\":\"%.1f\",\"max\":\"%.1f\",\"current\":\"%.1f\"},\"Temperature\":{\"min0\":\"%.1f\",\"max0\":\"%.1f\",\"current0\":\"%.1f\"},\"LightValue\":\"%i\",\"ec Level\":{\"min0\":\"%.1f\",\"max0\":\"%.1f\",\"current0\":\"%.1f\"},\"Fan\":\"%s\"}",
             data.humidity.min, data.humidity.max, data.humidity.current, data.temperature[0].min, data.temperature[0].max, data.temperature[0].current, data.lightValue, data.ecLevel[0].min, data.ecLevel[0].max, data.ecLevel[0].current, getFanAsString());
     
-	printf("JSON: %s\n", buffer);
+	//printf("JSON: %s\n", buffer);
     sem_post(&semaLockInfo);
     return buffer;
 }
@@ -81,7 +81,7 @@ void* serverMain(int portno){
 		// usage
         if((strcmp(msg, "usage") == 0) || (strcmp(msg, "help") == 0)){
             debugPrint(true, false, "usage", false,"");
-			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n   getLightValue \t- returns current light value\n   getAllJSON \t- returns all infos in JSON format \n\n setFan \t- toggle fan On or Off\n   makePic \t- take picture with pi Cam\0",450,flags,(struct sockaddr *)&cliAddr,cliLen);
+			sendto(sd,"Available Commands:\n   getVersion \t\t- returns version\n   getServerTime \t- returns current server time\0\n   getWifiStrength \t- returns current wifi signal strength\n   getTemperature \t- returns current temperature\n   getHumidity \t- returns current humidity\n   getFan \t- returns current fan status \n   resetTemperature \t- reset min and max temperature\n   reset Humidity \t- reset min and max humidity\n   getLightValue \t- returns current light value\n   getAllJSON \t- returns all infos in JSON format \n\n setFan \t- toggle fan On or Off\n   makePic \t- take picture with pi Cam\0",450,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
 
 		if(strcmp(msg, "getAllJSON") == 0) {
@@ -189,6 +189,27 @@ void* serverMain(int portno){
 			sendto(sd,"makePic",8,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
 		
+		// resetTemperature
+		if(strcmp(msg, "resetTemperature") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", "resetTemperature");
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			resetTemperature();
+            //write(sock,getFanAsString(),2);
+			sendto(sd,"resetTemperature",8,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
+		
+		// resetHumidity
+		if(strcmp(msg, "resetHumidity") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", "resetHumidity");
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			resetHumidity();
+            //write(sock,getFanAsString(),2);
+			sendto(sd,"resetHumidity",8,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
 		
 		/* print received message */
 		printf("%s: from %s:UDP%u : %s \n",

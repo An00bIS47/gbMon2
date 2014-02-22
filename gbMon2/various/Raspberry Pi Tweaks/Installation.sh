@@ -117,8 +117,39 @@ sudo ./gbMon2
 
 #
 # Add to the following line to /etc/rc.local
-# /usr/local/bin/bar.sh     # ein Shellskript
+# /home/pi/gbMon2/gbMon2/gbmon2    # ein Shellskript
 
+#
+# for Apple Push Notifications
+#
+sudo apt-get install cmake
+sudo apt-get install libssl-dev
 
+#
+# Install libcapn
+# Shared Library
+# Compiling options are below
+git clone git://github.com/adobkin/libcapn libcapn
+cd libcapn
+git submodule init
+git submodule update
+mkdir build
+cd build
+cmake ../
+make
+sudo make install
 
+#
+# Add to ld path
+#
+export LD_LIBRARY_PATH=/usr/local/lib/capn:$LD_LIBRARY_PATH
 
+#
+# Compile with the following command
+#
+gcc -L/usr/local/lib/capn -Wall -o send_push send_push.c -lcapn
+
+#
+# Execute with
+#
+./send_push

@@ -252,6 +252,11 @@ int main(int argc, char * argv[]) {
 	sem_init(&semaLockPrint, 1, 1);			// initialize mutex to 1 - binary semaphore
 	
 	
+	
+	// Get Raspberrys Serial Number
+	piSerial=getPiSerial();
+	
+
     // load settings file
     char* settings_file = NULL;
     int settings = 0;
@@ -291,8 +296,9 @@ int main(int argc, char * argv[]) {
 	// Humidity
 	data.humidity.min=atof(Settings_Get("humidity", "min"));
 	data.humidity.max=atof(Settings_Get("humidity", "max"));
+
+	
 	// Temperature
-	/*
 	for ( i=0; i < NOTEMPSENSOR ; i++) {
 		char* strMin;
 		char* strMax;
@@ -303,10 +309,10 @@ int main(int argc, char * argv[]) {
 			sprintf(strMin, "min%d",i);
 			sprintf(strMax, "max%d",i);
 		}
-		current.minTemp[i]=atof(Settings_Get("temperature", strMin));
-		current.maxTemp[i]=atof(Settings_Get("temperature", strMax));
+		data.temperature[i].min=atof(Settings_Get("temperature", strMin));
+		data.temperature[i].max=atof(Settings_Get("temperature", strMax));
 	}
-	 */
+	
 	sem_post(&semaLockInfo);       // up semaphore
     debugPrint(false, false, "OK", true, "MAIN");
 

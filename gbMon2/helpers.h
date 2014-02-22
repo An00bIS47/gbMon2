@@ -28,6 +28,8 @@
 
 typedef unsigned char byte;
 
+
+int getPiSerial();
 int getWifiStrength();
 unsigned long long getUptime();
 char* substring(const char* str, size_t begin, size_t len);
