@@ -80,8 +80,6 @@ int read_dht22_dat() {
 		 */
 		sem_wait(&semaLockInfo);       // down semaphore
 		
-		printf("HEEEERRRREEEE\n");
-		
 		/**
 		 *	Check if Temperature is greater than maxTemp
 		 *		true:	Save into config File and current.maxTemp[0]
