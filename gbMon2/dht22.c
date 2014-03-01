@@ -40,6 +40,9 @@ int read_dht22_dat() {
 	// prepare to read the pin
 	pinMode(DHTPIN, INPUT);
 	
+	
+	
+	printf("HEEEERRRREEEE\n");
 	// detect change and read data
 	for ( i=0; i< MAXTIMINGS; i++) {
 		counter = 0;
@@ -63,6 +66,9 @@ int read_dht22_dat() {
 			j++;
 		}
 	}
+	
+	
+	printf("HEEEERRRREEEE\n");
 	
 	// check we read 40 bits (8bit x 5 ) + verify checksum in the last byte
 	// print it out if data is good
