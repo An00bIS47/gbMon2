@@ -40,9 +40,6 @@ int read_dht22_dat() {
 	// prepare to read the pin
 	pinMode(DHTPIN, INPUT);
 	
-	
-	
-	printf("HEEEERRRREEEE\n");
 	// detect change and read data
 	for ( i=0; i< MAXTIMINGS; i++) {
 		counter = 0;
@@ -67,9 +64,6 @@ int read_dht22_dat() {
 		}
 	}
 	
-	
-	printf("HEEEERRRREEEE\n");
-	
 	// check we read 40 bits (8bit x 5 ) + verify checksum in the last byte
 	// print it out if data is good
 	if ((j >= 40) && (dht22_dat[4] == ((dht22_dat[0] + dht22_dat[1] + dht22_dat[2] + dht22_dat[3]) & 0xFF)) ) {
@@ -85,6 +79,8 @@ int read_dht22_dat() {
 		 *
 		 */
 		sem_wait(&semaLockInfo);       // down semaphore
+		
+		printf("HEEEERRRREEEE\n");
 		
 		/**
 		 *	Check if Temperature is greater than maxTemp
