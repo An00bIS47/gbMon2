@@ -282,6 +282,8 @@ void bufferList(ringbuffer_handler_t *buffer) {
 	for (j=buffer->readPointer; j < buffer->size ; j++) {
 		
 		printf("==============================\n");
+		printf("readPointer: %d\n",buffer->readPointer);
+		
 		printf("Humidity:\n");
 		printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].humidity.min);
 		printf("    max: %.1f\n", buffer->fifo[buffer->readPointer].humidity.max);
@@ -300,7 +302,6 @@ void bufferList(ringbuffer_handler_t *buffer) {
 			printf("    current: %.1f\n", buffer->fifo[buffer->readPointer].ecLevel[i].current);
 		}
 		printf("==============================\n");
-		buffer->readPointer++
 		
 		buffer->dataSize--;
 		if (++buffer->readPointer >= buffer->size) {
