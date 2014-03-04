@@ -290,7 +290,10 @@ void bufferList(ringbuffer_handler_t *buffer) {
 	printf("   Queue content:\n");
 	for (j = 0; j < buffer->size; j++) {
 		data = buffer->fifo[j];
-		printf("[%.1f]", data.temperature[0].current);
+		//printf("[%.1f]", data.temperature[0].current);
+		printf("===============================================\n")
+		printf("index: %d",j);
+		
 		printf("Humidity:\n");
 		printf("    min: %.1f\n", data.humidity.min);
 		printf("    max: %.1f\n", data.humidity.max);
