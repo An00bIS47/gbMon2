@@ -111,7 +111,7 @@ int main(void) {
 	
 	printf("Fill Ringbuffer....\n");
 	
-	for (j=0; j<3; j++) {
+	for (j=0; j<8; j++) {
 		
 		data.humidity.min=30.0;
 		data.humidity.max=50.0;
@@ -278,10 +278,29 @@ void bufferPop(ringbuffer_handler_t *buffer) {
 
 /****************************************************************************************************/
 void bufferList(ringbuffer_handler_t *buffer) {
-	for (buffer->readPointer; buffer->readPointer < buffer->size ; buffer->readPointer++) {
+	int i,j;
+	for (j=buffer->readPointer; j < buffer->size ; j++) {
+		
+		printf("==============================\n");
+		printf("Humidity:\n");
+		printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].humidity.min);
+		printf("    max: %.1f\n", buffer->fifo[buffer->readPointer].humidity.max);
+		printf("    current: %.1f\n", buffer->fifo[buffer->readPointer].humidity.current);
 		
 		printf("Temperature:\n");
-		printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].temperature[0].current);
+		for (i=0; i<NumberOfTemperatureSensors; i++) {
+			printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].temperature[i].min);
+			printf("    max: %.1f\n", buffer->fifo[buffer->readPointer].temperature[i].max);
+			printf("    current: %.1f\n", buffer->fifo[buffer->readPointer].temperature[i].current);
+		}
+		printf("ec-Level:\n");
+		for (i=0; i<NumberOfECSensors; i++) {
+			printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].ecLevel[i].min);
+			printf("    max: %.1f\n", buffer->fifo[buffer->readPointer].ecLevel[i].max);
+			printf("    current: %.1f\n", buffer->fifo[buffer->readPointer].ecLevel[i].current);
+		}
+		printf("==============================\n");
+		buffer->readPointer++
 		
 		buffer->dataSize--;
 		if (++buffer->readPointer >= buffer->size) {
