@@ -1,4 +1,4 @@
-all: clean wand
+all: clean wand pixel-change
 
 wand: wand.c
 	cc -o wand `pkg-config --cflags --libs MagickWand` wand.c
