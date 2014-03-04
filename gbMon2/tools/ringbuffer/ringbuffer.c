@@ -58,6 +58,8 @@ int bufferIsEmpty(ringbuffer_handler_t *buffer);
 void bufferPush(Data data, ringbuffer_handler_t *buffer);
 void bufferPop(ringbuffer_handler_t *buffer);
 ringbuffer_handler_t *bufferInit(int size);
+
+void bufferPush(Data data, ringbuffer_handler_t *buffer);
 /****************************************************************************************************/
 
 
@@ -278,7 +280,9 @@ void bufferPop(ringbuffer_handler_t *buffer) {
 
 /****************************************************************************************************/
 void bufferList(ringbuffer_handler_t *buffer) {
-
+	//eine Variable fuer die Daten
+    Data data;
+	
 	int i;
 	printf("   dataSize: %d readPointer: %d writePointer: %d\n",
 			   buffer->dataSize, buffer->readPointer, buffer->writePointer);
