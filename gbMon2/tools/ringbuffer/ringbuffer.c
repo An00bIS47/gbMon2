@@ -141,12 +141,13 @@ int main(void) {
 	bufferPush(data, buffer);
 	 */
 	
-	while (input != 4) {
+	while (input != 5) {
 		
 		printf("\n    press 1 to push char");
 		printf("\n    press 2 to pop char");	//pull_char
 		printf("\n    press 3 to show queue");
-		printf("\n    press 4 to exit\n");
+		printf("\n    press 4 to bufferList");
+		printf("\n    press 5 to exit\n");
 		scanf("%d", &input);
 		
 		// push char
@@ -203,6 +204,9 @@ int main(void) {
 			
 		}
 		
+		else if (input == 4) {
+			bufferList(buffer);
+		}
 		printf("\n----");
 	}
 	
@@ -269,3 +273,22 @@ void bufferPop(ringbuffer_handler_t *buffer) {
 	buffer->dataSize--;
 }
 /****************************************************************************************************/
+
+
+
+/****************************************************************************************************/
+void bufferList(ringbuffer_handler_t *buffer) {
+	for (buffer->readPointer; buffer->readPointer < buffer->size ; buffer->readPointer++) {
+		
+		printf("Temperature:\n");
+		printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].temperature[0].current);
+		
+		buffer->dataSize--;
+		if (++buffer->readPointer >= buffer->size) {
+			buffer->readPointer = 0;
+			exit();
+		}
+	}
+}
+/****************************************************************************************************/
+
