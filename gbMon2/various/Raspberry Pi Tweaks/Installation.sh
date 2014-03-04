@@ -47,6 +47,12 @@ sudo apt-get install librrd-dev
 #
 sudo apt-get install libavahi-client-dev libavahi-common-dev libavahi-core-dev libdbus-1-dev
 
+
+#
+# imagemagick for web display
+#
+sudo apt-get install imagemagick imagemagick-doc libmagickwand-dev
+
 #
 # ramdisks
 #
