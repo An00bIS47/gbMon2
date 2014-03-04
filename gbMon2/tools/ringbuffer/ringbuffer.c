@@ -52,11 +52,14 @@ typedef struct {
 } ringbuffer_handler_t;
 
 /****************************************************************************************************/
+
+int input;              // user input
+
 /*
 int data_size = 0;      // number of chars in buffer
 int read_pointer = 0;   // indice number of last read char
 int write_pointer = 0;  // indice number of last written char
-int input;              // user input
+
 char add;               // char to add
 
 char buffer[BUFFER_SIZE];
