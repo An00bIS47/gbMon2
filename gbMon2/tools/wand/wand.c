@@ -38,6 +38,10 @@ int main() {
 	DrawSetFillColor(d_wand,p_wand);
 	
 	DrawPoint(d_wand,0,0);
+	DrawPoint(d_wand,0,1);
+	DrawPoint(d_wand,0,2);
+	DrawPoint(d_wand,0,3);
+	DrawPoint(d_wand,0,4);
 	MagickDrawImage(m_wand,d_wand);
 
 	/*
