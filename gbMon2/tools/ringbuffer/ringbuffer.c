@@ -52,7 +52,7 @@ typedef struct {
 } ringbuffer_handler_t;
 
 /****************************************************************************************************/
-
+/*
 int data_size = 0;      // number of chars in buffer
 int read_pointer = 0;   // indice number of last read char
 int write_pointer = 0;  // indice number of last written char
@@ -66,18 +66,18 @@ char buffer[BUFFER_SIZE];
 
 
 // prototypes
-int buffer_full(ringbuffer_handler_t *buffer);
-int buffer_empty(ringbuffer_handler_t *buffer);
-void push_char(Data data, ringbuffer_handler_t *buffer);
-void pull_char(ringbuffer_handler_t *buffer);
-ringbuffer_handler_t *createRingbuffer(int size);
+int bufferIsFull(ringbuffer_handler_t *buffer);
+int bufferIsEmpty(ringbuffer_handler_t *buffer);
+void bufferPush(Data data, ringbuffer_handler_t *buffer);
+void bufferPop(ringbuffer_handler_t *buffer);
+ringbuffer_handler_t *bufferInit(int size);
 
 
 /****************************************************************************************************/
 //eine Funktion, um einen Ringbuffer anzulegen
 //Parameter size: Groesse des Buffers (Anzahl der Elemente)
 //Rückgabewert: Zeiger auf Ringbuffer-Handler
-ringbuffer_handler_t *createRingbuffer(int size) {
+ringbuffer_handler_t *bufferInit(int size) {
 	
     //Zeiger auf Ringbuffer-Handler deklarieren und genuegend Speicher
     //reservieren
@@ -115,7 +115,7 @@ int main(void) {
     int ergebnis;
 	
     //einen Ringbuffer-Handler und damit auch einen Ringbuffer anlegen
-    buffer = createRingbuffer(8);
+    buffer = bufferInit(8);
 	
 	// make sure there are no random chars in array, all spaces
 	//for (i = 0; i < buffer->size; i++) buffer->fifo[i] = 0x20;
@@ -139,17 +139,17 @@ int main(void) {
 			data.ecLevel[i].max=700;
 			data.ecLevel[i].current=600;
 		}
-		push_char(data, buffer);
+		bufferPush(data, buffer);
 	}
 
 	
 	/*
 	data.key=1;
     strcpy(data.name,"alpha");
-	push_char(data, buffer);
+	bufferPush(data, buffer);
 	data.key=2;
     strcpy(data.name,"bravo");
-	push_char(data, buffer);
+	bufferPush(data, buffer);
 	 */
 	
 	while (input != 4) {
@@ -180,23 +180,23 @@ int main(void) {
 				data.ecLevel[i].current=600;
 			}
 			
-			if (! buffer_full(buffer)) {
-				push_char(data, buffer);
+			if (! bufferIsFull(buffer)) {
+				bufferPush(data, buffer);
 			} else {
 				printf("\n!!! BUFFER IS FULL !!! ");
 				
 				// Pop "oldest" out
-				pull_char(buffer);
+				bufferPop(buffer);
 				// Push new in
-				push_char(data, buffer);
+				bufferPush(data, buffer);
 			}
 				
 		}
 		// pull char
 		else if (input == 2) {
 			
-			if (! buffer_empty(buffer))
-				pull_char(buffer);
+			if (! bufferIsEmpty(buffer))
+				bufferPop(buffer);
 			else
 				printf("\nBUFFER IS EMPTY!");
 		}
@@ -224,7 +224,7 @@ int main(void) {
 
 /****************************************************************************************************/
 // adds a char
-void push_char(Data data, ringbuffer_handler_t *buffer) {
+void bufferPush(Data data, ringbuffer_handler_t *buffer) {
 	
 	if(buffer){
 		// increase write_pointer, check if at end of array
@@ -244,7 +244,7 @@ void push_char(Data data, ringbuffer_handler_t *buffer) {
 
 /****************************************************************************************************/
 // returns 1 if buffer is full, 0 if buffer is not full, -1 if error
-int buffer_full(ringbuffer_handler_t *buffer) {
+int bufferIsFull(ringbuffer_handler_t *buffer) {
 	if (buffer) {
 		return buffer->readPointer == buffer->writePointer && buffer->dataSize == buffer->size;
 	} else
@@ -255,7 +255,7 @@ int buffer_full(ringbuffer_handler_t *buffer) {
 
 /****************************************************************************************************/
 // returns 1 if buffer is empty, 0 if buffer is not empty, -1 if error
-int buffer_empty(ringbuffer_handler_t *buffer) {
+int bufferIsEmpty(ringbuffer_handler_t *buffer) {
 	if (buffer) {
 		return buffer->readPointer == buffer->writePointer && buffer->dataSize == 0;
 	} else
@@ -266,7 +266,7 @@ int buffer_empty(ringbuffer_handler_t *buffer) {
 
 /****************************************************************************************************/
 // pull char from queue
-void pull_char(ringbuffer_handler_t *buffer) {
+void bufferPop(ringbuffer_handler_t *buffer) {
 	if (++buffer->readPointer >= buffer->size) {
 			buffer->readPointer = 0;
 	}
