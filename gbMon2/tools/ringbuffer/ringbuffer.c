@@ -28,10 +28,10 @@ int main(void) {
 	for (i = 0; i < BUFFER_SIZE; i++) buffer[i] = 0x20;
 	
 	printf("Fill Ringbuffer....\n");
-	push_char("a");
-	push_char("b");
-	push_char("c");
-	push_char("d");
+	push_char(a);
+	push_char(b);
+	push_char(c);
+	push_char(d);
 	push_char("e");
 	push_char("f");
 	push_char("g");
