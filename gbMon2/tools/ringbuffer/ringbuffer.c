@@ -291,7 +291,7 @@ void bufferList(ringbuffer_handler_t *buffer) {
 	for (j = 0; j < buffer->size; j++) {
 		data = buffer->fifo[j];
 		//printf("[%.1f]", data.temperature[0].current);
-		printf("===============================================\n")
+		printf("===============================================\n");
 		printf("index: %d",j);
 		
 		printf("Humidity:\n");
