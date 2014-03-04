@@ -146,15 +146,15 @@ void* sensorsMain(void *args){
 	debugPrint(true, true, "Sensor Thread started", true, "DS18b20");
 	//debugPrint(false, false, "OK", true, "RRDTOOL");
 	for (;;) {
-		debugPrint(true, true, "Reading DHT22 ...", false, "DS18b20");
+		//debugPrint(true, true, "Reading DHT22 ...", false, "DS18b20");
 		read_dht22_dat();
-		debugPrint(false, false, "OK", true, "DS18b20");
+		//debugPrint(false, false, "OK", true, "DS18b20");
 		
-		debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
+		//debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
 		//current.temperature[1]=20.0;
 		//readTemperatureDS(1);
 		readTemperatureDS(2);
-		debugPrint(false, false, "OK", true, "DS18b20");
+		//debugPrint(false, false, "OK", true, "DS18b20");
 		
 		//sleep(1);
 	}

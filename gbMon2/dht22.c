@@ -158,7 +158,7 @@ int read_dht22_dat() {
 		 */
 		char string[100];
 		sprintf(string, "Humidity = %.2f %% Temperature = %.2f *C",  data.humidity.current, data.temperature[0].current);
-		debugPrint(true, true, string, true, "DHT22");
+		//debugPrint(true, true, string, true, "DHT22");
 		
 		/**
 		 * Semaphore UP
