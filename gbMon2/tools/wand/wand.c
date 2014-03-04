@@ -15,6 +15,14 @@ typedef unsigned char byte;
 
 uint8_t GLCD_Data[128*8];
 
+
+char* substring(const char* str, size_t begin, size_t len){
+    if (str == 0 || strlen(str) == 0 || strlen(str) < begin || strlen(str) < (begin+len))
+        return 0;
+    
+    return strndup(str + begin, len);
+}
+
 const char *printBinary(int x) {
     static char b[9];
     b[0] = '\0';
@@ -82,16 +90,20 @@ int main() {
 	for (j = 0; j < 8; j++) {
 		for(i = 0; i < 128; i++) {
 			printf("%s ",printBinary(GLCD_Data[counter]));
+			
+			for (k=0; k<8; k++) {
+				char pixel = substring(printBinary(GLCD_Data[counter]), k+(j*8), 1);
+				if(pixel==1){
+					DrawPoint(d_wand,k,i);
+				}
+			}
 			counter++;
 		}
 		printf("\n");
 	}
 	
-	DrawPoint(d_wand,1,0);
-	DrawPoint(d_wand,1,1);
-	DrawPoint(d_wand,1,2);
-	DrawPoint(d_wand,1,3);
-	DrawPoint(d_wand,1,4);
+
+//	DrawPoint(d_wand,1,1);
 	MagickDrawImage(m_wand,d_wand);
 
 	/*
