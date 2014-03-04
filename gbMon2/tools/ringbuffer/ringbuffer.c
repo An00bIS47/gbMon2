@@ -27,6 +27,17 @@ int main(void) {
 	// make sure there are no random chars in array, all spaces
 	for (i = 0; i < BUFFER_SIZE; i++) buffer[i] = 0x20;
 	
+	printf("Fill Ringbuffer....\n");
+	push_char("a");
+	push_char("b");
+	push_char("c");
+	push_char("d");
+	push_char("e");
+	push_char("f");
+	push_char("g");
+	push_char("h");
+	
+	
 	while (input != 4) {
 		
 		printf("\n    press 1 to push char");
@@ -46,9 +57,9 @@ int main(void) {
 				push_char(add);
 			} else {
 				printf("\nBUFFER IS FULL!");
-				printf("--> Pop \n");
+				printf("\n--> POP OLDEST OUT");
 				pull_char();
-				printf("--> Push \n");
+				printf("\n--> PUSH NEW IN");
 				push_char(add);
 			}
 				
