@@ -32,7 +32,7 @@ void readTemperatureDS(int sensorID) {
 	sprintf(strMax,"max%d",sensorID);
 	sprintf(strSensorID, "%d", sensorID);
     
-	debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
+	//debugPrint(true, true, "Reading DS18b20 ...", false, "DS18b20");
 	
     if (sensorID==1) {
         fp = fopen("/sys/bus/w1/devices/w1_bus_master1/28-000004e3da40/w1_slave", "r");
@@ -139,7 +139,7 @@ void readTemperatureDS(int sensorID) {
         readTemperatureDS(sensorID);
     }
 	
-	debugPrint(false, false, "OK", true, "");
+	//debugPrint(false, false, "OK", true, "");
 }
 
 void* sensorsMain(void *args){
