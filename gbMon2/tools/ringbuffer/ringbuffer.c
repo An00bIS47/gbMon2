@@ -278,36 +278,34 @@ void bufferPop(ringbuffer_handler_t *buffer) {
 
 /****************************************************************************************************/
 void bufferList(ringbuffer_handler_t *buffer) {
-	int i,j;
-	for (j=buffer->readPointer; j < buffer->size ; j++) {
+
+	int i;
+	printf("   dataSize: %d readPointer: %d writePointer: %d\n",
+			   buffer->dataSize, buffer->readPointer, buffer->writePointer);
 		
-		printf("==============================\n");
-		printf("readPointer: %d\n",buffer->readPointer);
-		
+	printf("   Queue content:\n");
+	for (i = 0; i < buffer->size; i++) {
+		data = buffer->fifo[i];
+		printf("[%.1f]", data.temperature[0].current);
 		printf("Humidity:\n");
-		printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].humidity.min);
-		printf("    max: %.1f\n", buffer->fifo[buffer->readPointer].humidity.max);
-		printf("    current: %.1f\n", buffer->fifo[buffer->readPointer].humidity.current);
-		
-		printf("Temperature:\n");
+		printf("    min: %.1f\n", data.humidity.min);
+		printf("    max: %.1f\n", data.humidity.max);
+		printf("    current: %.1f\n", data.humidity.current);
+
 		for (i=0; i<NumberOfTemperatureSensors; i++) {
-			printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].temperature[i].min);
-			printf("    max: %.1f\n", buffer->fifo[buffer->readPointer].temperature[i].max);
-			printf("    current: %.1f\n", buffer->fifo[buffer->readPointer].temperature[i].current);
+			printf("Temperature[%d]:\n",i);
+			printf("    min: %.1f\n", data.temperature[i].min);
+			printf("    max: %.1f\n", data.temperature[i].max);
+			printf("    current: %.1f\n", data.temperature[i].current);
 		}
-		printf("ec-Level:\n");
+
 		for (i=0; i<NumberOfECSensors; i++) {
-			printf("    min: %.1f\n", buffer->fifo[buffer->readPointer].ecLevel[i].min);
-			printf("    max: %.1f\n", buffer->fifo[buffer->readPointer].ecLevel[i].max);
-			printf("    current: %.1f\n", buffer->fifo[buffer->readPointer].ecLevel[i].current);
+			printf("ec-Level[%d]:\n",i);
+			printf("    min: %.1f\n", data.ecLevel[i].min);
+			printf("    max: %.1f\n", data.ecLevel[i].max);
+			printf("    current: %.1f\n", data.ecLevel[i].current);
 		}
-		printf("==============================\n");
-		
-		buffer->dataSize--;
-		if (++buffer->readPointer >= buffer->size) {
-			buffer->readPointer = 0;
-			break;
-		}
+	
 	}
 }
 /****************************************************************************************************/
