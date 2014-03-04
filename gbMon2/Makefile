@@ -11,7 +11,7 @@
 TARGET		= gbMon2
 CC			= gcc
 CFLAGS		= -g -Wall -O3 -std=gnu99
-LDFLAGS		= -lwiringPi -lpthread -lrt -lrrd -lavahi-client -lavahi-common
+LDFLAGS		= -lwiringPi -lpthread -lrt -lrrd -lavahi-client -lavahi-common `pkg-config --cflags --libs MagickWand`
 #SHELL		= bash
 
 OBJDIR		= obj
