@@ -15,6 +15,19 @@ typedef unsigned char byte;
 
 uint8_t GLCD_Data[128*8];
 
+const char *printBinary(int x) {
+    static char b[9];
+    b[0] = '\0';
+	
+    int z;
+    for (z = 128; z > 0; z >>= 1)
+    {
+        strcat(b, ((x & z) == z) ? "1" : "0");
+    }
+	
+    return b;
+}
+
 byte reverseByte(byte a) {
     int i;
     byte b = 0;
@@ -68,7 +81,7 @@ int main() {
 	
 	for (j = 0; j < 8; j++) {
 		for(i = 0; i < 128; i++) {
-			printf("%d ",reverseByte(GLCD_Data[counter]));
+			printf("%s ",printBinary(GLCD_Data[counter]));
 			counter++;
 		}
 		printf("\n");
