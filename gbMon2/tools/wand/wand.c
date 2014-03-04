@@ -15,8 +15,7 @@
 //#include <windows.h>
 #include <wand/magick_wand.h>
 
-void test_wand(LPTSTR lpCmdLine)
-{
+void test_wand() {
 	MagickWand *m_wand = NULL;
 	PixelWand *p_wand = NULL;
 	PixelIterator *iterator = NULL;
