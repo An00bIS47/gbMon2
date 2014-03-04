@@ -34,7 +34,7 @@ int main() {
 
 	d_wand = NewDrawingWand();
 	PixelSetColor(p_wand,"black");
-	DrawSetFillColor(dw,fill);
+	DrawSetFillColor(d_wand,p_wand);
 	
 	DrawPoint(d_wand,0,0);
 	MagickDrawImage(m_wand,d_wand);
