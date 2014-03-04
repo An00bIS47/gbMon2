@@ -40,7 +40,7 @@ void simulateDisplay(uint8_t GLCD_Data[128*8]) {
 				char testByte =	GLCD_Data[counter];
 				
 				if(TEST_BIT(testByte, k)) {
-					printf("Bit %d is set\n", k);
+					//printf("Bit %d is set\n", k);
 					DrawPoint(d_wand,i,k+(j*8));
 				}
 				
