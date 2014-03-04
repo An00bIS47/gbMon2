@@ -13,7 +13,7 @@ CC			= gcc
 CFLAGS		= -g -Wall -O3 -std=gnu99
 LDFLAGS		= -lwiringPi -lpthread -lrt -lrrd -lavahi-client -lavahi-common
 CFLAGS += `MagickWand-config --cflags --cppflags`
-CFLAGS += `MagickWand-config --ldflags --libs`
+LDFLAGS += `MagickWand-config --ldflags --libs`
 #SHELL		= bash
 
 OBJDIR		= obj
