@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <wand/magick_wand.h>
 #include <stdint.h>
-
+#include <string.h>
 
 typedef unsigned char byte;
 
@@ -84,7 +84,7 @@ int main() {
 	PixelSetColor(p_wand,"black");
 	DrawSetFillColor(d_wand,p_wand);
 	
-	int i, j, counter;
+	int i, j, counter,k;
 	counter=0;
 	
 	for (j = 0; j < 8; j++) {
