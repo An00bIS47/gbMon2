@@ -31,10 +31,14 @@ int main() {
 	// Create a 100x100 image with a default of white
 	MagickNewImage(m_wand,128,64,p_wand);
 	
+
+	d_wand = NewDrawingWand();
+	PixelSetColor(p_wand,"black");
+	DrawSetFillColor(dw,fill);
 	
-	
-	
-	
+	DrawPoint(d_wand,0,0);
+	MagickDrawImage(m_wand,d_wand);
+
 	/*
 	// Get a new pixel iterator
 	iterator=NewPixelIterator(m_wand);
@@ -53,11 +57,12 @@ int main() {
 	*/
 	
 	
-	MagickWriteImage(m_wand,"bits_demo.gif");
+	MagickWriteImage(m_wand,"display.jpg");
 	
 	// Clean up
-	iterator=DestroyPixelIterator(iterator);
-	DestroyMagickWand(m_wand);
+	if (d_wand) d_wand = DestroyDrawingWand(d_wand);
+	if (p_wand) p_wand = DestroyPixelWand(p_wand);
+	if (m_wand) m_wand = DestroyMagickWand(m_wand);
 	MagickWandTerminus();
 	
 }
