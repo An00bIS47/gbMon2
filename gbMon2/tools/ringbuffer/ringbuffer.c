@@ -30,7 +30,7 @@ int main(void) {
 	while (input != 4) {
 		
 		printf("\n    press 1 to push char");
-		printf("\n    press 2 to pop char");
+		printf("\n    press 2 to pop char");	//pull_char
 		printf("\n    press 3 to show queue");
 		printf("\n    press 4 to exit\n");
 		scanf("%d", &input);
@@ -42,10 +42,15 @@ int main(void) {
 			scanf("%c", &add);
 			scanf("%c", &add); // twice otherwise it will get the last enter as input
 			
-			if (! buffer_full())
+			if (! buffer_full()) {
 				push_char(add);
-			else
+			} else {
 				printf("\nBUFFER IS FULL!");
+				printf("--> Pop \n");
+				pull_char();
+			}
+				
+			
 			
 		}
 		// pull char
