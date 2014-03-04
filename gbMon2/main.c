@@ -426,7 +426,12 @@ int main(int argc, char * argv[]) {
 		}
 		sem_post(&semaLockInfo);
 		
-		debugPrint(true, true, "Updating Ringbuffer ...", false, "MAIN");
+		
+		/*
+         * Ringbuffer Update
+         * ************************************
+         */
+		//debugPrint(true, true, "Updating Ringbuffer ...", false, "MAIN");
 		sem_wait(&semaLockInfo);
 		if (! bufferIsFull(buffer)) {
 			bufferPush(data, buffer);
@@ -438,7 +443,7 @@ int main(int argc, char * argv[]) {
 			bufferPush(data, buffer);
 		}
         sem_post(&semaLockInfo);
-		debugPrint(false, false, "OK", true, "");
+		//debugPrint(false, false, "OK", true, "");
 		
 	}
 	

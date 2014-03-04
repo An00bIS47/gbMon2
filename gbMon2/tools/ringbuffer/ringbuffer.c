@@ -286,7 +286,7 @@ void bufferList(ringbuffer_handler_t *buffer) {
 		buffer->dataSize--;
 		if (++buffer->readPointer >= buffer->size) {
 			buffer->readPointer = 0;
-			exit();
+			break;
 		}
 	}
 }
