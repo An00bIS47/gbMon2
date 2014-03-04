@@ -224,15 +224,13 @@ void* displayMain(void *args){
 			//GLCDD_Printf(fnt_spaceLex_8, 0, &r, "%s: %llu", "Uptime", getUptime());
 			
 			sem_post(&semaLockInfo);       // up semaphore
-
 			
-			for(j = 0; j < 1; j++) {
-				for(i = 0; i < 128*8; i++) {
-					sendByte(reverseByte(GLCD_Data[i]));
-					counter++;
-				}
-				delayMicroseconds(DELAYTIME);
+			for(i = 0; i < 128*8; i++) {
+				sendByte(reverseByte(GLCD_Data[i]));
+				counter++;
 			}
+			delayMicroseconds(DELAYTIME);
+			
 			
 			unsigned int end = millis();
 			//printf("\n%d bytes in %dms => %d Bps\n", sizeof(buff), end - start, sizeof(buff) * 1000 / (end - start));

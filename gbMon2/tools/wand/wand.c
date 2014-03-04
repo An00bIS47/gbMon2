@@ -14,6 +14,37 @@
  */
 //#include <windows.h>
 #include <wand/magick_wand.h>
+#include <stdint.h>
+
+typedef unsigned char byte;
+
+uint8_t GLCD_Data[128*8];
+
+byte reverseByte(byte a) {
+    int i;
+    byte b = 0;
+	
+    for ( i = 0 ; i < 8 ; i ++)
+    {
+        b <<= 1;
+        b |=  ( (a & (1 << i)) >> i);
+    }
+    return b;
+}
+
+void GLCDD_Clear() {
+	uint8_t x;
+	for(x = 0; x < 128; x++) {
+		GLCD_Data[x + 128*0] = 0;
+		GLCD_Data[x + 128*1] = 0;
+		GLCD_Data[x + 128*2] = 0;
+		GLCD_Data[x + 128*3] = 0;
+		GLCD_Data[x + 128*4] = 0;
+		GLCD_Data[x + 128*5] = 0;
+		GLCD_Data[x + 128*6] = 0;
+		GLCD_Data[x + 128*7] = 0;
+	}
+}
 
 int main() {
 	MagickWand *m_wand = NULL;
@@ -37,11 +68,19 @@ int main() {
 	PixelSetColor(p_wand,"black");
 	DrawSetFillColor(d_wand,p_wand);
 	
-	DrawPoint(d_wand,0,0);
-	DrawPoint(d_wand,0,1);
-	DrawPoint(d_wand,0,2);
-	DrawPoint(d_wand,0,3);
-	DrawPoint(d_wand,0,4);
+	
+	
+	int i;
+	for(i = 0; i < 128*8; i++) {
+		printf(reverseByte(GLCD_Data[i]));
+	}
+	
+	
+	DrawPoint(d_wand,1,0);
+	DrawPoint(d_wand,1,1);
+	DrawPoint(d_wand,1,2);
+	DrawPoint(d_wand,1,3);
+	DrawPoint(d_wand,1,4);
 	MagickDrawImage(m_wand,d_wand);
 
 	/*
