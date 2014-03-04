@@ -74,11 +74,12 @@ void* serverMain(int portno){
 		n = recvfrom(sd, msg, MAX_MSG, flags,
 					 (struct sockaddr *) &cliAddr, &cliLen);
 		
-		
+		sem_wait(&semaLockInfo);
 		if (clientIsConnected == false){
 			clientIsConnected = true;
 			setUpdateDisplay(true);
 		}
+		sem_post(&semaLockInfo);       // up semaphore
 		
 		if(n<0) {
 			printf("%s: cannot receive data \n","udpServer");
@@ -232,8 +233,10 @@ void* serverMain(int portno){
 		
 		timecounter++;
 		// Just a small timer, for display update for client connection icon
-		if (timecounter=100){
+		if (timecounter==100){
+			sem_wait(&semaLockInfo);
 			clientIsConnected = false;
+			sem_post(&semaLockInfo);       // up semaphore
 			setUpdateDisplay(true);
 			timecounter=0;
 		}

@@ -35,7 +35,7 @@ void displayFan(){
 
 // ---------------------------------------------------------------------------
 void displayClient(){
-	
+	sem_wait(&semaLockInfo);
 	GLCDD_ClearEx(12, 0, 19, 8);
 	if (clientIsConnected==false) {
 		GLCDD_XBMDraw((uint8_t*)clientOff, 12, 0, 8, 8);
@@ -44,7 +44,7 @@ void displayClient(){
 	} else {
 		GLCDD_XBMDraw((uint8_t*)blank, 12, 0, 8, 8);
 	}
-
+	sem_post(&semaLockInfo);       // up semaphore
 }
 // ---------------------------------------------------------------------------
 void displayWifi(int strength){
