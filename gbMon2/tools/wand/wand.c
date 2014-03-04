@@ -18,6 +18,7 @@
 int main() {
 	MagickWand *m_wand = NULL;
 	PixelWand *p_wand = NULL;
+	DrawingWand *d_wand = NULL;
 	PixelIterator *iterator = NULL;
 	PixelWand **pixels = NULL;
 	int x,y,gray;
