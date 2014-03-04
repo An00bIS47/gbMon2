@@ -113,10 +113,10 @@ int main(void) {
 		// push char
 		if (input == 1) {
 			
-			printf("\nEnter Key: ");
-			scanf("%d", &add);
-			scanf("%d", &add);	// twice otherwise it will get the last enter as input
-			data.key=add;
+			//printf("\nEnter Key: ");
+			//scanf("%d", &add);
+			//scanf("%d", &add);	// twice otherwise it will get the last enter as input
+			data.key=data.key++;
 			
 			printf("\nEnter Name: ");
 			scanf("%s", &add);
