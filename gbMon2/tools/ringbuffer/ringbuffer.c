@@ -203,13 +203,13 @@ int main(void) {
 		// display buffer info
 		else if (input == 3) {
 			
-			printf("\n dataSize: %d readPointer: %d writePointer: %d",
+			printf("\n   dataSize: %d readPointer: %d writePointer: %d",
 				   buffer->dataSize, buffer->readPointer, buffer->writePointer);
 			
-			printf("\nQueue content:\n");
+			printf("\n   Queue content:\n");
 			for (i = 0; i < buffer->size; i++) {
 				data = buffer->fifo[i];
-				printf("[%s]", data.temperature[0].current);
+				printf("[%.1f]", data.temperature[0].current);
 			}
 			
 		}
