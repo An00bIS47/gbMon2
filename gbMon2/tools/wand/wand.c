@@ -64,6 +64,8 @@ int main() {
 	DrawSetFillColor(d_wand,p_wand);
 	
 	int i, j, counter;
+	counter=0;
+	
 	for (j = 0; j < 8; j++) {
 		for(i = 0; i < 128; i++) {
 			printf("%d ",reverseByte(GLCD_Data[counter]));
