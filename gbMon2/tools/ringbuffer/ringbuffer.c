@@ -208,7 +208,7 @@ void pull_char(ringbuffer_handler_t *buffer) {
 	}
 	
 	//printf("\nPopped char %c", buffer->fifo[buffer->readPointer]);
-	printf("POPPED OUT DATA AT INDEX: %d\n", buffer->readPointer)
+	printf("POPPED OUT DATA AT INDEX: %d\n", buffer->readPointer);
 	
 	// enter space on place of read char so we can see it is removed
 	// buffer->fifo[buffer->readPointer]= 0x20;
