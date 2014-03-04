@@ -162,7 +162,6 @@ int read_dht22_dat() {
 		
 		/**
 		 * Semaphore UP
-		 *
 		 */
 		sem_post(&semaLockInfo);       // up semaphore
 		
