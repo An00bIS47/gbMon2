@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 michael. All rights reserved.
 //
 
-#include <stdio.h>
+#include "wand.h"
+
 
 void simulateDisplay(uint8_t GLCD_Data[128*8]) {
 	MagickWand *m_wand = NULL;
