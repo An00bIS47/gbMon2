@@ -12,6 +12,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize displayWindow = _displayWindow;
 @synthesize addrField;
 @synthesize portField;
 @synthesize messageField;
@@ -29,6 +30,7 @@
 @synthesize lightIndicator;
 
 @synthesize webImage;
+@synthesize displayImage;
 
 #define FORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
 
@@ -63,6 +65,12 @@
         NSData *imageData = [imageURL resourceDataUsingCache:NO];
         NSImage *imageFromBundle = [[NSImage alloc] initWithData:imageData];
         [webImage setImage:imageFromBundle];
+        
+        
+        imageURL = [NSURL URLWithString:@"http://192.168.178.20/live/display.jpg"];
+        imageData = [imageURL resourceDataUsingCache:NO];
+        imageFromBundle = [[NSImage alloc] initWithData:imageData];
+        [displayImage setImage:imageFromBundle];
         
         sleep(1);
     }
@@ -210,6 +218,12 @@
     //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
     NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
     [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+}
+
+- (IBAction)showDisplayWindow:(id)sender{
+
+    [_displayWindow makeKeyAndOrderFront:nil]; // to show it
+    
 }
 
 - (IBAction)setFan:(id)sender{

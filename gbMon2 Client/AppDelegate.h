@@ -22,6 +22,9 @@
 }
 
 @property (unsafe_unretained) IBOutlet NSWindow    * window;
+@property (unsafe_unretained) IBOutlet NSWindow    * displayWindow;
+
+
 @property  IBOutlet NSTextField * addrField;
 @property  IBOutlet NSTextField * portField;
 @property  IBOutlet NSTextField * messageField;
@@ -37,6 +40,7 @@
 @property IBOutlet  NSTextField *descField;
 @property IBOutlet NSTextView  *logView;
 @property IBOutlet NSImageView *webImage;
+@property IBOutlet NSImageView *displayImage;
 
 @property IBOutlet NSLevelIndicator  *lightIndicator;
 
@@ -45,6 +49,7 @@
 - (IBAction)send:(id)sender;
 - (IBAction)setFan:(id)sender;
 - (IBAction)makePic:(id)sender;
+- (IBAction)showDisplayWindow:(id)sender;
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
 @end

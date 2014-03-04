@@ -73,6 +73,10 @@ void* serverMain(int portno){
 		n = recvfrom(sd, msg, MAX_MSG, flags,
 					 (struct sockaddr *) &cliAddr, &cliLen);
 		
+		clientIsConnected = true;
+		setUpdateDisplay(true);
+		
+		
 		if(n<0) {
 			printf("%s: cannot receive data \n","udpServer");
 			continue;
@@ -222,6 +226,9 @@ void* serverMain(int portno){
 		sendto(sd,msg,n,flags,(struct sockaddr *)&cliAddr,cliLen);
 		*/
 		/* END jcs 3/30/05 */
+		
+		clientIsConnected = false;
+		setUpdateDisplay(true);
 		
 	}/* end of server infinite loop */
 	//pthread_join( thread_id , NULL);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
@@ -895,10 +895,16 @@
                             <action selector="makePic:" target="494" id="W0p-Ga-TGQ"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="E441D0E2-EF76-436A-BF6C-89E38CE5C6AA" label="Display" paletteLabel="Display" tag="-1" image="display" id="7Qg-ej-LR4">
+                        <connections>
+                            <action selector="showDisplayWindow:" target="494" id="GwI-ge-oWc"/>
+                        </connections>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="QP4-sM-uTd"/>
                     <toolbarItem reference="eEk-AE-Ksm"/>
+                    <toolbarItem reference="7Qg-ej-LR4"/>
                     <toolbarItem reference="Gyg-2u-Qbu"/>
                     <toolbarItem reference="Rgv-Fg-wp2"/>
                 </defaultToolbarItems>
@@ -907,6 +913,8 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="addrField" destination="2Gu-zU-KKR" id="A4a-7m-ou7"/>
+                <outlet property="displayImage" destination="fwt-6e-t75" id="HqX-Yq-tVE"/>
+                <outlet property="displayWindow" destination="ipg-if-e5W" id="Kvu-H9-XLO"/>
                 <outlet property="fanStatus" destination="jka-QT-k33" id="bHL-8L-Euq"/>
                 <outlet property="humidityField" destination="akW-qQ-CF2" id="mne-Na-MXB"/>
                 <outlet property="lightIndicator" destination="0Xp-Aq-zyV" id="A4x-C6-cVD"/>
@@ -924,9 +932,27 @@
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
+        <window title="Display" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ipg-if-e5W" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="167" y="110" width="256" height="128"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+            <view key="contentView" id="ule-OP-Tsz">
+                <rect key="frame" x="0.0" y="0.0" width="256" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwt-6e-t75">
+                        <rect key="frame" x="-3" y="-3" width="262" height="134"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" imageFrameStyle="grayBezel" id="oFN-0p-dOe"/>
+                    </imageView>
+                </subviews>
+            </view>
+        </window>
     </objects>
     <resources>
         <image name="InfoIcon" width="64" height="64"/>
+        <image name="display" width="64" height="64"/>
         <image name="fanIcon" width="48" height="48"/>
         <image name="makePic" width="128" height="128"/>
     </resources>

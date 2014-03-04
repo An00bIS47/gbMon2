@@ -22,6 +22,7 @@
 		4C5651E0186F815600978D33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5651DE186F815600978D33 /* InfoPlist.strings */; };
 		4C5651E2186F815600978D33 /* gbMon2_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651E1186F815600978D33 /* gbMon2_ClientTests.m */; };
 		4C5651ED186F822600978D33 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5651EC186F822600978D33 /* GCDAsyncUdpSocket.m */; };
+		4C80316718C63C5100A01BCC /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C80316618C63C5100A01BCC /* display.png */; };
 		4CA41BB2187063A7007885F2 /* gbMon2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4CA41BB1187063A7007885F2 /* gbMon2.icns */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		4C5651E1186F815600978D33 /* gbMon2_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gbMon2_ClientTests.m; sourceTree = "<group>"; };
 		4C5651EB186F822600978D33 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		4C5651EC186F822600978D33 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		4C80316618C63C5100A01BCC /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
 		4CA41BB1187063A7007885F2 /* gbMon2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gbMon2.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				4C5651C9186F815600978D33 /* AppDelegate.h */,
 				4C5651CA186F815600978D33 /* AppDelegate.m */,
 				4C5651CC186F815600978D33 /* MainMenu.xib */,
+				4C80316618C63C5100A01BCC /* display.png */,
 				4C5651CF186F815600978D33 /* Images.xcassets */,
 				4C5651BE186F815600978D33 /* Supporting Files */,
 			);
@@ -271,6 +274,7 @@
 				4C06B7051879A0C0001666B2 /* fanIcon.png in Resources */,
 				4C06B7041879A0C0001666B2 /* makePic.png in Resources */,
 				4CA41BB2187063A7007885F2 /* gbMon2.icns in Resources */,
+				4C80316718C63C5100A01BCC /* display.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
