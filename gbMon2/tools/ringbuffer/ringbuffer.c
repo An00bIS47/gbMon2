@@ -114,13 +114,13 @@ int main(void) {
 		if (input == 1) {
 			
 			printf("\nEnter Key: ");
-			scanf("%c", &add);
-			scanf("%c", &add); // twice otherwise it will get the last enter as input
-			data.key=atoi(add);
+			scanf("%d", &add);
+			scanf("%d", &add);	// twice otherwise it will get the last enter as input
+			data.key=add;
 			
 			printf("\nEnter Name: ");
 			scanf("%s", &add);
-			scanf("%s", &add);
+			scanf("%s", &add);	// twice otherwise it will get the last enter as input
 			strcpy(data.name,add);
 			
 			
