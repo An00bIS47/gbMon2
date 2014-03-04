@@ -62,6 +62,7 @@ void* serverMain(int portno){
 	
 	/* END jcs 3/30/05 */
 	
+	int timecounter=0;
 	/* server infinite loop */
 	while(1) {
 		
@@ -227,8 +228,12 @@ void* serverMain(int portno){
 		*/
 		/* END jcs 3/30/05 */
 		
-		clientIsConnected = false;
-		setUpdateDisplay(true);
+		
+		// Just a small timer, for display update for client connection icon
+		if (timecounter=100){
+			clientIsConnected = false;
+			setUpdateDisplay(true);
+		}
 		
 	}/* end of server infinite loop */
 	//pthread_join( thread_id , NULL);
