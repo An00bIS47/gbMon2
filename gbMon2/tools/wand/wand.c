@@ -71,6 +71,7 @@ int main() {
 			printf("%d ",reverseByte(GLCD_Data[counter]));
 			counter++;
 		}
+		printf("\n");
 	}
 	
 	DrawPoint(d_wand,1,0);
