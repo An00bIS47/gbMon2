@@ -176,7 +176,7 @@ void push_char(userdata_t data, ringbuffer_handler_t *buffer) {
 		}
 	
 		//buffer[write_pointer] = c;
-		buffer->fifo[buffer->writePointer] = c;
+		buffer->fifo[buffer->writePointer] = data;
 		buffer->dataSize++;
 	}
 }
@@ -215,7 +215,7 @@ void pull_char(ringbuffer_handler_t *buffer) {
 	printf("\nPopped char %c", buffer->fifo[buffer->readPointer]);
 	
 	// enter space on place of read char so we can see it is removed
-	buffer->fifo[buffer->readPointer]= 0x20;
+	//buffer->fifo[buffer->readPointer]= 0x20;
 	buffer->dataSize--;
 }
 /****************************************************************************************************/
