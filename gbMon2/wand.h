@@ -17,4 +17,6 @@
 #include "lcd.h"
 #include "lcddisplay.h"
 
+void simulateDisplay(uint8_t GLCD_Data[128*8]);
+
 #endif
