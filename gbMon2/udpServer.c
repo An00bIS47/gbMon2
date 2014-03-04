@@ -230,11 +230,12 @@ void* serverMain(int portno){
 		*/
 		/* END jcs 3/30/05 */
 		
-		
+		timecounter++;
 		// Just a small timer, for display update for client connection icon
 		if (timecounter=100){
 			clientIsConnected = false;
 			setUpdateDisplay(true);
+			timecounter=0;
 		}
 		
 	}/* end of server infinite loop */
