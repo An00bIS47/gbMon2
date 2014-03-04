@@ -53,7 +53,7 @@
 		4C26F46F18C6193B00F8CDEC /* wand.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F46E18C6193B00F8CDEC /* wand.c */; };
 		4C26F47218C619CA00F8CDEC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47118C619CA00F8CDEC /* Makefile */; };
 		4C26F47418C61A3B00F8CDEC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47318C61A3B00F8CDEC /* Makefile */; };
-		4C26F47618C61E4400F8CDEC /* pixel-change.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47518C61E4400F8CDEC /* pixel-change.c */; };
+		4C26F47818C61F0500F8CDEC /* pixel-change.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47718C61F0500F8CDEC /* pixel-change.c */; };
 		4C50333E181DAC0800E4C03F /* lcd.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C50333D181DAC0800E4C03F /* lcd.c */; };
 		4C503343181DB41900E4C03F /* fnt_dejavu.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C50333F181DB41900E4C03F /* fnt_dejavu.c */; };
 		4C503344181DB41900E4C03F /* fnt_dejavu_9_b.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503340181DB41900E4C03F /* fnt_dejavu_9_b.c */; };
@@ -401,7 +401,7 @@
 		4C26F46E18C6193B00F8CDEC /* wand.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wand.c; path = gbMon2/tools/wand/wand.c; sourceTree = "<group>"; };
 		4C26F47118C619CA00F8CDEC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/wand/Makefile; sourceTree = "<group>"; };
 		4C26F47318C61A3B00F8CDEC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/ringbuffer/Makefile; sourceTree = "<group>"; };
-		4C26F47518C61E4400F8CDEC /* pixel-change.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "pixel-change.c"; sourceTree = "<group>"; };
+		4C26F47718C61F0500F8CDEC /* pixel-change.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "pixel-change.c"; path = "gbMon2/tools/wand/pixel-change.c"; sourceTree = "<group>"; };
 		4C4BBE091825E12200723999 /* mikrocontroller Layout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "mikrocontroller Layout.pdf"; sourceTree = "<group>"; };
 		4C4BBE0A1825E12200723999 /* RaspberryPi Pin Layout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RaspberryPi Pin Layout.pdf"; sourceTree = "<group>"; };
 		4C4BBE0C1825E3A600723999 /* Arduino_uno_Pinout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Arduino_uno_Pinout.pdf; sourceTree = "<group>"; };
@@ -1104,7 +1104,7 @@
 			children = (
 				4C26F46E18C6193B00F8CDEC /* wand.c */,
 				4C26F47118C619CA00F8CDEC /* Makefile */,
-				4C26F47518C61E4400F8CDEC /* pixel-change.c */,
+				4C26F47718C61F0500F8CDEC /* pixel-change.c */,
 			);
 			name = wand;
 			sourceTree = "<group>";
@@ -1520,7 +1520,7 @@
 				4C0635F3181DF0D70010FF0E /* CharEditor.java in Sources */,
 				4C0635FD181DF0D70010FF0E /* EditorPopupMenu.java in Sources */,
 				4CF86BE618155C500094C040 /* main.c in Sources */,
-				4C26F47618C61E4400F8CDEC /* pixel-change.c in Sources */,
+				4C26F47818C61F0500F8CDEC /* pixel-change.c in Sources */,
 				4C503346181DB41900E4C03F /* fnt_silkscreen_8.c in Sources */,
 				4C0635F2181DF0D70010FF0E /* FontCreator.java in Sources */,
 				4C7235E9182686E4009BE959 /* rc434.c in Sources */,
