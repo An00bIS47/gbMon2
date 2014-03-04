@@ -3,20 +3,50 @@
 #include <stdio.h>
 
 #define BUFFER_SIZE 8
+#define NumberOfTemperatureSensors 3
+#define NumberOfECSensors 3
+
+
+typedef struct {
+    float min;
+    float max;
+    float current;
+} Humidity;
+
+typedef struct {
+    float min;
+    float max;
+    float current;
+} EcLevel;
+
+typedef struct {
+    float min;
+    float max;
+    float current;
+} Temperature;
+
+typedef struct {
+    Temperature temperature[NumberOfTemperatureSensors];
+    Humidity humidity;
+    EcLevel ecLevel[NumberOfECSensors];
+    int lightValue;
+} Data;
 
 
 //Struktur fuer die Daten
+/*
 typedef struct {
     int key;			//Schluesselwert
     char name[20];		//Name
 } userdata_t;
+*/
 
 //Struktur fuer einen Ringbuffer-Handler
 //wird benoetigt, um mehrere Listen zu verwalten
 typedef struct {
     int readPointer;		//Index zum Lesen
     int writePointer;		//Index zum Schreiben
-    userdata_t *fifo;		//Platz fuer Speicherelemente, eigentlicher Buffer
+    Data *fifo;				//Platz fuer Speicherelemente, eigentlicher Buffer
     int size;				//Groesse des Buffers, d.h. Anzahl der Elemente
 	int dataSize;			// number of chars in buffer
 } ringbuffer_handler_t;
@@ -38,7 +68,7 @@ char buffer[BUFFER_SIZE];
 // prototypes
 int buffer_full(ringbuffer_handler_t *buffer);
 int buffer_empty(ringbuffer_handler_t *buffer);
-void push_char(userdata_t data, ringbuffer_handler_t *buffer);
+void push_char(Data data, ringbuffer_handler_t *buffer);
 void pull_char(ringbuffer_handler_t *buffer);
 ringbuffer_handler_t *createRingbuffer(int size);
 
@@ -60,7 +90,7 @@ ringbuffer_handler_t *createRingbuffer(int size) {
     //size gibt Anzahl der Elemente im Ringbuffer an (aus Parameter)
     buffer->readPointer=0;
     buffer->writePointer=0;
-    buffer->fifo = (userdata_t *)malloc(sizeof(userdata_t) * (size + 1));
+    buffer->fifo = (Data *)malloc(sizeof(Data) * (size + 1));
     buffer->size = size;
 	buffer->dataSize = 0;
 	
@@ -73,11 +103,12 @@ ringbuffer_handler_t *createRingbuffer(int size) {
 int main(void) {
 	
 	int i;
+	int j;
 	
 	printf("Circular Buffer Queue Implementation");
 	
 	//eine Variable fuer die Daten
-    userdata_t data;
+    Data data;
     //ein Ringbuffer-Handler
     ringbuffer_handler_t *buffer;
     //eine Variable, um Ergebnisse von readFIFO() abzufragen
@@ -94,13 +125,36 @@ int main(void) {
 	//for (i = 0; i < buffer->size; i++) buffer->fifo[i] = 0x20;
 	
 	printf("Fill Ringbuffer....\n");
+	
+	for (j=0; j<3; j++) {
+		
+		data.humidity.min=30.0;
+		data.humidity.max=50.0;
+		data.humidity.current=40.0;
+		
+		for (i=0; i<NumberOfTemperatureSensors; i++) {
+			data.temperature[i].min=19.0
+			data.temperature[i].max=21.0
+			data.temperature[i].current=20.0
+		}
+		
+		for (i=0; i<NumberOfECSensors; i++) {
+			data.ecLevel[i].min=500;
+			data.ecLevel[i].max=700;
+			data.ecLevel[i].current=600;
+		}
+		push_char(data, buffer);
+	}
+
+	
+	/*
 	data.key=1;
     strcpy(data.name,"alpha");
 	push_char(data, buffer);
 	data.key=2;
     strcpy(data.name,"bravo");
 	push_char(data, buffer);
-
+	 */
 	
 	while (input != 4) {
 		
@@ -113,19 +167,31 @@ int main(void) {
 		// push char
 		if (input == 1) {
 			
-			//printf("\nEnter Key: ");
-			//scanf("%d", &add);
-			//scanf("%d", &add);	// twice otherwise it will get the last enter as input
-			data.key=data.key++;
-			strcpy(data.name,"new");
+			// Create fake data
+			data.humidity.min=30.0;
+			data.humidity.max=50.0;
+			data.humidity.current=40.0;
+			
+			for (i=0; i<NumberOfTemperatureSensors; i++) {
+				data.temperature[i].min=19.0
+				data.temperature[i].max=21.0
+				data.temperature[i].current=20.0
+			}
+			
+			for (i=0; i<NumberOfECSensors; i++) {
+				data.ecLevel[i].min=500;
+				data.ecLevel[i].max=700;
+				data.ecLevel[i].current=600;
+			}
 			
 			if (! buffer_full(buffer)) {
 				push_char(data, buffer);
 			} else {
-				printf("\nBUFFER IS FULL!");
-				printf("\n--> POP OLDEST OUT");
+				printf("\n!!! BUFFER IS FULL !!! ");
+				
+				// Pop "oldest" out
 				pull_char(buffer);
-				printf("\n--> PUSH NEW IN");
+				// Push new in
 				push_char(data, buffer);
 			}
 				
@@ -147,7 +213,7 @@ int main(void) {
 			printf("\nQueue content:\n");
 			for (i = 0; i < buffer->size; i++) {
 				data = buffer->fifo[i];
-				printf("[%s]", data.name);
+				printf("[%s]", data.temperature[0].current);
 			}
 			
 		}
@@ -162,7 +228,7 @@ int main(void) {
 
 /****************************************************************************************************/
 // adds a char
-void push_char(userdata_t data, ringbuffer_handler_t *buffer) {
+void push_char(Data data, ringbuffer_handler_t *buffer) {
 	
 	if(buffer){
 		// increase write_pointer, check if at end of array
@@ -172,6 +238,8 @@ void push_char(userdata_t data, ringbuffer_handler_t *buffer) {
 	
 		//buffer[write_pointer] = c;
 		buffer->fifo[buffer->writePointer] = data;
+		
+		printf("\n--> PUSHED IN DATA AT INDEX: %d", buffer->writePointer);
 		buffer->dataSize++;
 	}
 }
@@ -208,7 +276,7 @@ void pull_char(ringbuffer_handler_t *buffer) {
 	}
 	
 	//printf("\nPopped char %c", buffer->fifo[buffer->readPointer]);
-	printf("POPPED OUT DATA AT INDEX: %d\n", buffer->readPointer);
+	printf("\n--> POPPED OUT DATA AT INDEX: %d", buffer->readPointer);
 	
 	// enter space on place of read char so we can see it is removed
 	// buffer->fifo[buffer->readPointer]= 0x20;
