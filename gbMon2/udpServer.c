@@ -74,9 +74,11 @@ void* serverMain(int portno){
 		n = recvfrom(sd, msg, MAX_MSG, flags,
 					 (struct sockaddr *) &cliAddr, &cliLen);
 		
-		clientIsConnected = true;
-		setUpdateDisplay(true);
 		
+		if (clientIsConnected == false){
+			clientIsConnected = true;
+			setUpdateDisplay(true);
+		}
 		
 		if(n<0) {
 			printf("%s: cannot receive data \n","udpServer");
