@@ -117,11 +117,7 @@ int main(void) {
 			//scanf("%d", &add);
 			//scanf("%d", &add);	// twice otherwise it will get the last enter as input
 			data.key=data.key++;
-			
-			printf("\nEnter Name: ");
-			scanf("%s", add);	// twice otherwise it will get the last enter as input
-			strcpy(data.name,add);
-			
+			strcpy(data.name,"new");
 			
 			if (! buffer_full(buffer)) {
 				push_char(data, buffer);
