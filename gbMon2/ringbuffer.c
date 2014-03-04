@@ -44,7 +44,7 @@ void bufferPush(Data data, ringbuffer_handler_t *buffer) {
 		//buffer[write_pointer] = c;
 		buffer->fifo[buffer->writePointer] = data;
 		
-		printf("\n--> PUSHED IN DATA AT INDEX: %d", buffer->writePointer);
+		//printf("\n--> PUSHED IN DATA AT INDEX: %d", buffer->writePointer);
 		buffer->dataSize++;
 	}
 }
@@ -75,7 +75,7 @@ void bufferPop(ringbuffer_handler_t *buffer) {
 	}
 	
 	//printf("\nPopped char %c", buffer->fifo[buffer->readPointer]);
-	printf("\n--> POPPED OUT DATA AT INDEX: %d", buffer->readPointer);
+	//printf("\n--> POPPED OUT DATA AT INDEX: %d", buffer->readPointer);
 	
 	// enter space on place of read char so we can see it is removed
 	// buffer->fifo[buffer->readPointer]= 0x20;
