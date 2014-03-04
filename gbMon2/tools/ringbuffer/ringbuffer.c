@@ -283,13 +283,13 @@ void bufferList(ringbuffer_handler_t *buffer) {
 	//eine Variable fuer die Daten
     Data data;
 	
-	int i;
+	int i,j;
 	printf("   dataSize: %d readPointer: %d writePointer: %d\n",
 			   buffer->dataSize, buffer->readPointer, buffer->writePointer);
 		
 	printf("   Queue content:\n");
-	for (i = 0; i < buffer->size; i++) {
-		data = buffer->fifo[i];
+	for (j = 0; j < buffer->size; j++) {
+		data = buffer->fifo[j];
 		printf("[%.1f]", data.temperature[0].current);
 		printf("Humidity:\n");
 		printf("    min: %.1f\n", data.humidity.min);
