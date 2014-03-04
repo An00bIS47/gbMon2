@@ -36,13 +36,14 @@ void simulateDisplay(uint8_t GLCD_Data[128*8]) {
 			
 			for (k=0; k<8; k++) {
 				char pixel = substring(printBinary(GLCD_Data[counter]), k+(j*8), 1);
-				if(pixel==1){
+				printf("%d\n",pixel);
+				if(pixel=1){
 					DrawPoint(d_wand,k,i);
 				}
 			}
 			counter++;
 		}
-		printf("\n");
+		//printf("\n");
 	}
 	
 	
