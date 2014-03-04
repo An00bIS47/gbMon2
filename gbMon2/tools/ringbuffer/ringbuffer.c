@@ -116,10 +116,6 @@ int main(void) {
 	
     //einen Ringbuffer-Handler und damit auch einen Ringbuffer anlegen
     buffer = createRingbuffer(8);
-
-	
-	data.key=12;
-    strcpy(data.name,"egon");
 	
 	// make sure there are no random chars in array, all spaces
 	//for (i = 0; i < buffer->size; i++) buffer->fifo[i] = 0x20;
@@ -133,9 +129,9 @@ int main(void) {
 		data.humidity.current=40.0;
 		
 		for (i=0; i<NumberOfTemperatureSensors; i++) {
-			data.temperature[i].min=19.0
-			data.temperature[i].max=21.0
-			data.temperature[i].current=20.0
+			data.temperature[i].min=19.0;
+			data.temperature[i].max=21.0;
+			data.temperature[i].current=20.0;
 		}
 		
 		for (i=0; i<NumberOfECSensors; i++) {
@@ -173,9 +169,9 @@ int main(void) {
 			data.humidity.current=40.0;
 			
 			for (i=0; i<NumberOfTemperatureSensors; i++) {
-				data.temperature[i].min=19.0
-				data.temperature[i].max=21.0
-				data.temperature[i].current=20.0
+				data.temperature[i].min=19.0;
+				data.temperature[i].max=21.0;
+				data.temperature[i].current=20.0;
 			}
 			
 			for (i=0; i<NumberOfECSensors; i++) {
