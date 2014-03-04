@@ -32,7 +32,7 @@ void simulateDisplay(uint8_t GLCD_Data[128*8]) {
 	
 	for (j = 0; j < 8; j++) {
 		for(i = 0; i < 128; i++) {
-			printf("%s ",printBinary(GLCD_Data[counter]));
+			//printf("%s ",printBinary(GLCD_Data[counter]));
 			
 			for (k=0; k<8; k++) {
 				char pixel = substring(printBinary(GLCD_Data[counter]), k+(j*8), 1);
@@ -67,7 +67,7 @@ void simulateDisplay(uint8_t GLCD_Data[128*8]) {
 	 */
 	
 	
-	MagickWriteImage(m_wand,"display.jpg");
+	MagickWriteImage(m_wand,"/var/www/live/display.jpg");
 	
 	// Clean up
 	if (d_wand) d_wand = DestroyDrawingWand(d_wand);
