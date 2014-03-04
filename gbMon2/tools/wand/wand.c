@@ -62,7 +62,7 @@ void GLCDD_Clear() {
 	}
 }
 
-int main() {
+int simulateDisplay() {
 	MagickWand *m_wand = NULL;
 	PixelWand *p_wand = NULL;
 	DrawingWand *d_wand = NULL;
@@ -132,4 +132,8 @@ int main() {
 	if (m_wand) m_wand = DestroyMagickWand(m_wand);
 	MagickWandTerminus();
 	
+}
+
+int main(){
+	simulateDisplay();
 }

@@ -241,7 +241,7 @@ void* displayMain(void *args){
 			
 			//printf(">>> %d Bytes in %dms => %d Bps\n", counter, end - start, counter * 1000 / (end - start));
 			
-
+			simulateDisplay(GLCD_Data);
 			
 			//printf(">>> %d Byte in %dms => %d Bps\n", (counter/j), (end - start)/j, counter * 1000 / (end - start));
 			//printf("Done!\n");

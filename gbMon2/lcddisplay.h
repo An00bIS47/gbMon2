@@ -16,13 +16,13 @@
 #include "helpers.h"
 #include "fonts.h"
 #include <time.h>
+#include "wand.h"
 
 void* displayMain(void *args);
 void displaySettings();
 void displayWifi(int strength);
 void displayClient();
 void displayFan();
-
 
 
 #endif
