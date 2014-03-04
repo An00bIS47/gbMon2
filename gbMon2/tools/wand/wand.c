@@ -63,13 +63,13 @@ int main() {
 	PixelSetColor(p_wand,"black");
 	DrawSetFillColor(d_wand,p_wand);
 	
-	
-	
-	int i;
-	for(i = 0; i < 128*8; i++) {
-		printf("%d ",reverseByte(GLCD_Data[i]));
+	int i, j, counter;
+	for (j = 0; j < 8; j++) {
+		for(i = 0; i < 128; i++) {
+			printf("%d ",reverseByte(GLCD_Data[counter]));
+			counter++;
+		}
 	}
-	
 	
 	DrawPoint(d_wand,1,0);
 	DrawPoint(d_wand,1,1);
