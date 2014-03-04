@@ -7,14 +7,9 @@
 //
 
 #include <stdio.h>
-// Last updated 2010/04/18 13:04
-
-/*
- Create a simple grayscale gradient using Pixel Iterators
- */
-//#include <windows.h>
 #include <wand/magick_wand.h>
 #include <stdint.h>
+
 
 typedef unsigned char byte;
 
@@ -72,7 +67,7 @@ int main() {
 	
 	int i;
 	for(i = 0; i < 128*8; i++) {
-		printf(reverseByte(GLCD_Data[i]));
+		printf("%d ",reverseByte(GLCD_Data[i]));
 	}
 	
 	
