@@ -7,7 +7,7 @@
 //
 
 #include "wand.h"
-
+#define TEST_BIT(value, bit_offset)  ((value) & (1 << (bit_offset)))
 
 void simulateDisplay(uint8_t GLCD_Data[128*8]) {
 	MagickWand *m_wand = NULL;
@@ -35,11 +35,14 @@ void simulateDisplay(uint8_t GLCD_Data[128*8]) {
 			//printf("%s ",printBinary(GLCD_Data[counter]));
 			
 			for (k=0; k<8; k++) {
-				char pixel = substring(printBinary(GLCD_Data[counter]), k+(j*8), 1);
-				printf("%d\n",pixel);
-				if(pixel=1){
+				//char pixel = substring(printBinary(GLCD_Data[counter]), k+(j*8), 1);
+				//printf("%d\n",pixel);
+				char testByte =	GLCD_Data[counter]
+				if(TEST_BIT(testByte, k)) {
+					printf("Bit %d is set\n", k);
 					DrawPoint(d_wand,k,i);
 				}
+				
 			}
 			counter++;
 		}
