@@ -119,8 +119,7 @@ int main(void) {
 			data.key=data.key++;
 			
 			printf("\nEnter Name: ");
-			scanf("%s", &add);
-			scanf("%s", &add);	// twice otherwise it will get the last enter as input
+			scanf("%s", add);	// twice otherwise it will get the last enter as input
 			strcpy(data.name,add);
 			
 			
