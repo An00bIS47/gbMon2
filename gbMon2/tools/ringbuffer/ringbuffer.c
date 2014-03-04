@@ -48,10 +48,10 @@ int main(void) {
 				printf("\nBUFFER IS FULL!");
 				printf("--> Pop \n");
 				pull_char();
+				printf("--> Push \n");
+				push_char(add);
 			}
 				
-			
-			
 		}
 		// pull char
 		else if (input == 2) {
@@ -68,7 +68,9 @@ int main(void) {
 				   data_size, read_pointer, write_pointer);
 			
 			printf("\nQueue content:\n");
-			for (i = 0; i < BUFFER_SIZE; i++) printf("[%c]", buffer[i]);
+			for (i = 0; i < BUFFER_SIZE; i++) {
+					printf("[%c]", buffer[i]);
+			}
 			
 		}
 		
