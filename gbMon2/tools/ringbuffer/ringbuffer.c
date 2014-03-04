@@ -2,7 +2,10 @@
 
 #include <stdio.h>
 
-#define BUFFER_SIZE 8
+
+/* data.h */
+/****************************************************************************************************/
+
 #define NumberOfTemperatureSensors 3
 #define NumberOfECSensors 3
 
@@ -31,15 +34,7 @@ typedef struct {
     EcLevel ecLevel[NumberOfECSensors];
     int lightValue;
 } Data;
-
-
-//Struktur fuer die Daten
-/*
-typedef struct {
-    int key;			//Schluesselwert
-    char name[20];		//Name
-} userdata_t;
-*/
+/****************************************************************************************************/
 
 //Struktur fuer einen Ringbuffer-Handler
 //wird benoetigt, um mehrere Listen zu verwalten
@@ -51,29 +46,20 @@ typedef struct {
 	int dataSize;			// number of chars in buffer
 } ringbuffer_handler_t;
 
-/****************************************************************************************************/
+
 
 int input;              // user input
 
-/*
-int data_size = 0;      // number of chars in buffer
-int read_pointer = 0;   // indice number of last read char
-int write_pointer = 0;  // indice number of last written char
 
-char add;               // char to add
-
-char buffer[BUFFER_SIZE];
 /****************************************************************************************************/
-
-
-
-
 // prototypes
 int bufferIsFull(ringbuffer_handler_t *buffer);
 int bufferIsEmpty(ringbuffer_handler_t *buffer);
 void bufferPush(Data data, ringbuffer_handler_t *buffer);
 void bufferPop(ringbuffer_handler_t *buffer);
 ringbuffer_handler_t *bufferInit(int size);
+/****************************************************************************************************/
+
 
 
 /****************************************************************************************************/

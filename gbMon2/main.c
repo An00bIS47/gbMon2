@@ -234,9 +234,14 @@ int main(int argc, char * argv[]) {
     // Print Header
 	
 	int i;
-    //ElemType elem = {0};
-    Data elem;
 
+	
+	ringbuffer_handler_t *buffer;
+    //eine Variable, um Ergebnisse von readFIFO() abzufragen
+    int ergebnis;
+	
+    //einen Ringbuffer-Handler und damit auch einen Ringbuffer anlegen
+    buffer = bufferInit(50);
     
     debugPrint(true, true, "============================================================", true, "MAIN");
     debugPrint(true, true, "                Raspberry Pi - gbMon", true, "MAIN");
@@ -421,22 +426,21 @@ int main(int argc, char * argv[]) {
 		}
 		sem_post(&semaLockInfo);
 		
-		/*
 		debugPrint(true, true, "Updating Ringbuffer ...", false, "MAIN");
 		sem_wait(&semaLockInfo);
-        cbWrite(&ringbuffer, &data);
+		if (! bufferIsFull(buffer)) {
+			bufferPush(data, buffer);
+		} else {
+			//printf("\n!!! BUFFER IS FULL !!! ");
+			// Pop "oldest" out
+			bufferPop(buffer);
+			// Push new in
+			bufferPush(data, buffer);
+		}
         sem_post(&semaLockInfo);
 		debugPrint(false, false, "OK", true, "");
-		*/
+		
 	}
-	
-	/* Remove and print all elements */
-    while (!cbIsEmpty(&ringbuffer)) {
-        cbRead(&ringbuffer, &elem);
-        printData(elem);
-        //printf("%f\n", elem.humidity.min);
-        //printf("%f\n", elem.temperature[0].min);
-    }
 	
 	closeApp();
 	/*

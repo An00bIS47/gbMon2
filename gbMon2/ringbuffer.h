@@ -13,20 +13,23 @@
 #include <stdlib.h>
 #include "data.h"
 
-/* Circular buffer object */
+//Struktur fuer einen Ringbuffer-Handler
+//wird benoetigt, um mehrere Listen zu verwalten
 typedef struct {
-    int         size;   /* maximum number of elements           */
-    int         start;  /* index of oldest element              */
-    int         end;    /* index at which to write new element  */
-    Data   *elems;  /* vector of elements                   */
-} CircularBuffer;
+    int readPointer;		//Index zum Lesen
+    int writePointer;		//Index zum Schreiben
+    Data *fifo;				//Platz fuer Speicherelemente, eigentlicher Buffer
+    int size;				//Groesse des Buffers, d.h. Anzahl der Elemente
+	int dataSize;			// number of chars in buffer
+} ringbuffer_handler_t;
 
-int cbIsEmpty(CircularBuffer *cb);
-void cbInit(CircularBuffer *cb, int size);
-void cbFree(CircularBuffer *cb);
-int cbIsFull(CircularBuffer *cb);
-void cbWrite(CircularBuffer *cb, Data *elem);
-void cbRead(CircularBuffer *cb, Data *elem);
+
+int bufferIsFull(ringbuffer_handler_t *buffer);
+int bufferIsEmpty(ringbuffer_handler_t *buffer);
+void bufferPush(Data data, ringbuffer_handler_t *buffer);
+void bufferPop(ringbuffer_handler_t *buffer);
+ringbuffer_handler_t *bufferInit(int size);
+
 
 
 #endif
