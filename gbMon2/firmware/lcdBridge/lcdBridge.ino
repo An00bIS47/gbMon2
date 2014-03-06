@@ -108,7 +108,7 @@ int fromBinary(char *s) {
 }
 
 void setup() {
-    Serial.begin(57600);
+    Serial.begin(9600);
     Serial.print ("Starting gbMon2 lcdBridge...\n");
 	
 	Serial.print ("Setting PINS ...");

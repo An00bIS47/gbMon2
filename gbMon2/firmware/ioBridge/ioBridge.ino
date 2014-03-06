@@ -121,7 +121,7 @@ void setup() {
 	byte i;
 	
 	// set up serial port
-	Serial.begin(57600);
+	Serial.begin(9600);
 	Serial.println("gbMon2 ioBridge");
 	
 	
@@ -141,7 +141,7 @@ void setup() {
 	
 	// set the data rate for the SoftwareSerial port
 	Serial.print("Initialising SoftwareSerial ...");
-	mySerial.begin(57600);
+	mySerial.begin(9600);
 	Serial.println("OK");
 	
 	Serial.print("Initialising ");

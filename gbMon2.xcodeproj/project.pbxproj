@@ -79,6 +79,7 @@
 		4CB8AF0F18468E3C00E74775 /* ds18b20.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8AF0E18468E3C00E74775 /* ds18b20.c */; };
 		4CCAE86818898B9D00701A67 /* mdns.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAE86718898B9D00701A67 /* mdns.c */; };
 		4CCAE86A18898BC500701A67 /* mdnsd.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAE86918898BC500701A67 /* mdnsd.c */; };
+		4CCF0E4F18C8BEE1002D8181 /* ioBridge.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF0E4E18C8BEE1002D8181 /* ioBridge.c */; };
 		4CDCA23C1821675300D8DA67 /* fnt_spaceLex_8.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCA2381821675300D8DA67 /* fnt_spaceLex_8.c */; };
 		4CDCA23D1821675300D8DA67 /* fnt_spaceLex_26.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCA2391821675300D8DA67 /* fnt_spaceLex_26.c */; };
 		4CDCA23E1821675300D8DA67 /* fnt_spaceLex_12.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCA23A1821675300D8DA67 /* fnt_spaceLex_12.c */; };
@@ -461,6 +462,8 @@
 		4CCAE86918898BC500701A67 /* mdnsd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mdnsd.c; sourceTree = "<group>"; };
 		4CCAE86B18898BDF00701A67 /* mdnsd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mdnsd.h; sourceTree = "<group>"; };
 		4CCC77EA181AE973001694BE /* simulator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = simulator.c; path = gbMon2/tools/simulator.c; sourceTree = "<group>"; };
+		4CCF0E4D18C8BEDA002D8181 /* ioBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ioBridge.h; sourceTree = "<group>"; };
+		4CCF0E4E18C8BEE1002D8181 /* ioBridge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioBridge.c; sourceTree = "<group>"; };
 		4CDCA2381821675300D8DA67 /* fnt_spaceLex_8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_8.c; path = fonts/fnt_spaceLex_8.c; sourceTree = "<group>"; };
 		4CDCA2391821675300D8DA67 /* fnt_spaceLex_26.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_26.c; path = fonts/fnt_spaceLex_26.c; sourceTree = "<group>"; };
 		4CDCA23A1821675300D8DA67 /* fnt_spaceLex_12.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fnt_spaceLex_12.c; path = fonts/fnt_spaceLex_12.c; sourceTree = "<group>"; };
@@ -1255,6 +1258,15 @@
 			name = "#unused Bonjour";
 			sourceTree = "<group>";
 		};
+		4CCF0E5018C8BEE5002D8181 /* ioBridge */ = {
+			isa = PBXGroup;
+			children = (
+				4CCF0E4D18C8BEDA002D8181 /* ioBridge.h */,
+				4CCF0E4E18C8BEE1002D8181 /* ioBridge.c */,
+			);
+			name = ioBridge;
+			sourceTree = "<group>";
+		};
 		4CE015C7183B89F0001E12DB /* ArduinoISP2_Ladyada */ = {
 			isa = PBXGroup;
 			children = (
@@ -1318,6 +1330,7 @@
 				4CF86C1D18156FBF0094C040 /* pinLayout.h */,
 				4CF86BE518155C500094C040 /* main.c */,
 				4CF86C1318155E360094C040 /* main.h */,
+				4CCF0E5018C8BEE5002D8181 /* ioBridge */,
 				4C041FF0187B032200FA7BF6 /* install.h */,
 				4C041FF1187B032C00FA7BF6 /* install.c */,
 			);
@@ -1462,6 +1475,7 @@
 				4C50333E181DAC0800E4C03F /* lcd.c in Sources */,
 				4C06B701187994AE001666B2 /* piCam.c in Sources */,
 				4C7CFE9B189B0E530014B6EE /* data.c in Sources */,
+				4CCF0E4F18C8BEE1002D8181 /* ioBridge.c in Sources */,
 				4C642D68186F44550037095A /* Makefile in Sources */,
 				4CDCA2431821A8BC00D8DA67 /* fnt_spaceLex_8b.c in Sources */,
 				4C642D5E186F3CE60037095A /* mdnsd.c in Sources */,

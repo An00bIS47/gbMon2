@@ -28,6 +28,7 @@
 #include "install.h"
 #include "data.h"
 #include "ringbuffer.h"
+#include "ioBridge.h"
 
 
 //#include "mdns.h"		// not used anymore

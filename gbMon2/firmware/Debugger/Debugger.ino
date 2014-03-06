@@ -36,8 +36,8 @@ void setup ()
 	//pinMode(ledPin, OUTPUT);
 	
 	// set the data rate for the SoftwareSerial port
-	mySerial.begin(57600);
-	Serial.begin(57600);
+	mySerial.begin(9600);
+	Serial.begin(9600);
 	Serial.println("SoftwareSerial Test stared ...");
 } // end of setup
 
