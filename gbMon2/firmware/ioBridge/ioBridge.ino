@@ -191,7 +191,7 @@ void printCommand(){
 	
 	// SEND TO INTERRUPT PIN
 	digitalWrite(PIINTERRUPTPIN, HIGH);
-	delay(3);
+	delay(20);
 	digitalWrite(PIINTERRUPTPIN, LOW);
 	
 	Serial.println("|==========|=======================================================|==========| ");
@@ -241,7 +241,7 @@ void sendCommand(unsigned int data){
 			digitalWrite(DATAPIN, LOW);
 		}
 		digitalWrite(CLKPIN, HIGH);
-		delay(3);
+		delay(20);
 	}
 	
 	//Serial.println();
