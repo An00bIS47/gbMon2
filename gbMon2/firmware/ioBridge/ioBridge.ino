@@ -5,78 +5,83 @@
 //  Created by michael on 19.10.13.
 //  Copyright (c) 2013 michael. All rights reserved.
 //
-//   Pin	 Button		 Function
-//	=====	========	==========
-//	  7			0		  OK
-//	  6			1		  BACK
-//	  5			2		  DOWN
-//	  4			3		  UP
-//	  8			4		  LEFT
-//	  9			5		  RIGHT
 //
-//   Pin	 Part		 Function
-//	=====	========	==========
-//   A0	      LDR
-//   A1       EC
-//   A2       EC
-//   A3       EC
-//   A4       ??		  Can be used for any analog sensor
-//   A5       ??		  Can be used for any analog sensor
-//   A6       ??		  Can be used for any analog sensor
+// Pin Layout:
 //
-//   Pin	 Function
-//	=====	==========
-//   A0	      CLK
-//   A0	      DATA
+// Arduino  ATmega	  Function
+//	=====   =====	 ==========
+//    0	      2		  --- (Reserved for Serial Communication)
+//    1	      3		  --- (Reserved for Serial Communication)
+//    2	      4		  CLK
+//    3	      5		  DATA
+//	  4		  6		  Button Up
+//	  5		 11		  Button Down
+//	  6		 12		  Button Back
+//	  7		 13		  Button Ok
+//	  8		 14		  Button Left
+//	  9		 15		  Button Right
+//	 10		 16		  --- (Reserved for PWM)
+//	 11		 17		  --- (Reserved for PWM)
+//   12		 18		  SoftwareSerial RX
+//   13		 19		  SoftwareSerial TX
+//  ----    ----     ---------
+//   A0	     23		  LDR
+//   A1      24		  EC
+//   A2      25		  EC
+//   A3      26		  EC
+//   A4      27		  EC
+//   A5		 28		  Raspberry Pi Interrupt
 //
 //
 // The command for the Raspberry Pi:
 // !! The command will be send reversed !!
 //
-// |-----------|-------------------------------------------------------------------------|-----------|
-// |   FRAME   |                            INFORMATION									 |   FRAME   |
-// |-----------|-------------------------------------------------------------------------|-----------|
-// | 1110 0111 | 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 | 1110 0111 |
-// |-----------|-------------------------------------------------------------------------|-----------|
-// |	       |  Buttons   LDR       EC0      EC1      EC2      EC3      EC4      E5	 |			 |
-// |-----------|-------------------------------------------------------------------------|-----------|
+// |-----------|-------------------------------------------------------|-----------|
+// |   FRAME   |                            INFORMATION				   |   FRAME   |
+// |-----------|-------------------------------------------------------|-----------|
+// | 1110 0111 | 00000000 00000000 00000000 00000000 00000000 00000000 | 1110 0111 |
+// |-----------|-------------------------------------------------------|-----------|
+// |	       |  Buttons   LDR       EC0      EC1      EC2      EC3   |		   |
+// |-----------|-------------------------------------------------------|-----------|
 //
-// Binary:	10000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-// Hex:		80000000000000000000
+// Binary:	10000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+// Hex:		800000000000000000
 //
 //
 //
-// |-------------------------------------------------------------------------------------------------|
-// |										INFORMATION												 |
-// |-------------------------------------------------------------------------------------------------|
-// |																								 |
-// |			 |							Analog Values											 |
-// |			 |																					 |
-// |   Buttons   |    LDR    |    EC0    |    EC1    |    EC2    |    EC3    |    EC4    |    EC5	 |
-// | 0000	0000 | 0000 0000 | 0000 0000 | 0000 0000 | 0000 0000 | 0000 0000 | 0000 0000 | 0000 0000 |
-// | |||| ||||																						 |
-// | |||| ||||																						 |
-// | |||| |||Button 0																				 |
-// | |||| ||Button 1																				 |
-// | |||| |Button 2																					 |
-// | |||| Button 3																					 |
-// | |||Button 4																					 |
-// | ||Button 5																						 |
-// | |Short Click																					 |
-// | Long Click																						 |
-// |-------------------------------------------------------------------------------------------------|
+// |-------------------------------------------------------------------------|
+// |							INFORMATION									 |
+// |-------------------------------------------------------------------------|
+// |																		 |
+// |			 |					   Analog Values		     			 |
+// |			 |															 |
+// |   Buttons   |    LDR    |    EC0    |    EC1    |    EC2    |    EC3    |
+// | 0000	0000 | 0000 0000 | 0000 0000 | 0000 0000 | 0000 0000 | 0000 0000 |
+// | |||| ||||																 |
+// | |||| ||||																 |
+// | |||| |||Button 0														 |
+// | |||| ||Button 1														 |
+// | |||| |Button 2															 |
+// | |||| Button 3															 |
+// | |||Button 4															 |
+// | ||Button 5																 |
+// | |Short Click															 |
+// | Long Click																 |
+// |-------------------------------------------------------------------------|
 //
 
 //#include "DHT.h"
+#include <SoftwareSerial.h>
 
-//#define DHTPIN 11
-//#define DHTTYPE DHT22 //DHT11, DHT21, DHT22
+#define rxPin 12
+#define txPin 13
 
 #define DEBOUNCE 10			// button debouncer, how many ms to debounce, 5+ ms is usually plenty
-#define LEDPIN 13
+//#define LEDPIN 13
 #define CLKPIN	3			// D2
 #define DATAPIN	2			// D3
-#define NUMBERECSENSORS 6
+#define PIINTERRUPTPIN 5
+#define NUMBERECSENSORS 4
 
 // This handy macro lets us determine how big the array up above is, by checking the size
 #define NUMBUTTONS sizeof(buttons)
@@ -92,16 +97,25 @@ volatile byte pressed[NUMBUTTONS], justpressed[NUMBUTTONS], justreleased[NUMBUTT
 long time[NUMBUTTONS];
 long lastUpdate=0;
 
-int photocellPin = 0;					// the cell and 10K pulldown are connected to a0
-byte photocellReading;					// the analog reading from the ldr
+int photocellPin = 0;						// the cell and 10K pulldown are connected to a0
+byte photocellReading;						// the analog reading from the ldr
 
-int ecPins[NUMBERECSENSORS] = {1,2,3,4,5,6};	// the ec level reading pins are connected to a1
-int ecReading[NUMBERECSENSORS];			// the analog reading from the ec probes
+int ecPins[NUMBERECSENSORS] = {1,2,3,4};	// the ec level reading pins are connected to a1
+int ecReading[NUMBERECSENSORS];				// the analog reading from the ec probes
 
-int buttonValue	= 0;					// the button value
+int buttonValue	= 0;						// the button value
 int frame = 0;								// the command for the raspberry pi
 
 bool longClicked = false;
+
+
+// set up a new serial port
+SoftwareSerial mySerial =  SoftwareSerial(rxPin, txPin);
+byte pinState = 0;
+
+// how much serial data we expect before a newline
+const unsigned int MAX_INPUT = 100;
+
 
 void setup() {
 	byte i;
@@ -109,27 +123,42 @@ void setup() {
 	// set up serial port
 	Serial.begin(57600);
 	Serial.println("gbMon2 ioBridge");
-	Serial.print("Initializing ");
-	Serial.print(NUMBUTTONS, DEC);
-	Serial.println(" Buttons");
+	
+	
+	Serial.print("Initialising Pin Modes ...");
+	// define pin modes for tx, rx, led pins:
+	pinMode(rxPin, INPUT);
+	pinMode(txPin, OUTPUT);
 	
 	// pin13 LED
-	pinMode(LEDPIN, OUTPUT);
-
+	//pinMode(LEDPIN, OUTPUT);
 	
 	// DATA AND CLK TO OUTPUT
 	pinMode(CLKPIN, OUTPUT);
 	pinMode(DATAPIN, OUTPUT);
+	pinMode(PIINTERRUPTPIN, OUTPUT);
+	Serial.println("OK");
 	
-	buildFrame();
-	//dht.begin();
+	// set the data rate for the SoftwareSerial port
+	Serial.print("Initialising SoftwareSerial ...");
+	mySerial.begin(57600);
+	Serial.println("OK");
 	
+	Serial.print("Initialising ");
+	Serial.print(NUMBUTTONS, DEC);
+	Serial.print(" Buttons ...");
 	// Make input & enable pull-up resistors on switch pins
 	for (i=0; i< NUMBUTTONS; i++) {
 		pinMode(buttons[i], INPUT);
 		digitalWrite(buttons[i], HIGH);
 		time[i]=0;
 	}
+	Serial.println("OK");
+	
+
+	
+	buildFrame();
+	//dht.begin();
 	
 	// Run timer2 interrupt every 15 ms
 	TCCR2A = 0;
@@ -159,7 +188,13 @@ void printByte(int value){
 }
 
 void printCommand(){
-	Serial.println("|==========|=========================================================================|==========| ");
+	
+	// SEND TO INTERRUPT PIN
+	digitalWrite(PIINTERRUPTPIN, HIGH);
+	delay(3);
+	digitalWrite(PIINTERRUPTPIN, LOW);
+	
+	Serial.println("|==========|=======================================================|==========| ");
     Serial.print("| ");
 	printByte(frame);
 	sendCommand(frame);
@@ -183,7 +218,7 @@ void printCommand(){
 	sendCommand(frame);
 	Serial.print(" |");
 	Serial.println();
-	Serial.println("|==========|=========================================================================|==========| ");
+	Serial.println("|==========|=======================================================|==========| ");
 }
 
 
@@ -214,12 +249,13 @@ void sendCommand(unsigned int data){
 
 void buildFrame(){
 	// Frame:	11100111
-	// Binary:	10000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+	// Binary:	10000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
 	// Decimal: 604462909807314587353088
-	// Binary:	11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111
+	// Binary:	11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111
 	// Decimal: 1208925819614629174706175
-	//			79	  72 71	   64 63	56 55	 48	47	  40 39	   32 31	24 23 	 16	15	   8 7		0
-	// Hex:		80000000000000000000
+	// Binary:	11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111
+	//			63    56 55	   48 47	40 39	 32 31	  24 23    16 15	 8 7	  0
+	// Hex:		800000000000000000
 
 	frame |= (1 << 7);
 	frame |= (1 << 6);
@@ -343,10 +379,10 @@ void loop() {
 	
 	if (lastUpdate == 0 ){
 		
-		
+		/*
 		for (int j=0; j < NUMBERECSENSORS; j++) {
 			
-			/*
+			
 			Serial.print("ecLevel ");
 			Serial.print(j);
 			Serial.print(" reading = ");
@@ -364,9 +400,9 @@ void loop() {
 				}
 			}
 			Serial.println();
-			 */
+			 
 		}
-
+		*/
 		/*
 		Serial.print("LDR reading = ");
 		Serial.print(photocellReading);
@@ -407,26 +443,6 @@ void loop() {
 		printCommand();
 		
 		
-		/*
-		 float h = dht.readHumidity();     //Luftfeuchte auslesen
-		 float t = dht.readTemperature();  //Temperatur auslesen
-		 
-		 // Prüfen ob eine gültige Zahl zurückgegeben wird. Wenn NaN (not a number) zurückgegeben wird, dann Fehler ausgeben.
-		 if (isnan(t) || isnan(h))
-		 {
-		 Serial.println("DHT22 konnte nicht ausgelesen werden");
-		 }
-		 else
-		 {
-		 Serial.print("Luftfeuchte: ");
-		 Serial.print(h);
-		 Serial.print(" %\t");
-		 Serial.print("Temperatur: ");
-		 Serial.print(t);
-		 Serial.println(" C");
-		 }
-		 */
-		
 		lastUpdate=millis();
 	}
 	
@@ -440,7 +456,7 @@ void loop() {
 			justpressed[i] = 0;
 			//Serial.print(i, DEC);
 			//Serial.println(" Just pressed");
-			digitalWrite(LEDPIN, HIGH);
+			//digitalWrite(LEDPIN, HIGH);
 			time[i]=millis();
 			// remember, check_switches() will CLEAR the 'just pressed' flag
 		}
@@ -454,7 +470,7 @@ void loop() {
 				longClick(i);
 				longClicked=false;
 			} else {
-				digitalWrite(LEDPIN, LOW);
+				//digitalWrite(LEDPIN, LOW);
 				shortClick(i);
 			}
 			// remember, check_switches() will CLEAR the 'just pressed' flag
@@ -469,5 +485,20 @@ void loop() {
 			}
 			// is the button pressed down at this moment
 		}
+	}
+	
+	
+	String content = "";
+	char character;
+	
+	while(mySerial.available()) {
+		character = mySerial.read();
+		content.concat(character);
+	}
+	
+	if (content != "") {
+		Serial.print("SOFTSERIAL: ");
+		Serial.print(content);
+		Serial.println();
 	}
 }
