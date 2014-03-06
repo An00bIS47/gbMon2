@@ -6,3 +6,7 @@
 //  Copyright (c) 2014 michael. All rights reserved.
 //
 #include "ioBridge.h"
+
+void myInterrupt (void){
+	printf("INTERRUPT\n");
+}

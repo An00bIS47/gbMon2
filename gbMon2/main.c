@@ -28,8 +28,6 @@ int			fanToggleTemp			=	0;
 char*		fanSystemcode			=	"10001";
 int			fanUnitcode				=	1;
 
-struct mdnsd *svr;
-
 /*
 void createBonjourService(){
 	// create host entries
@@ -258,6 +256,9 @@ int main(int argc, char * argv[]) {
 	
 	
 	
+	
+	
+	
 	// Get Raspberrys Serial Number
 	// value gets stored in piSerial
 	getPiSerial();
@@ -364,6 +365,16 @@ int main(int argc, char * argv[]) {
 
 	pinMode (CLKPIN, OUTPUT);
 	pinMode (DATAPIN, OUTPUT);
+	pinMode (IOBRIDGECLK, INPUT);
+	pinMode (IOBRIDGEDATA, INPUT);
+	pinMode (IOBRIDGEINT,INPUT);
+	debugPrint(false, false, "OK", true, "MAIN");
+	
+	debugPrint(true, true, "Initialising wiringPi Interrupts ...", false, "MAIN");
+	if (wiringPiISR (BUTTON_PIN, INT_EDGE_RISING, &myInterrupt) < 0){
+		fprintf (stderr, "Unable to setup ISR: %s\n", strerror (errno)) ;
+		return 1 ;
+	}
 	debugPrint(false, false, "OK", true, "MAIN");
 	
 	debugPrint(true, true, "Setting up database ...", false, "MAIN");

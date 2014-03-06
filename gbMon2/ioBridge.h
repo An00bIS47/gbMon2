@@ -11,5 +11,6 @@
 
 #include <stdio.h>
 
+void myInterrupt (void);
 
 #endif
