@@ -371,7 +371,7 @@ int main(int argc, char * argv[]) {
 	debugPrint(false, false, "OK", true, "MAIN");
 	
 	debugPrint(true, true, "Initialising wiringPi Interrupts ...", false, "MAIN");
-	if (wiringPiISR (BUTTON_PIN, INT_EDGE_RISING, &myInterrupt) < 0){
+	if (wiringPiISR (IOBRIDGEINT, INT_EDGE_RISING, &myInterrupt) < 0){
 		fprintf (stderr, "Unable to setup ISR: %s\n", strerror (errno)) ;
 		return 1 ;
 	}
