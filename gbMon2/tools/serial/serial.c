@@ -12,12 +12,25 @@
 
 #include <wiringSerial.h>
 
+/*
+ * Substring
+ *********************************************************************************
+ */
+char* substring(const char* str, size_t begin, size_t len){
+    if (str == 0 || strlen(str) == 0 || strlen(str) < begin || strlen(str) < (begin+len))
+        return 0;
+    
+    return strndup(str + begin, len);
+}
+
 int main ()
 {
 	int fd ;
 	char inData[255]; // Allocate some space for the string
 	char inChar = -1; // Where to store the character read
 	int spos = 0; //Index into array; where to store the character
+	char buttons[8];
+	int curPos=8;
 	
 	printf("Welcome to SerialRead\n");
 	if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0)
@@ -36,12 +49,12 @@ int main ()
 			spos++;
 
 			if (inChar == 10) {
-				printf("%s",inData);
-				if (strncmp(inData,"$GPG",4) == 0) {
-					printf("*********** GPGGA found ************\n\n");
-				}
+				//printf("%s",inData);
+				strcpy(buttons,substring(inData,curPos,8));
+				curPos=curPos+8;
+				printf("Buttons: %s\n",buttons);
 				spos = 0;
-				fflush (stdout) ;
+				//fflush (stdout) ;
 			} // if (inChare == 13
 		}
 	}
