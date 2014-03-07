@@ -11,7 +11,13 @@
 #include <stdlib.h>
 
 #include <wiringSerial.h>
+#include <pthread.h>
+#include <semaphore.h>
+
 #define NOECSENSORS 3						// Number of EC Sensors
+
+pthread_t	pThreadSerial;				// Serial
+sem_t semaLockSerial;
 
 //Struktur fuer die Daten
 typedef struct
@@ -35,6 +41,10 @@ typedef struct
     //Groesse des Buffers, d.h. Anzahl der Elemente
     int size;
 } ringbuffer_handler_t;
+
+
+//ein Ringbuffer-Handler
+ringbuffer_handler_t *buffer;
 
 
 /*
@@ -137,26 +147,51 @@ int readFIFO(userdata_t *data, ringbuffer_handler_t *buffer)
     else return -1;
 }
 
+void readSerial(){
+	
+	//eine Variable fuer die Daten
+	userdata_t data;
+	char inChar = -1;	// Where to store the character read
+	int spos = 0;		//Index into array; where to store the character
+
+	for (;;) {
+		
+		while (serialDataAvail(fd)) {
+			if (serialDataAvail(fd) >= 12) {
+				inChar = (serialGetchar(fd));
+				
+				//Daten anlegen und in den Buffer schreiben
+				data.key=spos;
+				strcpy(&data.inChar, &inChar);
+				appendFIFO(data, buffer);
+				
+				//inData[spos]= inChar;
+				spos++;
+			}
+			
+		}
+	}
+}
 
 int main (){
 	int fd ;
 	
-	//eine Variable fuer die Daten
-    userdata_t data;
-    //ein Ringbuffer-Handler
-    ringbuffer_handler_t *buffer;
+
     //eine Variable, um Ergebnisse von readFIFO() abzufragen
     int ergebnis;
+	//eine Variable fuer die Daten
+	userdata_t data;
+	
+	sem_init(&semaLockSerial, 1, 1);			// initialize mutex to 1 - binary semaphore
+	
 	
     //einen Ringbuffer-Handler und damit auch einen Ringbuffer anlegen
     buffer = createFIFO(255);
 	
-
-	
-	
 	char inData[255];	// Allocate some space for the string
 	char inChar = -1;	// Where to store the character read
 	int spos = 0;		//Index into array; where to store the character
+	int i;
 	
 	printf("Welcome to SerialRead\n");
 	if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0){
@@ -164,32 +199,43 @@ int main (){
 		return 1 ;
 	}
 	
-	char buttons[8+1];
-	char ldr[8+1];
-	int counter=0;
-	int i;
-	int curPos=8;
+	pthread_create (&pThreadSerial, NULL, readSerial, NULL);
 	
 	for (;;) {
-		while (serialDataAvail(fd)) {
-			inChar = (serialGetchar(fd));
+		
+		if (buffer->readIndex != buffer->writeIndex) {
+		
+			for (i=0; i<buffer->size; i++) {
+				data = buffer->fifo[i];
 			
-			//Daten anlegen und in den Buffer schreiben
-			data.key=spos;
-			strcpy(&data.inChar, &inChar);
-			appendFIFO(data, buffer);
-			
-			//inData[spos]= inChar;
-			spos++;
-			
-			//Daten aus Buffer holen, wenn erfolgreich, dann ausgeben
-			ergebnis = readFIFO(&data, buffer);
-			if(ergebnis == 1)
-			{
-				printf("%d %c\n", data.key, data.inChar);
+				printf("%c", data.inChar);
+				//buffer->readPointer, buffer->writePointer
+				++buffer->readIndex;
 			}
+		}
+		/*
+		while (serialDataAvail(fd)) {
+			if (serialDataAvail(fd) >= 12) {
+				inChar = (serialGetchar(fd));
+				
+				//Daten anlegen und in den Buffer schreiben
+				data.key=spos;
+				strcpy(&data.inChar, &inChar);
+				appendFIFO(data, buffer);
+				
+				//inData[spos]= inChar;
+				spos++;
+				
+				//Daten aus Buffer holen, wenn erfolgreich, dann ausgeben
+				ergebnis = readFIFO(&data, buffer);
+				if(ergebnis == 1){
+					printf("%d %c\n", data.key, data.inChar);
+				}
+			}
+				
+
 			
-			/*
+			
 			//inData[spos]= '\0';
 			if (inChar == 10) {			// LF 10 ; CR 13
 				//printf("%s\n",inData);
@@ -218,8 +264,9 @@ int main (){
 				
 				//fflush (stdout) ;
 			} // if (inChare == 13
-			 */
+			 
 			
 		} // while
+		 */
 	} //for
 }
