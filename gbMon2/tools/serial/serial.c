@@ -18,6 +18,8 @@
 
 pthread_t	pThreadSerial;				// Serial
 sem_t semaLockSerial;
+int fd ;
+
 
 //Struktur fuer die Daten
 typedef struct
@@ -157,13 +159,17 @@ void readSerial(){
 	for (;;) {
 		
 		while (serialDataAvail(fd)) {
+			
 			if (serialDataAvail(fd) >= 12) {
 				inChar = (serialGetchar(fd));
 				
 				//Daten anlegen und in den Buffer schreiben
 				data.key=spos;
 				strcpy(&data.inChar, &inChar);
+
+				sem_post(&semaLockSerial);
 				appendFIFO(data, buffer);
+				sem_post(&semaLockSerial);
 				
 				//inData[spos]= inChar;
 				spos++;
@@ -174,7 +180,7 @@ void readSerial(){
 }
 
 int main (){
-	int fd ;
+	
 	
 
     //eine Variable, um Ergebnisse von readFIFO() abzufragen
@@ -202,7 +208,7 @@ int main (){
 	pthread_create (&pThreadSerial, NULL, readSerial, NULL);
 	
 	for (;;) {
-		
+		sem_wait(&semaLockSerial);
 		if (buffer->readIndex != buffer->writeIndex) {
 		
 			for (i=0; i<buffer->size; i++) {
@@ -212,7 +218,9 @@ int main (){
 				//buffer->readPointer, buffer->writePointer
 				++buffer->readIndex;
 			}
+			
 		}
+		sem_post(&semaLockSerial);
 		/*
 		while (serialDataAvail(fd)) {
 			if (serialDataAvail(fd) >= 12) {
