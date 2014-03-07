@@ -27,6 +27,7 @@ int main ()
 {
 	int fd ;
 	char inData[255]; // Allocate some space for the string
+	char buffer[255];
 	char inChar = -1; // Where to store the character read
 	int spos = 0; //Index into array; where to store the character
 	char buttons[8];
@@ -46,10 +47,11 @@ int main ()
 		while (serialDataAvail(fd)) {
 			inChar = (serialGetchar(fd));
 			//fprintf(stdout,"%c",inChar);
-			inData[spos]= inChar;
+			buffer[spos]= inChar;
 			spos++;
 
 			if (inChar == 10) {
+				strcpy(inData,buffer);
 				printf("%s",inData);
 				strcpy(ldr,substring(inData,16,8));
 				printf("LDR: %s\n",ldr);
