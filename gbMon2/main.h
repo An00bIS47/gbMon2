@@ -39,6 +39,7 @@
 #define MAXTIMINGS 85
 #define DHTPIN 1
 #define NOTEMPSENSOR 3						// Number of Temperature Sensors
+#define NOECSENSORS 3						// Number of EC Sensors
 #define SETTINGSFILE "/home/pi/.gbmon/ramdisk/gbmon2.conf"
 #define IOBRIDGEINT 4						// Interrupt from the atmega328p-pu
 #define IOBRIDGEDATA 5						// data from the atmega

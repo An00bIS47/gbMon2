@@ -10,6 +10,7 @@
 #include <errno.h>
 
 #include <wiringSerial.h>
+#define NOECSENSORS 3						// Number of EC Sensors
 
 /*
  * Substring
@@ -39,6 +40,7 @@ int main (){
 	char ldr[8+1];
 	int counter=0;
 	int i;
+	int curPos=8;
 	
 	for (;;) {
 		while (serialDataAvail(fd)) {
@@ -53,7 +55,19 @@ int main (){
 					printf("*** FRAME ***\n");
 				}
 				
-				printf("Buttons: %s\n", substring(inData,9,8));
+				printf("Buttons: %s\n", substring(inData,curPos,8));
+				curPos=curPos+8;
+				printf("LDR: %s\n", substring(inData,16,8));
+				curPos=curPos+8;
+				
+				for (i=0; i<NOECSENSORS; i++) {
+					printf("EC %d: %s\n",i, substring(inData,curPos,8));
+					curPos=curPos+8;
+				}
+				
+				if (strcmp(substring(inData,curPos,8),"11100111") == 0) {
+					printf("*** FRAME ***\n");
+				}
 				
 				spos = 0;
 				//inData[spos]='\0';
