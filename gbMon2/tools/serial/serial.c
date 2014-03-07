@@ -212,11 +212,9 @@ int main (){
 		if (buffer->readIndex != buffer->writeIndex) {
 		
 			for (i=0; i<buffer->size; i++) {
-				data = buffer->fifo[i];
+				readFIFO(&data, buffer);
 			
 				printf("%c", data.inChar);
-				//buffer->readPointer, buffer->writePointer
-				++buffer->readIndex;
 			}
 			
 		}
