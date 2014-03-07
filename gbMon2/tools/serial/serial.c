@@ -18,6 +18,7 @@
 
 pthread_t	pThreadSerial;				// Serial
 sem_t semaLockSerial;
+int counter;
 int fd ;
 
 //Struktur fuer die Daten
@@ -172,6 +173,7 @@ void readSerial(){
 				
 				//inData[spos]= inChar;
 				spos++;
+				counter++;
 			}
 			
 		}
@@ -207,15 +209,21 @@ int main (){
 	pthread_create (&pThreadSerial, NULL, readSerial, NULL);
 	
 	for (;;) {
-		sem_wait(&semaLockSerial);
-		if(buffer->readIndex != buffer->writeIndex){
-			//Daten kopieren
-			data = buffer->fifo[buffer->readIndex];
-			//readIndex fuer das naechste Lesen hochsetzen
-			buffer->readIndex = buffer->readIndex++ % (buffer->size+1);
+
+		
+		if (counter==50) {
+			sem_wait(&semaLockSerial);
+			if(buffer->readIndex != buffer->writeIndex){
+				//Daten kopieren
+				data = buffer->fifo[buffer->readIndex];
+				//readIndex fuer das naechste Lesen hochsetzen
+				buffer->readIndex = buffer->readIndex++ % (buffer->size+1);
+			}
+			printf("Charakter: %c\n", data.inChar);
+			counter=0;
+			sem_post(&semaLockSerial);
+
 		}
-		printf("Charakter: %c\n", data.inChar);
-		sem_post(&semaLockSerial);
 		/*
 		while (serialDataAvail(fd)) {
 			if (serialDataAvail(fd) >= 12) {
