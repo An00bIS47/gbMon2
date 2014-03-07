@@ -20,7 +20,6 @@ pthread_t	pThreadSerial;				// Serial
 sem_t semaLockSerial;
 int fd ;
 
-
 //Struktur fuer die Daten
 typedef struct
 {
@@ -212,9 +211,11 @@ int main (){
 		if (buffer->readIndex != buffer->writeIndex) {
 		
 			for (i=0; i<buffer->size; i++) {
-				readFIFO(&data, buffer);
+				data = buffer->fifo[i];
 			
 				printf("%c", data.inChar);
+				//buffer->readPointer, buffer->writePointer
+				buffer->readIndex = buffer->readIndex++ % (buffer->size+1);
 			}
 			
 		}
