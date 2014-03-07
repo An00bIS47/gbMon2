@@ -210,10 +210,10 @@ int main (){
 		sem_wait(&semaLockSerial);
 		if (buffer->readIndex != buffer->writeIndex) {
 		
-			for (i=0; i<buffer->size; i++) {
-				data = buffer->fifo[i];
+			for (i=0; i<8; i++) {
+				data = buffer->fifo[buffer->readIndex];
 			
-				printf("%c", data.inChar);
+				printf("readIndex: %d writeIndex: %d - Charcter: %c\n", buffer->readIndex, buffer->writeIndex, data.inChar);
 				//buffer->readPointer, buffer->writePointer
 				buffer->readIndex = buffer->readIndex++ % (buffer->size+1);
 			}
