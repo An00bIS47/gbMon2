@@ -78,9 +78,6 @@
 
 #define DEBOUNCE 10			// button debouncer, how many ms to debounce, 5+ ms is usually plenty
 //#define LEDPIN 13
-#define CLKPIN	3			// D2
-#define DATAPIN	2			// D3
-#define PIINTERRUPTPIN 5
 #define NUMBERECSENSORS 4
 
 // This handy macro lets us determine how big the array up above is, by checking the size
@@ -121,11 +118,11 @@ void setup() {
 	byte i;
 	
 	// set up serial port
-	Serial.begin(9600);
-	Serial.println("gbMon2 ioBridge");
+	Serial.begin(115200);
+	//Serial.println("gbMon2 ioBridge");
 	
 	
-	Serial.print("Initialising Pin Modes ...");
+	//Serial.print("Initialising Pin Modes ...");
 	// define pin modes for tx, rx, led pins:
 	pinMode(rxPin, INPUT);
 	pinMode(txPin, OUTPUT);
@@ -134,26 +131,26 @@ void setup() {
 	//pinMode(LEDPIN, OUTPUT);
 	
 	// DATA AND CLK TO OUTPUT
-	pinMode(CLKPIN, OUTPUT);
-	pinMode(DATAPIN, OUTPUT);
-	pinMode(PIINTERRUPTPIN, OUTPUT);
-	Serial.println("OK");
+	//pinMode(CLKPIN, OUTPUT);
+	//pinMode(DATAPIN, OUTPUT);
+	//pinMode(PIINTERRUPTPIN, OUTPUT);
+	//Serial.println("OK");
 	
 	// set the data rate for the SoftwareSerial port
-	Serial.print("Initialising SoftwareSerial ...");
-	mySerial.begin(9600);
-	Serial.println("OK");
+	//Serial.print("Initialising SoftwareSerial ...");
+	//mySerial.begin(9600);
+	//Serial.println("OK");
 	
-	Serial.print("Initialising ");
-	Serial.print(NUMBUTTONS, DEC);
-	Serial.print(" Buttons ...");
+	//Serial.print("Initialising ");
+	//Serial.print(NUMBUTTONS, DEC);
+	//Serial.print(" Buttons ...");
 	// Make input & enable pull-up resistors on switch pins
 	for (i=0; i< NUMBUTTONS; i++) {
 		pinMode(buttons[i], INPUT);
 		digitalWrite(buttons[i], HIGH);
 		time[i]=0;
 	}
-	Serial.println("OK");
+	//Serial.println("OK");
 	
 
 	
@@ -187,39 +184,97 @@ void printByte(int value){
 	//Serial.println();
 }
 
+void writeByte(int value) {
+	for (unsigned int mask = 0x80; mask; mask >>= 1) {
+		if (mask & value) {
+			Serial.write(1);
+		}
+		else {
+			Serial.write(0);
+		}
+	}
+}
+
+
+char* getByte(int value) {
+	
+	int counter=0;
+	char string[8];
+	
+	for (unsigned int mask = 0x80; mask; mask >>= 1) {
+		if (mask & value) {
+			//Serial.write(1);
+			string[counter]='1';
+		}
+		else {
+			//Serial.write(0);
+			string[counter]='0';
+		}
+		counter++;
+	}
+	string[counter]='\0';
+	return string;
+}
+
+
 void printCommand(){
 	
 	// SEND TO INTERRUPT PIN
-	digitalWrite(PIINTERRUPTPIN, HIGH);
-	delay(20);
-	digitalWrite(PIINTERRUPTPIN, LOW);
+	// digitalWrite(PIINTERRUPTPIN, HIGH);
+	// delay(20);
+	// digitalWrite(PIINTERRUPTPIN, LOW);
+				
+	//Serial.println("|==========|=====================================|==========| ");
+    //Serial.print("| ");
+	//printByte(frame);
+
+	send_serial_string(getByte(frame));
+	send_serial_string(getByte(buttonValue));
+	send_serial_string(getByte(photocellReading));
+	for (int i=0; i<NUMBERECSENSORS; i++) {
+		//printByte(ecReading[i]);
+		send_serial_string(getByte(ecReading[i]));
+		//Serial.print(" ");
+	}
 	
-	Serial.println("|==========|=======================================================|==========| ");
-    Serial.print("| ");
-	printByte(frame);
-	sendCommand(frame);
-    Serial.print(" | ");
+	send_serial_string(getByte(frame));
+	send_serial_string("\r\n");
+	/*
+	//send_serial_string(getByte(frame));
 	
-	printByte(buttonValue);
-	sendCommand(buttonValue);
-	Serial.print(" ");
+    //Serial.print(" | ");
 	
-	printByte(photocellReading);
-	sendCommand(photocellReading);
-	Serial.print(" ");
+	//printByte(buttonValue);
+	send_serial_string(getByte(buttonValue));
+	//Serial.print(" ");
+	
+	//printByte(photocellReading);
+	send_serial_string(getByte(photocellReading));
+	//Serial.print(" ");
 	
 	for (int i=0; i<NUMBERECSENSORS; i++) {
-		printByte(ecReading[i]);
-		sendCommand(ecReading[i]);
-		Serial.print(" ");
+		//printByte(ecReading[i]);
+		send_serial_string(getByte(ecReading[i]));
+		//Serial.print(" ");
 	}
-    Serial.print("| ");
-	printByte(frame);
-	sendCommand(frame);
-	Serial.print(" |");
-	Serial.println();
-	Serial.println("|==========|=======================================================|==========| ");
+    //Serial.print("| ");
+	//printByte(frame);
+	send_serial_string(getByte(frame));
+	send_serial_string("\r\n");
+	//Serial.print(" |");
+	//Serial.println();
+	//Serial.println("|==========|=====================================|==========| ");
+	 
+	 */
 }
+
+void send_serial_string(char *str){
+	
+	while(*str)
+		Serial.write(*str++);
+	
+}
+
 
 
 void sendCommand(unsigned int data){
@@ -231,16 +286,16 @@ void sendCommand(unsigned int data){
 	Serial.print(" - ");
 	*/
 	for (unsigned int mask = 0x80; mask; mask >>= 1) {
-		digitalWrite(CLKPIN, HIGH);
+		//digitalWrite(CLKPIN, HIGH);
 		if (mask & data) {
 			//Serial.print('1');
-			digitalWrite(DATAPIN, HIGH);
+			//digitalWrite(DATAPIN, HIGH);
 		}
 		else {
 			//Serial.print('0');
-			digitalWrite(DATAPIN, LOW);
+			//digitalWrite(DATAPIN, LOW);
 		}
-		digitalWrite(CLKPIN, HIGH);
+		//digitalWrite(CLKPIN, HIGH);
 		delay(20);
 	}
 	
@@ -317,21 +372,21 @@ void shortClick(int Button){
 	buttonValue = 0;
 	buttonValue |= (1 << Button);
 	buttonValue |= (1 << 6);	// for short click
-	Serial.print(Button, DEC);
-	Serial.print(" pressed - Value: ");
+	//Serial.print(Button, DEC);
+	//Serial.print(" pressed - Value: ");
 	
 	
 	// 0x8000 = 10000000 0000000
 	// 0x80   = 10000000
 	for (unsigned int mask = 0x80; mask; mask >>= 1) {
 		if (mask & buttonValue) {
-			Serial.print('1');
+			//Serial.print('1');
 		}
 		else {
-			Serial.print('0');
+			//Serial.print('0');
 		}
 	}
-	Serial.println();
+	//Serial.println();
 	
 	
 	// Print the command
@@ -344,21 +399,21 @@ void longClick(int Button){
 	buttonValue = 0;
 	buttonValue |= (1 << Button);
 	buttonValue |= (1 << 7);	// for long click
-	Serial.print(Button, DEC);
-	Serial.print(" pressed LONG - Value: ");
+	//Serial.print(Button, DEC);
+	//Serial.print(" pressed LONG - Value: ");
 	
 	
 	// 0x8000 = 10000000 0000000
 	// 0x80   = 10000000
 	for (unsigned int mask = 0x80; mask; mask >>= 1) {
 		if (mask & buttonValue) {
-			Serial.print('1');
+			//Serial.print('1');
 		}
 		else {
-			Serial.print('0');
+			//Serial.print('0');
 		}
 	}
-	Serial.println();
+	//Serial.println();
 	
 	// Print the command
 	printCommand();
@@ -440,7 +495,7 @@ void loop() {
 		/*
 		 * Print AND Send the command
 		 */
-		//printCommand();
+		printCommand();
 		
 		
 		lastUpdate=millis();
@@ -487,7 +542,7 @@ void loop() {
 		}
 	}
 	
-	
+	/*
 	String content = "";
 	char character;
 	
@@ -501,4 +556,5 @@ void loop() {
 		Serial.print(content);
 		Serial.println();
 	}
+	 */
 }
