@@ -53,11 +53,13 @@ int main ()
 			if (inChar == 10) {
 				strcpy(inData,buffer);
 				printf("%s",inData);
+				strcpy(buttons,substring(inData,8,8));
+				printf("Buttons: %s\n",buttons);
+				
 				strcpy(ldr,substring(inData,16,8));
 				printf("LDR: %s\n",ldr);
 				
-				strcpy(ldr,substring(inData,8,8));
-				printf("Buttons: %s\n",buttons);
+
 				
 				spos = 0;
 				//fflush (stdout) ;
