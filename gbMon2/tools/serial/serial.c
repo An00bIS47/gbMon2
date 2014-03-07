@@ -44,6 +44,7 @@ int main ()
 				fflush (stdout) ;
 			} // if (inChare == 13
 		}
+	}
 }
 
 
