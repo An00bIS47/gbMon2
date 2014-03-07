@@ -146,13 +146,20 @@ void* displayMain(void *args){
 			
 			// Wifi and Client / Network
 			displayWifi(getWifiStrength());
-
+			
+						
 			// Fan
 			displayFan();
 			
+			sem_wait(&semaLockInfo);       // down semaphore
+
 			// Light
 			GLCDD_ClearEx(118, 0, 125, 8);
-			GLCDD_XBMDraw((uint8_t*)lightOn, 118, 0, 8, 8);
+			if (data.lightValue > 30) {
+				GLCDD_XBMDraw((uint8_t*)lightOn, 118, 0, 8, 8);
+			} else {
+				GLCDD_XBMDraw((uint8_t*)lightOff, 118, 0, 8, 8);
+			}
 			
 
 			GLCDD_Rect r;
@@ -170,8 +177,7 @@ void* displayMain(void *args){
 			r.w = 128 - 10;
 			//r.h = -1;
 			r.h = 12;
-			
-			sem_wait(&semaLockInfo);       // down semaphore
+
 
 			// Humidity
 			r.x = 5;
