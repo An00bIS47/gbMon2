@@ -27,6 +27,20 @@ int main (){
 	for (;;) {
 		while (serialDataAvail(fd)) {
 			inChar = (serialGetchar(fd));
+			inData[spos]= inChar;
+			spos++;
+			
+			if (spos == 8) {
+				if (strcmp(inData, "11100111")){
+					// Rahmen Anfang
+					printf("Rahmen Anfang\n");
+					spos=0;
+				}
+			}
+			
+			/*
+			
+			
 			// fprintf(stdout,"%c",inChar);
 			
 			if (inChar != 13) {
@@ -43,9 +57,9 @@ int main (){
 				spos = 0;
 				//inData[spos]='\0';
 				
-				fflush (stdout) ;
+				//fflush (stdout) ;
 			} // if (inChare == 13
-
+			*/
 		} // while
 	} //for
 }
