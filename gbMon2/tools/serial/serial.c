@@ -22,10 +22,20 @@ int main (){
 	// Loop, getting and printing characters
 	
 	for (;;){
+		
+		
+		while (serialDataAvail (fd))
+		{
+			printf (" -> %3d", serialGetchar (fd)) ;
+			fflush (stdout) ;
+		}
+		
+		/*
 		putchar (serialGetchar (fd)) ;
 		if (serialGetchar (fd)=='\n') {
 			printf("NEWLINE");
 		}
 		fflush (stdout) ;
+		 */
 	}
 }
