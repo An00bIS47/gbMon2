@@ -463,7 +463,7 @@ withFilterContext:(id)filterContext
             NSLog(@"LightValue: %@", [json objectForKey:@"LightValue"]);
             NSString *levelIndicatorString = [json objectForKey:@"LightValue"];
             CGFloat lightIndicatorValue = [levelIndicatorString floatValue];
-            lightIndicatorValue = lightIndicatorValue / 100;
+            lightIndicatorValue = lightIndicatorValue / 10;
             NSLog(@"LightIndicatorValue: %f",lightIndicatorValue);
             [lightIndicator setFloatValue:lightIndicatorValue];
             

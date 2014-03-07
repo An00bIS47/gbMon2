@@ -65,7 +65,7 @@ void* ioBridgeMain (void *args){
 				if ((strcmp(endFrame, "11100111") == 0) && (strcmp(startFrame, "11100111") == 0)) {
 					//---> Daten übergeben
 					
-					setLightValue(binaryToDecimal(ldr));
+					//setLightValue(binaryToDecimal(ldr));
 					
 					for (sensorID=0; i<NUMBERECSENSORS; sensorID++) {
 						char strMin[4];
@@ -77,9 +77,15 @@ void* ioBridgeMain (void *args){
 						sprintf(strSensorID, "%d", sensorID);
 						
 						sem_wait(&semaLockInfo);
+						
+						if (data.lightValue != binaryToDecimal(ldr)){
+							
+						}
+						
 						if (data.ecLevel[sensorID].max < atoi(ecSensors[i])) {
 							data.ecLevel[sensorID].max = atoi(ecSensors[i]);
 							data.ecLevel[i].max=atoi(ecSensors[i]);
+	
 							Settings_Add("ecLevel", strMax, ecSensors[i]);
 							Settings_Save(SETTINGSFILE);
 							
@@ -92,10 +98,11 @@ void* ioBridgeMain (void *args){
 						}
 						
 						
-						if (data.ecLevel[sensorID].current != atoi(ecSensors[i])){
+						if ((data.ecLevel[sensorID].current != atoi(ecSensors[i])) || (data.lightValue != binaryToDecimal(ldr))){
+							data.ecLevel[sensorID].current = atoi(ecSensors[i]);
+							data.lightValue = binaryToDecimal(ldr);
 							setUpdateDisplay(true);
 						}
-						data.ecLevel[sensorID].current = atoi(ecSensors[i]);
 						sem_post(&semaLockInfo);
 					}
 				}
