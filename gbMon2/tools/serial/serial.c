@@ -30,7 +30,9 @@ int main (){
 			// fprintf(stdout,"%c",inChar);
 			inData[spos]= inChar;
 			spos++;
-			//inData[spos]= '';
+			
+
+			//inData[spos]= '\0';
 			if (inChar == 10) {			// LF 10 ; CR13
 				printf("%s",inData);
 				//if (strncmp(inData,"$GPG",4) == 0) {
@@ -39,8 +41,9 @@ int main (){
 				spos = 0;
 				inData[spos]='\0';
 				
-				//fflush (stdout) ;
+				fflush (stdout) ;
 			} // if (inChare == 13
+
 		} // while
 	} //for
 }
