@@ -12,6 +12,7 @@
 
 #include <wiringSerial.h>
 
+#define NUMBERECSENSORS 3
 /*
  * Substring
  *********************************************************************************
@@ -31,8 +32,12 @@ int main ()
 	char inChar = -1; // Where to store the character read
 	int spos = 0; //Index into array; where to store the character
 	char buttons[8];
+	char startFrame[8];
+	char endFrame[8];
 	char ldr[8];
-	int curPos=8;
+	char ecSensors[NUMBERECSENSORS][8];
+	int i;
+
 	printf("Welcome to SerialRead\n");
 	if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0)
 	{
@@ -43,7 +48,7 @@ int main ()
 	// Loop, getting and printing characters
 	
 	for (;;) {
-		
+		int curPos=0;
 		while (serialDataAvail(fd)) {
 			inChar = (serialGetchar(fd));
 			//fprintf(stdout,"%c",inChar);
@@ -53,12 +58,24 @@ int main ()
 			if (inChar == 10) {
 				strcpy(inData,buffer);
 				printf("%s",inData);
-				strcpy(buttons,substring(inData,8,8));
+				
+				strcpy(startFrame,substring(inData,curPos,8));
+				printf("StartFrame: %s\n",startFrame);
+				curPos=curPos+8;
+				
+				strcpy(buttons,substring(inData,curPos,8));
 				printf("Buttons: %s\n",buttons);
+				curPos=curPos+8;
 				
-				strcpy(ldr,substring(inData,16,8));
+				strcpy(ldr,substring(inData,curPos,8));
 				printf("LDR: %s\n",ldr);
+				curPos=curPos+8;
 				
+				for (i=0; i<NUMBERECSENSORS; i++) {
+					strcpy(ecSensors[i],substring(inData,curPos,8));
+					printf("EC %d: %s\n",i, ecSensors[i]);
+					curPos=curPos+8;
+				}
 
 				
 				spos = 0;
