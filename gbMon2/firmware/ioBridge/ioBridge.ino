@@ -440,7 +440,7 @@ void loop() {
 		/*
 		 * Print AND Send the command
 		 */
-		printCommand();
+		//printCommand();
 		
 		
 		lastUpdate=millis();
