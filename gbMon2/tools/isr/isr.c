@@ -32,7 +32,7 @@ static volatile int globalCounter = 0 ;
 
 void myInterrupt (void){
 	++globalCounter ;
-	printf("Interrupt");
+	printf("Interrupt\n");
 }
 
 
