@@ -33,15 +33,15 @@ int main (){
 			
 
 			//inData[spos]= '\0';
-			if (inChar == 10) {			// LF 10 ; CR13
-				printf("%s",inData);
+			if (inChar == 13) {			// LF 10 ; CR 13
+				printf("%s\n",inData);
 				//if (strncmp(inData,"$GPG",4) == 0) {
 				//	printf("*********** GPGGA found ************\n\n");
 				//}
 				spos = 0;
 				inData[spos]='\0';
 				
-				fflush (stdout) ;
+				//fflush (stdout) ;
 			} // if (inChare == 13
 
 		} // while
