@@ -216,11 +216,14 @@ int main (){
 			if(buffer->readIndex != buffer->writeIndex){
 				//Daten kopieren
 				data = buffer->fifo[buffer->readIndex];
+				
+				// DAten anzeigen
+				printf("readIndex: %d - Character: %c\n", buffer->readIndex, data.inChar);
+				
 				//readIndex fuer das naechste Lesen hochsetzen
 				buffer->readIndex = buffer->readIndex++ % (buffer->size+1);
+				counter=0;
 			}
-			printf("Charakter: %c\n", data.inChar);
-			counter=0;
 			sem_post(&semaLockSerial);
 
 		}
