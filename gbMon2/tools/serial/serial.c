@@ -33,9 +33,9 @@ int main (){
 			//inData[spos]= '';
 			if (inChar == 10) {			// LF 10 ; CR13
 				printf("%s",inData);
-				if (strncmp(inData,"$GPG",4) == 0) {
-					printf("*********** GPGGA found ************\n\n");
-				}
+				//if (strncmp(inData,"$GPG",4) == 0) {
+				//	printf("*********** GPGGA found ************\n\n");
+				//}
 				spos = 0;
 				//fflush (stdout) ;
 			} // if (inChare == 13
