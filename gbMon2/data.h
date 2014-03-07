@@ -21,9 +21,9 @@ typedef struct {
 } Humidity;
 
 typedef struct {
-    float min;
-    float max;
-    float current;
+    int min;
+    int max;
+    int current;
 } EcLevel;
 
 typedef struct {
