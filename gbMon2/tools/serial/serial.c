@@ -37,6 +37,8 @@ int main (){
 				//	printf("*********** GPGGA found ************\n\n");
 				//}
 				spos = 0;
+				inData[spos]='\0';
+				
 				//fflush (stdout) ;
 			} // if (inChare == 13
 		} // while
