@@ -76,7 +76,14 @@ int main ()
 					printf("EC %d: %s\n",i, ecSensors[i]);
 					curPos=curPos+8;
 				}
-
+				
+				strcpy(endFrame,substring(inData,curPos,8));
+				printf("endFrame: %s\n",endFrame);
+				curPos=0;
+				
+				if ((strcmp(endFrame, "11100111") == 0) && (strcmp(startFrame, "11100111") == 0)) {
+					//---> Daten übergeben
+				}
 				
 				spos = 0;
 				//fflush (stdout) ;
