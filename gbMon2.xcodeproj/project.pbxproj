@@ -72,6 +72,7 @@
 		4C7CFE9F189B0EA70014B6EE /* ringbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CFE9E189B0EA70014B6EE /* ringbuffer.c */; };
 		4C80316418C62D5500A01BCC /* wand.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C80316318C62D5500A01BCC /* wand.c */; };
 		4C888AA918C99F7C00DD8744 /* isr.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C888AA818C99F7C00DD8744 /* isr.c */; };
+		4C888AAC18C9A05D00DD8744 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C888AAB18C9A05D00DD8744 /* Makefile */; };
 		4C94B0B71827C5C2009F8EAF /* rrdtool.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C94B0B61827C5C2009F8EAF /* rrdtool.c */; };
 		4CB134AF18210B2800A40AA0 /* lcddisplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CB134AE18210B2800A40AA0 /* lcddisplay.c */; };
 		4CB2B5C11825D47E0041F48A /* rcswitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2B5BF1825D47E0041F48A /* rcswitch.cpp */; };
@@ -445,6 +446,7 @@
 		4C80316318C62D5500A01BCC /* wand.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wand.c; sourceTree = "<group>"; };
 		4C80316518C62DB000A01BCC /* wand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wand.h; sourceTree = "<group>"; };
 		4C888AA818C99F7C00DD8744 /* isr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = isr.c; path = gbMon2/tools/isr/isr.c; sourceTree = "<group>"; };
+		4C888AAB18C9A05D00DD8744 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/isr/Makefile; sourceTree = "<group>"; };
 		4C8BE022181A791500830529 /* screenTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = screenTest.c; path = gbMon2/tools/screenTest.c; sourceTree = "<group>"; };
 		4C94B0B61827C5C2009F8EAF /* rrdtool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rrdtool.c; sourceTree = "<group>"; };
 		4C94B0B81827C6AC009F8EAF /* rrdtool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rrdtool.h; sourceTree = "<group>"; };
@@ -678,7 +680,7 @@
 				4C642D57186F3C730037095A /* mDNS */,
 				4C26F46B18C5C4DD00F8CDEC /* Ringbuffer */,
 				4C26F47018C619B600F8CDEC /* wand */,
-				4C888AA818C99F7C00DD8744 /* isr.c */,
+				4C888AAA18C9A04C00DD8744 /* ISR */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -1237,6 +1239,15 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		4C888AAA18C9A04C00DD8744 /* ISR */ = {
+			isa = PBXGroup;
+			children = (
+				4C888AA818C99F7C00DD8744 /* isr.c */,
+				4C888AAB18C9A05D00DD8744 /* Makefile */,
+			);
+			name = ISR;
+			sourceTree = "<group>";
+		};
 		4CB2B5C21825D4FF0041F48A /* RCSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1505,6 +1516,7 @@
 				4C642D70186F4F950037095A /* udpServer.c in Sources */,
 				4CF86C2B181576700094C040 /* server.c in Sources */,
 				4CB8AF0F18468E3C00E74775 /* ds18b20.c in Sources */,
+				4C888AAC18C9A05D00DD8744 /* Makefile in Sources */,
 				4C19008C18234D9B00584853 /* search.js in Sources */,
 				4C063606181DF0D70010FF0E /* SerializableFont.java in Sources */,
 				4C888AA918C99F7C00DD8744 /* isr.c in Sources */,

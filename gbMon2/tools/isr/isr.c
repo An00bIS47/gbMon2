@@ -59,7 +59,7 @@ int main (void) {
 	
 	
 	for (;;){
-		printf ("Waiting ... ") ; fflush (stdout) ;
+		//printf ("Waiting ... ") ; fflush (stdout) ;
 		
 		//while (myCounter == globalCounter)
 		//	delay (100) ;
