@@ -50,25 +50,27 @@ int main (){
 
 			//inData[spos]= '\0';
 			if (inChar == 10) {			// LF 10 ; CR 13
-				printf("%s\n",inData);
+				//printf("%s\n",inData);
+				
+				/*
 				if (strncmp(inData,"11100111",8) == 0) {
 					printf("*** FRAME ***\n");
 				}
-				
-				printf("Buttons: %s\n", substring(inData,curPos,8));
+				*/
+				printf("Buttons:\t%s\n", substring(inData,curPos,8));
 				curPos=curPos+8;
-				printf("LDR: %s\n", substring(inData,16,8));
+				printf("LDR:\t%s\n", substring(inData,16,8));
 				curPos=curPos+8;
 				
 				for (i=0; i<NOECSENSORS; i++) {
-					printf("EC %d: %s\n",i, substring(inData,curPos,8));
+					printf("EC %d:\t%s\n",i, substring(inData,curPos,8));
 					curPos=curPos+8;
 				}
-				
+				/*
 				if (strcmp(substring(inData,curPos,8),"11100111") == 0) {
 					printf("*** FRAME ***\n");
 				}
-				
+				*/
 				spos = 0;
 				//inData[spos]='\0';
 				
