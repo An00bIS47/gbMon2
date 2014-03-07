@@ -9,9 +9,6 @@
 
 #include "main.h"
 
-#define TEMPFANON		27.0
-#define TEMPFANOFF		26.0
-
 pthread_t	tid[4];
 pthread_t	pThreadServer;				// Network Server Thread
 pthread_t	pThreadDisplay;				// SPI Send Command to ATmega / Arduino
@@ -366,18 +363,8 @@ int main(int argc, char * argv[]) {
 
 	pinMode (CLKPIN, OUTPUT);
 	pinMode (DATAPIN, OUTPUT);
-	pinMode (IOBRIDGECLK, INPUT);
-	pinMode (IOBRIDGEDATA, INPUT);
-	pinMode (IOBRIDGEINT,INPUT);
 	debugPrint(false, false, "OK", true, "MAIN");
-	
-	debugPrint(true, true, "Initialising wiringPi Interrupts ...", false, "MAIN");
-	if (wiringPiISR (IOBRIDGEINT, INT_EDGE_FALLING, &myInterrupt) < 0){
-		fprintf (stderr, "Unable to setup ISR: %s\n", strerror (errno)) ;
-		return 1 ;
-	}
-	debugPrint(false, false, "OK", true, "MAIN");
-	
+		
 	debugPrint(true, true, "Setting up database ...", false, "MAIN");
 	createDBs();
 	debugPrint(false, false, "OK", true, "MAIN");
