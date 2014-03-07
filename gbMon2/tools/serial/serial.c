@@ -38,7 +38,7 @@ int main (){
 			if (spos == 8) {
 				if (strcmp(inData, "11100111")){
 					// Rahmen Anfang
-					printf("Rahmen Anfang\n");
+					printf("Rahmen Anfang ");
 					spos=0;
 				} else {
 					
@@ -50,6 +50,7 @@ int main (){
 						buttons[8+1]='\0';
 						counter++;
 						spos=0;
+						printf(" %s ", buttons);
 					}
 					
 					// LDR
@@ -60,6 +61,7 @@ int main (){
 						ldr[8+1]='\0';
 						counter++;
 						spos=0;
+						printf(" %s \n", ldr);
 					}
 					
 					
