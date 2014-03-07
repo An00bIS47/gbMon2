@@ -43,7 +43,7 @@ int main (){
 				spos = 0;
 				//inData[spos]='\0';
 				
-				//fflush (stdout) ;
+				fflush (stdout) ;
 			} // if (inChare == 13
 
 		} // while
