@@ -18,7 +18,7 @@
 
 pthread_t	pThreadSerial;				// Serial
 sem_t semaLockSerial;
-int counter;
+int counter=0;
 int fd ;
 
 //Struktur fuer die Daten
