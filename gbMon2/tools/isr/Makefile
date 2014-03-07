@@ -1,6 +1,6 @@
 all: clean isr
 
-isr: pixel-change.c
+isr: isr.cf
 	gcc isr.c -o isr -lwiringPi
 
 clean:
