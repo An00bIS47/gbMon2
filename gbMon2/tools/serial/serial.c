@@ -11,6 +11,17 @@
 
 #include <wiringSerial.h>
 
+/*
+ * Substring
+ *********************************************************************************
+ */
+char* substring(const char* str, size_t begin, size_t len){
+    if (str == 0 || strlen(str) == 0 || strlen(str) < begin || strlen(str) < (begin+len))
+        return 0;
+    
+    return strndup(str + begin, len);
+}
+
 int main (){
 	int fd ;
 	
@@ -41,6 +52,9 @@ int main (){
 				if (strncmp(inData,"11100111",8) == 0) {
 					printf("*** FRAME ***\n");
 				}
+				
+				printf("Buttons: %s\n", substring(inData,9,8));
+				
 				spos = 0;
 				//inData[spos]='\0';
 				
