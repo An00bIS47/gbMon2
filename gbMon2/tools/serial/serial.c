@@ -45,12 +45,12 @@ int main ()
 		
 		while (serialDataAvail(fd)) {
 			inChar = (serialGetchar(fd));
-			// fprintf(stdout,"%c",inChar);
+			//fprintf(stdout,"%c",inChar);
 			inData[spos]= inChar;
 			spos++;
 
 			if (inChar == 10) {
-				//printf("%s",inData);
+				printf("%s",inData);
 				strcpy(buttons,substring(inData,8,8));
 				printf("Buttons: %s\n",buttons);
 				
