@@ -13,6 +13,18 @@
 #include <wiringSerial.h>
 
 #define NUMBERECSENSORS 3
+
+
+int binaryToDecimal(const char * str){
+    int val = 0;
+	
+    while (*str != '\0')
+        val = 2 * val + (*str++ - '0');
+    return val;
+}
+
+
+
 /*
  * Substring
  *********************************************************************************
@@ -68,12 +80,12 @@ int main ()
 				curPos=curPos+8;
 				
 				strcpy(ldr,substring(inData,curPos,8));
-				printf("LDR:		%s\n",ldr);
+				printf("LDR:		%s - %d \n",ldr, binaryToDecimal(ldr));
 				curPos=curPos+8;
 				
 				for (i=0; i<NUMBERECSENSORS; i++) {
 					strcpy(ecSensors[i],substring(inData,curPos,8));
-					printf("EC		%d: %s\n",i, ecSensors[i]);
+					printf("EC %d:	%s\n",i, ecSensors[i]);
 					curPos=curPos+8;
 				}
 				
