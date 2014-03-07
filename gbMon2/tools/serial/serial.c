@@ -30,7 +30,7 @@ int main ()
 	char inChar = -1; // Where to store the character read
 	int spos = 0; //Index into array; where to store the character
 	char buttons[8];
-	int curPos=8;
+	char ldr[8];
 	
 	printf("Welcome to SerialRead\n");
 	if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0)
@@ -42,6 +42,7 @@ int main ()
 	// Loop, getting and printing characters
 	
 	for (;;) {
+		int curPos=8;
 		while (serialDataAvail(fd)) {
 			inChar = (serialGetchar(fd));
 			// fprintf(stdout,"%c",inChar);
@@ -53,6 +54,11 @@ int main ()
 				strcpy(buttons,substring(inData,curPos,8));
 				curPos=curPos+8;
 				printf("Buttons: %s\n",buttons);
+				
+				strcpy(ldr,substring(inData,curPos,8));
+				curPos=curPos+8;
+				printf("LDR: %s\n",ldr);
+				
 				spos = 0;
 				//fflush (stdout) ;
 			} // if (inChare == 13
