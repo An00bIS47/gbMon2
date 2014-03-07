@@ -55,6 +55,7 @@
 		4C26F47418C61A3B00F8CDEC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47318C61A3B00F8CDEC /* Makefile */; };
 		4C26F47818C61F0500F8CDEC /* pixel-change.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47718C61F0500F8CDEC /* pixel-change.c */; };
 		4C391F2B18C9CCE7000278E7 /* serial.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C391F2A18C9CCE7000278E7 /* serial.c */; };
+		4C391F2D18C9CF81000278E7 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C391F2C18C9CF81000278E7 /* Makefile */; };
 		4C50333E181DAC0800E4C03F /* lcd.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C50333D181DAC0800E4C03F /* lcd.c */; };
 		4C503343181DB41900E4C03F /* fnt_dejavu.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C50333F181DB41900E4C03F /* fnt_dejavu.c */; };
 		4C503344181DB41900E4C03F /* fnt_dejavu_9_b.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C503340181DB41900E4C03F /* fnt_dejavu_9_b.c */; };
@@ -407,8 +408,8 @@
 		4C26F47118C619CA00F8CDEC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/wand/Makefile; sourceTree = "<group>"; };
 		4C26F47318C61A3B00F8CDEC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/ringbuffer/Makefile; sourceTree = "<group>"; };
 		4C26F47718C61F0500F8CDEC /* pixel-change.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "pixel-change.c"; path = "gbMon2/tools/wand/pixel-change.c"; sourceTree = "<group>"; };
-		4C391F2818C9CCA4000278E7 /* Makefile  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Makefile "; sourceTree = "<group>"; };
 		4C391F2A18C9CCE7000278E7 /* serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = serial.c; path = gbMon2/tools/serial/serial.c; sourceTree = "<group>"; };
+		4C391F2C18C9CF81000278E7 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/serial/Makefile; sourceTree = "<group>"; };
 		4C4BBE091825E12200723999 /* mikrocontroller Layout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "mikrocontroller Layout.pdf"; sourceTree = "<group>"; };
 		4C4BBE0A1825E12200723999 /* RaspberryPi Pin Layout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RaspberryPi Pin Layout.pdf"; sourceTree = "<group>"; };
 		4C4BBE0C1825E3A600723999 /* Arduino_uno_Pinout.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Arduino_uno_Pinout.pdf; sourceTree = "<group>"; };
@@ -1127,8 +1128,8 @@
 		4C391F2918C9CCB7000278E7 /* Serial */ = {
 			isa = PBXGroup;
 			children = (
-				4C391F2818C9CCA4000278E7 /* Makefile  */,
 				4C391F2A18C9CCE7000278E7 /* serial.c */,
+				4C391F2C18C9CF81000278E7 /* Makefile */,
 			);
 			name = Serial;
 			sourceTree = "<group>";
@@ -1562,6 +1563,7 @@
 				4CF86C0F18155DFB0094C040 /* client-test.c in Sources */,
 				4C642D5F186F3CE60037095A /* testmdnsd.c in Sources */,
 				4CF86C2C181576700094C040 /* settings.c in Sources */,
+				4C391F2D18C9CF81000278E7 /* Makefile in Sources */,
 				4C503345181DB41900E4C03F /* fnt_dejavu_9.c in Sources */,
 				4C0B07DE1816F94F00EE9D1D /* Makefile in Sources */,
 				4C80316418C62D5500A01BCC /* wand.c in Sources */,
