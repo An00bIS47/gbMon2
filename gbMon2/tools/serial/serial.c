@@ -28,12 +28,14 @@ int main (){
 		while (serialDataAvail(fd)) {
 			inChar = (serialGetchar(fd));
 			// fprintf(stdout,"%c",inChar);
-			inData[spos]= inChar;
-			spos++;
 			
+			if (inChar != 13) {
+				inData[spos]= inChar;
+				spos++;
+			}
 
 			//inData[spos]= '\0';
-			if (inChar == 13) {			// LF 10 ; CR 13
+			if (inChar == 10) {			// LF 10 ; CR 13
 				printf("%s\n",inData);
 				//if (strncmp(inData,"$GPG",4) == 0) {
 				//	printf("*********** GPGGA found ************\n\n");
