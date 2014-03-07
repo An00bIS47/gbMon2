@@ -34,64 +34,19 @@ int main (){
 			inChar = (serialGetchar(fd));
 			inData[spos]= inChar;
 			spos++;
-			
-			if (spos == 8) {
-				if (strcmp(inData, "11100111")){
-					// Rahmen Anfang
-					printf("Rahmen Anfang \n");
-					spos=0;
-				} else {
-					
-					// Buttons
-					if (counter==0) {
-						for (i=0; i < 8; i++) {
-							buttons[i]=inData[i];
-						}
-						buttons[8+1]='\0';
-						counter++;
-						spos=0;
-						printf(" %s \n", buttons);
-					}
-					
-					/*
-					// LDR
-					if (counter == 1) {
-						for (i=0; i < 8; i++) {
-							ldr[i]=inData[i];
-						}
-						ldr[8+1]='\0';
-						counter++;
-						spos=0;
-						printf(" %s \n", ldr);
-					}
-					*/
-					
-					
-				}
-			}
-			
-			/*
-			
-			
-			// fprintf(stdout,"%c",inChar);
-			
-			if (inChar != 13) {
-				inData[spos]= inChar;
-				spos++;
-			}
 
 			//inData[spos]= '\0';
 			if (inChar == 10) {			// LF 10 ; CR 13
 				printf("%s\n",inData);
-				//if (strncmp(inData,"$GPG",4) == 0) {
-				//	printf("*********** GPGGA found ************\n\n");
-				//}
+				if (strncmp(inData,"11100111",8) == 0) {
+					printf("*** FRAME ***\n");
+				}
 				spos = 0;
 				//inData[spos]='\0';
 				
 				//fflush (stdout) ;
 			} // if (inChare == 13
-			*/
+
 		} // while
 	} //for
 }
