@@ -24,8 +24,7 @@ int main ()
 	
 	// Loop, getting and printing characters
 	
-	for (;;)
-	{
+	for (;;) {
 		putchar (serialGetchar (fd)) ;
 		fflush (stdout) ;
 	}
