@@ -51,8 +51,8 @@ int main ()
 
 			if (inChar == 10) {
 				printf("%s",inData);
-				strcpy(buttons,substring(inData,16,8));
-				printf("Buttons: %s\n",buttons);
+				strcpy(ldr,substring(inData,16,8));
+				printf("Buttons: %s\n",ldr);
 				
 				//strcpy(ldr,substring(inData,16,8));
 				//printf("LDR: %s\n",ldr);
