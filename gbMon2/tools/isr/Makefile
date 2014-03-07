@@ -1,6 +1,6 @@
 all: clean isr
 
-isr: isr.cf
+isr: isr.c
 	gcc isr.c -o isr -lwiringPi
 
 clean:
