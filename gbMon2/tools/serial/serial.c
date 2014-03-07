@@ -13,29 +13,32 @@
 
 int main (){
 	int fd ;
+	
+	char inData[255];	// Allocate some space for the string
+	char inChar = -1;	// Where to store the character read
+	int spos = 0;		//Index into array; where to store the character
+	
 	printf("Welcome to SerialRead\n");
 	if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0){
 		fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
 		return 1 ;
 	}
 	
-	// Loop, getting and printing characters
-	
-	for (;;){
-		
-		
-		while (serialDataAvail (fd))
-		{
-			printf (" -> %3d", serialGetchar (fd)) ;
-			fflush (stdout) ;
-		}
-		
-		/*
-		putchar (serialGetchar (fd)) ;
-		if (serialGetchar (fd)=='\n') {
-			printf("NEWLINE");
-		}
-		fflush (stdout) ;
-		 */
-	}
+	for (;;) {
+		while (serialDataAvail(fd)) {
+			inChar = (serialGetchar(fd));
+			// fprintf(stdout,"%c",inChar);
+			inData[spos]= inChar;
+			spos++;
+			//inData[spos]= '';
+			if (inChar == 10) {			// LF 10 ; CR13
+				printf("%s",inData);
+				if (strncmp(inData,"$GPG",4) == 0) {
+					printf("*********** GPGGA found ************\n\n");
+				}
+				spos = 0;
+				fflush (stdout) ;
+			} // if (inChare == 13
+		} // while
+	} //for
 }
