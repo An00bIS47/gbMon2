@@ -24,6 +24,11 @@ int main (){
 		return 1 ;
 	}
 	
+	char buttons[8+1];
+	char ldr[8+1];
+	int counter=0;
+	int i;
+	
 	for (;;) {
 		while (serialDataAvail(fd)) {
 			inChar = (serialGetchar(fd));
@@ -35,6 +40,30 @@ int main (){
 					// Rahmen Anfang
 					printf("Rahmen Anfang\n");
 					spos=0;
+				} else {
+					
+					// Buttons
+					if (counter==0) {
+						for (i=0; i < 8; i++) {
+							buttons[i]=inData[i];
+						}
+						buttons[8+1]='\0';
+						counter++;
+						spos=0;
+					}
+					
+					// LDR
+					if (counter == 1) {
+						for (i=0; i < 8; i++) {
+							ldr[i]=inData[i];
+						}
+						ldr[8+1]='\0';
+						counter++;
+						spos=0;
+					}
+					
+					
+					
 				}
 			}
 			
