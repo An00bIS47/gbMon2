@@ -40,6 +40,6 @@ char * getVersion();
 char* getLightValueAsString();
 char * getIP(char *interface);
 byte reverseByte(byte a);
-
+int binaryToDecimal(const char * str);
 
 #endif

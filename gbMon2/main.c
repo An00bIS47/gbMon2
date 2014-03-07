@@ -18,6 +18,7 @@ pthread_t	pThreadDisplay;				// SPI Send Command to ATmega / Arduino
 pthread_t	pThreadSensors;				// Sensors Thread
 pthread_t	pThreadRRD;					// RRD Thread
 pthread_t	pThreadAvahi;				// Avahi
+pthread_t	pThreadIOBridge;			// ioBridge
 
 float		appVersion              =   0.1;
 bool		updateDisplay			=	false;
@@ -391,6 +392,10 @@ int main(int argc, char * argv[]) {
     pthread_create (&pThreadDisplay, NULL, displayMain, NULL);
     //debugPrint(false, false, "OK", true, "MAIN");
 	
+	// Starting Avahi(Bonjour) Thread
+    debugPrint(true, true, "Starting ioBridge thread ...", true, "MAIN");
+    pthread_create (&pThreadIOBridge, NULL, ioBridgeMain, NULL);
+	
 	// Starting Sensors Thread
     debugPrint(true, true, "Starting sensors thread ...", true, "MAIN");
 	pthread_create (&pThreadSensors, NULL, sensorsMain, NULL);
@@ -412,7 +417,7 @@ int main(int argc, char * argv[]) {
 	debugPrint(false, false, "OK", true, "MAIN");
 	*/
 	
-	setLightValue(720);
+	//setLightValue(720);
 
     for (;;) {
 	

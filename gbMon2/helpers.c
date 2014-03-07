@@ -33,6 +33,14 @@ void getPiSerial(){
 	fclose(f);
 }
 
+int binaryToDecimal(const char * str){
+    int val = 0;
+	
+    while (*str != '\0')
+        val = 2 * val + (*str++ - '0');
+    return val;
+}
+
 /*
  * Substring
  *********************************************************************************

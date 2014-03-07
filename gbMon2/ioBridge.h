@@ -10,7 +10,12 @@
 #define gbMon2_ioBridge_h
 
 #include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include "main.h"
+#include "helpers.h"
+#include <wiringSerial.h>
 
-void myInterrupt (void);
+void* ioBridgeMain (void *args);
 
 #endif
