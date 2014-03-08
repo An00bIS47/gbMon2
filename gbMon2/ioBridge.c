@@ -38,7 +38,7 @@ void* ioBridgeMain (void *args){
 			
 			if (inChar == 10) {
 				strcpy(inData,buffer);
-				//printf("%s",inData);
+				printf("%s",inData);
 				
 				strcpy(startFrame,substring(inData,curPos,8));
 				printf("StartFrame: %s\n",startFrame);
@@ -55,7 +55,7 @@ void* ioBridgeMain (void *args){
 				for (i=0; i<NUMBERECSENSORS; i++) {
 					ecSensors[i]=binaryToDecimal(substring(inData,curPos,8));
 					
-					printf("EC %d:	%d\n",i, ecSensors[i]);
+					printf("EC %d:	%s - %d\n",substring(inData,curPos,8),i, ecSensors[i]);
 					curPos=curPos+8;
 				}
 				
