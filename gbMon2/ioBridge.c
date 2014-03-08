@@ -50,7 +50,7 @@ void* ioBridgeMain (void *args){
 				
 				strcpy(ldr,substring(inData,curPos,8));
 				printf("LDR:		%s - %d \n",ldr, binaryToDecimal(ldr));
-				setLightValue(binaryToDecimal(ldr));
+				setLightValue(147);
 				curPos=curPos+8;
 				
 				for (i=0; i<NUMBERECSENSORS; i++) {
