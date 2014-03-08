@@ -41,11 +41,11 @@ void* ioBridgeMain (void *args){
 				//printf("%s",inData);
 				
 				strcpy(startFrame,substring(inData,curPos,8));
-				//printf("StartFrame: %s\n",startFrame);
+				printf("StartFrame: %s\n",startFrame);
 				curPos=curPos+8;
 				
 				strcpy(buttons,substring(inData,curPos,8));
-				//printf("Buttons:	%s\n",buttons);
+				printf("Buttons:	%s\n",buttons);
 				curPos=curPos+8;
 				
 				strcpy(ldr,substring(inData,curPos,8));
@@ -60,7 +60,7 @@ void* ioBridgeMain (void *args){
 				}
 				
 				strcpy(endFrame,substring(inData,curPos,8));
-				//printf("endFrame:	%s\n",endFrame);
+				printf("endFrame:	%s\n",endFrame);
 				curPos=0;
 				
 				if ((strcmp(endFrame, "11100111") == 0) && (strcmp(startFrame, "11100111") == 0)) {
