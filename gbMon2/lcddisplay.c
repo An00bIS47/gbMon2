@@ -246,7 +246,7 @@ void* displayMain(void *args){
 			
 			displayStatusBar();
 			
-			displayTemperatureScreen();
+			displayTemperatureScreen(0);
 			//displayMainScreen();
 
 			
