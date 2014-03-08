@@ -49,6 +49,7 @@
 		4C19009018234D9B00584853 /* gText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C19007C18234D9B00584853 /* gText.cpp */; };
 		4C19FF7A1822F67500584853 /* zlogTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C19FF791822F67500584853 /* zlogTest.c */; };
 		4C19FF7D18230BAD00584853 /* dht22.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C19FF7C18230BAD00584853 /* dht22.c */; };
+		4C1D7FF018CBBBB800A8CDB4 /* screenTemperature.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D7FEF18CBBBB800A8CDB4 /* screenTemperature.c */; };
 		4C26F46A18C5C4D800F8CDEC /* ringbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F46918C5C4D800F8CDEC /* ringbuffer.c */; };
 		4C26F46F18C6193B00F8CDEC /* wand.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F46E18C6193B00F8CDEC /* wand.c */; };
 		4C26F47218C619CA00F8CDEC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47118C619CA00F8CDEC /* Makefile */; };
@@ -404,6 +405,8 @@
 		4C19FFFD18234D9A00584853 /* installdox */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = installdox; sourceTree = "<group>"; };
 		4C19FFFE18234D9A00584853 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
 		4C19FFFF18234D9A00584853 /* ks0108_Panel_A.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ks0108_Panel_A.gif; sourceTree = "<group>"; };
+		4C1D7FEF18CBBBB800A8CDB4 /* screenTemperature.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = screenTemperature.c; sourceTree = "<group>"; };
+		4C1D7FF118CBBBC100A8CDB4 /* screenTemperature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screenTemperature.h; sourceTree = "<group>"; };
 		4C26F46918C5C4D800F8CDEC /* ringbuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ringbuffer.c; path = gbMon2/tools/ringbuffer/ringbuffer.c; sourceTree = "<group>"; };
 		4C26F46E18C6193B00F8CDEC /* wand.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wand.c; path = gbMon2/tools/wand/wand.c; sourceTree = "<group>"; };
 		4C26F47118C619CA00F8CDEC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/wand/Makefile; sourceTree = "<group>"; };
@@ -1108,6 +1111,15 @@
 			path = html;
 			sourceTree = "<group>";
 		};
+		4C1D7FEE18CBBB9900A8CDB4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4C1D7FEF18CBBBB800A8CDB4 /* screenTemperature.c */,
+				4C1D7FF118CBBBC100A8CDB4 /* screenTemperature.h */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
 		4C26F46B18C5C4DD00F8CDEC /* Ringbuffer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1235,6 +1247,7 @@
 		4C77FBBD184BD14F000AAEF2 /* Display */ = {
 			isa = PBXGroup;
 			children = (
+				4C1D7FEE18CBBB9900A8CDB4 /* Screens */,
 				4CB134AE18210B2800A40AA0 /* lcddisplay.c */,
 				4CB134AD18210AC700A40AA0 /* lcddisplay.h */,
 				4C50333D181DAC0800E4C03F /* lcd.c */,
@@ -1559,6 +1572,7 @@
 				4C063604181DF0D70010FF0E /* ImageTransferHandler.java in Sources */,
 				4C0635FC181DF0D70010FF0E /* ColorTableModel.java in Sources */,
 				4C063602181DF0D70010FF0E /* FontCharacter.java in Sources */,
+				4C1D7FF018CBBBB800A8CDB4 /* screenTemperature.c in Sources */,
 				4C0635F7181DF0D70010FF0E /* FontEditor.java in Sources */,
 				4C063605181DF0D70010FF0E /* IndexColorModelUtils.java in Sources */,
 				4CF86C2A181576700094C040 /* helpers.c in Sources */,
