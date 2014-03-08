@@ -49,12 +49,12 @@ void* ioBridgeMain (void *args){
 				curPos=curPos+8;
 				
 				strcpy(ldr,substring(inData,curPos,8));
-				//printf("LDR:		%s - %d \n",ldr, binaryToDecimal(ldr));
+				printf("LDR:		%s - %d \n",ldr, binaryToDecimal(ldr));
 				curPos=curPos+8;
 				
 				for (i=0; i<NUMBERECSENSORS; i++) {
-					strcpy(ecSensors[i],substring(inData,curPos,8));
-					//printf("EC %d:	%s\n",i, ecSensors[i]);
+					strcpy(ecSensors[i],binaryToDecimal(substring(inData,curPos,8)));
+					printf("EC %d:	%s\n",i, ecSensors[i]);
 					curPos=curPos+8;
 				}
 				
@@ -65,7 +65,10 @@ void* ioBridgeMain (void *args){
 				if ((strcmp(endFrame, "11100111") == 0) && (strcmp(startFrame, "11100111") == 0)) {
 					//---> Daten übergeben
 					
-					//setLightValue(binaryToDecimal(ldr));
+					setLightValue(binaryToDecimal(ldr));
+					//data.lightValue = binaryToDecimal(ldr);
+					
+					
 					
 					for (sensorID=0; i<NUMBERECSENSORS; sensorID++) {
 						char strMin[4];
@@ -78,9 +81,9 @@ void* ioBridgeMain (void *args){
 						
 						sem_wait(&semaLockInfo);
 						
-						if (data.lightValue != binaryToDecimal(ldr)){
-							
-						}
+						//if (data.lightValue != binaryToDecimal(ldr)){
+						//	data.lightValue = binaryToDecimal(ldr);
+						//}
 						
 						if (data.ecLevel[sensorID].max < atoi(ecSensors[i])) {
 							data.ecLevel[sensorID].max = atoi(ecSensors[i]);
@@ -98,9 +101,8 @@ void* ioBridgeMain (void *args){
 						}
 						
 						
-						if ((data.ecLevel[sensorID].current != atoi(ecSensors[i])) || (data.lightValue != binaryToDecimal(ldr))){
+						if (data.ecLevel[sensorID].current != atoi(ecSensors[i])){
 							data.ecLevel[sensorID].current = atoi(ecSensors[i]);
-							data.lightValue = binaryToDecimal(ldr);
 							setUpdateDisplay(true);
 						}
 						sem_post(&semaLockInfo);
