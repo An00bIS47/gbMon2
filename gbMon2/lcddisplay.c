@@ -247,7 +247,7 @@ void* displayMain(void *args){
 			displayStatusBar();
 			
 			displayTemperatureScreen();
-			displayMainScreen();
+			//displayMainScreen();
 
 			
 			for(i = 0; i < 128*8; i++) {
