@@ -26,9 +26,9 @@ OBJS		= debug.o helpers.o udpServer.o settings.o main.o lcddisplay.o lcd.o dht22
 #OBJS		:= $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 #OBJS		:= fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o
 
-default:	update distclean $(TARGET) clean
+default:	update clean info $(TARGET) endinfo
 
-all:		update distclean $(TARGET) clean
+all:		update clean info $(TARGET) endinfo
 
 help:
 			@ echo "The following make targets are available"
@@ -51,19 +51,38 @@ rcswitchwrapper.o : rcswitchwrapper.cpp
 	
 $(OBJDIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+	
+info:
+	@echo "Building gbMon2"
+	@echo "=========================================="
+	@echo ""
+
+endinfo:
+	@echo ""
+	@echo ""
+	@echo "Done building gbMon2!"
+	@echo "Type sudo ./gbMon2 to start"
+	@echo "=========================================="
 
 clean:
 	@echo "Cleaning gbMon2"
+	@echo "=========================================="
 	rm -rf  $(OBJS)
+	rm -rf $(TARGET)
 #	rm -rf $(OBJDIR)
 	@echo ""
 	@echo ""
 
 distclean: clean
+	@echo "Removing old gbMon2"
+	@echo "=========================================="
 	rm -rf $(TARGET)
+	@echo ""
+	@echo ""
 	
 update:
 	@echo "Updating gbMon2"
+	@echo "=========================================="
 	git pull origin
 	@echo ""
 	@echo ""
