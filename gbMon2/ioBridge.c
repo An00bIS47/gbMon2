@@ -55,11 +55,11 @@ void* ioBridgeMain (void *args){
 				for (i=0; i<NUMBERECSENSORS; i++) {
 					ecSensors[i]=binaryToDecimal(substring(inData,curPos,8));
 					
-					printf("EC %d:	%s - %d\n",substring(inData,curPos,8),i, ecSensors[i]);
+					printf("EC %d:	%s - %d\n",i,substring(inData,curPos,8), ecSensors[i]);
 					curPos=curPos+8;
 				}
 				
-				strcpy(endFrame,substring(inData,curPos,8));
+				strcpy(endFrame,substring(inData,strlen(inData)-8,8));
 				printf("endFrame:	%s\n",endFrame);
 				curPos=0;
 				
