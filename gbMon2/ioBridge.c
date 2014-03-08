@@ -17,7 +17,7 @@ void* ioBridgeMain (void *args){
 	char startFrame[8];
 	char endFrame[8];
 	char ldr[8];
-	char ecSensors[NUMBERECSENSORS][8];
+	int ecSensors[NUMBERECSENSORS];
 	int i;
 	int sensorID;
 	
@@ -53,8 +53,9 @@ void* ioBridgeMain (void *args){
 				curPos=curPos+8;
 				
 				for (i=0; i<NUMBERECSENSORS; i++) {
-					strcpy(ecSensors[i],binaryToDecimal(substring(inData,curPos,8)));
-					printf("EC %d:	%s\n",i, ecSensors[i]);
+					ecSensors[i]=binaryToDecimal(substring(inData,curPos,8));
+					
+					printf("EC %d:	%d\n",i, ecSensors[i]);
 					curPos=curPos+8;
 				}
 				
@@ -85,24 +86,25 @@ void* ioBridgeMain (void *args){
 						//	data.lightValue = binaryToDecimal(ldr);
 						//}
 						
-						if (data.ecLevel[sensorID].max < atoi(ecSensors[i])) {
-							data.ecLevel[sensorID].max = atoi(ecSensors[i]);
-							data.ecLevel[i].max=atoi(ecSensors[i]);
+						if (data.ecLevel[sensorID].max < ecSensors[i]) {
+							data.ecLevel[sensorID].max = ecSensors[i];
+							data.ecLevel[i].max=ecSensors[i];
 	
 							Settings_Add("ecLevel", strMax, ecSensors[i]);
 							Settings_Save(SETTINGSFILE);
 							
 						}
-						if ((data.ecLevel[sensorID].min > atoi(ecSensors[i])) || (data.ecLevel[sensorID].current == 0)){
-							data.ecLevel[sensorID].min = atoi(ecSensors[i]);
-							data.ecLevel[sensorID].min = atoi(ecSensors[i]);
+						if ((data.ecLevel[sensorID].min > ecSensors[i]) || (data.ecLevel[sensorID].current == 0)){
+							data.ecLevel[sensorID].min = ecSensors[i];
+							data.ecLevel[sensorID].min = ecSensors[i];
 							Settings_Add("ecLevel", strMin, ecSensors[i]);
 							Settings_Save(SETTINGSFILE);
 						}
 						
 						
-						if (data.ecLevel[sensorID].current != atoi(ecSensors[i])){
-							data.ecLevel[sensorID].current = atoi(ecSensors[i]);
+						if (data.ecLevel[sensorID].current != ecSensors[i]){
+							data.ecLevel[sensorID].current = ecSensors[i];
+
 							setUpdateDisplay(true);
 						}
 						sem_post(&semaLockInfo);
