@@ -12,4 +12,7 @@
 #include <stdio.h>
 #include "lcd.h"
 
+void displayBorder();
+void displayTemperatureScreen();
+
 #endif

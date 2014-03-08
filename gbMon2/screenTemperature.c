@@ -14,3 +14,8 @@ void displayBorder(){
 	GLCDD_Line(5,5,10,5);
 	
 }
+
+void displayTemperatureScreen(){
+	displayBorder();
+	
+}
