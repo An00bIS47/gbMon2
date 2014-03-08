@@ -59,7 +59,7 @@ void* ioBridgeMain (void *args){
 					curPos=curPos+8;
 				}
 				
-				strcpy(endFrame,substring(inData,strlen(inData)-8,8));
+				strcpy(endFrame,substring(inData,strlen(inData)-10,8));
 				printf("endFrame:	%s\n",endFrame);
 				curPos=0;
 				
