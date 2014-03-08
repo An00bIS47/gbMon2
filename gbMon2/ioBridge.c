@@ -110,6 +110,18 @@ void* ioBridgeMain (void *args){
 						sem_post(&semaLockInfo);
 					}
 				}
+				sem_wait(&semaLockInfo);
+				debugPrint(true, true, "LDR: ", false, "IOBRIDGE");
+				debugPrint(false, false, data.lightValue, true, "");
+				
+				for (sensorID=0; i<NUMBERECSENSORS; sensorID++) {
+					debugPrint(true, true, "EC  ", false, "IOBRIDGE");
+					debugPrint(false, false, i, false, "");
+					debugPrint(false, false, ": ", false, "IOBRIDGE");
+					debugPrint(false, false, data.ecLevel[sensorID].current, true, "");
+				}
+				sem_post(&semaLockInfo);
+				
 				
 				spos = 0;
 				//fflush (stdout) ;
