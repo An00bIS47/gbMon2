@@ -23,12 +23,22 @@ void displayBorder(){
 	//GLCDD_Rectangle(0,  9, 128, 16, 0);
 	//GLCDD_Rectangle(2, 11, 124, 12, 0);
 
-	r.x = 2;
+	r.x = 1;
 	r.y = 18;
 	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "40");
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "40");
 	
+	r.y = 28;
+	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "30");
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "30");
 	
+	r.y = 38;
+	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "20");
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "20");
+	
+	r.y = 48;
+	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "10");
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "10");
 	
 	// Vertikale Linie
 	GLCDD_Line(10,20,10,60);
