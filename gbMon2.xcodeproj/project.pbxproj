@@ -316,7 +316,6 @@
 		4C19008718234D9B00584853 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		4C19008818234D9B00584853 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		4C19FF791822F67500584853 /* zlogTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zlogTest.c; path = gbMon2/tools/zlogTest.c; sourceTree = "<group>"; };
-		4C19FF7B1822F83600584853 /* zlog.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zlog.conf; sourceTree = "<group>"; };
 		4C19FF7C18230BAD00584853 /* dht22.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dht22.c; sourceTree = "<group>"; };
 		4C19FF7E18230BB500584853 /* dht22.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dht22.h; sourceTree = "<group>"; };
 		4C19FF8218234D9A00584853 /* allBitmaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allBitmaps.h; sourceTree = "<group>"; };
@@ -444,7 +443,6 @@
 		4C642D6C186F44B60037095A /* udpServer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = udpServer.c; path = "gbMon2/tools/UDP-Server/udpServer.c"; sourceTree = "<group>"; };
 		4C642D6F186F4F950037095A /* udpServer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = udpServer.c; sourceTree = "<group>"; };
 		4C642D71186F50320037095A /* udpServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = udpServer.h; sourceTree = "<group>"; };
-		4C7235E71826742C009BE959 /* Makefile-NEW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Makefile-NEW"; sourceTree = "<group>"; };
 		4C7235E8182686E4009BE959 /* rc434.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc434.c; sourceTree = "<group>"; };
 		4C7235EA182686EF009BE959 /* rc434.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc434.h; sourceTree = "<group>"; };
 		4C7CED96187B1E480092C599 /* makeGraphs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = makeGraphs.sh; path = "Raspberry Pi Tweaks/makeGraphs.sh"; sourceTree = "<group>"; };
@@ -1155,8 +1153,6 @@
 				4CF86C1718155ECF0094C040 /* default.conf */,
 				4CF86C1818155ECF0094C040 /* Makefile */,
 				4CF86BE718155C500094C040 /* gbMon2.1 */,
-				4C19FF7B1822F83600584853 /* zlog.conf */,
-				4C7235E71826742C009BE959 /* Makefile-NEW */,
 			);
 			name = Misc;
 			path = gbMon2;

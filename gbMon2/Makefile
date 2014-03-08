@@ -55,7 +55,6 @@ $(OBJDIR)/%.o: %.c
 info:
 	@echo "Building gbMon2"
 	@echo "=========================================="
-	@echo ""
 
 endinfo:
 	@echo ""
