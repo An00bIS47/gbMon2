@@ -27,7 +27,7 @@ typedef struct {
 int bufferIsFull(ringbuffer_handler_t *buffer);
 int bufferIsEmpty(ringbuffer_handler_t *buffer);
 void bufferPush(Data data, ringbuffer_handler_t *buffer);
-void bufferPop(ringbuffer_handler_t *buffer);
+Data bufferPop(ringbuffer_handler_t *buffer);
 ringbuffer_handler_t *bufferInit(int size);
 
 

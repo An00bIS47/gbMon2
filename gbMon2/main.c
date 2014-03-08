@@ -232,7 +232,7 @@ int main(int argc, char * argv[]) {
 	int i;
 
 	
-	ringbuffer_handler_t *buffer;
+	
     //eine Variable, um Ergebnisse von readFIFO() abzufragen
     int ergebnis;
 	

@@ -69,16 +69,19 @@ int bufferIsEmpty(ringbuffer_handler_t *buffer) {
 
 
 // pull char from queue
-void bufferPop(ringbuffer_handler_t *buffer) {
+Data bufferPop(ringbuffer_handler_t *buffer) {
 	if (++buffer->readPointer >= buffer->size) {
 		buffer->readPointer = 0;
 	}
 	
 	//printf("\nPopped char %c", buffer->fifo[buffer->readPointer]);
 	//printf("\n--> POPPED OUT DATA AT INDEX: %d", buffer->readPointer);
+	Data data;
+	data=buffer->fifo[buffer->readPointer];
 	
 	// enter space on place of read char so we can see it is removed
 	// buffer->fifo[buffer->readPointer]= 0x20;
 	
 	buffer->dataSize--;
+	return data;
 }

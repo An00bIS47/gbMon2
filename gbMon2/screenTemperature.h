@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include "lcd.h"
 #include "lcddisplay.h"
+#include "main.h"
 
 //GLCDD_Font* fnt_spaceLex_5;
 

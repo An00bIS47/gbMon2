@@ -111,7 +111,9 @@ void displayTemperatureScreen(){
 	for (i=0; i < 108; i++){
 		srand(time(NULL));
 		int r = rand_lim(40);
-		drawPoint(r);
+		Data data;
+		data=bufferPop(buffer);
+		drawPoint(data.temperature[0].current);
 	}
 	/*
 	for (i=0; i < 52; i++){

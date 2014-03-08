@@ -72,7 +72,7 @@ int fanToggleTemp;
 char*	fanSystemcode;
 int		fanUnitcode;
 
-
+ringbuffer_handler_t *buffer;
 
 /*
 struct	info current;
