@@ -237,7 +237,7 @@ int main(int argc, char * argv[]) {
     int ergebnis;
 	
     //einen Ringbuffer-Handler und damit auch einen Ringbuffer anlegen
-    buffer = bufferInit(50);
+    buffer = bufferInit(120);
     
     debugPrint(true, true, "============================================================", true, "MAIN");
     debugPrint(true, true, "                Raspberry Pi - gbMon", true, "MAIN");
