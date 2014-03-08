@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "lcd.h"
+#include "lcddisplay.h"
 
 void displayBorder();
 void displayTemperatureScreen();
