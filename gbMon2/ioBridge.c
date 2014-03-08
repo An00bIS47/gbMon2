@@ -50,7 +50,7 @@ void* ioBridgeMain (void *args){
 				
 				strcpy(ldr,substring(inData,curPos,8));
 				printf("LDR:		%s - %d \n",ldr, binaryToDecimal(ldr));
-				setLightValue(147);
+				setLightValue(binaryToDecimal(ldr));
 				curPos=curPos+8;
 				
 				for (i=0; i<NUMBERECSENSORS; i++) {
@@ -67,7 +67,7 @@ void* ioBridgeMain (void *args){
 				if (strcmp(startFrame, "11100111") == 0) {
 					if (strcmp(startFrame, "11100111") == 0) {
 						
-						setLightValue(binaryToDecimal(ldr));
+						//setLightValue(binaryToDecimal(ldr));
 						
 						
 						for (sensorID=0; i<NUMBERECSENSORS; sensorID++) {
@@ -89,15 +89,15 @@ void* ioBridgeMain (void *args){
 								data.ecLevel[sensorID].max = ecSensors[i];
 								data.ecLevel[i].max=ecSensors[i];
 								
-								Settings_Add("ecLevel", strMax, ecSensors[i]);
-								Settings_Save(SETTINGSFILE);
+								//Settings_Add("ecLevel", strMax, ecSensors[i]);
+								//Settings_Save(SETTINGSFILE);
 								
 							}
 							if ((data.ecLevel[sensorID].min > ecSensors[i]) || (data.ecLevel[sensorID].current == 0)){
 								data.ecLevel[sensorID].min = ecSensors[i];
 								data.ecLevel[sensorID].min = ecSensors[i];
-								Settings_Add("ecLevel", strMin, ecSensors[i]);
-								Settings_Save(SETTINGSFILE);
+								//Settings_Add("ecLevel", strMin, ecSensors[i]);
+								//Settings_Save(SETTINGSFILE);
 							}
 							
 							
@@ -111,7 +111,7 @@ void* ioBridgeMain (void *args){
 					}
 				}
 				
-
+				/*
 				sem_wait(&semaLockInfo);
 				debugPrint(true, true, "LDR: ", false, "IOBRIDGE");
 				debugPrint(false, false, data.lightValue, true, "");
@@ -123,7 +123,7 @@ void* ioBridgeMain (void *args){
 					debugPrint(false, false, data.ecLevel[sensorID].current, true, "");
 				}
 				sem_post(&semaLockInfo);
-				
+				*/
 				
 				spos = 0;
 				//fflush (stdout) ;
