@@ -26,16 +26,19 @@ OBJS		= debug.o helpers.o udpServer.o settings.o main.o lcddisplay.o lcd.o dht22
 #OBJS		:= $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 #OBJS		:= fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o
 
+default:	update distclean $(TARGET) clean
+
+all:		update distclean $(TARGET) clean
+
 help:
 			@ echo "The following make targets are available"
-			@ echo " help	- print this message"
 			@ echo " all	- make everything"
+			@ echo " help	- print this message"
 			@ echo " clean	- remove any temporary files"
+			@ echo " update	- update gbMon2 from git"
 			@ echo " "
 			@ echo " + Make choice for tools here too!!!"
 			@ echo " + EyeCandy with Echo like this help !!"
-
-all:		git-update distclean $(TARGET) clean
 
 $(TARGET):  $(OBJS)
 	g++ $(OBJS) $(LDFLAGS) -o $@
@@ -50,13 +53,15 @@ $(OBJDIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	@echo "Cleaning gbMon2"
 	rm -rf  $(OBJS)
 #	rm -rf $(OBJDIR)
 
 distclean: clean
 	rm -rf $(TARGET)
 	
-git-update:
+update:
+	@echo "Updating gbMon2"
 	git pull origin
 
 buildrepo:
