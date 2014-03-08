@@ -35,7 +35,7 @@ help:
 			@ echo " + Make choice for tools here too!!!"
 			@ echo " + EyeCandy with Echo like this help !!"
 
-all:		$(TARGET) clean
+all:		git-update distclean $(TARGET) clean
 
 $(TARGET):  $(OBJS)
 	g++ $(OBJS) $(LDFLAGS) -o $@
@@ -55,8 +55,10 @@ clean:
 
 distclean: clean
 	rm -rf $(TARGET)
-
 	
+git-update:
+	git pull origin
+
 buildrepo:
 	@$(call make-repo)
 
