@@ -10,6 +10,8 @@
 #define gbMon2_screenTemperature_h
 
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 #include "lcd.h"
 #include "lcddisplay.h"
 

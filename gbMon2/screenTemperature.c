@@ -86,8 +86,12 @@ void drawBalken(int grad){
 void displayTemperatureScreen(){
 	displayBorder();
 	int i;
+
+	
 	for (i=0; i < 52; i++){
-		drawBalken(25);
+		srand(time(NULL));
+		int r = rand() % 40;
+		drawBalken(r);
 	}
 
 }
