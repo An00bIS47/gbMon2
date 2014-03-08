@@ -97,15 +97,29 @@ void drawBalken(int grad){
 	GLCDD_Line(curPos,curBalken,curPos,60);
 }
 
+
+void drawPoint(int grad){
+	curPos = curPos + 1;
+	int curBalken = 60-grad;
+	GLCDD_SetPixel(curPos, curBalken);
+}
+
 void displayTemperatureScreen(){
 	displayBorder();
 	int i;
 
-	
+	for (i=0; i < 108; i++){
+		srand(time(NULL));
+		int r = rand_lim(40);
+		drawPoint(r);
+	}
+	/*
 	for (i=0; i < 52; i++){
 		srand(time(NULL));
 		int r = rand_lim(40);
 		drawBalken(r);
 	}
+	*/
+	
 
 }

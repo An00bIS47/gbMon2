@@ -20,5 +20,6 @@
 int rand_lim(int limit);
 void displayBorder();
 void displayTemperatureScreen();
-
+void drawPoint(int grad);
+void drawBalken(int grad);
 #endif
