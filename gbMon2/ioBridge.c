@@ -44,78 +44,72 @@ void* ioBridgeMain (void *args){
 				printf("StartFrame:	%s\n",startFrame);
 				curPos=curPos+8;
 				
-				strcpy(buttons,substring(inData,curPos,8));
-				printf("Buttons:	%s\n",buttons);
-				curPos=curPos+8;
-				
-				strcpy(ldr,substring(inData,curPos,8));
-				printf("LDR:		%s - %d \n",ldr, binaryToDecimal(ldr));
-				curPos=curPos+8;
-				
-				for (i=0; i<NUMBERECSENSORS; i++) {
-					ecSensors[i]=binaryToDecimal(substring(inData,curPos,8));
-					
-					printf("EC %d:		%s - %d\n",i,substring(inData,curPos,8), ecSensors[i]);
-					curPos=curPos+8;
-				}
-				
-				strcpy(endFrame,substring(inData,strlen(inData)-10,8));
-				printf("endFrame:	%s\n",endFrame);
-				curPos=0;
-				
-				if (strcmp(startFrame, "11100111") == 0) {
-					if (strcmp(startFrame, "11100111") == 0) {
-						printf("HERRER\n");
-					}
-				}
-				
-				if ((strcmp(endFrame, "11100111") == 0) && (strcmp(startFrame, "11100111") == 0)) {
-					//---> Daten übergeben
-					
-					setLightValue(binaryToDecimal(ldr));
-					//data.lightValue = binaryToDecimal(ldr);
-					
-					
-					printf("HERRER\n");
-					for (sensorID=0; i<NUMBERECSENSORS; sensorID++) {
-						char strMin[4];
-						char strMax[4];
-						char strSensorID[2];
-						
-						sprintf(strMin,"min%d",sensorID);
-						sprintf(strMax,"max%d",sensorID);
-						sprintf(strSensorID, "%d", sensorID);
-						
-						sem_wait(&semaLockInfo);
-						
-						//if (data.lightValue != binaryToDecimal(ldr)){
-						//	data.lightValue = binaryToDecimal(ldr);
-						//}
-						
-						if (data.ecLevel[sensorID].max < ecSensors[i]) {
-							data.ecLevel[sensorID].max = ecSensors[i];
-							data.ecLevel[i].max=ecSensors[i];
-	
-							Settings_Add("ecLevel", strMax, ecSensors[i]);
-							Settings_Save(SETTINGSFILE);
-							
-						}
-						if ((data.ecLevel[sensorID].min > ecSensors[i]) || (data.ecLevel[sensorID].current == 0)){
-							data.ecLevel[sensorID].min = ecSensors[i];
-							data.ecLevel[sensorID].min = ecSensors[i];
-							Settings_Add("ecLevel", strMin, ecSensors[i]);
-							Settings_Save(SETTINGSFILE);
-						}
-						
-						
-						if (data.ecLevel[sensorID].current != ecSensors[i]){
-							data.ecLevel[sensorID].current = ecSensors[i];
 
-							setUpdateDisplay(true);
+				if (strcmp(startFrame, "11100111") == 0) {
+					
+					
+					strcpy(buttons,substring(inData,curPos,8));
+					printf("Buttons:	%s\n",buttons);
+					curPos=curPos+8;
+					
+					strcpy(ldr,substring(inData,curPos,8));
+					printf("LDR:		%s - %d \n",ldr, binaryToDecimal(ldr));
+					curPos=curPos+8;
+					
+					for (i=0; i<NUMBERECSENSORS; i++) {
+						ecSensors[i]=binaryToDecimal(substring(inData,curPos,8));
+						
+						printf("EC %d:		%s - %d\n",i,substring(inData,curPos,8), ecSensors[i]);
+						curPos=curPos+8;
+					}
+					
+					strcpy(endFrame,substring(inData,strlen(inData)-10,8));
+					printf("endFrame:	%s\n",endFrame);
+					curPos=0;
+					
+					if (strcmp(startFrame, "11100111") == 0) {
+						for (sensorID=0; i<NUMBERECSENSORS; sensorID++) {
+							char strMin[4];
+							char strMax[4];
+							char strSensorID[2];
+							
+							sprintf(strMin,"min%d",sensorID);
+							sprintf(strMax,"max%d",sensorID);
+							sprintf(strSensorID, "%d", sensorID);
+							
+							sem_wait(&semaLockInfo);
+							
+							//if (data.lightValue != binaryToDecimal(ldr)){
+							//	data.lightValue = binaryToDecimal(ldr);
+							//}
+							
+							if (data.ecLevel[sensorID].max < ecSensors[i]) {
+								data.ecLevel[sensorID].max = ecSensors[i];
+								data.ecLevel[i].max=ecSensors[i];
+								
+								Settings_Add("ecLevel", strMax, ecSensors[i]);
+								Settings_Save(SETTINGSFILE);
+								
+							}
+							if ((data.ecLevel[sensorID].min > ecSensors[i]) || (data.ecLevel[sensorID].current == 0)){
+								data.ecLevel[sensorID].min = ecSensors[i];
+								data.ecLevel[sensorID].min = ecSensors[i];
+								Settings_Add("ecLevel", strMin, ecSensors[i]);
+								Settings_Save(SETTINGSFILE);
+							}
+							
+							
+							if (data.ecLevel[sensorID].current != ecSensors[i]){
+								data.ecLevel[sensorID].current = ecSensors[i];
+								
+								setUpdateDisplay(true);
+							}
+							sem_post(&semaLockInfo);
 						}
-						sem_post(&semaLockInfo);
 					}
 				}
+				
+
 				sem_wait(&semaLockInfo);
 				debugPrint(true, true, "LDR: ", false, "IOBRIDGE");
 				debugPrint(false, false, data.lightValue, true, "");
