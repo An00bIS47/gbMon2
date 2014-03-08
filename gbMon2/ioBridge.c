@@ -64,7 +64,9 @@ void* ioBridgeMain (void *args){
 				curPos=0;
 				
 				if (strcmp(startFrame, "11100111") == 0) {
-					printf("HERE!\n\n");
+					if (strcmp(startFrame, "11100111") == 0) {
+						printf("HERRER\n");
+					}
 				}
 				
 				if ((strcmp(endFrame, "11100111") == 0) && (strcmp(startFrame, "11100111") == 0)) {
