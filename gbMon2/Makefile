@@ -56,6 +56,8 @@ clean:
 	@echo "Cleaning gbMon2"
 	rm -rf  $(OBJS)
 #	rm -rf $(OBJDIR)
+	@echo ""
+	@echo ""
 
 distclean: clean
 	rm -rf $(TARGET)
@@ -63,6 +65,8 @@ distclean: clean
 update:
 	@echo "Updating gbMon2"
 	git pull origin
+	@echo ""
+	@echo ""
 
 buildrepo:
 	@$(call make-repo)

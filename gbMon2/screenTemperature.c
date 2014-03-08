@@ -11,7 +11,7 @@
 
 void displayBorder(){
 	//GLCDD_Line(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)
-	GLCDD_Line(5,5,10,5);
+	GLCDD_Line(15,35,55,35);
 	
 }
 
