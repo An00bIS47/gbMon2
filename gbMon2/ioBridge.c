@@ -70,7 +70,7 @@ void* ioBridgeMain (void *args){
 					//data.lightValue = binaryToDecimal(ldr);
 					
 					
-					
+					printf("HERRER\n");
 					for (sensorID=0; i<NUMBERECSENSORS; sensorID++) {
 						char strMin[4];
 						char strMax[4];
