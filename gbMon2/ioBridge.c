@@ -41,7 +41,7 @@ void* ioBridgeMain (void *args){
 				printf("%s",inData);
 				
 				strcpy(startFrame,substring(inData,curPos,8));
-				printf("StartFrame: %s\n",startFrame);
+				printf("StartFrame:		%s\n",startFrame);
 				curPos=curPos+8;
 				
 				strcpy(buttons,substring(inData,curPos,8));
@@ -55,13 +55,17 @@ void* ioBridgeMain (void *args){
 				for (i=0; i<NUMBERECSENSORS; i++) {
 					ecSensors[i]=binaryToDecimal(substring(inData,curPos,8));
 					
-					printf("EC %d:	%s - %d\n",i,substring(inData,curPos,8), ecSensors[i]);
+					printf("EC %d:		%s - %d\n",i,substring(inData,curPos,8), ecSensors[i]);
 					curPos=curPos+8;
 				}
 				
 				strcpy(endFrame,substring(inData,strlen(inData)-10,8));
 				printf("endFrame:	%s\n",endFrame);
 				curPos=0;
+				
+				if (strcmp(endFrame, "11100111")) {
+					printf("HERE!\n\n");
+				}
 				
 				if ((strcmp(endFrame, "11100111") == 0) && (strcmp(startFrame, "11100111") == 0)) {
 					//---> Daten übergeben
