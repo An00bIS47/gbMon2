@@ -8,6 +8,8 @@
 
 #include "screenTemperature.h"
 
+int curPos;
+
 
 void displayBorder(){
 	//GLCDD_Line(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)
@@ -70,9 +72,19 @@ void displayBorder(){
 	// Horizontale Linie
 	GLCDD_Line(10,60,118,60);
 	
+	curPos = 10;
+}
+
+void drawBalken(int grad){
+	
+	curPos = curPos + 2;
+	int curBalken = 60-grad;
+	// Vertikale Linie
+	GLCDD_Line(curPos,curBalken,curPos,60);
 }
 
 void displayTemperatureScreen(){
 	displayBorder();
 	
+	drawBalken(25);
 }
