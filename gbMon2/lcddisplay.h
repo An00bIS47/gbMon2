@@ -18,11 +18,12 @@
 #include <time.h>
 #include "wand.h"
 
+void displayStatusBar();
+void displayMainScreen();
 void* displayMain(void *args);
 void displaySettings();
 void displayWifi(int strength);
 void displayClient();
 void displayFan();
-
 
 #endif

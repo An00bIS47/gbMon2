@@ -1292,8 +1292,8 @@
 		4CCF0E5018C8BEE5002D8181 /* ioBridge */ = {
 			isa = PBXGroup;
 			children = (
-				4CCF0E4D18C8BEDA002D8181 /* ioBridge.h */,
 				4CCF0E4E18C8BEE1002D8181 /* ioBridge.c */,
+				4CCF0E4D18C8BEDA002D8181 /* ioBridge.h */,
 			);
 			name = ioBridge;
 			sourceTree = "<group>";

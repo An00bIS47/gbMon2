@@ -101,6 +101,104 @@ void displaySettings(){
 }
 
 
+void displayMainScreen(){
+	sem_wait(&semaLockInfo);       // down semaphore
+	
+	GLCDD_Rect r;
+	
+	r.w = 128 - 10;
+	//r.h = -1;
+	r.h = 12;
+	
+	
+	// Humidity
+	r.x = 5;
+	r.y = 12;
+	GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f %%", data.humidity.current);
+	r.x = 60;
+	r.y = 12;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.humidity.max);
+	r.y += 7;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.humidity.min);
+	
+	
+	// Temperature DHT22	#0
+	r.x = 5;
+	r.y = 30;
+	GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[0].current);
+	//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.1);
+	r.y = 44;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[0].max);
+	r.y += 7;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[0].min);
+	
+	
+	// Temperature DS18b20	#1
+	r.x = 45;
+	r.y = 30;
+	GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[1].current);
+	//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.2);
+	r.y = 44;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[1].max);
+	r.y += 7;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[1].min);
+	
+	
+	// Temperature DS18b20	#2
+	r.x = 85;
+	r.y = 30;
+	GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[2].current);
+	//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.3);
+	r.y = 44;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[2].max);
+	r.y += 7;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[2].min);
+	
+	
+	//printf("Humidity = %.2f %% Temperature = %.2f *C \n", current.humidity, current.temperature[0] );
+	
+	//r.x = 6;
+	//r.y += 12;
+	//GLCDD_Printf(fnt_spaceLex_8, 0, &r, "%s: %llu", "Uptime", getUptime());
+	
+	sem_post(&semaLockInfo);       // up semaphore
+}
+
+
+void displayStatusBar(){
+	
+	fnt_spaceLex_5=createFont(spaceLex_5);
+	
+	// Wifi and Client / Network
+	displayWifi(getWifiStrength());
+	
+	// Fan
+	displayFan();
+	
+	sem_wait(&semaLockInfo);       // down semaphore
+	
+	// Light
+	GLCDD_ClearEx(118, 0, 125, 8);
+	if (data.lightValue > 30) {
+		GLCDD_XBMDraw((uint8_t*)lightOn, 118, 0, 8, 8);
+	} else {
+		GLCDD_XBMDraw((uint8_t*)lightOff, 118, 0, 8, 8);
+	}
+	
+	GLCDD_Rect r;
+	
+	// Time
+	char* strTime=getTimeShort();
+	r.x = 64-(GLCDD_StringWidth(fnt_spaceLex_5, strTime)/2);
+	r.w = GLCDD_StringWidth(fnt_spaceLex_5, strTime);
+	r.h = -1;
+	r.y = 1;
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "%s", strTime);
+	
+	sem_post(&semaLockInfo);       // up semaphore
+}
+
+
 // ---------------------------------------------------------------------------
 void* displayMain(void *args){
 	
@@ -143,93 +241,13 @@ void* displayMain(void *args){
 			
 			//GLCDD_Rectangle(0, 0, 128, 9, 1);
 			//GLCDD_Rectangle(0, 32, 32, 32, 1);
-			
-			// Wifi and Client / Network
-			displayWifi(getWifiStrength());
-			
-						
-			// Fan
-			displayFan();
-			
-			sem_wait(&semaLockInfo);       // down semaphore
 
-			// Light
-			GLCDD_ClearEx(118, 0, 125, 8);
-			if (data.lightValue > 30) {
-				GLCDD_XBMDraw((uint8_t*)lightOn, 118, 0, 8, 8);
-			} else {
-				GLCDD_XBMDraw((uint8_t*)lightOff, 118, 0, 8, 8);
-			}
 			
+			
+			displayStatusBar();
+			
+			displayMainScreen();
 
-			GLCDD_Rect r;
-			
-			
-			// Time 
-			char* strTime=getTimeShort();
-			r.x = 64-(GLCDD_StringWidth(fnt_spaceLex_5, strTime)/2);
-			r.w = GLCDD_StringWidth(fnt_spaceLex_5, strTime);
-			r.h = -1;
-			r.y = 1;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "%s", strTime);
-			
-			
-			r.w = 128 - 10;
-			//r.h = -1;
-			r.h = 12;
-
-
-			// Humidity
-			r.x = 5;
-			r.y = 12;
-			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f %%", data.humidity.current);
-			r.x = 60;
-			r.y = 12;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.humidity.max);
-			r.y += 7;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.humidity.min);
-			
-			
-			// Temperature DHT22	#0
-			r.x = 5;
-			r.y = 30;
-			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[0].current);
-			//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.1);
-			r.y = 44;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[0].max);
-			r.y += 7;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[0].min);
-			
-			
-			// Temperature DS18b20	#1
-			r.x = 45;
-			r.y = 30;
-			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[1].current);
-			//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.2);
-			r.y = 44;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[1].max);
-			r.y += 7;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[1].min);
-			
-			
-			// Temperature DS18b20	#2
-			r.x = 85;
-			r.y = 30;
-			GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[2].current);
-			//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.3);
-			r.y = 44;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[2].max);
-			r.y += 7;
-			GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[2].min);
-			
-			
-			//printf("Humidity = %.2f %% Temperature = %.2f *C \n", current.humidity, current.temperature[0] );
-			
-			//r.x = 6;
-			//r.y += 12;
-			//GLCDD_Printf(fnt_spaceLex_8, 0, &r, "%s: %llu", "Uptime", getUptime());
-			
-			sem_post(&semaLockInfo);       // up semaphore
 			
 			for(i = 0; i < 128*8; i++) {
 				sendByte(reverseByte(GLCD_Data[i]));
