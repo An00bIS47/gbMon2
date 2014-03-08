@@ -10,6 +10,20 @@
 
 int curPos;
 
+int rand_lim(int limit) {
+	/* return a random number between 0 and limit inclusive.
+	 */
+	
+    int divisor = RAND_MAX/(limit+1);
+    int retval;
+	
+    do {
+        retval = rand() / divisor;
+    } while (retval > limit);
+	
+    return retval;
+}
+
 
 void displayBorder(){
 	//GLCDD_Line(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)
@@ -26,19 +40,19 @@ void displayBorder(){
 	//GLCDD_Rectangle(2, 11, 124, 12, 0);
 
 	r.x = 1;
-	r.y = 18;
+	r.y = 17;
 	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "40");
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "40");
 	
-	r.y = 28;
+	r.y = 27;
 	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "30");
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "30");
 	
-	r.y = 38;
+	r.y = 37;
 	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "20");
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "20");
 	
-	r.y = 48;
+	r.y = 47;
 	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "10");
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "10");
 	
@@ -90,7 +104,7 @@ void displayTemperatureScreen(){
 	
 	for (i=0; i < 52; i++){
 		srand(time(NULL));
-		int r = rand() % 40;
+		int r = rand_lim(40);
 		drawBalken(r);
 	}
 

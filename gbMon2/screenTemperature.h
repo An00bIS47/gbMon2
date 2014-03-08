@@ -17,6 +17,7 @@
 
 //GLCDD_Font* fnt_spaceLex_5;
 
+int rand_lim(int limit);
 void displayBorder();
 void displayTemperatureScreen();
 
