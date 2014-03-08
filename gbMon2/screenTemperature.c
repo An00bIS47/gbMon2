@@ -23,10 +23,10 @@ void displayBorder(){
 	//GLCDD_Rectangle(0,  9, 128, 16, 0);
 	//GLCDD_Rectangle(2, 11, 124, 12, 0);
 
-	r.x = 5;
-	r.y = 23;
-	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "5");
-	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "5");
+	r.x = 2;
+	r.y = 18;
+	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "40");
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "40");
 	
 	
 	

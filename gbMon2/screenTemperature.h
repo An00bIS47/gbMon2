@@ -13,6 +13,8 @@
 #include "lcd.h"
 #include "lcddisplay.h"
 
+//GLCDD_Font* fnt_spaceLex_5;
+
 void displayBorder();
 void displayTemperatureScreen();
 
