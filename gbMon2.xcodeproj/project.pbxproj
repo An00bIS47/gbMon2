@@ -1117,8 +1117,8 @@
 			children = (
 				4C273FEF18CBE5B4002E33EB /* screenGraph.c */,
 				4C273FF118CBE5C4002E33EB /* screenGraph.h */,
-				4C273FEC18CBDF0F002E33EB /* screens.h */,
 				4C273FED18CBE33B002E33EB /* screens.c */,
+				4C273FEC18CBDF0F002E33EB /* screens.h */,
 			);
 			name = Screens;
 			sourceTree = "<group>";

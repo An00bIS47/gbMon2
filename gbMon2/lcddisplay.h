@@ -18,6 +18,7 @@
 #include <time.h>
 #include "wand.h"
 #include "screenGraph.h"
+#include "screens.h"
 
 void displayStatusBar();
 void displayMainScreen();
