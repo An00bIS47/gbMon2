@@ -28,7 +28,7 @@ void getScreen(){
 	}
 	
 	if ((screensPosX==4) && (screensPosY==0)) {
-		displayMainScreenLive();
+		displayMainScreen();
 	}
 	
 	if ((screensPosX==5) && (screensPosY==0)) {
