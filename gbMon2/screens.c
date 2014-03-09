@@ -12,35 +12,35 @@
 void getScreen(){
 	
 	if ((screensPosX==0) && (screensPosY==0)) {
-		displayECScreen(2);
+		displayECScreenLive(2);
 	}
 	
 	if ((screensPosX==1) && (screensPosY==0)) {
-		displayECScreen(1);
+		displayECScreenLive(1);
 	}
 	
 	if ((screensPosX==2) && (screensPosY==0)) {
-		displayECScreen(0);
+		displayECScreenLive(0);
 	}
 	
 	if ((screensPosX==3) && (screensPosY==0)) {
-		displayHumidityScreen();
+		displayHumidityScreenLive();
 	}
 	
 	if ((screensPosX==4) && (screensPosY==0)) {
-		displayMainScreen();
+		displayMainScreenLive();
 	}
 	
 	if ((screensPosX==5) && (screensPosY==0)) {
-		displayTemperatureScreen(0);
+		displayTemperatureScreenLive(0);
 	}
 	
 	if ((screensPosX==6) && (screensPosY==0)) {
-		displayTemperatureScreen(1);
+		displayTemperatureScreenLive(1);
 	}
 	
 	if ((screensPosX==7) && (screensPosY==0)) {
-		displayTemperatureScreen(2);
+		displayTemperatureScreenLive(2);
 	}
 	
 }
