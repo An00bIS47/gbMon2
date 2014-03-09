@@ -116,7 +116,7 @@ mkdir -p ~/.gbmon/persist/graphs
 cd ~
 git clone https://github.com/An00bIS47/gbMon2.git
 cd gbMon2/gbMon2
-make all
+make
 cp ~/gbMon2/gbMon2/default.conf ~/.gbmon/ramdisk/gbmon2.conf
 cd ~/gbMon2/gbMon2
 sudo ./gbMon2

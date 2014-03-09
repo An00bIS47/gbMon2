@@ -20,15 +20,15 @@ OBJDIR		= obj
 
 SRCS		:= $(wildcard *.c)
 
-OBJS		= debug.o helpers.o udpServer.o settings.o main.o lcddisplay.o lcd.o dht22.o rcswitchwrapper.o rcswitch.o rc434.o data.o ringbuffer.o rrdtool.o ds18b20.o piCam.o install.o avahi.o wand.o ioBridge.o screenTemperature.o fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o fonts/fnt_spaceLex_12.o fonts/fnt_spaceLex_8b.o fonts/fnt_spaceLex_5.o
+OBJS		= debug.o helpers.o udpServer.o settings.o main.o lcddisplay.o lcd.o dht22.o rcswitchwrapper.o rcswitch.o rc434.o data.o ringbuffer.o rrdtool.o ds18b20.o piCam.o install.o avahi.o wand.o ioBridge.o screenGraph.o fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o fonts/fnt_spaceLex_12.o fonts/fnt_spaceLex_8b.o fonts/fnt_spaceLex_5.o
 
 
 #OBJS		:= $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 #OBJS		:= fonts/fnt_dejavu.o fonts/fnt_dejavu_9.o fonts/fnt_dejavu_9_b.o fonts/fnt_silkscreen_8.o fonts/fnt_spaceLex_8.o
 
-default:	update clean info $(TARGET) endinfo
+default:	update clean info $(TARGET) config endinfo
 
-all:		update clean info $(TARGET) endinfo
+all:		update clean info $(TARGET) config endinfo
 
 help:
 			@ echo "The following make targets are available"
@@ -58,7 +58,6 @@ info:
 
 endinfo:
 	@echo ""
-	@echo ""
 	@echo "Done building gbMon2!"
 	@echo "Type sudo ./gbMon2 to start"
 	@echo "=========================================="
@@ -83,6 +82,13 @@ update:
 	@echo "Updating gbMon2"
 	@echo "=========================================="
 	git pull origin
+	@echo ""
+	@echo ""
+	
+config:
+	@echo "Copying config file to ~/.gbmon/ramdisk/gbmon2.conf"
+	@echo "=========================================="
+	cp ~/gbMon2/gbMon2/default.conf ~/.gbmon/ramdisk/gbmon2.conf
 	@echo ""
 	@echo ""
 
