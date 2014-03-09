@@ -219,6 +219,50 @@ void* serverMain(int portno){
 			sendto(sd,"resetHumidity",8,flags,(struct sockaddr *)&cliAddr,cliLen);
         }
 		
+		// goUp
+		if(strcmp(msg, "goUp") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", "goUp");
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			goUp();
+            //write(sock,getFanAsString(),2);
+			sendto(sd,"goUp",4,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
+		
+		// goDown
+		if(strcmp(msg, "goDown") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", "goDown");
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			goDown();
+            //write(sock,getFanAsString(),2);
+			sendto(sd,"goDown",6,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
+		
+		// goLeft
+		if(strcmp(msg, "goLeft") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", "goLeft");
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			goLeft();
+            //write(sock,getFanAsString(),2);
+			sendto(sd,"goLeft",6,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
+		
+		// goRight
+		if(strcmp(msg, "goRight") == 0) {
+			char * buffer = (char*)malloc(buffersize);
+            sprintf(buffer,"Sending Response: *%s*", "goRight");
+            debugPrint(true, true, buffer, true, "SERVER");
+			free(buffer);
+			goRight();
+            //write(sock,getFanAsString(),2);
+			sendto(sd,"goRight",6,flags,(struct sockaddr *)&cliAddr,cliLen);
+        }
+		
 		/* print received message */
 		printf("%s: from %s:UDP%u : %s \n",
 			   "udpServer",inet_ntoa(cliAddr.sin_addr),

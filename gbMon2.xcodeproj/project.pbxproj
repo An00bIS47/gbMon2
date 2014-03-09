@@ -49,12 +49,13 @@
 		4C19009018234D9B00584853 /* gText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C19007C18234D9B00584853 /* gText.cpp */; };
 		4C19FF7A1822F67500584853 /* zlogTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C19FF791822F67500584853 /* zlogTest.c */; };
 		4C19FF7D18230BAD00584853 /* dht22.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C19FF7C18230BAD00584853 /* dht22.c */; };
-		4C1D7FF018CBBBB800A8CDB4 /* screenTemperature.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D7FEF18CBBBB800A8CDB4 /* screenTemperature.c */; };
 		4C26F46A18C5C4D800F8CDEC /* ringbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F46918C5C4D800F8CDEC /* ringbuffer.c */; };
 		4C26F46F18C6193B00F8CDEC /* wand.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F46E18C6193B00F8CDEC /* wand.c */; };
 		4C26F47218C619CA00F8CDEC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47118C619CA00F8CDEC /* Makefile */; };
 		4C26F47418C61A3B00F8CDEC /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47318C61A3B00F8CDEC /* Makefile */; };
 		4C26F47818C61F0500F8CDEC /* pixel-change.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C26F47718C61F0500F8CDEC /* pixel-change.c */; };
+		4C273FEE18CBE33B002E33EB /* screens.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C273FED18CBE33B002E33EB /* screens.c */; };
+		4C273FF018CBE5B4002E33EB /* screenGraph.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C273FEF18CBE5B4002E33EB /* screenGraph.c */; };
 		4C391F2B18C9CCE7000278E7 /* serial.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C391F2A18C9CCE7000278E7 /* serial.c */; };
 		4C391F2D18C9CF81000278E7 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 4C391F2C18C9CF81000278E7 /* Makefile */; };
 		4C391F2F18C9EC8A000278E7 /* serialRead.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C391F2E18C9EC8A000278E7 /* serialRead.c */; };
@@ -404,13 +405,15 @@
 		4C19FFFD18234D9A00584853 /* installdox */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = installdox; sourceTree = "<group>"; };
 		4C19FFFE18234D9A00584853 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
 		4C19FFFF18234D9A00584853 /* ks0108_Panel_A.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ks0108_Panel_A.gif; sourceTree = "<group>"; };
-		4C1D7FEF18CBBBB800A8CDB4 /* screenTemperature.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = screenTemperature.c; sourceTree = "<group>"; };
-		4C1D7FF118CBBBC100A8CDB4 /* screenTemperature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screenTemperature.h; sourceTree = "<group>"; };
 		4C26F46918C5C4D800F8CDEC /* ringbuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ringbuffer.c; path = gbMon2/tools/ringbuffer/ringbuffer.c; sourceTree = "<group>"; };
 		4C26F46E18C6193B00F8CDEC /* wand.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wand.c; path = gbMon2/tools/wand/wand.c; sourceTree = "<group>"; };
 		4C26F47118C619CA00F8CDEC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/wand/Makefile; sourceTree = "<group>"; };
 		4C26F47318C61A3B00F8CDEC /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/ringbuffer/Makefile; sourceTree = "<group>"; };
 		4C26F47718C61F0500F8CDEC /* pixel-change.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "pixel-change.c"; path = "gbMon2/tools/wand/pixel-change.c"; sourceTree = "<group>"; };
+		4C273FEC18CBDF0F002E33EB /* screens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screens.h; sourceTree = "<group>"; };
+		4C273FED18CBE33B002E33EB /* screens.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = screens.c; sourceTree = "<group>"; };
+		4C273FEF18CBE5B4002E33EB /* screenGraph.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = screenGraph.c; sourceTree = "<group>"; };
+		4C273FF118CBE5C4002E33EB /* screenGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screenGraph.h; sourceTree = "<group>"; };
 		4C391F2A18C9CCE7000278E7 /* serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = serial.c; path = gbMon2/tools/serial/serial.c; sourceTree = "<group>"; };
 		4C391F2C18C9CF81000278E7 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = gbMon2/tools/serial/Makefile; sourceTree = "<group>"; };
 		4C391F2E18C9EC8A000278E7 /* serialRead.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = serialRead.c; path = gbMon2/tools/serial/serialRead.c; sourceTree = "<group>"; };
@@ -1112,8 +1115,10 @@
 		4C1D7FEE18CBBB9900A8CDB4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4C1D7FEF18CBBBB800A8CDB4 /* screenTemperature.c */,
-				4C1D7FF118CBBBC100A8CDB4 /* screenTemperature.h */,
+				4C273FEF18CBE5B4002E33EB /* screenGraph.c */,
+				4C273FF118CBE5C4002E33EB /* screenGraph.h */,
+				4C273FEC18CBDF0F002E33EB /* screens.h */,
+				4C273FED18CBE33B002E33EB /* screens.c */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -1517,6 +1522,7 @@
 				4C7CFE9B189B0E530014B6EE /* data.c in Sources */,
 				4CCF0E4F18C8BEE1002D8181 /* ioBridge.c in Sources */,
 				4C642D68186F44550037095A /* Makefile in Sources */,
+				4C273FF018CBE5B4002E33EB /* screenGraph.c in Sources */,
 				4CDCA2431821A8BC00D8DA67 /* fnt_spaceLex_8b.c in Sources */,
 				4C642D5E186F3CE60037095A /* mdnsd.c in Sources */,
 				4C26F47218C619CA00F8CDEC /* Makefile in Sources */,
@@ -1549,6 +1555,7 @@
 				4C063606181DF0D70010FF0E /* SerializableFont.java in Sources */,
 				4C888AA918C99F7C00DD8744 /* isr.c in Sources */,
 				4C19008F18234D9B00584853 /* glcd_Device.cpp in Sources */,
+				4C273FEE18CBE33B002E33EB /* screens.c in Sources */,
 				4C0635F5181DF0D70010FF0E /* FontCreatorColorChooser.java in Sources */,
 				4C19008E18234D9B00584853 /* glcd.cpp in Sources */,
 				4C0635FB181DF0D70010FF0E /* CharTablePopupMenu.java in Sources */,
@@ -1568,7 +1575,6 @@
 				4C063604181DF0D70010FF0E /* ImageTransferHandler.java in Sources */,
 				4C0635FC181DF0D70010FF0E /* ColorTableModel.java in Sources */,
 				4C063602181DF0D70010FF0E /* FontCharacter.java in Sources */,
-				4C1D7FF018CBBBB800A8CDB4 /* screenTemperature.c in Sources */,
 				4C0635F7181DF0D70010FF0E /* FontEditor.java in Sources */,
 				4C063605181DF0D70010FF0E /* IndexColorModelUtils.java in Sources */,
 				4CF86C2A181576700094C040 /* helpers.c in Sources */,

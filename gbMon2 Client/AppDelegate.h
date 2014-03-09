@@ -51,5 +51,13 @@
 - (IBAction)makePic:(id)sender;
 - (IBAction)showDisplayWindow:(id)sender;
 
+
+- (IBAction)goDown:(id)sender;
+- (IBAction)goUp:(id)sender;
+- (IBAction)goLeft:(id)sender;
+- (IBAction)goRight:(id)sender;
+- (IBAction)goOK:(id)sender;
+- (IBAction)goBack:(id)sender;
+
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
 @end

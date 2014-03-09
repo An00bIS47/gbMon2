@@ -226,6 +226,145 @@
     
 }
 
+- (IBAction)goDown:(id)sender{
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"goDown";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+    
+}
+
+- (IBAction)goBack:(id)sender{
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"goBack";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+    
+}
+
+- (IBAction)goOK:(id)sender{
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"goOK";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+    
+}
+
+- (IBAction)goUp:(id)sender{
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"goUp";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+    
+}
+
+
+- (IBAction)goRight:(id)sender{
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"goRight";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+    
+}
+
+- (IBAction)goLeft:(id)sender{
+    
+    NSString *host = [addrField stringValue];
+    if ([host length] == 0){
+        [self logError:@"Address required"];
+        return;
+    }
+    
+    int port = [portField intValue];
+    if (port <= 0 || port > 65535){
+        [self logError:@"Valid port required"];
+        return;
+    }
+    
+    NSString *msg = @"goLeft";
+    tag=3;
+    NSLog(@"SENT (%i): %@", (int)tag, msg);
+    //[self logMessage:FORMAT(@"SENT (%i): %@", (int)tag, msg)];
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:tag];
+    
+}
+
 - (IBAction)setFan:(id)sender{
 
     //int clickedSegmentTag = [[sender cell] tagForSegment:clickedSegment];

@@ -1,12 +1,12 @@
 //
-//  screenTemperature.c
+//  screenGraph.c
 //  gbMon2
 //
-//  Created by michael on 08.03.14.
+//  Created by michael on 09.03.14.
 //  Copyright (c) 2014 michael. All rights reserved.
 //
 
-#include "screenTemperature.h"
+#include "screenGraph.h"
 
 int curPos;
 
@@ -27,7 +27,7 @@ int rand_lim(int limit) {
 
 void displayBorder(){
 	//GLCDD_Line(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)
-
+	
 	GLCDD_Rect r;
 	
 	r.x = 6;
@@ -38,7 +38,7 @@ void displayBorder(){
 	
 	//GLCDD_Rectangle(0,  9, 128, 16, 0);
 	//GLCDD_Rectangle(2, 11, 124, 12, 0);
-
+	
 	r.x = 1;
 	r.y = 17;
 	r.w = GLCDD_StringWidth(fnt_spaceLex_5, "40");
@@ -73,7 +73,7 @@ void displayBorder(){
 	
 	// 20
 	GLCDD_Line(8,40,10,40);
-
+	
 	// 15
 	GLCDD_Line(9,45,10,45);
 	
@@ -104,22 +104,35 @@ void drawPoint(int grad){
 	GLCDD_SetPixel(curPos, curBalken);
 }
 
-void displayTemperatureScreen(int sensorID){
+void displayTemperatureScreenLive(int sensorID){
 	displayBorder();
 	int i;
-
+	
 	for (i=0; i < 108; i++){
 		Data data;
 		data=bufferPop(buffer);
 		drawPoint(data.temperature[sensorID].current);
 	}
-	/*
-	for (i=0; i < 52; i++){
-		srand(time(NULL));
-		int r = rand_lim(40);
-		drawBalken(r);
-	}
-	*/
-	
+}
 
+void displayHumidityScreenLive(){
+	displayBorder();
+	int i;
+	
+	for (i=0; i < 108; i++){
+		Data data;
+		data=bufferPop(buffer);
+		drawPoint(data.humidity.current);
+	}
+}
+
+void displayECScreenLive(int sensorID){
+	displayBorder();
+	int i;
+	
+	for (i=0; i < 108; i++){
+		Data data;
+		data=bufferPop(buffer);
+		drawPoint(data.ecLevel[sensorID].current);
+	}
 }

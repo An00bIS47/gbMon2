@@ -17,7 +17,7 @@
 #include "fonts.h"
 #include <time.h>
 #include "wand.h"
-#include "screenTemperature.h"
+#include "screenGraph.h"
 
 void displayStatusBar();
 void displayMainScreen();

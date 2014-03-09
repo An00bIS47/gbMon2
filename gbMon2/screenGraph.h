@@ -1,13 +1,13 @@
 //
-//  screenTemperature.h
+//  screenGraph.h
 //  gbMon2
 //
-//  Created by michael on 08.03.14.
+//  Created by michael on 09.03.14.
 //  Copyright (c) 2014 michael. All rights reserved.
 //
 
-#ifndef gbMon2_screenTemperature_h
-#define gbMon2_screenTemperature_h
+#ifndef gbMon2_screenGraph_h
+#define gbMon2_screenGraph_h
 
 #include <stdio.h>
 #include <time.h>
@@ -20,7 +20,10 @@
 
 int rand_lim(int limit);
 void displayBorder();
-void displayTemperatureScreen(int sensorID);
+void displayTemperatureScreenLive(int sensorID);
+void displayECScreenLive(int sensorID);
+void displayHumidityScreenLive();
 void drawPoint(int grad);
 void drawBalken(int grad);
+
 #endif
