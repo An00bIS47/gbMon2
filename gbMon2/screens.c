@@ -46,17 +46,33 @@ void getScreen(){
 }
 
 void goUp(){
-	screensPosY--;
+	if (screensPosY > 0) {
+		screensPosY--;
+	}
+	printf("goUP ---> ScreenPosX: %d - ScreenPosY: %d\n", screensPosX, screensPosY);
+	setUpdateDisplay(true);
 }
 
 void goDown(){
-	screensPosY++;
+	if (screensPosY < 2) {
+		screensPosY++;
+	}
+	printf("goDown ---> ScreenPosX: %d - ScreenPosY: %d\n", screensPosX, screensPosY);
+	setUpdateDisplay(true);
 }
 
 void goRight(){
-	screensPosX++;
+	if (screensPosX < 7) {
+		screensPosX++;
+	}
+	printf("goRight ---> ScreenPosX: %d - ScreenPosY: %d\n", screensPosX, screensPosY);
+	setUpdateDisplay(true);
 }
 
 void goLeft(){
-	screensPosX--;
+	if (screensPosX > 0) {
+		screensPosX--;
+	}
+	printf("goLeft ---> ScreenPosX: %d - ScreenPosY: %d\n", screensPosX, screensPosY);
+	setUpdateDisplay(true);
 }
