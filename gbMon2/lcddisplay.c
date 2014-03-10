@@ -124,10 +124,10 @@ void displayMainScreen(){
 	
 	// Temperature DHT22	#0
 	r.x = 5;
-	r.y = 30;
+	r.y = 28;
 	GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[0].current);
 	//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.1);
-	r.y = 44;
+	r.y = 42;
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[0].max);
 	r.y += 7;
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[0].min);
@@ -135,10 +135,10 @@ void displayMainScreen(){
 	
 	// Temperature DS18b20	#1
 	r.x = 45;
-	r.y = 30;
+	r.y = 28;
 	GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[1].current);
 	//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.2);
-	r.y = 44;
+	r.y = 42;
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[1].max);
 	r.y += 7;
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[1].min);
@@ -146,10 +146,10 @@ void displayMainScreen(){
 	
 	// Temperature DS18b20	#2
 	r.x = 85;
-	r.y = 30;
+	r.y = 28;
 	GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", data.temperature[2].current);
 	//GLCDD_Printf(fnt_spaceLex_12, 0, &r, "%2.1f", 20.3);
-	r.y = 44;
+	r.y = 42;
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MAX:%2.1f", data.temperature[2].max);
 	r.y += 7;
 	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "MIN:%2.1f", data.temperature[2].min);
@@ -210,7 +210,7 @@ void* displayMain(void *args){
 	
 	int lastTime=(int)time(NULL);
 	//printf("Lasttime: %d", lastTime);
-	updateDisplay = true;
+	setUpdateDisplay(true);
 	debugPrint(true, true, "Display Thread started", true, "LCDDISPLAY");
 	for(;;) {
 		
