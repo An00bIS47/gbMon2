@@ -949,7 +949,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-Kr-cFw">
                         <rect key="frame" x="14" y="52" width="58" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="&lt;-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ntz-Uu-HiF">
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="left" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ntz-Uu-HiF">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -960,7 +960,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bp0-2d-i2v">
                         <rect key="frame" x="104" y="52" width="58" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="->" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Dr-ZG-hrl">
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="right" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Dr-ZG-hrl">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -996,7 +996,7 @@ DQ
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSs-FF-1rc">
                         <rect key="frame" x="59" y="19" width="54" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="\/" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kkj-cS-Jd6">
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="down" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kkj-cS-Jd6">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -1007,7 +1007,7 @@ DQ
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jTN-0P-Jsy">
                         <rect key="frame" x="59" y="85" width="54" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="/\" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JXT-ZT-6SF">
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="up" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JXT-ZT-6SF">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -1022,7 +1022,11 @@ DQ
     <resources>
         <image name="InfoIcon" width="64" height="64"/>
         <image name="display" width="64" height="64"/>
+        <image name="down" width="20.803611755371094" height="20.803611755371094"/>
         <image name="fanIcon" width="48" height="48"/>
+        <image name="left" width="20.803611755371094" height="20.803611755371094"/>
         <image name="makePic" width="128" height="128"/>
+        <image name="right" width="20.803611755371094" height="20.803611755371094"/>
+        <image name="up" width="20.803611755371094" height="20.803611755371094"/>
     </resources>
 </document>
