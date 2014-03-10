@@ -117,7 +117,7 @@ void displayTemperatureScreenLive(int sensorID){
 	// Humidity
 	r.x = 20;
 	r.y = 12;
-	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "Temperature %d Live", sensorID);
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "TEMPERATURE %d LIVE", sensorID);
 	
 	for (i=0; i < 108; i++){
 		Data data;
@@ -138,7 +138,7 @@ void displayHumidityScreenLive(){
 	// Humidity
 	r.x = 20;
 	r.y = 12;
-	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "Humidity Live");
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "HUMIDITY LIVE");
 	
 	for (i=0; i < 108; i++){
 		Data data;
@@ -160,7 +160,7 @@ void displayECScreenLive(int sensorID){
 	// Humidity
 	r.x = 20;
 	r.y = 12;
-	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "ec-Level %d Live", sensorID);
+	GLCDD_Printf(fnt_spaceLex_5, 0, &r, "EC-LEVEL %d LIVE", sensorID);
 	
 	for (i=0; i < 108; i++){
 		Data data;

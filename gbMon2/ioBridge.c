@@ -106,6 +106,12 @@ void* ioBridgeMain (void *args){
 								
 								setUpdateDisplay(true);
 							}
+							
+							// Update Live Display 
+							if((screensPosY==0) && (screensPosX!=4)){
+								setUpdateDisplay(true);
+							}
+							
 							sem_post(&semaLockInfo);
 						}
 					}
